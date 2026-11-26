@@ -11,7 +11,7 @@ interface LpArtProps {
   /** Set true to render the spinning LP-disc overlay. Off by default —
    *  the album cover stands alone on cards. */
   showRecord?: boolean;
-  /** "10 BLOCKS" / "Side A" / etc. — small mono chip at bottom-right. */
+  /** "10 blocks" / "Side A" / etc.: small caption chip at bottom-right. */
   meta?: string | null;
   /** Hue index 1–6 for fallback label color. */
   hue: number;
@@ -85,6 +85,13 @@ export function LpArt({
       {showRecord && <span className="lp-record" />}
       {showMonogram && monogram && (
         <span className="lp-tonecode">{monogram}</span>
+      )}
+      {/* No cover and no monogram overlay: show the initials on the wash
+          tile, as the fk-card art does, instead of an empty square. */}
+      {!cover && !showMonogram && monogram && (
+        <span className="lp-fallback" aria-hidden="true">
+          {monogram}
+        </span>
       )}
       {meta && <span className="lp-blocks">{meta}</span>}
     </div>

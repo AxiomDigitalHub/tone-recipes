@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import PresetDownloadButton from "@/components/recipe/PresetDownloadButton";
 
+/** Accessible names: the visible label (minus its arrow) plus the rig. */
+const PRESET_NAME: Record<string, string> = {
+  helix: "Download .hlx pack for Helix",
+  quad_cortex: "Download QC pack for Quad Cortex",
+  katana: "Download .tsl pack for Katana",
+};
+
 interface Props {
   slug: string;
   /** Active platform id (e.g. "helix", "katana"). */
@@ -40,12 +47,14 @@ export default function RecipeDownloadChip({ slug, platform }: Props) {
     <div
       className={`recipe-dl-chip ${visible ? "is-visible" : ""}`}
       aria-hidden={!visible}
+      inert={!visible}
     >
       <PresetDownloadButton
         recipeSlug={slug}
         platform={platform}
         source="floating_chip"
         className="recipe-dl-chip-btn"
+        ariaLabel={PRESET_NAME[platform]}
       />
     </div>
   );

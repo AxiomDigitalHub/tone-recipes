@@ -7,10 +7,10 @@ import { writerJsonLdSet } from "@/lib/seo/jsonld";
 import { fitTitle } from "@/lib/seo-title";
 
 /**
- * /writers/[slug] — AI editorial voice profile page.
+ * /writers/[slug]: AI editorial voice profile page.
  *
  * Honest authorship (2026-07-06): these writers are AI personas, and the
- * page now says so on its face — "AI Writer" kicker, an explicit disclosure
+ * page now says so on its face: an "AI writer" tag, an explicit disclosure
  * line, and WebPage (not Person) schema. The persona/backstory data in
  * src/lib/writers.ts stays intact: it's the prompt scaffolding that gives
  * each voice its character, presented as the character card it is.
@@ -37,7 +37,7 @@ export async function generateMetadata({
   }
   // Lead with the voice and its beat, not the persona's name: these are AI
   // writers, and a name-first title reads like a real person's byline page.
-  // The name stays in the <h1> next to the "AI Writer" badge. Brand comes from
+  // The name stays in the <h1> above the "AI writer" tag. Brand comes from
   // the root layout's template.
   const title = writer.beat
     ? fitTitle([`${writer.title}: ${writer.beat}`, writer.title])
@@ -79,130 +79,74 @@ export default async function WriterProfilePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <article className="container mx-auto max-w-3xl px-4 py-12 md:py-16">
-        <div className="recipe-crumbs">
-          <Link href="/blog">Field Notes</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Writers</span>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{writer.name}</span>
-        </div>
+      <article className="fk-wrap fkp-page">
+        <div className="fkp-textcol">
+          <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+            <Link href="/blog">Learn</Link>
+            <span aria-hidden="true">/</span>
+            <span>Writers</span>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{writer.name}</span>
+          </nav>
 
-        <header className="archive-masthead">
-          <div className="archive-kicker">
-            <span>AI Writer</span>
-            <span style={{ opacity: 0.4 }}>·</span>
-            <span>{writer.title}</span>
-          </div>
-          <h1 className="archive-title">{writer.name}</h1>
-          <p className="archive-lede">{writer.bio}</p>
-          <p
-            className="mt-4 text-sm leading-relaxed"
-            style={{ color: "var(--ink-muted)" }}
-          >
-            {writer.name} is not a person. This is one of Fader &amp;
-            Knob&apos;s AI editorial voices — a differently-trained writing
-            persona, and the bio above is its character card. Why we write
-            this way is documented in{" "}
-            <Link
-              href="/experiment"
-              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
-            >
-              the experiment
-            </Link>
-            .
-          </p>
-        </header>
-
-        {writer.backstory && (
-          <section className="mt-10">
-            <p
-              className="text-base leading-relaxed md:text-lg"
-              style={{ color: "var(--ink)" }}
-            >
-              {writer.backstory.whyTheyWrite}
-            </p>
-            <p
-              className="mt-4 text-sm italic md:text-base"
-              style={{
-                color: "var(--ink-muted)",
-                fontFamily: "var(--font-display)",
-              }}
-            >
-              &ldquo;{writer.backstory.tonePhilosophy}&rdquo;
-            </p>
-          </section>
-        )}
-
-        <section className="mt-16 md:mt-20">
-          <div className="section-head">
-            <span className="section-mark">¤</span>
-            <h2 className="section-title">Field notes by {writer.name}</h2>
-            <span className="section-rule" aria-hidden="true" />
-            <span className="section-meta">
-              {posts.length} {posts.length === 1 ? "post" : "posts"}
-            </span>
-          </div>
-          {posts.length === 0 ? (
-            <p
-              className="mt-4 text-sm"
-              style={{ color: "var(--ink-muted)" }}
-            >
-              No posts published yet under this byline.
-            </p>
-          ) : (
-            <ul
-              className="border-b"
-              style={{ borderColor: "rgba(10,9,8,0.18)" }}
-            >
-              {posts.slice(0, 30).map((p) => (
-                <li
-                  key={p.slug}
-                  className="border-t group"
-                  style={{ borderColor: "rgba(10,9,8,0.18)" }}
-                >
-                  <Link href={`/blog/${p.slug}`} className="block py-5">
-                    <div className="flex items-baseline justify-between gap-4">
-                      <h3
-                        className="display text-lg group-hover:underline md:text-xl"
-                        style={{
-                          color: "var(--ink)",
-                          letterSpacing: "-0.01em",
-                          textDecorationThickness: "1px",
-                          textUnderlineOffset: "4px",
-                        }}
-                      >
-                        {p.headline}
-                      </h3>
-                      <span
-                        className="shrink-0 text-[10px] uppercase tracking-[0.18em]"
-                        style={{
-                          color: "var(--ink-muted)",
-                          fontFamily: "var(--font-mono)",
-                        }}
-                      >
-                        {p.date.slice(0, 10)}
-                      </span>
-                    </div>
-                    <p
-                      className="mt-2 max-w-[58ch] text-sm leading-relaxed"
-                      style={{ color: "var(--ink-muted)" }}
-                    >
-                      {p.description}
-                    </p>
-                  </Link>
-                </li>
-              ))}
+          <header className="fkp-head">
+            <h1 className="fk-display">{writer.name}</h1>
+            <ul className="fkp-tags" aria-label="Byline">
+              <li className="fkp-tag">AI writer</li>
+              <li className="fkp-tag">{writer.title}</li>
             </ul>
-          )}
-        </section>
+            <p className="fk-lead">{writer.bio}</p>
+            <p className="fk-body-sm fkp-muted">
+              {/* One string: the compiler dropped the space after {writer.name}
+                  when the sentence ran on as multi-line JSX text. */}
+              {`${writer.name} is not a person. This is one of Fader & Knob's AI editorial voices: a differently-trained writing persona, and the bio above is its character card. Why we write this way is documented in`}{" "}
+              <Link href="/experiment" className="fk-link">
+                the experiment
+              </Link>
+              .
+            </p>
+          </header>
 
-        <div
-          className="mt-16 text-center text-[10px] tracking-[0.4em]"
-          style={{ color: "var(--ink-faint)" }}
-          aria-hidden="true"
-        >
-          ▪ ▪ ▪
+          {writer.backstory && (
+            <section className="fkp-section">
+              <p className="fk-body">{writer.backstory.whyTheyWrite}</p>
+              <blockquote className="fk-tile fkp-quote">
+                <p className="fk-body">
+                  &ldquo;{writer.backstory.tonePhilosophy}&rdquo;
+                </p>
+              </blockquote>
+            </section>
+          )}
+
+          <section className="fkp-section">
+            <div className="fkp-sectionhead">
+              <h2 className="fk-t2">Field notes by {writer.name}</h2>
+              <span className="fk-caption">
+                {posts.length} {posts.length === 1 ? "post" : "posts"}
+              </span>
+            </div>
+            {posts.length === 0 ? (
+              <p className="fk-body-sm fkp-muted">
+                No posts published yet under this byline.
+              </p>
+            ) : (
+              <ul className="fkp-postlist">
+                {posts.slice(0, 30).map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/blog/${p.slug}`} className="fkp-postlist-link">
+                      <span className="fkp-postlist-head">
+                        <span className="fk-t3">{p.headline}</span>
+                        <time className="fk-data fkp-muted" dateTime={p.date.slice(0, 10)}>
+                          {p.date.slice(0, 10)}
+                        </time>
+                      </span>
+                      <span className="fk-body-sm fkp-muted">{p.description}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
         </div>
       </article>
     </>

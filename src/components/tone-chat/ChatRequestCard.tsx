@@ -75,7 +75,7 @@ export default function ChatRequestCard({ request }: { request: FkRequest }) {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session?.access_token) {
-        setState({ kind: "error", text: "Your session expired — log in again.", upgrade: false });
+        setState({ kind: "error", text: "Your session expired. Log in again.", upgrade: false });
         return;
       }
 
@@ -108,47 +108,43 @@ export default function ChatRequestCard({ request }: { request: FkRequest }) {
         });
       }
     } catch {
-      setState({ kind: "error", text: "Connection dropped — try again.", upgrade: false });
+      setState({ kind: "error", text: "Connection dropped. Try again.", upgrade: false });
     }
   }
 
   return (
-    <div className="my-3 border border-[var(--ink,#0A0908)]/40 bg-[var(--paper,#F4F1EA)]">
-      <div className="flex items-center justify-between border-b border-[var(--ink,#0A0908)]/15 px-3 py-1.5">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ink-muted,#6b6257)]">
-          Tone request
-        </span>
-        <span className="text-[10px] uppercase tracking-[0.12em] text-[var(--ink-muted,#6b6257)]">
-          Not in the archive yet
-        </span>
+    <div className="fk-cc fk-cr">
+      <div className="fk-cc-head">
+        <span className="fk-cc-title">Tone request</span>
+        <span className="fk-cc-platform">Not in the archive yet</span>
       </div>
-      <div className="px-3 py-2.5">
-        <p className="text-sm font-semibold text-[var(--ink,#0A0908)]">
+      <div className="fk-cr-body">
+        <p className="fk-cr-song">
           {request.song_name}
-          <span className="font-normal text-[var(--ink-muted,#6b6257)]"> — {request.artist_name}</span>
+          <span className="fk-cr-artist">, {request.artist_name}</span>
         </p>
-        <p className="mt-0.5 text-xs text-[var(--ink-muted,#6b6257)]">
+        <p className="fk-cr-meta">
           {request.part}
           {request.description ? ` · ${request.description}` : ""}
         </p>
 
         {state.kind === "filed" ? (
-          <p className="mt-2.5 text-xs text-[var(--ink,#0A0908)]">
-            Filed — we&apos;ll build it and ping you when it&apos;s ready.{" "}
+          <p className="fk-cr-status">
+            Filed. We&apos;ll build it and ping you when it&apos;s ready.{" "}
             {state.remaining !== null && state.limit !== null && (
-              <span className="text-[var(--ink-muted,#6b6257)]">
+              <span className="fk-cr-muted">
                 {state.remaining} of {state.limit} requests left this month.{" "}
               </span>
             )}
             <Link
               href="/dashboard/my-tones"
-              className="underline decoration-[var(--amber,#B97700)] underline-offset-2 font-medium"
+              className="fk-link"
             >
               Track it in Your Tones →
             </Link>
           </p>
         ) : (
-          <div className="mt-2.5 flex items-center gap-3">
+          <div className="fk-cr-actions">
             <button
               type="button"
               onClick={file}
@@ -158,12 +154,12 @@ export default function ChatRequestCard({ request }: { request: FkRequest }) {
               {state.kind === "filing" ? "Filing…" : "File this request"}
             </button>
             {state.kind === "error" && (
-              <span className="text-xs text-[var(--ink,#0A0908)]">
+              <span className="fk-cr-status">
                 {state.text}{" "}
                 {state.upgrade && (
                   <Link
                     href="/pricing"
-                    className="font-semibold underline decoration-[var(--amber,#B97700)]"
+                    className="fk-link"
                   >
                     See the Pass →
                   </Link>

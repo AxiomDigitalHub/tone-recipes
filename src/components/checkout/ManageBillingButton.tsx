@@ -57,14 +57,14 @@ export default function ManageBillingButton({
       <button
         onClick={handleClick}
         disabled={loading}
-        className="hero-cta hero-cta-secondary"
+        className="fk-btn fk-btn-secondary"
       >
         {loading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           <CreditCard className="h-4 w-4" />
         )}
-        Manage Subscription
+        Manage subscription
       </button>
       {error && <p className="dashboard-paper-plan-note">{error}</p>}
     </div>

@@ -87,13 +87,13 @@ export async function GET(request: Request) {
   const safeEmail = (result.email ?? "").replace(/[<>&"]/g, "");
   const title = result.ok ? "You're unsubscribed" : "Unsubscribe failed";
   const body = result.ok
-    ? `<p style="color:#5F5A52;">No more newsletters will be sent to ${
-        safeEmail ? `<strong style="color:#0A0908;">${safeEmail}</strong>` : "this address"
+    ? `<p>No more newsletters will be sent to ${
+        safeEmail ? `<strong>${safeEmail}</strong>` : "this address"
       }.</p>
-       <p style="color:#5F5A52;">If this was a mistake, you can re-subscribe at
-         <a href="https://faderandknob.com" style="color:#B37A1D;">faderandknob.com</a>.
+       <p>If this was a mistake, you can re-subscribe at
+         <a href="https://faderandknob.com">faderandknob.com</a>.
        </p>`
-    : `<p style="color:#5F5A52;">${result.message}</p>`;
+    : `<p>${result.message}</p>`;
 
   const html = `<!doctype html>
 <html lang="en">
@@ -101,24 +101,25 @@ export async function GET(request: Request) {
   <meta charset="utf-8" />
   <meta name="robots" content="noindex" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>${title} — Fader &amp; Knob</title>
+  <title>${title} · Fader &amp; Knob</title>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; background: #EDEAE4; color: #0A0908; font-family: ui-serif, Georgia, serif; }
+    body { margin: 0; background: #ffffff; color: #131416; font-family: Geist, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; }
     main { max-width: 560px; margin: 0 auto; padding: 80px 24px; }
-    h1 { font-size: 30px; margin: 0 0 16px; letter-spacing: -0.01em; }
-    p { font-size: 16px; line-height: 1.6; margin: 12px 0; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #B37A1D; margin: 0 0 12px; }
-    .rule { border-top: 3px solid #0A0908; margin-top: 32px; padding-top: 16px; color: #5F5A52; font-size: 13px; }
-    a { color: #B37A1D; }
+    .wordmark { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #131416; margin: 0 0 32px; padding-bottom: 16px; border-bottom: 1px solid #dcdfe2; }
+    h1 { font-size: 32px; line-height: 1.15; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.025em; }
+    p { font-size: 16px; line-height: 1.6; margin: 12px 0; color: #4a4f55; }
+    strong { color: #131416; font-weight: 600; }
+    .foot { border-top: 1px solid #dcdfe2; margin-top: 32px; padding-top: 16px; color: #666c73; font-size: 14px; }
+    a { color: #131416; text-decoration: underline; text-underline-offset: 3px; }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">Fader &amp; Knob</p>
+    <p class="wordmark">Fader &amp; Knob</p>
     <h1>${title}</h1>
     ${body}
-    <div class="rule">
+    <div class="foot">
       Questions? <a href="mailto:hello@faderandknob.com">hello@faderandknob.com</a>
     </div>
   </main>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import {
   toneRecipes,
@@ -7,8 +8,8 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
-import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
+import { monogramFor } from "@/components/v3/LpArt";
+import ChainStrip from "@/app/_pages/ChainStrip";
 import type { Platform } from "@/types/recipe";
 
 export const metadata: Metadata = {
@@ -61,116 +62,111 @@ export default async function ComparePage({
   };
 
   return (
-    <div className="container">
-      <section className="compare-page">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Compare</span>
-        </div>
+    <div className="fk-wrap fkp-page">
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Compare</span>
+      </nav>
 
-        <header className="archive-page-head browse-page-head">
-          <h1 className="archive-title">Compare two tones</h1>
-        </header>
-
-        <p className="compare-lede">
+      <header className="fkp-head">
+        <h1 className="fk-display">Compare two tones</h1>
+        <p className="fk-lead fkp-measure">
           Pick two recipes and see the chain, the gear, and the settings
           side by side. Useful for &quot;Should I cop SRV&apos;s tone or
           Mayer&apos;s clean?&quot; decisions.
         </p>
+      </header>
 
-        {/* Platform switcher — applies to both columns */}
-        {(a || b) && (
-          <div className="compare-platform-row">
-            <span className="browse-filter-label">Compare on</span>
-            <div className="compare-platform-tabs">
-              {PLATFORMS.map((p) => (
-                <Link
-                  key={p.id}
-                  href={buildHref({ platform: p.id })}
-                  className={`browse-filter-pill ${platform === p.id ? "is-active" : ""}`}
-                >
-                  {p.label}
-                </Link>
-              ))}
-            </div>
+      {/* Platform switcher: applies to both columns */}
+      {(a || b) && (
+        <div className="fkp-compare-platforms">
+          <span className="fk-label">Compare on</span>
+          <div className="fk-chips">
+            {PLATFORMS.map((p) => (
+              <Link
+                key={p.id}
+                href={buildHref({ platform: p.id })}
+                className="fk-chip"
+                aria-current={platform === p.id ? "page" : undefined}
+              >
+                {p.label}
+              </Link>
+            ))}
           </div>
-        )}
-
-        <div className="compare-grid">
-          <CompareColumn
-            recipe={a}
-            otherSlug={bSlug}
-            slot="a"
-            platform={platform}
-            buildHref={buildHref}
-          />
-          <CompareColumn
-            recipe={b}
-            otherSlug={aSlug}
-            slot="b"
-            platform={platform}
-            buildHref={buildHref}
-          />
         </div>
+      )}
 
-        {/* The page was a lede plus two pickers — under 100 words, and
-            flagged as thin. This is the part that makes the comparison
-            useful rather than decorative. */}
-        <section className="hub-prose" aria-labelledby="compare-how-head">
-          <div className="how-head">
-            <h2 id="compare-how-head" className="display">
-              How to read a side-by-side
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
+      <div className="fkp-compare-grid">
+        <CompareColumn
+          recipe={a}
+          otherSlug={bSlug}
+          slot="a"
+          platform={platform}
+          buildHref={buildHref}
+        />
+        <CompareColumn
+          recipe={b}
+          otherSlug={aSlug}
+          slot="b"
+          platform={platform}
+          buildHref={buildHref}
+        />
+      </div>
 
-          <p>
-            Two chains rarely differ everywhere. Most of the time one or two
-            blocks are doing the work that makes the tones sound unrelated,
-            and the rest is close enough to ignore. Putting them next to
-            each other is how you find which ones.
-          </p>
+      {/* The page was a lede plus two pickers, under 100 words, and
+          flagged as thin. This is the part that makes the comparison
+          useful rather than decorative. */}
+      <section className="fkp-section fkp-prose" aria-labelledby="compare-how-head">
+        <h2 id="compare-how-head" className="fk-t2">
+          How to read a side-by-side
+        </h2>
 
-          <h3>Start at the amp, not the pedals</h3>
-          <p>
-            The amp model and its gain setting decide most of what you hear.
-            If one chain runs a clean amp with a drive pedal doing the
-            distortion and the other runs a cranked amp with a boost, no
-            amount of matching the pedals will get you across. Those are
-            two different distortion sources with different compression and
-            different response to your picking hand.
-          </p>
+        <p>
+          Two chains rarely differ everywhere. Most of the time one or two
+          blocks are doing the work that makes the tones sound unrelated,
+          and the rest is close enough to ignore. Putting them next to
+          each other is how you find which ones.
+        </p>
 
-          <h3>Then check what&apos;s in front of it</h3>
-          <p>
-            Order matters more than the count of blocks. A boost before a
-            drive pushes the drive harder; the same boost after it just gets
-            louder. When two chains share a pedal but sound different,
-            check where it sits relative to the amp before you touch a
-            single knob.
-          </p>
+        <h3 className="fk-t3">Start at the amp, not the pedals</h3>
+        <p>
+          The amp model and its gain setting decide most of what you hear.
+          If one chain runs a clean amp with a drive pedal doing the
+          distortion and the other runs a cranked amp with a boost, no
+          amount of matching the pedals will get you across. Those are
+          two different distortion sources with different compression and
+          different response to your picking hand.
+        </p>
 
-          <h3>Ignore the effects until last</h3>
-          <p>
-            Delay and reverb settings are the most visible difference
-            between two chains and usually the least important to the core
-            tone. Get the amp and drive right first; the ambience is quick
-            to match once the front of the chain is in the right place.
-          </p>
+        <h3 className="fk-t3">Then check what&apos;s in front of it</h3>
+        <p>
+          Order matters more than the count of blocks. A boost before a
+          drive pushes the drive harder; the same boost after it just gets
+          louder. When two chains share a pedal but sound different,
+          check where it sits relative to the amp before you touch a
+          single knob.
+        </p>
 
-          <h3>Compare on your own platform</h3>
-          <p>
-            The switcher above re-expresses both chains in your modeler&apos;s
-            blocks, so you&apos;re comparing what you&apos;d actually dial
-            rather than two hardware rigs you don&apos;t own. If your unit
-            isn&apos;t listed, the pedalboard view shows the original
-            hardware for both. More on how that translation works on the{" "}
-            <Link href="/platforms">platforms page</Link>, or browse{" "}
-            <Link href="/browse">the full archive</Link> to pick a second
-            recipe.
-          </p>
-        </section>
+        <h3 className="fk-t3">Ignore the effects until last</h3>
+        <p>
+          Delay and reverb settings are the most visible difference
+          between two chains and usually the least important to the core
+          tone. Get the amp and drive right first; the ambience is quick
+          to match once the front of the chain is in the right place.
+        </p>
+
+        <h3 className="fk-t3">Compare on your own platform</h3>
+        <p>
+          The switcher above re-expresses both chains in your modeler&apos;s
+          blocks, so you&apos;re comparing what you&apos;d actually dial
+          rather than two hardware rigs you don&apos;t own. If your unit
+          isn&apos;t listed, the pedalboard view shows the original
+          hardware for both. More on how that translation works on the{" "}
+          <Link href="/platforms" className="fk-link">platforms page</Link>, or browse{" "}
+          <Link href="/browse" className="fk-link">the full archive</Link> to pick a second
+          recipe.
+        </p>
       </section>
     </div>
   );
@@ -178,7 +174,6 @@ export default async function ComparePage({
 
 function CompareColumn({
   recipe,
-  otherSlug,
   slot,
   platform,
   buildHref,
@@ -189,16 +184,17 @@ function CompareColumn({
   platform: Platform;
   buildHref: (next: { a?: string; b?: string; platform?: string }) => string;
 }) {
+  const label = `Slot ${slot.toUpperCase()}`;
   if (!recipe) {
-    // Empty slot — show a picker
+    // Empty slot: show a picker
     const picks = toneRecipes.slice(0, 12);
     return (
-      <div className="compare-col compare-col-empty">
-        <div className="compare-col-head">
-          <span className="compare-col-label">Slot {slot.toUpperCase()}</span>
-          <h2 className="display">Pick a recipe</h2>
+      <div className="fk-tile fkp-compare-col">
+        <div className="fkp-compare-colhead">
+          <p className="fk-caption">{label}</p>
+          <h2 className="fk-t3">Pick a recipe</h2>
         </div>
-        <ul className="compare-pick-list">
+        <ul className="fkp-rows">
           {picks.map((r) => {
             const s = getSongBySlug(r.song_slug);
             const ar = s ? getArtistBySlug(s.artist_slug) : undefined;
@@ -207,34 +203,31 @@ function CompareColumn({
             );
             return (
               <li key={r.slug}>
-                <Link href={href} className="compare-pick-link">
-                  <span className="compare-pick-song">
-                    {s?.title ?? r.title}
+                <Link href={href} className="fkp-row">
+                  <span className="fkp-row-main">
+                    <span className="fk-rowcard-title">{s?.title ?? r.title}</span>
+                    <span className="fk-caption">{ar?.name ?? "Unknown"}</span>
                   </span>
-                  <span className="compare-pick-artist">
-                    <em>{ar?.name ?? "Unknown"}</em>
-                  </span>
+                  <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
                 </Link>
               </li>
             );
           })}
         </ul>
-        <Link
-          href="/browse"
-          className="hero-cta hero-cta-secondary compare-pick-browse"
-        >
-          Browse all
-        </Link>
+        <div>
+          <Link href="/browse" className="fk-btn fk-btn-secondary fk-btn-sm">
+            Browse all
+          </Link>
+        </div>
       </div>
     );
   }
 
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
-  const recipeIdx = toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
   const blocks = recipeToBlocks(recipe, platform);
 
-  // "Swap to a different recipe" link strips just this slot
+  // "Swap recipe" strips just this slot
   const swapHref = buildHref(
     slot === "a"
       ? { a: undefined }
@@ -242,45 +235,51 @@ function CompareColumn({
   );
 
   return (
-    <div className="compare-col">
-      <div className="compare-col-head">
-        <span className="compare-col-label">Slot {slot.toUpperCase()}</span>
-        <Link href={swapHref} className="compare-swap">
-          Swap recipe ✕
+    <div className="fk-tile fkp-compare-col">
+      <div className="fkp-compare-colhead is-row">
+        <p className="fk-caption">{label}</p>
+        <Link href={swapHref} className="fk-link fk-body-sm">
+          Swap recipe
         </Link>
       </div>
-      <div className="compare-col-cover">
-        <LpArt
-          cover={song?.album_art_url}
-          monogram={monogramFor(artist?.name)}
-          meta={`${blocks.length} blocks`}
-          hue={recipeIdx}
-          alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
-        />
+      <div className="fk-rowcard">
+        <div className="fk-rowcard-art">
+          {song?.album_art_url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={song.album_art_url}
+              alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+              width={96}
+              height={96}
+            />
+          ) : (
+            <span className="fk-t3" aria-hidden="true">
+              {monogramFor(artist?.name)}
+            </span>
+          )}
+        </div>
+        <div className="fkp-row-main">
+          <h2 className="fk-t3">
+            <Link href={`/recipe/${recipe.slug}`}>
+              {song?.title ?? recipe.title}
+            </Link>
+          </h2>
+          <p className="fk-body-sm">{artist?.name ?? "Unknown"}</p>
+          {song?.album && (
+            <p className="fk-caption">
+              {song.album}
+              {song.year ? ` · ${song.year}` : ""}
+            </p>
+          )}
+          <p className="fk-card-meta">{blocks.length} blocks</p>
+        </div>
       </div>
-      <div className="compare-col-meta">
-        <h2 className="compare-col-song">
-          <Link href={`/recipe/${recipe.slug}`}>
-            {song?.title ?? recipe.title}
-          </Link>
-        </h2>
-        <span className="compare-col-artist">
-          <em>{artist?.name ?? "Unknown"}</em>
-        </span>
-        {song?.album && (
-          <span className="compare-col-album">
-            {song.album}
-            {song.year ? ` · ${song.year}` : ""}
-          </span>
-        )}
-      </div>
-      <div className="compare-col-chain">
-        <PreviewSchematicChain
-          blocks={blocks}
-          selectedIndex={null}
-          interactive={false}
-        />
-      </div>
+      <ChainStrip
+        blocks={blocks}
+        height={96}
+        wrap
+        label={`Signal chain, ${song?.title ?? recipe.title}`}
+      />
     </div>
   );
 }

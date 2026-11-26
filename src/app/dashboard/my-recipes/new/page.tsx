@@ -47,8 +47,8 @@ const NODE_CATEGORIES: { value: NodeCategory; label: string }[] = [
   { value: "guitar", label: "Guitar" },
   { value: "effect", label: "Effect" },
   { value: "preamp", label: "Preamp" },
-  { value: "wet_effect", label: "Wet Effect" },
-  { value: "power_amp", label: "Power Amp" },
+  { value: "wet_effect", label: "Wet effect" },
+  { value: "power_amp", label: "Power amp" },
   { value: "cabinet", label: "Cabinet" },
   { value: "microphone", label: "Microphone" },
 ];
@@ -284,7 +284,7 @@ export default function NewRecipePage() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="page-title page-title-sm">Submit a Tone Recipe</h1>
+      <h1 className="page-title page-title-sm">Submit a tone recipe</h1>
       <p className="mt-1 text-sm text-[var(--ink-muted)]">
         Share your tone recipe with the community. It will be reviewed by a
         moderator before going live.
@@ -293,14 +293,14 @@ export default function NewRecipePage() {
       <form onSubmit={handleSubmit} className="mt-8 space-y-8">
         {/* ---- Basic Info ---- */}
         <section className="space-y-4">
-          <h2 className="text-lg font-semibold text-[var(--ink)]">Basic Info</h2>
+          <h2 className="text-lg font-semibold text-[var(--ink)]">Basic info</h2>
 
           <div>
             <label
               htmlFor="title"
               className="mb-1.5 block text-sm font-medium text-[var(--ink)]"
             >
-              Title <span className="text-red-700">*</span>
+              Title <span className="text-[var(--fk-danger)]">*</span>
             </label>
             <input
               id="title"
@@ -309,7 +309,7 @@ export default function NewRecipePage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Edge of Breakup Blues"
-              className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+              className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
             />
           </div>
 
@@ -326,7 +326,7 @@ export default function NewRecipePage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe the tone you're going for..."
-              className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+              className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
             />
           </div>
 
@@ -343,7 +343,7 @@ export default function NewRecipePage() {
               value={tags}
               onChange={(e) => setTags(e.target.value)}
               placeholder="blues, clean, breakup (comma-separated)"
-              className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+              className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
             />
           </div>
         </section>
@@ -351,7 +351,7 @@ export default function NewRecipePage() {
         {/* ---- Guitar Specs ---- */}
         <section className="space-y-4">
           <h2 className="text-lg font-semibold text-[var(--ink)]">
-            Guitar Specs
+            Guitar specs
           </h2>
           <p className="text-sm text-[var(--ink-muted)]">
             Describe the guitar used for this tone (all optional).
@@ -360,12 +360,12 @@ export default function NewRecipePage() {
           <div className="grid gap-4 sm:grid-cols-2">
             {(
               [
-                ["model_name", "Model Name", "e.g. Fender Stratocaster"],
-                ["pickup_config", "Pickup Config", "e.g. SSS, HSH"],
-                ["pickup_position", "Pickup Position", "e.g. Neck, Bridge"],
+                ["model_name", "Model name", "e.g. Fender Stratocaster"],
+                ["pickup_config", "Pickup config", "e.g. SSS, HSH"],
+                ["pickup_position", "Pickup position", "e.g. Neck, Bridge"],
                 ["tuning", "Tuning", "e.g. Standard, Drop D"],
-                ["string_gauge", "String Gauge", "e.g. 10-46"],
-                ["notable_mods", "Notable Mods", "e.g. Locking tuners"],
+                ["string_gauge", "String gauge", "e.g. 10-46"],
+                ["notable_mods", "Notable mods", "e.g. Locking tuners"],
               ] as [keyof GuitarSpecs, string, string][]
             ).map(([key, label, placeholder]) => (
               <div key={key}>
@@ -386,7 +386,7 @@ export default function NewRecipePage() {
                     }))
                   }
                   placeholder={placeholder}
-                  className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                  className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper-2)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                 />
               </div>
             ))}
@@ -398,7 +398,7 @@ export default function NewRecipePage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-[var(--ink)]">
-                Signal Chain
+                Signal chain
               </h2>
               <p className="text-sm text-[var(--ink-muted)]">
                 Build the signal chain from guitar to speaker.
@@ -407,10 +407,10 @@ export default function NewRecipePage() {
             <button
               type="button"
               onClick={addNode}
-              className="flex items-center gap-1.5 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
+              className="flex items-center gap-1.5 rounded-full border border-[var(--fk-line-strong)] bg-[var(--paper)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
             >
               <Plus className="h-3.5 w-3.5" />
-              Add Node
+              Add node
             </button>
           </div>
 
@@ -418,7 +418,7 @@ export default function NewRecipePage() {
             {signalChain.map((node, nodeIndex) => (
               <div
                 key={node.id}
-                className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
+                className="rounded-xl border-0 bg-[var(--paper-2)] p-4"
               >
                 <div className="flex items-start gap-3">
                   <GripVertical className="mt-2 h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
@@ -434,7 +434,7 @@ export default function NewRecipePage() {
                               category: e.target.value as NodeCategory,
                             })
                           }
-                          className="w-full appearance-none rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-3 py-2 pr-8 text-sm text-[var(--ink)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                          className="w-full appearance-none rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-3 py-2 pr-8 text-sm text-[var(--ink)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                         >
                           {NODE_CATEGORIES.map((cat) => (
                             <option key={cat.value} value={cat.value}>
@@ -453,7 +453,7 @@ export default function NewRecipePage() {
                           updateNode(node.id, { gear_name: e.target.value })
                         }
                         placeholder="Gear name..."
-                        className="min-w-0 flex-1 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                        className="min-w-0 flex-1 rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                       />
                     </div>
 
@@ -477,7 +477,7 @@ export default function NewRecipePage() {
                                 )
                               }
                               placeholder="Parameter"
-                              className="w-1/3 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-2.5 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                              className="w-1/3 rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-2.5 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                             />
                             <input
                               type="text"
@@ -491,14 +491,14 @@ export default function NewRecipePage() {
                                 )
                               }
                               placeholder="Value"
-                              className="min-w-0 flex-1 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-2.5 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                              className="min-w-0 flex-1 rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-2.5 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                             />
                             <button
                               type="button"
                               onClick={() =>
                                 removeSetting(node.id, settingIndex)
                               }
-                              className="shrink-0 rounded p-1 text-[var(--ink-muted)] transition-colors hover:text-red-700"
+                              className="shrink-0 rounded p-1 text-[var(--ink-muted)] transition-colors hover:text-[var(--fk-danger)]"
                             >
                               <Trash2 className="h-3.5 w-3.5" />
                             </button>
@@ -510,9 +510,9 @@ export default function NewRecipePage() {
                     <button
                       type="button"
                       onClick={() => addSetting(node.id)}
-                      className="text-xs font-medium text-[var(--amber-2)] hover:underline"
+                      className="text-xs font-medium text-[var(--ink)] underline underline-offset-2"
                     >
-                      + Add Setting
+                      + Add setting
                     </button>
                   </div>
 
@@ -521,7 +521,7 @@ export default function NewRecipePage() {
                     <button
                       type="button"
                       onClick={() => removeNode(node.id)}
-                      className="shrink-0 rounded p-1.5 text-[var(--ink-muted)] transition-colors hover:text-red-700"
+                      className="shrink-0 rounded p-1.5 text-[var(--ink-muted)] transition-colors hover:text-[var(--fk-danger)]"
                       title="Remove node"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -542,23 +542,23 @@ export default function NewRecipePage() {
 
         {/* ---- Error & Submit ---- */}
         {error && (
-          <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700">
+          <div className="rounded-lg border border-[var(--fk-line)] bg-[var(--fk-wash)] px-4 py-3 text-sm text-[var(--fk-danger)]">
             {error}
           </div>
         )}
 
-        <div className="flex items-center gap-3 border-t border-[var(--ink-faint)] pt-6">
+        <div className="flex items-center gap-3 border-t border-[var(--fk-line)] pt-6">
           <button
             type="submit"
             disabled={submitting}
-            className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-6 py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)] disabled:opacity-50"
+            className="rounded-full border border-[var(--ink)] bg-[var(--ink)] px-6 py-2.5 text-sm font-medium text-[var(--paper)] transition-opacity hover:opacity-80 disabled:opacity-50"
           >
-            {submitting ? "Submitting..." : "Submit for Review"}
+            {submitting ? "Submitting..." : "Submit for review"}
           </button>
           <button
             type="button"
             onClick={() => router.push("/dashboard/my-recipes")}
-            className="rounded-lg border border-[var(--ink-faint)] px-4 py-2.5 text-sm font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+            className="rounded-full border border-[var(--fk-line-strong)] px-4 py-2.5 text-sm font-medium text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
           >
             Cancel
           </button>

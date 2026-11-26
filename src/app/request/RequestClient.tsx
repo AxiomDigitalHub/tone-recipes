@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
+import { ChevronUp } from "lucide-react";
 import { useAuth } from "@/lib/auth/auth-context";
 import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
 import {
@@ -61,12 +62,12 @@ async function getAccessToken(): Promise<string | null> {
 export default function RequestClient({
   initialRequests = [],
 }: {
-  /** Server-rendered first page of the queue (popular sort) — crawlable content + instant first paint. */
+  /** Server-rendered first page of the queue (popular sort): crawlable content + instant first paint. */
   initialRequests?: ToneRequest[];
 }) {
   const { user } = useAuth();
 
-  // Queue state — seeded from the server render; the client refetches on
+  // Queue state, seeded from the server render; the client refetches on
   // sort change or after a submission.
   const [requests, setRequests] = useState<ToneRequest[]>(initialRequests);
   const [loading, setLoading] = useState(initialRequests.length === 0);
@@ -111,7 +112,7 @@ export default function RequestClient({
         }
         setHasMore(data.length === PAGE_SIZE);
       } catch {
-        // silent — same as production
+        // silent, same as production
       } finally {
         setLoading(false);
         setLoadingMore(false);
@@ -123,7 +124,7 @@ export default function RequestClient({
   const seededFromServer = useRef(initialRequests.length > 0);
   useEffect(() => {
     // First mount with server-seeded data (popular sort): keep it instead of
-    // refetching over it — just wire up pagination state. ISR keeps the seed
+    // refetching over it; just wire up pagination state. ISR keeps the seed
     // ≤5 min stale, and any sort change or submission refetches live.
     if (seededFromServer.current && sort === "popular") {
       seededFromServer.current = false;
@@ -172,7 +173,7 @@ export default function RequestClient({
         const data = (await res.json()) as RequestQuota;
         if (!cancelled) setQuota(data);
       } catch {
-        // silent — quota display is best-effort
+        // silent; quota display is best-effort
       }
     })();
     return () => {
@@ -273,61 +274,53 @@ export default function RequestClient({
   /* ---- Render ---- */
 
   return (
-    <div className="container">
-      <div className="request-page">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Request a tone</span>
-        </div>
+    <div className="fk-wrap fkp-page">
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Request a tone</span>
+      </nav>
 
-        <header className="archive-masthead archive-masthead-tight">
-          <div className="recipe-issue">
-            <span className="pill">Open queue</span>
-          </div>
-          <h1 className="recipe-title display">Request a tone</h1>
-          <p className="recipe-summary">
-            Can&apos;t find the tone you&apos;re looking for? File a request, watch
-            the community upvote it, and we&apos;ll research and publish the recipe.
-          </p>
-        </header>
+      <header className="fkp-head">
+        <h1 className="fk-display">Request a tone</h1>
+        <p className="fk-lead fkp-measure">
+          Can&apos;t find the tone you&apos;re looking for? File a request, watch
+          the community upvote it, and we&apos;ll research and publish the recipe.
+        </p>
+      </header>
 
-        <div className="request-grid">
-          {/* Form */}
-          <aside className="request-form-col">
-            {!user ? (
-              <div className="auth-card">
-                <header className="auth-card-head">
-                  <h2 className="display auth-title">Submit a request</h2>
-                  <p className="auth-sub">
-                    Requests are a member feature. Sign in and your fulfilled
-                    tones land in your dashboard.
-                  </p>
-                </header>
-                <div className="auth-form">
-                  <Link href="/login" className="hero-cta hero-cta-primary auth-submit">
-                    Log in to request a tone
-                  </Link>
-                  <p className="request-login-hint">
-                    No account yet?{" "}
-                    <Link href="/signup" className="auth-link auth-link-strong">
-                      Sign up free
-                    </Link>
-                    . Free accounts get 2 requests a month.
-                  </p>
-                </div>
-              </div>
-            ) : (
-            <div className="auth-card">
-              <header className="auth-card-head">
-                <h2 className="display auth-title">Submit a request</h2>
-                <p className="auth-sub">We&apos;ll add it to the queue and build the recipe.</p>
-              </header>
+      <div className="fkp-request-grid">
+        {/* Form */}
+        <aside className="fk-tile fkp-request-form">
+          {!user ? (
+            <>
+              <h2 className="fk-t2">Submit a request</h2>
+              <p className="fk-body-sm fkp-muted">
+                Requests are a member feature. Sign in and your fulfilled
+                tones land in your dashboard.
+              </p>
+              <Link href="/login" className="fk-btn">
+                Log in to request a tone
+              </Link>
+              <p className="fk-body-sm fkp-muted">
+                No account yet?{" "}
+                <Link href="/signup" className="fk-link">
+                  Sign up free
+                </Link>
+                . Free accounts get 2 requests a month.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2 className="fk-t2">Submit a request</h2>
+              <p className="fk-body-sm fkp-muted">
+                We&apos;ll add it to the queue and build the recipe.
+              </p>
 
-              <form className="auth-form" onSubmit={handleSubmit}>
-                <label className="auth-field">
-                  <span className="auth-label">
-                    Song <span style={{ color: "var(--tape)" }}>*</span>
+              <form className="fkp-form" onSubmit={handleSubmit}>
+                <label className="fkp-field">
+                  <span className="fk-label">
+                    Song <span aria-hidden="true">*</span>
                   </span>
                   <input
                     type="text"
@@ -335,13 +328,13 @@ export default function RequestClient({
                     onChange={(e) => setSongName(e.target.value)}
                     placeholder="e.g. Comfortably Numb"
                     required
-                    className="auth-input"
+                    className="fk-input"
                   />
                 </label>
 
-                <label className="auth-field">
-                  <span className="auth-label">
-                    Artist <span style={{ color: "var(--tape)" }}>*</span>
+                <label className="fkp-field">
+                  <span className="fk-label">
+                    Artist <span aria-hidden="true">*</span>
                   </span>
                   <input
                     type="text"
@@ -349,61 +342,61 @@ export default function RequestClient({
                     onChange={(e) => setArtistName(e.target.value)}
                     placeholder="e.g. Pink Floyd"
                     required
-                    className="auth-input"
+                    className="fk-input"
                   />
                 </label>
 
-                <label className="auth-field">
-                  <span className="auth-label">Part</span>
+                <label className="fkp-field">
+                  <span className="fk-label">Part</span>
                   <select
                     value={part}
                     onChange={(e) => setPart(e.target.value)}
-                    className="auth-input"
+                    className="fk-input"
                   >
                     {PART_OPTIONS.map((p) => (
                       <option key={p} value={p}>
-                        {p}
+                        {p.charAt(0) + p.slice(1).toLowerCase()}
                       </option>
                     ))}
                   </select>
                 </label>
 
-                <label className="auth-field">
-                  <span className="auth-label">
-                    Description <span style={{ opacity: 0.6 }}>(optional)</span>
+                <label className="fkp-field">
+                  <span className="fk-label">
+                    Description <span className="fkp-muted">(optional)</span>
                   </span>
                   <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="The specific moment or sound, e.g. 'the solo at 3:42' or 'the clean intro'"
                     rows={3}
-                    className="auth-input"
+                    className="fk-input fkp-textarea"
                   />
                 </label>
 
-                <label className="auth-field">
-                  <span className="auth-label">
-                    Reference URL <span style={{ opacity: 0.6 }}>(optional)</span>
+                <label className="fkp-field">
+                  <span className="fk-label">
+                    Reference URL <span className="fkp-muted">(optional)</span>
                   </span>
                   <input
                     type="url"
                     value={referenceUrl}
                     onChange={(e) => setReferenceUrl(e.target.value)}
                     placeholder="YouTube or Spotify link"
-                    className="auth-input"
+                    className="fk-input"
                   />
                 </label>
 
                 <button
                   type="submit"
                   disabled={submitting || quota?.remaining === 0}
-                  className="hero-cta hero-cta-primary auth-submit"
+                  className="fk-btn"
                 >
                   {submitting ? "Submitting…" : "Submit request"}
                 </button>
 
                 {quota && quota.limit !== null && (
-                  <p className="request-quota-note">
+                  <p className="fk-caption">
                     {quota.remaining === 0
                       ? "0 requests left this month."
                       : `${quota.remaining} of ${quota.limit} requests left this month.`}
@@ -411,152 +404,156 @@ export default function RequestClient({
                 )}
 
                 {submitSuccess && (
-                  <p className="request-flash request-flash-ok">
+                  <p className="fk-body-sm fkp-flash" role="status">
                     Request submitted. It&apos;s now in the queue. Track it in{" "}
-                    <Link href="/dashboard/my-tones" className="auth-link auth-link-strong">
+                    <Link href="/dashboard/my-tones" className="fk-link">
                       your tones
                     </Link>
                     .
                   </p>
                 )}
-                {submitError && <p className="request-flash request-flash-err">{submitError}</p>}
+                {submitError && (
+                  <p className="fk-body-sm fkp-flash is-error" role="alert">
+                    {submitError}
+                  </p>
+                )}
                 {showUpgrade && (
-                  <Link href="/pricing" className="hero-cta hero-cta-secondary auth-submit">
+                  <Link href="/pricing" className="fk-btn fk-btn-secondary">
                     Upgrade to Pass for 10 requests a month
                   </Link>
                 )}
               </form>
+            </>
+          )}
+        </aside>
+
+        {/* Queue */}
+        <section className="fkp-request-queue">
+          <div className="fkp-sectionhead">
+            <h2 className="fk-t2">The queue</h2>
+            <div className="fk-chips" role="group" aria-label="Sort requests">
+              <button
+                type="button"
+                className="fk-chip"
+                aria-pressed={sort === "popular"}
+                onClick={() => setSort("popular")}
+              >
+                Most requested
+              </button>
+              <button
+                type="button"
+                className="fk-chip"
+                aria-pressed={sort === "newest"}
+                onClick={() => setSort("newest")}
+              >
+                Newest
+              </button>
             </div>
-            )}
-          </aside>
+          </div>
 
-          {/* Queue */}
-          <section className="request-queue-col">
-            <div className="request-queue-head">
-              <h2 className="display request-queue-title">The queue</h2>
-              <div className="request-sort">
-                <button
-                  type="button"
-                  className={`request-sort-btn ${sort === "popular" ? "is-active" : ""}`}
-                  onClick={() => setSort("popular")}
-                >
-                  Most requested
-                </button>
-                <button
-                  type="button"
-                  className={`request-sort-btn ${sort === "newest" ? "is-active" : ""}`}
-                  onClick={() => setSort("newest")}
-                >
-                  Newest
-                </button>
-              </div>
+          {loading ? (
+            <div className="fkp-request-list" aria-busy="true">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="fk-tile fkp-request-skeleton" />
+              ))}
             </div>
-
-            {loading ? (
-              <div className="request-list">
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="request-card request-card-skeleton" />
-                ))}
-              </div>
-            ) : requests.length === 0 ? (
-              <div className="request-empty">
-                <p className="display request-empty-title">No requests yet</p>
-                <p className="request-empty-sub">Be the first to request a tone.</p>
-              </div>
-            ) : (
-              <div className="request-list">
-                {requests.map((req) => {
-                  const voted = userVotes.has(req.id);
-                  const statusLabel = STATUS_LABEL[req.status] ?? STATUS_LABEL.pending;
-                  return (
-                    <article key={req.id} className="request-card">
-                      <button
-                        type="button"
-                        onClick={() => handleUpvote(req.id)}
-                        disabled={!user || votingId === req.id}
-                        className={`request-vote ${voted ? "is-voted" : ""}`}
-                        title={
-                          user
-                            ? voted
-                              ? "Remove upvote"
-                              : "Upvote this request"
-                            : "Log in to upvote"
-                        }
-                      >
-                        <span className="request-vote-arrow" aria-hidden>
-                          ▲
-                        </span>
-                        <span className="request-vote-count">{req.upvotes}</span>
-                      </button>
-
-                      <div className="request-card-body">
-                        <div className="request-card-titles">
-                          <h3 className="request-card-title">{req.song_name}</h3>
-                          <span className="request-card-artist">by {req.artist_name}</span>
-                        </div>
-
-                        <div className="request-card-meta">
-                          <span className="pill request-pill-part">{req.part}</span>
-                          <span className={`pill request-pill-status request-status-${req.status}`}>
-                            {statusLabel}
-                          </span>
-                        </div>
-
-                        {req.description && (
-                          <p className="request-card-desc">{req.description}</p>
-                        )}
-
-                        <div className="request-card-foot">
-                          <span>{timeAgo(req.created_at)}</span>
-                          {req.reference_url && (
-                            <a
-                              href={req.reference_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="request-card-link"
-                            >
-                              Reference ↗
-                            </a>
-                          )}
-                          {req.status === "completed" && req.completed_recipe_slug && (
-                            <Link
-                              href={`/recipe/${req.completed_recipe_slug}`}
-                              className="request-card-link request-card-link-strong"
-                            >
-                              View recipe →
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })}
-
-                {hasMore && (
-                  <div className="request-loadmore">
+          ) : requests.length === 0 ? (
+            <div className="fk-tile">
+              <p className="fk-t3">No requests yet</p>
+              <p className="fk-body-sm fkp-muted">Be the first to request a tone.</p>
+            </div>
+          ) : (
+            <div className="fkp-request-list">
+              {requests.map((req) => {
+                const voted = userVotes.has(req.id);
+                const statusLabel = STATUS_LABEL[req.status] ?? STATUS_LABEL.pending;
+                return (
+                  <article key={req.id} className="fk-tile fkp-request-card">
                     <button
                       type="button"
-                      onClick={() => fetchRequests(false)}
-                      disabled={loadingMore}
-                      className="hero-cta hero-cta-secondary"
+                      onClick={() => handleUpvote(req.id)}
+                      disabled={!user || votingId === req.id}
+                      className={`fkp-vote${voted ? " is-voted" : ""}`}
+                      aria-pressed={voted}
+                      title={
+                        user
+                          ? voted
+                            ? "Remove upvote"
+                            : "Upvote this request"
+                          : "Log in to upvote"
+                      }
                     >
-                      {loadingMore ? "Loading…" : "Load more"}
+                      <ChevronUp size={18} strokeWidth={1.75} aria-hidden />
+                      <span className="fk-data">{req.upvotes}</span>
                     </button>
-                  </div>
-                )}
-              </div>
-            )}
 
-            {!user && requests.length > 0 && (
-              <p className="request-login-hint">
-                <Link href="/login" className="auth-link auth-link-strong">
-                  Log in
-                </Link>{" "}
-                to upvote requests.
-              </p>
-            )}
-          </section>
-        </div>
+                    <div className="fkp-request-body">
+                      <div>
+                        <h3 className="fk-t3">{req.song_name}</h3>
+                        <p className="fk-body-sm fkp-muted">by {req.artist_name}</p>
+                      </div>
+
+                      <div className="fkp-tags">
+                        <span className="fkp-tag">{req.part}</span>
+                        <span className={`fkp-tag fkp-status is-${req.status}`}>
+                          {statusLabel}
+                        </span>
+                      </div>
+
+                      {req.description && (
+                        <p className="fk-body-sm">{req.description}</p>
+                      )}
+
+                      <div className="fkp-request-foot fk-caption">
+                        <span>{timeAgo(req.created_at)}</span>
+                        {req.reference_url && (
+                          <a
+                            href={req.reference_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="fk-link"
+                          >
+                            Reference
+                          </a>
+                        )}
+                        {req.status === "completed" && req.completed_recipe_slug && (
+                          <Link
+                            href={`/recipe/${req.completed_recipe_slug}`}
+                            className="fk-link"
+                          >
+                            View recipe
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+
+              {hasMore && (
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => fetchRequests(false)}
+                    disabled={loadingMore}
+                    className="fk-btn fk-btn-secondary"
+                  >
+                    {loadingMore ? "Loading…" : "Load more"}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {!user && requests.length > 0 && (
+            <p className="fk-body-sm fkp-muted">
+              <Link href="/login" className="fk-link">
+                Log in
+              </Link>{" "}
+              to upvote requests.
+            </p>
+          )}
+        </section>
       </div>
     </div>
   );

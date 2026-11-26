@@ -109,7 +109,7 @@ const CONTENT_TYPE_LABELS: Record<string, string> = {
 
 function CardSkeleton() {
   return (
-    <div className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+    <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
       <div className="h-4 w-1/3 animate-pulse rounded bg-border" />
       <div className="mt-3 h-3 w-full animate-pulse rounded bg-border" />
       <div className="mt-2 h-3 w-2/3 animate-pulse rounded bg-border" />
@@ -428,15 +428,15 @@ export default function ModerationPage() {
     return (
       <div className="mx-auto flex max-w-md flex-col items-center justify-center py-20 text-center">
         <ShieldOff className="mb-4 h-12 w-12 text-[var(--ink-muted)]" />
-        <h1 className="page-title page-title-sm">Access Denied</h1>
+        <h1 className="page-title page-title-sm">Access denied</h1>
         <p className="mt-2 text-sm text-[var(--ink-muted)]">
           You do not have moderator permissions to access this page.
         </p>
         <button
           onClick={() => router.push("/dashboard")}
-          className="mt-6 rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
+          className="mt-6 fk-btn fk-btn-sm"
         >
-          Back to Dashboard
+          Back to dashboard
         </button>
       </div>
     );
@@ -448,8 +448,8 @@ export default function ModerationPage() {
     icon: typeof Shield;
   }[] = [
     { value: "reports", label: "Reports", icon: AlertTriangle },
-    { value: "recipes", label: "Pending Recipes", icon: BookOpen },
-    { value: "tone_requests", label: "Tone Requests", icon: Music },
+    { value: "recipes", label: "Pending recipes", icon: BookOpen },
+    { value: "tone_requests", label: "Tone requests", icon: Music },
     { value: "overview", label: "Overview", icon: BarChart3 },
   ];
 
@@ -457,9 +457,9 @@ export default function ModerationPage() {
     <div className="mx-auto max-w-5xl px-4 py-12">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <Shield className="h-7 w-7 text-[var(--amber-2)]" />
+        <Shield className="h-7 w-7 text-[var(--ink)]" />
         <div>
-          <h1 className="page-title page-title-sm">Moderation Dashboard</h1>
+          <h1 className="page-title page-title-sm">Moderation dashboard</h1>
           <p className="text-sm text-[var(--ink-muted)]">
             Review reports and user-submitted content.
           </p>
@@ -467,7 +467,7 @@ export default function ModerationPage() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-8 flex gap-1 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-1">
+      <div className="mt-8 flex flex-wrap gap-1 rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-1">
         {TABS.map((tab) => {
           const TabIcon = tab.icon;
           return (
@@ -476,7 +476,7 @@ export default function ModerationPage() {
               onClick={() => setActiveTab(tab.value)}
               className={`flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                 activeTab === tab.value
-                  ? "bg-amber-500/15 text-[var(--amber-2)]"
+                  ? "bg-[var(--ink)] text-[var(--paper)]"
                   : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
               }`}
             >
@@ -497,18 +497,18 @@ export default function ModerationPage() {
                 <CardSkeleton key={i} />
               ))
             ) : reportsError ? (
-              <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-6 text-center">
-                <p className="text-sm text-red-700">{reportsError}</p>
+              <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-6 text-center">
+                <p className="text-sm text-[var(--fk-danger)]">{reportsError}</p>
                 <button
                   onClick={fetchReports}
-                  className="mt-3 text-sm font-medium text-[var(--amber-2)] hover:underline"
+                  className="mt-3 text-sm font-medium text-[var(--ink)] underline underline-offset-2"
                 >
                   Try again
                 </button>
               </div>
             ) : reports.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] py-16">
-                <CheckCircle className="mb-4 h-10 w-10 text-green-700" />
+              <div className="flex flex-col items-center justify-center rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] py-16">
+                <CheckCircle className="mb-4 h-10 w-10 text-[var(--ink-muted)]" />
                 <p className="text-lg font-semibold text-[var(--ink)]">
                   No pending reports
                 </p>
@@ -520,16 +520,16 @@ export default function ModerationPage() {
               reports.map((report) => (
                 <div
                   key={report.id}
-                  className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5"
+                  className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-md bg-red-500/15 px-2 py-0.5 text-xs font-medium text-red-700">
+                        <span className="rounded-full border border-[var(--fk-line)] bg-[var(--paper)] px-2 py-0.5 text-xs font-medium text-[var(--ink-muted)]">
                           {CONTENT_TYPE_LABELS[report.content_type] ??
                             report.content_type}
                         </span>
-                        <span className="rounded-md bg-yellow-500/15 px-2 py-0.5 text-xs font-medium text-yellow-400">
+                        <span className="rounded-full border border-[var(--fk-line)] bg-[var(--paper)] px-2 py-0.5 text-xs font-medium text-[var(--ink-muted)]">
                           {REASON_LABELS[report.reason] ?? report.reason}
                         </span>
                       </div>
@@ -550,7 +550,7 @@ export default function ModerationPage() {
                           handleResolveReport(report.id, "resolved")
                         }
                         disabled={processingId === report.id}
-                        className="flex items-center gap-1.5 rounded-lg bg-green-500/15 px-3 py-1.5 text-xs font-medium text-green-700 transition-colors hover:bg-green-500/25 disabled:opacity-50"
+                        className="fk-btn fk-btn-xs"
                       >
                         <CheckCircle className="h-3.5 w-3.5" />
                         Resolve
@@ -560,7 +560,7 @@ export default function ModerationPage() {
                           handleResolveReport(report.id, "dismissed")
                         }
                         disabled={processingId === report.id}
-                        className="flex items-center gap-1.5 rounded-lg bg-border/50 px-3 py-1.5 text-xs font-medium text-[var(--ink-muted)] transition-colors hover:bg-border disabled:opacity-50"
+                        className="fk-btn fk-btn-xs fk-btn-secondary"
                       >
                         <XCircle className="h-3.5 w-3.5" />
                         Dismiss
@@ -581,18 +581,18 @@ export default function ModerationPage() {
                 <CardSkeleton key={i} />
               ))
             ) : recipesError ? (
-              <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-6 text-center">
-                <p className="text-sm text-red-700">{recipesError}</p>
+              <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-6 text-center">
+                <p className="text-sm text-[var(--fk-danger)]">{recipesError}</p>
                 <button
                   onClick={fetchPendingRecipes}
-                  className="mt-3 text-sm font-medium text-[var(--amber-2)] hover:underline"
+                  className="mt-3 text-sm font-medium text-[var(--ink)] underline underline-offset-2"
                 >
                   Try again
                 </button>
               </div>
             ) : pendingRecipes.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] py-16">
-                <CheckCircle className="mb-4 h-10 w-10 text-green-700" />
+              <div className="flex flex-col items-center justify-center rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] py-16">
+                <CheckCircle className="mb-4 h-10 w-10 text-[var(--ink-muted)]" />
                 <p className="text-lg font-semibold text-[var(--ink)]">
                   No pending recipes
                 </p>
@@ -615,7 +615,7 @@ export default function ModerationPage() {
                 return (
                   <div
                     key={recipe.id}
-                    className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5"
+                    className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5"
                   >
                     <div className="min-w-0 flex-1">
                       <h3 className="text-base font-semibold text-[var(--ink)]">
@@ -647,7 +647,7 @@ export default function ModerationPage() {
                           {recipe.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-md bg-amber-500/10 px-2 py-0.5 text-xs text-[var(--amber-2)]"
+                              className="text-xs text-[var(--ink-muted)]"
                             >
                               {tag}
                             </span>
@@ -671,7 +671,7 @@ export default function ModerationPage() {
                           }))
                         }
                         placeholder="Moderator notes (optional)..."
-                        className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                        className="w-full rounded-lg border border-[var(--fk-line)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                       />
                     </div>
 
@@ -682,7 +682,7 @@ export default function ModerationPage() {
                           handleRecipeAction(recipe.id, "approved")
                         }
                         disabled={processingId === recipe.id}
-                        className="flex items-center gap-1.5 rounded-lg bg-green-500/15 px-4 py-2 text-sm font-medium text-green-700 transition-colors hover:bg-green-500/25 disabled:opacity-50"
+                        className="fk-btn fk-btn-sm"
                       >
                         <CheckCircle className="h-4 w-4" />
                         Approve
@@ -692,7 +692,7 @@ export default function ModerationPage() {
                           handleRecipeAction(recipe.id, "rejected")
                         }
                         disabled={processingId === recipe.id}
-                        className="flex items-center gap-1.5 rounded-lg bg-red-500/15 px-4 py-2 text-sm font-medium text-red-700 transition-colors hover:bg-red-500/25 disabled:opacity-50"
+                        className="fk-btn fk-btn-sm fk-btn-secondary fk-btn-danger"
                       >
                         <XCircle className="h-4 w-4" />
                         Reject
@@ -713,18 +713,18 @@ export default function ModerationPage() {
                 <CardSkeleton key={i} />
               ))
             ) : toneRequestsError ? (
-              <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-6 text-center">
-                <p className="text-sm text-red-700">{toneRequestsError}</p>
+              <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-6 text-center">
+                <p className="text-sm text-[var(--fk-danger)]">{toneRequestsError}</p>
                 <button
                   onClick={fetchToneRequests}
-                  className="mt-3 text-sm font-medium text-[var(--amber-2)] hover:underline"
+                  className="mt-3 text-sm font-medium text-[var(--ink)] underline underline-offset-2"
                 >
                   Try again
                 </button>
               </div>
             ) : toneRequests.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] py-16">
-                <CheckCircle className="mb-4 h-10 w-10 text-green-700" />
+              <div className="flex flex-col items-center justify-center rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] py-16">
+                <CheckCircle className="mb-4 h-10 w-10 text-[var(--ink-muted)]" />
                 <p className="text-lg font-semibold text-[var(--ink)]">
                   No tone requests
                 </p>
@@ -736,7 +736,7 @@ export default function ModerationPage() {
               toneRequests.map((req) => (
                 <div
                   key={req.id}
-                  className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5"
+                  className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5"
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
@@ -746,19 +746,19 @@ export default function ModerationPage() {
                       <span className="text-sm text-[var(--ink-muted)]">
                         by {req.artist_name}
                       </span>
-                      <span className="flex items-center gap-1 rounded-md bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-[var(--amber-2)]">
+                      <span className="flex items-center gap-1 acct-num text-xs font-medium text-[var(--ink)]">
                         <ChevronUp className="h-3 w-3" />
                         {req.upvotes}
                       </span>
                       <span
-                        className={`rounded-md px-2 py-0.5 text-xs font-medium ${
+                        className={`rounded-full border border-[var(--fk-line)] bg-[var(--paper)] px-2 py-0.5 text-xs font-medium ${
                           req.status === "pending"
-                            ? "bg-yellow-500/15 text-yellow-400"
+                            ? "text-[var(--ink-muted)]"
                             : req.status === "in_progress"
-                              ? "bg-blue-500/15 text-blue-400"
+                              ? "text-[var(--ink)]"
                               : req.status === "completed"
-                                ? "bg-green-500/15 text-green-700"
-                                : "bg-zinc-500/15 text-zinc-400"
+                                ? "text-[var(--fk-good)]"
+                                : "text-[var(--ink-muted)]"
                         }`}
                       >
                         {req.status.replace("_", " ")}
@@ -781,7 +781,7 @@ export default function ModerationPage() {
                         href={req.reference_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1 inline-flex items-center gap-1 text-xs text-[var(--amber-2)] hover:underline"
+                        className="mt-1 inline-flex items-center gap-1 text-xs text-[var(--ink)] underline underline-offset-2"
                       >
                         <LinkIcon className="h-3 w-3" />
                         Reference link
@@ -801,7 +801,7 @@ export default function ModerationPage() {
                         }))
                       }
                       placeholder="Admin notes (optional)..."
-                      className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                      className="w-full rounded-lg border border-[var(--fk-line)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                     />
                     <input
                       type="text"
@@ -813,7 +813,7 @@ export default function ModerationPage() {
                         }))
                       }
                       placeholder="Completed recipe slug (for completed status)..."
-                      className="w-full rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber-2)] focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]"
+                      className="w-full rounded-lg border border-[var(--fk-line)] bg-[var(--paper)] px-3 py-1.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--ink)] focus:outline-none focus:ring-1 focus:ring-[var(--ink)]"
                     />
                   </div>
 
@@ -825,7 +825,7 @@ export default function ModerationPage() {
                           handleToneRequestAction(req.id, "in_progress")
                         }
                         disabled={processingId === req.id}
-                        className="flex items-center gap-1.5 rounded-lg bg-blue-500/15 px-3 py-1.5 text-xs font-medium text-blue-400 transition-colors hover:bg-blue-500/25 disabled:opacity-50"
+                        className="fk-btn fk-btn-xs fk-btn-secondary"
                       >
                         <Play className="h-3.5 w-3.5" />
                         Start
@@ -839,7 +839,7 @@ export default function ModerationPage() {
                             handleToneRequestAction(req.id, "completed")
                           }
                           disabled={processingId === req.id}
-                          className="flex items-center gap-1.5 rounded-lg bg-green-500/15 px-3 py-1.5 text-xs font-medium text-green-700 transition-colors hover:bg-green-500/25 disabled:opacity-50"
+                          className="fk-btn fk-btn-xs"
                         >
                           <CheckCircle className="h-3.5 w-3.5" />
                           Complete
@@ -849,7 +849,7 @@ export default function ModerationPage() {
                             handleToneRequestAction(req.id, "declined")
                           }
                           disabled={processingId === req.id}
-                          className="flex items-center gap-1.5 rounded-lg bg-red-500/15 px-3 py-1.5 text-xs font-medium text-red-700 transition-colors hover:bg-red-500/25 disabled:opacity-50"
+                          className="fk-btn fk-btn-xs fk-btn-secondary fk-btn-danger"
                         >
                           <Ban className="h-3.5 w-3.5" />
                           Decline
@@ -870,7 +870,7 @@ export default function ModerationPage() {
               Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}
-                  className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5"
+                  className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5"
                 >
                   <div className="h-4 w-1/2 animate-pulse rounded bg-border" />
                   <div className="mt-3 h-8 w-1/3 animate-pulse rounded bg-border" />
@@ -878,42 +878,42 @@ export default function ModerationPage() {
               ))
             ) : (
               <>
-                <div className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
-                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[var(--ink-muted)]">
-                    <AlertTriangle className="h-4 w-4 text-yellow-400" />
-                    Pending Reports
+                <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[var(--ink-muted)]">
+                    <AlertTriangle className="h-4 w-4 text-[var(--ink-muted)]" />
+                    Pending reports
                   </div>
-                  <p className="mt-2 text-3xl font-bold text-[var(--ink)]">
+                  <p className="mt-2 acct-num text-3xl font-semibold text-[var(--ink)]">
                     {stats.pendingReports}
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
-                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[var(--ink-muted)]">
-                    <Clock className="h-4 w-4 text-[var(--amber-2)]" />
-                    Pending Recipes
+                <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[var(--ink-muted)]">
+                    <Clock className="h-4 w-4 text-[var(--ink-muted)]" />
+                    Pending recipes
                   </div>
-                  <p className="mt-2 text-3xl font-bold text-[var(--ink)]">
+                  <p className="mt-2 acct-num text-3xl font-semibold text-[var(--ink)]">
                     {stats.pendingRecipes}
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
-                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[var(--ink-muted)]">
-                    <Users className="h-4 w-4 text-green-700" />
-                    Total Users
+                <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[var(--ink-muted)]">
+                    <Users className="h-4 w-4 text-[var(--ink-muted)]" />
+                    Total users
                   </div>
-                  <p className="mt-2 text-3xl font-bold text-[var(--ink)]">
+                  <p className="mt-2 acct-num text-3xl font-semibold text-[var(--ink)]">
                     {stats.totalUsers}
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
-                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-[var(--ink-muted)]">
-                    <MessageSquare className="h-4 w-4 text-blue-400" />
-                    Total Comments
+                <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[var(--ink-muted)]">
+                    <MessageSquare className="h-4 w-4 text-[var(--ink-muted)]" />
+                    Total comments
                   </div>
-                  <p className="mt-2 text-3xl font-bold text-[var(--ink)]">
+                  <p className="mt-2 acct-num text-3xl font-semibold text-[var(--ink)]">
                     {stats.totalComments}
                   </p>
                 </div>

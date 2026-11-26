@@ -81,7 +81,7 @@ export default function RecipeMicPick({
               </h3>
               <p className="mic-pick-note">
                 {hedged
-                  ? "The source doesn't name the mic — this is the standard choice for this sound, and what the chain above assumes."
+                  ? "The source doesn't name the mic. This is the standard choice for this sound, and what the chain above assumes."
                   : "Still made, still the studio default. The cheapest part of this chain to get right."}
               </p>
             </div>
@@ -112,7 +112,7 @@ export default function RecipeMicPick({
       })}
 
       <p className="mic-pick-disclosure">
-        Affiliate links — we may earn a commission at no extra cost to you,
+        Affiliate links. We may earn a commission at no extra cost to you,
         and as an Amazon Associate we earn from qualifying purchases. The mic
         is listed because the chain uses it, not because anyone paid for the
         placement.

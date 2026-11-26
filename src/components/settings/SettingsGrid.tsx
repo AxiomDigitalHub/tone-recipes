@@ -41,23 +41,21 @@ export default function SettingsGrid({
   const gapPx = GAP_MAP[gap];
 
   const wrapperStyle: CSSProperties = {
-    // Chassis look — thin border, inset panel feel. Matches the dark UI.
+    // Wash tile: no border, no shadow, squircle corners.
     display: "block",
     padding: "24px",
     margin: "20px 0",
-    borderRadius: 14,
-    border: "1px solid var(--color-border, #1e2840)",
-    backgroundColor: "var(--color-surface, rgba(11, 15, 26, 0.6))",
-    // Subtle inner shadow for the "panel" depth cue. Accessibility-safe.
-    boxShadow:
-      "inset 0 1px 0 rgba(255,255,255,0.02), 0 1px 2px rgba(0,0,0,0.4)",
+    borderRadius: "var(--fk-r-lg, 20px)",
+    border: 0,
+    backgroundColor: "var(--fk-wash, #f6f6f4)",
+    color: "var(--fk-ink, #131416)",
   };
 
   const headerStyle: CSSProperties = {
     marginBottom: title || subtitle ? 18 : 0,
     display: "flex",
     flexDirection: "column",
-    gap: 2,
+    gap: 4,
   };
 
   const gridStyle: CSSProperties = {
@@ -69,17 +67,16 @@ export default function SettingsGrid({
   };
 
   return (
-    <div style={wrapperStyle}>
+    <div className="fk-settings-grid" style={wrapperStyle}>
       {(title || subtitle) && (
         <div style={headerStyle}>
           {title && (
             <div
               style={{
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "var(--color-accent, #f59e0b)",
+                fontSize: 16,
+                lineHeight: "22px",
+                fontWeight: 600,
+                color: "var(--fk-ink, #131416)",
               }}
             >
               {title}
@@ -89,8 +86,9 @@ export default function SettingsGrid({
             <div
               style={{
                 fontSize: 14,
-                fontWeight: 600,
-                color: "var(--color-foreground, #e2e8f0)",
+                lineHeight: "20px",
+                fontWeight: 400,
+                color: "var(--fk-ink-2, #4a4f55)",
               }}
             >
               {subtitle}

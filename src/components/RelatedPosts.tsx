@@ -1,16 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 import { findRelatedPosts } from "@/lib/related-posts";
-import { getCallNumber } from "@/lib/blog";
 import type { ToneRecipe } from "@/types/recipe";
 
 /**
- * "Field notes on this tone" — links a recipe page into the blog. The
+ * "Field notes on this tone": links a recipe page into the blog. The
  * reverse of RelatedRecipes.tsx; renders nothing when no post genuinely
  * matches (precision over coverage; see src/lib/related-posts.ts).
  *
- * Markup mirrors the "Also filed under" post cards on /blog/[slug]
- * (.feat-card with hero image) so it inherits the v3 theme untouched.
+ * Media cards (fk-card with 16:10 art), the same family as the recipe
+ * page's "More like this" row.
  */
 
 function formatDate(iso: string): string {
@@ -27,39 +27,36 @@ export function RelatedPosts({ recipe }: { recipe: ToneRecipe }) {
   if (matches.length === 0) return null;
 
   return (
-    <div className="related" data-testid="related-posts">
-      <h3 className="display">Field notes on this tone</h3>
-      <div className="feat-grid">
+    <section className="fk-related" data-testid="related-posts">
+      <div className="fk-related-head">
+        <h3 className="fk-t2">Field notes on this tone</h3>
+      </div>
+      <div className="fk-card-grid fk-related-grid">
         {matches.map((m) => (
-          <div key={m.post.slug} style={{ gridColumn: "span 4" }}>
-            <Link
-              href={`/blog/${m.post.slug}`}
-              className="feat-card"
-              style={{ display: "block" }}
-            >
-              <div className="feat-card-num">
-                No. {getCallNumber(m.post.slug)}
+          <Link key={m.post.slug} href={`/blog/${m.post.slug}`} className="fk-card">
+            <div className="fk-card-art is-wide">
+              {m.post.image && (
+                <Image
+                  src={m.post.image}
+                  alt={m.post.imageAlt ?? m.post.title}
+                  fill
+                  unoptimized
+                  sizes="(max-width: 960px) 50vw, 360px"
+                  style={{ objectFit: "cover" }}
+                />
+              )}
+            </div>
+            <div className="fk-card-body">
+              <div className="fk-card-head">
+                <h4 className="fk-t3">{m.post.headline}</h4>
+                <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
               </div>
-              <div className="feat-card-art">
-                {m.post.image && (
-                  <Image
-                    src={m.post.image}
-                    alt={m.post.imageAlt ?? m.post.title}
-                    fill
-                    unoptimized
-                    sizes="(max-width: 960px) 33vw, 300px"
-                    style={{ objectFit: "cover" }}
-                  />
-                )}
-              </div>
-              <div className="feat-card-song">{m.post.headline}</div>
-              <div className="feat-card-artist">
-                {m.post.author} · {formatDate(m.post.date)}
-              </div>
-            </Link>
-          </div>
+              <p className="fk-body-sm">{m.post.author}</p>
+              <p className="fk-card-meta">{formatDate(m.post.date)}</p>
+            </div>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

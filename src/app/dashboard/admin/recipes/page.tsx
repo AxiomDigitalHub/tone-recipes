@@ -48,16 +48,16 @@ export default function AdminRecipesList() {
         </div>
         <Link
           href="/admin/recipes/new"
-          className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
+          className="fk-btn fk-btn-sm"
         >
-          + Add Recipe
+          + Add recipe
         </Link>
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg border border-[var(--ink-faint)]">
+      <div className="overflow-x-auto rounded-lg border border-[var(--fk-line)]">
         <table className="w-full text-left text-sm">
-          <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
+          <thead className="border-b border-[var(--fk-line)] bg-[var(--paper-2)] text-xs text-[var(--ink-muted)]">
             <tr>
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3">Artist</th>
@@ -71,7 +71,7 @@ export default function AdminRecipesList() {
             {rows.map((row) => (
               <tr
                 key={row.slug}
-                className="border-b border-[var(--ink-faint)] transition-colors hover:bg-[var(--paper-2)]"
+                className="border-b border-[var(--fk-line)] transition-colors hover:bg-[var(--paper-2)]"
               >
                 <td className="px-4 py-3 font-medium text-[var(--ink)]">
                   {row.title}
@@ -83,7 +83,7 @@ export default function AdminRecipesList() {
                 </td>
                 <td className="px-4 py-3 text-center">
                   {row.isEditorial ? (
-                    <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-medium text-[var(--amber-2)]">
+                    <span className="rounded-full border border-[var(--fk-line)] bg-[var(--paper)] px-2 py-0.5 text-xs font-medium text-[var(--ink-muted)]">
                       Editorial
                     </span>
                   ) : (
@@ -95,7 +95,7 @@ export default function AdminRecipesList() {
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/recipe/${row.slug}`}
-                    className="text-xs text-[var(--amber-2)] hover:underline"
+                    className="text-xs text-[var(--ink)] underline underline-offset-2"
                   >
                     View
                   </Link>
@@ -108,7 +108,7 @@ export default function AdminRecipesList() {
                   colSpan={6}
                   className="px-4 py-8 text-center text-[var(--ink-muted)]"
                 >
-                  No recipes yet. Click &quot;Add Recipe&quot; to create one.
+                  No recipes yet. Click &quot;Add recipe&quot; to create one.
                 </td>
               </tr>
             )}

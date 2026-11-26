@@ -1,0 +1,576 @@
+/* Redesign pass 9 (account). Loads after redesign.css.
+
+   Account dashboard, admin, sign-in and sign-up, overlays, toasts and the
+   Spotify frame. The account pages keep their v3 markup under the step 8
+   blanket rules, so most rules here start with .fk-preview main#main-content:
+   the id lifts them above both v3 (two classes) and step 8 (three classes
+   and attributes) without touching either file. */
+
+/* ══════════════════════════════════════════════════════════════════════
+   Shared controls inside the account pages
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Old v3 hero buttons read as the fk pill buttons. */
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--fk-control-h-sm);
+  padding: 0 20px;
+  border: 1px solid var(--fk-ink);
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  font-family: var(--fk-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .hero-cta:hover {
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  opacity: 0.78;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .hero-cta-secondary,
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .hero-cta-secondary:hover {
+  background: transparent;
+  color: var(--fk-ink);
+  border-color: var(--fk-line-strong);
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .hero-cta:disabled { opacity: 0.45; cursor: not-allowed; }
+.fk-preview main#main-content .auth-page .hero-cta.auth-submit { width: 100%; min-height: var(--fk-control-h); }
+
+/* fk-btn inside a step 8 page: the blanket rule greys every button border. */
+.fk-preview main#main-content .dashboard-page .fk-btn {
+  border-color: var(--fk-ink);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  font-family: var(--fk-sans);
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.fk-preview main#main-content .dashboard-page .fk-btn-secondary {
+  border-color: var(--fk-line-strong);
+  background: transparent;
+  color: var(--fk-ink);
+}
+.fk-preview main#main-content .dashboard-page .fk-btn-xs {
+  height: 36px;
+  padding-left: 14px;
+  padding-right: 14px;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.fk-preview main#main-content .dashboard-page .fk-btn-danger {
+  color: var(--fk-danger);
+  border-color: var(--fk-line-strong);
+  background: transparent;
+}
+.fk-preview main#main-content .dashboard-page .fk-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Real data in mono: counts and stat numbers on the admin pages. */
+.fk-preview main#main-content .dashboard-page .acct-num {
+  font-family: var(--fk-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Fields: ink focus, never an amber ring. */
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-input {
+  min-height: var(--fk-control-h);
+  padding: 10px 16px;
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-paper);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+  font-size: 16px;
+  line-height: 24px;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-input:focus {
+  background: var(--fk-paper);
+  border-color: var(--fk-ink);
+  outline: 1px solid var(--fk-ink);
+  outline-offset: 0;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-input:disabled {
+  background: var(--fk-wash);
+  color: var(--fk-ink-3);
+  cursor: not-allowed;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--fk-ink-2);
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-hint {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-error { color: var(--fk-danger); font-size: 14px; }
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) :is(.auth-link, .auth-link-strong, .request-card-link, .request-card-link-strong) {
+  color: var(--fk-ink);
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.fk-preview main#main-content :is(.dashboard-page, .auth-page) .auth-link-strong { font-weight: 500; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Sign in and sign up
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview main#main-content .auth-card {
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  padding: 36px 32px 28px;
+}
+.fk-preview main#main-content .auth-title {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.fk-preview main#main-content .auth-sub { font-size: 15px; line-height: 22px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .auth-divider-label { font-size: 13px; color: var(--fk-ink-3); }
+.fk-preview main#main-content .auth-divider-rule { background: var(--fk-line); }
+.fk-preview main#main-content .auth-google {
+  min-height: var(--fk-control-h);
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-paper);
+  color: var(--fk-ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .auth-google:hover { background: var(--fk-wash); }
+.fk-preview main#main-content .auth-foot { font-size: 14px; color: var(--fk-ink-2); border-top-color: var(--fk-line); }
+.fk-preview main#main-content .auth-fineprint { font-size: 13px; line-height: 18px; color: var(--fk-ink-3); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Dashboard shell
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview main#main-content .dashboard-avatar {
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-wash);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.fk-preview main#main-content .dashboard-identity { border-bottom-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-identity-meta {
+  font-family: var(--fk-sans);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+/* Tier: a plain wash pill, the same for every plan. */
+.fk-preview main#main-content .dashboard-tier {
+  padding: 2px 10px;
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-wash);
+  color: var(--fk-ink-2);
+  font-family: var(--fk-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-name { font-weight: 600; letter-spacing: -0.02em; }
+@media (min-width: 921px) {
+  .fk-preview main#main-content .dashboard-sidebar { border-right-color: var(--fk-line); }
+  .fk-preview main#main-content .dashboard-sidebar .dept-list { display: flex; flex-direction: column; gap: 2px; }
+  .fk-preview main#main-content .dashboard-sidebar .dept-link {
+    border: 0;
+    border-radius: var(--fk-r-sm);
+    padding: 9px 12px;
+    color: var(--fk-ink-2);
+    font-weight: 400;
+  }
+  .fk-preview main#main-content .dashboard-sidebar .dept-link:hover { background: var(--fk-wash); color: var(--fk-ink); }
+  .fk-preview main#main-content .dashboard-sidebar .dept-link.is-active {
+    background: var(--fk-wash);
+    color: var(--fk-ink);
+    font-weight: 500;
+  }
+}
+
+/* Album covers on the account pages: rounded, flat wash behind. */
+.fk-preview main#main-content .dashboard-page .lp-art {
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+}
+.fk-preview main#main-content .dashboard-page .lp-art::before { display: none; }
+.fk-preview main#main-content .dashboard-page .lp-art .lp-cover-img { filter: none; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Dashboard pages
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview main#main-content .dashboard-page :is(.page-title, .dashboard-greeting-title, .dashboard-hero-title) {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.fk-preview main#main-content .dashboard-page .dashboard-inner-dek {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--fk-ink-2);
+}
+.fk-preview main#main-content .dashboard-greeting-dek { font-size: 16px; line-height: 26px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-personality {
+  border-bottom: 0;
+  color: var(--fk-ink);
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-page .recipe-issue {
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+.fk-preview main#main-content .dashboard-hero { border-bottom-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-hero-artist { color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-hero-cta-secondary,
+.fk-preview main#main-content .dashboard-section-all {
+  border-bottom: 0;
+  padding-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--fk-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.fk-preview main#main-content .dashboard-section-head { border-bottom-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-section-head h2 { font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -0.015em; }
+.fk-preview main#main-content .dashboard-section-dek { font-size: 14px; line-height: 20px; color: var(--fk-ink-3); }
+
+/* Get started and upgrade panels: wash tiles, no amber stripe. */
+.fk-preview main#main-content :is(.dashboard-activation, .dashboard-upgrade) {
+  border: 0;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+  padding: 24px;
+}
+.fk-preview main#main-content :is(.dashboard-activation, .dashboard-upgrade)::before { display: none; }
+.fk-preview main#main-content :is(.dashboard-activation-title, .dashboard-upgrade-title) { font-size: 22px; line-height: 28px; font-weight: 600; }
+.fk-preview main#main-content :is(.dashboard-activation-dek, .dashboard-upgrade-dek) { font-size: 14px; line-height: 20px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-activation-progress {
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-paper);
+  padding: 4px 12px;
+  font-family: var(--fk-mono);
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--fk-ink);
+}
+.fk-preview main#main-content .dashboard-activation-step {
+  border: 0;
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-paper);
+  padding: 14px 16px;
+}
+.fk-preview main#main-content .dashboard-activation-step:hover { background: var(--fk-paper); opacity: 0.85; }
+.fk-preview main#main-content .dashboard-activation-step.is-done { background: transparent; color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-activation-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-pill);
+  color: var(--fk-paper);
+}
+.fk-preview main#main-content .dashboard-activation-step.is-done .dashboard-activation-mark {
+  border-color: var(--fk-ink);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+}
+.fk-preview main#main-content .dashboard-activation-label { font-size: 15px; }
+.fk-preview main#main-content .dashboard-activation-step.is-done .dashboard-activation-label { text-decoration-color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-activation-cta {
+  border-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fk-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Account stats: separate wash tiles, plan value in plain ink. */
+.fk-preview main#main-content .dashboard-stats {
+  gap: 12px;
+  background: none;
+  border: 0;
+}
+.fk-preview main#main-content .dashboard-stat {
+  background: var(--fk-wash);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  padding: 16px 18px;
+}
+.fk-preview main#main-content .dashboard-stat-label { font-size: 13px; line-height: 18px; color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-stat-value {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fk-ink);
+}
+.fk-preview main#main-content .dashboard-stat-value.is-paid { padding-right: 0; }
+.fk-preview main#main-content .dashboard-stat-value.is-paid::after { content: none; }
+
+.fk-preview main#main-content .dashboard-quick-actions { gap: 12px; }
+.fk-preview main#main-content .dashboard-quick-action {
+  border: 0;
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-quick-action:hover { background: var(--fk-line-2); }
+
+/* Recipe cards on the overview and saved pages. */
+.fk-preview main#main-content .dashboard-card-title { font-size: 15px; line-height: 20px; font-weight: 500; }
+.fk-preview main#main-content .dashboard-card-artist { font-size: 14px; line-height: 20px; color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-card-meta {
+  font-family: var(--fk-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fk-ink-3);
+}
+
+/* Empty states: a wash tile. */
+.fk-preview main#main-content :is(.dashboard-empty, .dashboard-notif-empty) {
+  border: 0;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+}
+.fk-preview main#main-content .dashboard-empty-title { font-size: 22px; line-height: 28px; font-weight: 600; }
+.fk-preview main#main-content :is(.dashboard-empty-hint, .dashboard-notif-empty-dek) { font-size: 15px; line-height: 22px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-notif-empty-title { font-size: 18px; line-height: 24px; font-weight: 600; }
+.fk-preview main#main-content .dashboard-notif-empty-icon { color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-notif-retry {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fk-ink);
+  text-underline-offset: 3px;
+}
+
+/* Settings: saved note, billing card. */
+.fk-preview main#main-content .dashboard-inner-form-saved {
+  padding: 4px 12px;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-good-wash);
+  color: var(--fk-good);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-paper-card {
+  border: 0;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+  padding: 24px;
+}
+.fk-preview main#main-content .dashboard-paper-plan-name,
+.fk-preview main#main-content .dashboard-paper-plan-name.is-paid {
+  padding: 0;
+  background: none;
+  color: var(--fk-ink);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.fk-preview main#main-content .dashboard-paper-plan-price {
+  font-family: var(--fk-mono);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--fk-ink-2);
+}
+.fk-preview main#main-content :is(.dashboard-paper-plan-note, .dashboard-paper-card-foot) { font-size: 14px; line-height: 21px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-paper-card-foot { border-top-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-paper-spinner { border-width: 1.5px; }
+
+/* Notifications: unread is a wash row with an ink dot. */
+.fk-preview main#main-content .dashboard-notif-list { border-top-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-notif-row {
+  border-radius: 0;
+  border-bottom-color: var(--fk-line);
+  padding: 14px 12px;
+}
+.fk-preview main#main-content .dashboard-notif-row.is-unread { background: var(--fk-wash); }
+.fk-preview main#main-content .dashboard-notif-row:hover,
+.fk-preview main#main-content .dashboard-notif-row.is-unread:hover { background: var(--fk-line-2); }
+.fk-preview main#main-content .dashboard-notif-row-skeleton:hover { background: transparent; }
+.fk-preview main#main-content .dashboard-notif-icon,
+.fk-preview main#main-content .dashboard-notif-row.is-unread .dashboard-notif-icon {
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-paper);
+  color: var(--fk-ink-2);
+}
+.fk-preview main#main-content .dashboard-notif-row.is-read .dashboard-notif-icon { background: var(--fk-wash); }
+.fk-preview main#main-content .dashboard-notif-title { font-size: 15px; line-height: 21px; font-weight: 500; }
+.fk-preview main#main-content .dashboard-notif-meta {
+  font-family: var(--fk-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fk-ink-3);
+}
+.fk-preview main#main-content :is(.dashboard-notif-text, .dashboard-notif-actor) { font-size: 14px; line-height: 20px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-notif-skel-lines span { border-radius: var(--fk-r-pill); background: var(--fk-line-2); }
+
+/* My gear */
+.fk-preview main#main-content .dashboard-gear-list { border-top-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-gear-row { border-bottom-color: var(--fk-line); padding: 14px 0; }
+.fk-preview main#main-content .dashboard-gear-name { font-size: 16px; font-weight: 500; }
+.fk-preview main#main-content .dashboard-gear-type {
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+.fk-preview main#main-content .dashboard-gear-notes { font-size: 14px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-gear-remove {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-pill);
+  background: transparent;
+  color: var(--fk-ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-gear-remove:hover { border-color: var(--fk-ink); color: var(--fk-ink); }
+
+/* My recipes and your tones: chip tabs, plain status captions. */
+.fk-preview main#main-content .dashboard-myrx-tabs {
+  gap: 8px;
+  border: 0;
+  background: none;
+}
+.fk-preview main#main-content .dashboard-myrx-tab {
+  flex: 0 0 auto;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-pill);
+  background: transparent;
+  color: var(--fk-ink);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-myrx-tab:hover { background: var(--fk-wash); color: var(--fk-ink); }
+.fk-preview main#main-content .dashboard-myrx-tab.is-active {
+  border-color: var(--fk-ink);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-myrx-tab-count { font-family: var(--fk-mono); font-size: 12px; opacity: 0.7; }
+.fk-preview main#main-content .dashboard-myrx-list { border-top-color: var(--fk-line); }
+.fk-preview main#main-content .dashboard-myrx-row { border-bottom-color: var(--fk-line); padding: 18px 0; }
+.fk-preview main#main-content .dashboard-myrx-title { font-size: 18px; line-height: 24px; font-weight: 600; }
+.fk-preview main#main-content .dashboard-myrx-status {
+  padding: 2px 10px;
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-wash);
+  color: var(--fk-ink-2);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+.fk-preview main#main-content .dashboard-myrx-status-approved { background: var(--fk-good-wash); color: var(--fk-good); }
+.fk-preview main#main-content .dashboard-myrx-status-rejected { color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-myrx-status-flagged { color: var(--fk-danger); border-style: none; }
+.fk-preview main#main-content .dashboard-myrx-dek { font-size: 15px; line-height: 22px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-myrx-tag {
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+.fk-preview main#main-content .dashboard-myrx-foot { font-size: 13px; line-height: 18px; color: var(--fk-ink-3); }
+.fk-preview main#main-content .dashboard-myrx-modnote { font-size: 13px; color: var(--fk-ink-2); }
+.fk-preview main#main-content .dashboard-myrx-skel-line { border-radius: var(--fk-r-pill); background: var(--fk-line-2); }
+.fk-preview main#main-content .dashboard-mytones-artist { color: var(--fk-ink-3); }
+
+/* Admin tables (Tailwind markup): sentence-case heads, hairlines. */
+.fk-preview main#main-content .dashboard-page table th { font-size: 13px; font-weight: 500; color: var(--fk-ink-3); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Overlays (portalled to <body>, outside <main>)
+   ══════════════════════════════════════════════════════════════════════ */
+[role="dialog"][aria-modal="true"]:not(.fk-header-drawer) span.fk-modal-price {
+  font-family: var(--fk-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Toasts: paper card, hairline, ink text. Colour sits on the icon only. */
+.fk-overlay-scope.fk-toaster .fk-toast {
+  background: var(--fk-paper);
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  box-shadow: 0 12px 32px var(--fk-shadow);
+  color: var(--fk-ink);
+  font-family: var(--fk-sans);
+}
+.fk-overlay-scope.fk-toaster .fk-toast-body { font-size: 14px; line-height: 20px; color: var(--fk-ink); }
+.fk-overlay-scope.fk-toaster .fk-toast-icon { color: var(--fk-ink); }
+.fk-overlay-scope.fk-toaster .fk-toast-icon.is-good { color: var(--fk-good); }
+.fk-overlay-scope.fk-toaster .fk-toast-icon.is-danger { color: var(--fk-danger); }
+.fk-overlay-scope.fk-toaster .fk-toast-action {
+  color: var(--fk-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.fk-overlay-scope.fk-toaster .fk-toast-close {
+  border: 0;
+  border-radius: var(--fk-r-pill);
+  background: transparent;
+  color: var(--fk-ink-3);
+  cursor: pointer;
+}
+.fk-overlay-scope.fk-toaster .fk-toast-close:hover { background: var(--fk-wash); color: var(--fk-ink); }
+
+/* Spotify player: squircle radius to match the page. */
+.fk-preview iframe.fk-spotify {
+  display: block;
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+}

@@ -23,33 +23,24 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
-      <h1
-        className="mb-4 text-4xl font-bold text-foreground md:text-5xl"
-        style={{ letterSpacing: "-0.02em" }}
-      >
-        Something buzzed that shouldn&apos;t.
-      </h1>
-      <p className="mb-8 max-w-md text-lg text-muted">
-        This page hit an error. It&apos;s been logged — try again, or head
+    <div className="fk-wrap fk-notfound">
+      <h1 className="fk-display">Something buzzed that shouldn&apos;t.</h1>
+      <p className="fk-lead">
+        This page hit an error. It&apos;s been logged. Try again, or head
         back to the tones.
       </p>
-      <div className="flex flex-col gap-4 sm:flex-row">
-        <button
-          onClick={reset}
-          className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
-        >
+      <div className="fk-notfound-cta">
+        <button type="button" onClick={reset} className="fk-btn">
           Try again
         </button>
-        <Link
-          href="/browse"
-          className="rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface"
-        >
-          Browse the Tones
+        <Link href="/browse" className="fk-btn fk-btn-secondary">
+          Browse the tones
         </Link>
       </div>
       {error.digest && (
-        <p className="mt-8 text-xs text-muted">Error ref: {error.digest}</p>
+        <p className="fk-caption">
+          Error ref: <span className="fk-data">{error.digest}</span>
+        </p>
       )}
     </div>
   );

@@ -4,28 +4,16 @@ import Link from "next/link";
 import { Check, Info, AlertTriangle, X } from "lucide-react";
 import { useToastStore } from "@/lib/stores/toast-store";
 
-const TONE_STYLE: Record<
-  string,
-  { icon: typeof Check; border: string; bg: string; iconColor: string }
-> = {
-  success: {
-    icon: Check,
-    border: "border-emerald-500/40",
-    bg: "bg-emerald-500/10",
-    iconColor: "text-emerald-400",
-  },
-  error: {
-    icon: AlertTriangle,
-    border: "border-red-500/40",
-    bg: "bg-red-500/10",
-    iconColor: "text-red-400",
-  },
-  info: {
-    icon: Info,
-    border: "border-[var(--amber)]/40",
-    bg: "bg-[var(--amber)]/10",
-    iconColor: "text-[var(--amber-2)]",
-  },
+/*
+ * The toast stack renders outside .fk-preview, so it carries
+ * .fk-overlay-scope to get the design tokens. Paper card, hairline,
+ * ink text. Colour is only on the icon: good for success, danger for
+ * errors, ink for info. Styles live in redesign-account.css.
+ */
+const TONE_STYLE: Record<string, { icon: typeof Check; tone: string }> = {
+  success: { icon: Check, tone: "is-good" },
+  error: { icon: AlertTriangle, tone: "is-danger" },
+  info: { icon: Info, tone: "is-info" },
 };
 
 export default function Toaster() {
@@ -36,7 +24,7 @@ export default function Toaster() {
     <div
       aria-live="polite"
       aria-label="Notifications"
-      className="pointer-events-none fixed inset-x-0 bottom-4 z-[100] flex flex-col items-center gap-2 px-4 md:bottom-6 md:right-6 md:left-auto md:items-end"
+      className="fk-overlay-scope fk-toaster pointer-events-none fixed inset-x-0 bottom-4 z-[100] flex flex-col items-center gap-2 px-4 md:bottom-6 md:right-6 md:left-auto md:items-end"
     >
       {toasts.map((t) => {
         const s = TONE_STYLE[t.tone] ?? TONE_STYLE.info;
@@ -45,17 +33,14 @@ export default function Toaster() {
           <div
             key={t.id}
             role="status"
-            className={`pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-xl border ${s.border} ${s.bg} bg-[var(--paper)]/95 px-4 py-3 shadow-xl backdrop-blur-sm`}
+            className="fk-toast pointer-events-auto flex w-full max-w-sm items-start gap-3 px-4 py-3"
             style={{ animation: "fk-toast-in 200ms ease-out" }}
           >
-            <Icon className={`mt-0.5 h-4 w-4 shrink-0 ${s.iconColor}`} />
-            <div className="flex-1 text-sm leading-snug text-[var(--ink)]">
+            <Icon className={`fk-toast-icon mt-0.5 h-4 w-4 shrink-0 ${s.tone}`} />
+            <div className="fk-toast-body flex-1">
               {t.message}
               {t.action && (
-                <Link
-                  href={t.action.href}
-                  className="ml-2 inline-block font-semibold text-[var(--amber-2)] underline-offset-2 hover:underline"
-                >
+                <Link href={t.action.href} className="fk-toast-action ml-2 inline-block">
                   {t.action.label}
                 </Link>
               )}
@@ -64,7 +49,7 @@ export default function Toaster() {
               type="button"
               onClick={() => dismiss(t.id)}
               aria-label="Dismiss"
-              className="-mr-1 -mt-1 rounded p-1 text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper-2)] hover:text-[var(--ink)]"
+              className="fk-toast-close -mr-1 -mt-1 p-1"
             >
               <X className="h-3.5 w-3.5" />
             </button>

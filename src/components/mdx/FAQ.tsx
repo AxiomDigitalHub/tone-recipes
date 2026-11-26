@@ -52,14 +52,14 @@ export interface FAQProps {
   /** Alternative: render JSX children as the visible FAQ. You must still pass
    *  `questions` for the schema to emit. */
   children?: React.ReactNode;
-  /** Optional section title. Defaults to "Frequently Asked Questions". */
+  /** Optional section title. Defaults to "Questions". */
   title?: string;
 }
 
 export default function FAQ({
   questions,
   children,
-  title = "Frequently Asked Questions",
+  title = "Questions",
 }: FAQProps) {
   // Defensive: MDX can pass a non-array if the JSX prop serialization hits
   // an edge case during RSC rendering. Filter to valid {q, a} items.
@@ -92,7 +92,7 @@ export default function FAQ({
 
   return (
     <section
-      className="mx-auto my-10 max-w-3xl rounded-2xl border border-border bg-surface/40 p-6 md:p-8"
+      className="fk-mdx-faq"
       aria-labelledby="faq-heading"
     >
       {/* Structured data — invisible to readers, visible to Google / AI */}
@@ -102,25 +102,20 @@ export default function FAQ({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <h2
-        id="faq-heading"
-        className="mb-6 text-xl font-bold text-foreground md:text-2xl"
-      >
+      <h2 id="faq-heading" className="fk-mdx-faq-title">
         {title}
       </h2>
 
       {children ? (
         // If the author passes rich children, use those — the schema still
         // reflects `questions`. Useful for rendered examples, links, etc.
-        <div className="prose-dark">{children}</div>
+        <div className="fk-mdx-faq-rich">{children}</div>
       ) : (
-        <dl className="space-y-5">
+        <dl className="fk-mdx-faq-list">
           {safeQuestions.map((item) => (
-            <div key={item.q} className="border-b border-border/50 pb-5 last:border-0 last:pb-0">
-              <dt className="text-base font-semibold text-foreground md:text-lg">
-                {item.q}
-              </dt>
-              <dd className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted">
+            <div key={item.q}>
+              <dt>{item.q}</dt>
+              <dd className="whitespace-pre-line">
                 {item.a}
               </dd>
             </div>

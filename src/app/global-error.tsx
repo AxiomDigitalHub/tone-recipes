@@ -3,9 +3,13 @@
 /**
  * Last-resort boundary: catches errors thrown by the ROOT layout itself,
  * where error.tsx can't help. It replaces the entire document, so it must
- * render its own <html>/<body> and can't rely on globals.css — everything
- * is inlined, matching the dark global theme (#0a0a0f / #fafafa / #f59e0b).
+ * render its own <html>/<body> and can't rely on any stylesheet. Everything
+ * is inlined from the redesign tokens: white paper, ink type, ink pill.
  */
+const INK = "#131416";
+const INK_3 = "#666c73";
+const PAPER = "#ffffff";
+
 export default function GlobalError({
   error,
   reset,
@@ -21,41 +25,58 @@ export default function GlobalError({
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "center",
-          textAlign: "center",
-          padding: "0 16px",
-          background: "#0a0a0f",
-          color: "#fafafa",
-          fontFamily:
-            "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
+          gap: 20,
+          padding: "0 24px",
+          maxWidth: 1180,
+          marginInline: "auto",
+          boxSizing: "border-box",
+          background: PAPER,
+          color: INK,
+          fontFamily: "Geist, -apple-system, 'Helvetica Neue', Arial, sans-serif",
         }}
       >
-        <h1 style={{ fontSize: "2.25rem", fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 16 }}>
+        <h1
+          style={{
+            margin: 0,
+            fontSize: 48,
+            lineHeight: "52px",
+            fontWeight: 600,
+            letterSpacing: "-0.035em",
+          }}
+        >
           Fader &amp; Knob hit a wrong note.
         </h1>
-        <p style={{ maxWidth: 448, fontSize: "1.125rem", color: "#a1a1aa", marginBottom: 32 }}>
-          Something went wrong loading the site. Try again — if it keeps
+        <p style={{ margin: 0, maxWidth: 560, fontSize: 20, lineHeight: "30px", color: "#4a4f55" }}>
+          Something went wrong loading the site. Try again. If it keeps
           happening, we&apos;d appreciate a note at hello@faderandknob.com.
         </p>
         <button
+          type="button"
           onClick={reset}
           style={{
-            borderRadius: 8,
-            background: "#f59e0b",
-            color: "#0a0a0f",
-            padding: "12px 24px",
-            fontSize: "0.875rem",
-            fontWeight: 600,
-            border: "none",
+            marginTop: 12,
+            height: 48,
+            padding: "0 22px",
+            borderRadius: 999,
+            background: INK,
+            color: PAPER,
+            border: `1px solid ${INK}`,
+            fontFamily: "inherit",
+            fontSize: 15,
+            fontWeight: 500,
             cursor: "pointer",
           }}
         >
           Try again
         </button>
         {error.digest && (
-          <p style={{ marginTop: 32, fontSize: "0.75rem", color: "#a1a1aa" }}>
-            Error ref: {error.digest}
+          <p style={{ margin: 0, fontSize: 13, lineHeight: "18px", color: INK_3 }}>
+            Error ref:{" "}
+            <span style={{ fontFamily: "'Geist Mono', ui-monospace, Menlo, Consolas, monospace" }}>
+              {error.digest}
+            </span>
           </p>
         )}
       </body>

@@ -19,7 +19,7 @@ export default function SpotifyEmbed({
       height={height}
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
-      className="rounded-xl border-0"
+      className="fk-spotify border-0"
       title="Listen on Spotify"
     />
   );
