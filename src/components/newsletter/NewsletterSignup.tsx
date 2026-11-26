@@ -58,99 +58,100 @@ export default function NewsletterSignup({
 
   if (status === "success") {
     return (
-      <div className={`flex items-center justify-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-6 text-center ${className}`}>
-        <Check className="h-5 w-5 text-emerald-400" />
-        <p className="font-medium text-emerald-400">
-          You&apos;re in!
-        </p>
+      <div className={`fk-nl fk-nl-success ${className}`}>
+        <Check className="h-5 w-5" aria-hidden />
+        <p>You&apos;re in!</p>
       </div>
     );
   }
 
   if (variant === "banner") {
     return (
-      <div className={`rounded-xl border border-[var(--amber)]/20 bg-[var(--amber)]/5 p-6 sm:p-8 ${className}`}>
-        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-[var(--ink)]">{headline}</h3>
-            <p className="mt-1 text-sm text-[var(--ink-muted)]">{subtext}</p>
+      <div className={`fk-nl fk-nl-banner ${className}`}>
+        <div className="fk-nl-banner-row">
+          <div className="fk-nl-copy">
+            <h3 className="fk-nl-title">{headline}</h3>
+            <p className="fk-nl-sub">{subtext}</p>
           </div>
-          <form onSubmit={handleSubmit} className="flex w-full gap-2 sm:w-auto">
+          <form onSubmit={handleSubmit} className="fk-nl-form">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper-2)] px-4 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none sm:w-64"
+              aria-label="Email address"
+              className="fk-input fk-nl-input"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="shrink-0 rounded-lg bg-[var(--amber)] px-5 py-2.5 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--amber-2)] disabled:opacity-50"
+              className="fk-btn fk-nl-btn"
             >
               {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : buttonText}
             </button>
           </form>
         </div>
-        {errorMsg && <p className="mt-2 text-center text-xs text-red-400">{errorMsg}</p>}
+        {errorMsg && <p className="fk-nl-error">{errorMsg}</p>}
       </div>
     );
   }
 
   if (variant === "footer") {
     return (
-      <div className={className}>
-        <h4 className="text-sm font-semibold text-[var(--ink)]">{headline}</h4>
-        <p className="mt-1 text-xs text-[var(--ink-muted)]">{subtext}</p>
-        <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
+      <div className={`fk-nl fk-nl-footer ${className}`}>
+        <h4 className="fk-nl-title">{headline}</h4>
+        <p className="fk-nl-sub">{subtext}</p>
+        <form onSubmit={handleSubmit} className="fk-nl-form">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             required
-            className="flex-1 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none"
+            aria-label="Email address"
+            className="fk-input fk-nl-input"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="shrink-0 rounded-lg bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--amber-2)] disabled:opacity-50"
+            className="fk-btn fk-btn-sm fk-nl-btn"
           >
             {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : buttonText}
           </button>
         </form>
-        {errorMsg && <p className="mt-1 text-xs text-red-400">{errorMsg}</p>}
+        {errorMsg && <p className="fk-nl-error">{errorMsg}</p>}
       </div>
     );
   }
 
   // Default: card variant
   return (
-    <div className={`rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8 text-center sm:p-10 ${className}`}>
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[var(--amber)]/10">
-        <Mail className="h-6 w-6 text-[var(--amber-2)]" />
+    <div className={`fk-nl fk-nl-card ${className}`}>
+      <div className="fk-nl-icon" aria-hidden>
+        <Mail className="h-6 w-6" />
       </div>
-      <h3 className="mt-4 text-xl font-bold text-[var(--ink)]">{headline}</h3>
-      <p className="mx-auto mt-2 max-w-md text-sm text-[var(--ink-muted)]">{subtext}</p>
-      <form onSubmit={handleSubmit} className="mx-auto mt-6 flex max-w-sm flex-col gap-3 sm:flex-row">
+      <h3 className="fk-nl-title">{headline}</h3>
+      <p className="fk-nl-sub">{subtext}</p>
+      <form onSubmit={handleSubmit} className="fk-nl-form">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
-          className="flex-1 rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-4 py-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-muted)] focus:border-[var(--amber)] focus:outline-none focus:ring-1 focus:ring-[var(--amber)]"
+          aria-label="Email address"
+          className="fk-input fk-nl-input"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="shrink-0 rounded-lg bg-[var(--amber)] px-6 py-3 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] disabled:opacity-50"
+          className="fk-btn fk-nl-btn"
         >
           {status === "loading" ? <Loader2 className="mx-auto h-4 w-4 animate-spin" /> : buttonText}
         </button>
       </form>
-      {errorMsg && <p className="mt-2 text-xs text-red-400">{errorMsg}</p>}
+      {errorMsg && <p className="fk-nl-error">{errorMsg}</p>}
     </div>
   );
 }

@@ -20,78 +20,26 @@ export default function RecipeAudioDemo({
   );
 
   return (
-    <section
-      className="recipe-audio-demo"
-      style={{
-        margin: "2rem 0",
-        padding: "1.25rem 1.5rem",
-        borderRadius: "0.75rem",
-        border: "1px solid color-mix(in srgb, var(--ink) 15%, transparent)",
-        background: "var(--paper-2)",
-      }}
-      aria-label="Tone demo"
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          gap: "1rem",
-          marginBottom: "0.75rem",
-        }}
-      >
-        <h2 style={{ fontSize: "1.05rem", fontWeight: 700, margin: 0 }}>
-          Hear this tone
-        </h2>
-        <span
-          style={{
-            fontSize: "0.75rem",
-            fontWeight: 600,
-            color: "var(--amber-2)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          ✓ Verified · rendered {verified}
-        </span>
+    <section className="fk-tile recipe-audio-demo fk-audio-demo" aria-label="Tone demo">
+      <div className="fk-audio-demo-head">
+        <h2 className="fk-t3">Hear this tone</h2>
+        <span className="fk-caption">Verified, rendered {verified}</span>
       </div>
 
-      <p
-        style={{
-          fontSize: "0.9rem",
-          color: "var(--ink-muted)",
-          margin: "0 0 0.75rem",
-        }}
-      >
-        {demo.caption}
-      </p>
+      <p className="fk-body-sm">{demo.caption}</p>
 
       {demo.video_url ? (
-        <video
-          controls
-          preload="none"
-          poster={undefined}
-          style={{ width: "100%", borderRadius: "0.5rem", background: "#000" }}
-        >
+        <video controls preload="none" poster={undefined} className="fk-audio-demo-media">
           <source src={demo.video_url} type="video/mp4" />
           <source src={demo.audio_url} type="audio/mpeg" />
         </video>
       ) : (
-        <audio controls preload="none" style={{ width: "100%" }}>
+        <audio controls preload="none" className="fk-audio-demo-audio">
           <source src={demo.audio_url} type="audio/mpeg" />
         </audio>
       )}
 
-      {demo.source_note && (
-        <p
-          style={{
-            fontSize: "0.75rem",
-            color: "var(--ink-muted)",
-            margin: "0.75rem 0 0",
-          }}
-        >
-          {demo.source_note}
-        </p>
-      )}
+      {demo.source_note && <p className="fk-caption">{demo.source_note}</p>}
     </section>
   );
 }

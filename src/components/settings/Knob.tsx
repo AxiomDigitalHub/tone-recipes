@@ -7,8 +7,8 @@ import type { CSSProperties } from "react";
  * Visual language (locked 2026-04, tightened 2026-04-17):
  *   - Sweep: 270° from 7 o'clock (min) to 5 o'clock (max), matching guitar
  *     amp knob convention. Straight-up pointer (12 o'clock) = middle value.
- *   - Body: dark fill with thin border ring and minor tick marks.
- *   - Pointer: accent-color line from center toward current angle.
+ *   - Body: paper fill with a hairline ring and minor tick marks.
+ *   - Pointer: ink line from center toward current angle.
  *   - Neutral marker: brighter tick on outer ring at the parameter's neutral
  *     value (center-detent for bipolar params, factory default otherwise).
  *   - Value: large number centered INSIDE the knob body. No sweep arc —
@@ -16,7 +16,7 @@ import type { CSSProperties } from "react";
  *   - Bipolar formatting: values render with explicit sign (+/-) when the
  *     range crosses zero, so a center-detent control like cab Level reads
  *     as "+3 dB" or "-6 dB".
- *   - Label: small-caps uppercase below.
+ *   - Label: sentence-case caption below, as written by the author.
  *
  * Accessibility:
  *   - role="meter" with aria-valuenow, aria-valuemin, aria-valuemax
@@ -25,7 +25,7 @@ import type { CSSProperties } from "react";
  */
 
 export interface KnobProps {
-  /** Setting name, e.g. "Gain", "Threshold". Rendered as lowercase-uppercase label. */
+  /** Setting name, e.g. "Gain", "Threshold". Rendered as written. */
   name: string;
   /** Current value. Clamped to [min, max] when rotating the pointer. */
   value: number;
@@ -40,7 +40,7 @@ export interface KnobProps {
   /** Override the printed value (e.g. "5.5–6.0" for a range). The pointer still
    *  uses the numeric `value`. */
   display?: string;
-  /** Optional color override for the pointer + value arc. Defaults to --accent. */
+  /** Optional color override for the pointer. Defaults to ink. */
   color?: string;
   /** Optional neutral/default value. When provided, a small marker tick is
    *  drawn at that position on the knob body so the reader can see at a
@@ -51,9 +51,9 @@ export interface KnobProps {
 }
 
 const SIZE_MAP = {
-  sm: { outer: 56, stroke: 1.5, valueSize: 14, labelSize: 9 },
-  md: { outer: 88, stroke: 2, valueSize: 18, labelSize: 10 },
-  lg: { outer: 128, stroke: 2.5, valueSize: 26, labelSize: 11 },
+  sm: { outer: 56, stroke: 1.5, valueSize: 13, labelSize: 12 },
+  md: { outer: 88, stroke: 2, valueSize: 16, labelSize: 13 },
+  lg: { outer: 128, stroke: 2.5, valueSize: 22, labelSize: 14 },
 } as const;
 
 /** Sweep from 7 o'clock to 5 o'clock, clockwise. 270° total travel. */
@@ -134,11 +134,13 @@ export default function Knob({
   const printed = display ?? formatValue(value, min, max, isBipolar);
   const ariaLabel = `${name}: ${printed}${unit ? ` ${unit}` : ""}`;
 
-  // CSS var fallback; explicit `color` overrides.
-  const accentColor = color ?? "var(--color-accent, #f59e0b)";
-  const bodyFill = "var(--color-surface, #0b0f1a)";
-  const borderColor = "var(--color-border, #1e2840)";
-  const mutedColor = "var(--color-muted, #5a6880)";
+  // Redesign tokens (declared on :root, so they resolve everywhere).
+  // Explicit `color` overrides the pointer.
+  const accentColor = color ?? "var(--fk-ink, #131416)";
+  const bodyFill = "var(--fk-paper, #ffffff)";
+  const borderColor = "var(--fk-line, #dcdfe2)";
+  const mutedColor = "var(--fk-ink-3, #666c73)";
+  const inkColor = "var(--fk-ink, #131416)";
 
   // Pointer line: from center up to just inside the body edge, rotated to angle.
   // Inline style for the transform so SSR and client match.
@@ -216,7 +218,7 @@ export default function Knob({
               y1={outerP.y}
               x2={innerP.x}
               y2={innerP.y}
-              stroke="var(--color-foreground, #e2e8f0)"
+              stroke={inkColor}
               strokeWidth={stroke + 0.5}
               strokeLinecap="round"
               opacity={0.55}
@@ -246,9 +248,10 @@ export default function Knob({
           textAnchor="middle"
           dominantBaseline="central"
           style={{
+            fontFamily: "var(--fk-mono, ui-monospace, monospace)",
             fontSize: valueSize,
-            fontWeight: 700,
-            fill: "var(--color-foreground, #e2e8f0)",
+            fontWeight: 500,
+            fill: inkColor,
             fontVariantNumeric: "tabular-nums",
           }}
         >
@@ -258,7 +261,7 @@ export default function Knob({
               dx={3}
               style={{
                 fontSize: valueSize * 0.5,
-                fontWeight: 500,
+                fontWeight: 400,
                 fill: mutedColor,
               }}
             >
@@ -271,12 +274,12 @@ export default function Knob({
       {/* Label */}
       <div
         style={{
+          fontFamily: "var(--fk-sans, sans-serif)",
           fontSize: labelSize,
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: mutedColor,
-          lineHeight: 1,
+          fontWeight: 400,
+          color: "var(--fk-ink-2, #4a4f55)",
+          lineHeight: 1.3,
+          textAlign: "center",
         }}
       >
         {name}

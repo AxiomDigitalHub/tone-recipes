@@ -3,9 +3,9 @@ import { getRecipeBySlug, getSongBySlug, getArtistBySlug } from "@/lib/data";
 import TrackedLink from "@/components/analytics/TrackedLink";
 
 /**
- * <SaveThisTone> — end-of-post CTA. Two variants:
+ * <SaveThisTone>: end-of-post CTA. Two variants:
  *
- *   1. Recipe-linked: pass `recipeSlug` — the CTA links to the recipe page
+ *   1. Recipe-linked: pass `recipeSlug`. The CTA links to the recipe page
  *      and pulls song/artist for the heading.
  *
  *        <SaveThisTone recipeSlug="srv-pride-and-joy-rhythm" />
@@ -13,9 +13,9 @@ import TrackedLink from "@/components/analytics/TrackedLink";
  *   2. Freeform: pass `title` + `description` + `href` manually. Use for
  *      thematic links to /browse filters.
  *
- * Styled with raw v3 paper/ink/amber CSS vars so it renders correctly
- * inside `.fk-preview .post-body` (the editorial blog body) and would
- * still degrade gracefully outside it.
+ * A wash tile with an ink pill and a secondary pill. Styles live in
+ * redesign-components.css (.fk-stt), so it reads the same inside the
+ * guide prose (.fk-prose) and anywhere else.
  */
 
 export interface SaveThisToneProps {
@@ -47,7 +47,7 @@ export default function SaveThisTone({
 
       resolvedTitle =
         title ??
-        (artist && song ? `${song.title} — ${artist.name}` : recipe.title);
+        (artist && song ? `${song.title}, ${artist.name}` : recipe.title);
       resolvedDescription =
         description ??
         "The full chain, exact settings, and a preset you can load.";
@@ -65,52 +65,17 @@ export default function SaveThisTone({
   const finalCtaLabel = resolvedCtaLabel ?? "Browse the catalog";
 
   return (
-    <aside
-      className="my-12"
-      style={{
-        borderTop: "3px solid var(--ink, #0A0908)",
-        borderBottom: "1px solid var(--paper-line, rgba(10,9,8,0.12))",
-        paddingTop: "20px",
-        paddingBottom: "24px",
-      }}
-    >
-      <p
-        className="text-[10px] font-bold uppercase tracking-[0.2em]"
-        style={{ color: "var(--amber-2, #B37A1D)" }}
-      >
-        Save this tone
-      </p>
-      <h2
-        className="display mt-2 text-2xl md:text-3xl"
-        style={{ color: "var(--ink, #0A0908)", lineHeight: 1.15 }}
-      >
-        {finalTitle}
-      </h2>
-      <p
-        className="mt-2 max-w-2xl text-base leading-relaxed"
-        style={{ color: "var(--ink-muted, #5F5A52)" }}
-      >
-        {finalDescription}
-      </p>
+    <aside className="fk-tile fk-stt">
+      <h2 className="fk-t3 fk-stt-title">{finalTitle}</h2>
+      <p className="fk-body-sm fk-stt-desc">{finalDescription}</p>
 
       {platforms.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {platforms.map((p) => (
-            <span
-              key={p}
-              className="px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em]"
-              style={{
-                border: "1px solid var(--ink, #0A0908)",
-                color: "var(--ink, #0A0908)",
-              }}
-            >
-              {formatPlatform(p)}
-            </span>
-          ))}
-        </div>
+        <p className="fk-caption fk-stt-platforms">
+          {platforms.map(formatPlatform).join(" · ")}
+        </p>
       )}
 
-      <div className="mt-5 flex flex-wrap gap-3">
+      <div className="fk-stt-actions">
         <TrackedLink
           href={finalHref}
           event="save_this_tone_click"
@@ -120,15 +85,10 @@ export default function SaveThisTone({
             source: "blog",
             cta: "primary",
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold no-underline transition-colors"
-          style={{
-            background: "var(--amber, #E4A235)",
-            color: "var(--ink, #0A0908)",
-            border: "1px solid var(--ink, #0A0908)",
-          }}
+          className="fk-btn fk-btn-sm"
         >
           {finalCtaLabel}
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-4 w-4" aria-hidden />
         </TrackedLink>
         {/* Secondary link only when the primary goes somewhere else, or the
             default CTA renders two identical "Browse the catalog" buttons. */}
@@ -142,12 +102,7 @@ export default function SaveThisTone({
             source: "blog",
             cta: "secondary",
           }}
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold no-underline transition-colors"
-          style={{
-            background: "transparent",
-            color: "var(--ink, #0A0908)",
-            border: "1px solid var(--ink, #0A0908)",
-          }}
+          className="fk-btn fk-btn-sm fk-btn-secondary"
         >
           Browse the catalog
         </TrackedLink>

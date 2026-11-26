@@ -108,7 +108,7 @@ export default function StarRating({
       </div>
 
       {(showAverage || showCount) && (
-        <span className={`${textSize} text-[var(--ink-muted)] ml-1`}>
+        <span className={`${textSize} ml-1`} style={{ color: "var(--fk-ink-3, #666c73)" }}>
           {showAverage && showCount
             ? `(${rating.toFixed(1)} / ${count.toLocaleString()} rating${count !== 1 ? "s" : ""})`
             : showAverage
@@ -152,7 +152,8 @@ function StarIcon({
     return (
       <Star
         size={size}
-        className={`${isHovered && interactive ? "text-yellow-400" : "text-yellow-500"} fill-current`}
+        className={`fill-current ${isHovered && interactive ? "opacity-70" : ""}`}
+        style={{ color: "var(--fk-ink, #131416)" }}
       />
     );
   }
@@ -161,7 +162,7 @@ function StarIcon({
     return (
       <Star
         size={size}
-        className="text-[var(--ink-muted)]"
+        style={{ color: "var(--fk-line-strong, #858b92)" }}
         strokeWidth={1.5}
       />
     );
@@ -179,7 +180,7 @@ function StarIcon({
     >
       <defs>
         <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset={`${fillPercentage}%`} stopColor="#eab308" />
+          <stop offset={`${fillPercentage}%`} stopColor="var(--fk-ink, #131416)" />
           <stop offset={`${fillPercentage}%`} stopColor="transparent" />
         </linearGradient>
       </defs>
@@ -190,7 +191,7 @@ function StarIcon({
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-[var(--ink-muted)]"
+        style={{ color: "var(--fk-ink, #131416)" }}
       />
     </svg>
   );

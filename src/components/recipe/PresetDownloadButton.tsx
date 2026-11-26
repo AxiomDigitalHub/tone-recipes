@@ -128,7 +128,7 @@ export default function PresetDownloadButton({
 
       const blob = await res.blob();
       saveBlob(blob, filenameFrom(res, recipeSlug));
-      toast.success("Downloaded — unzip and read INSTALL.txt first.");
+      toast.success("Downloaded. Unzip it and read INSTALL.txt first.");
     } catch (err) {
       console.error("preset download failed:", err);
       toast.error("Couldn't download. Try again.");

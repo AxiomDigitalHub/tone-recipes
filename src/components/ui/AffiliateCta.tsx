@@ -23,6 +23,7 @@
  */
 
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { track } from "@/lib/analytics";
 
 export interface AffiliateCtaProps {
@@ -106,7 +107,8 @@ export default function AffiliateCta({
         })
       }
     >
-      {retailer} <span aria-hidden="true">↗</span>
+      {retailer}
+      <ArrowUpRight className="aff-cta-icon" aria-hidden="true" />
     </a>
   );
 }

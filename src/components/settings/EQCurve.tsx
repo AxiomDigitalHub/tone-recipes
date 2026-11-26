@@ -12,7 +12,7 @@
  *   - Log-scale X axis from 20 Hz to 20 kHz
  *   - Linear Y axis from -12 dB to +12 dB (default; tunable)
  *   - Grid at 0 dB (prominent) and at every 100 Hz / 1 kHz / 10 kHz tick
- *   - Dark fill under the curve with accent color outline
+ *   - Soft ink fill under the curve with an ink outline
  *   - Small markers at each band's center frequency + a label
  *
  * Math (approximation):
@@ -50,7 +50,7 @@ export interface EQCurveProps {
   dbRange?: number;
   /** Size variant. Default "md". */
   size?: "sm" | "md" | "lg";
-  /** Accent color for the curve. Defaults to theme accent. */
+  /** Color for the curve. Defaults to ink. */
   color?: string;
   /** Optional title shown above the curve. */
   title?: string;
@@ -110,10 +110,11 @@ export default function EQCurve({
   const plotW = width - padX * 2;
   const plotH = height - padY * 2;
 
-  const accent = color ?? "var(--color-accent, #f59e0b)";
-  const gridColor = "var(--color-border, #1e2840)";
-  const textColor = "var(--color-muted, #5a6880)";
-  const zeroLineColor = "var(--color-muted, #5a6880)";
+  const accent = color ?? "var(--fk-ink, #131416)";
+  const gridColor = "var(--fk-line-strong, #858b92)";
+  const textColor = "var(--fk-ink-3, #666c73)";
+  const zeroLineColor = "var(--fk-ink-3, #666c73)";
+  const surface = "var(--fk-wash, #f6f6f4)";
 
   // Sample the curve at many points to draw a smooth path.
   const SAMPLES = 200;
@@ -151,22 +152,22 @@ export default function EQCurve({
     <div
       style={{
         display: "inline-block",
-        padding: 12,
-        borderRadius: 12,
-        border: `1px solid ${gridColor}`,
-        background: "var(--color-surface, rgba(11, 15, 26, 0.6))",
+        padding: 16,
+        borderRadius: "var(--fk-r-lg, 20px)",
+        border: 0,
+        background: surface,
+        color: "var(--fk-ink, #131416)",
         maxWidth: width + 24,
       }}
     >
       {title && (
         <div
           style={{
-            fontSize: 10,
-            fontWeight: 700,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: textColor,
-            marginBottom: 8,
+            fontSize: 15,
+            lineHeight: "20px",
+            fontWeight: 600,
+            color: "var(--fk-ink, #131416)",
+            marginBottom: 10,
           }}
         >
           {title}
@@ -217,7 +218,7 @@ export default function EQCurve({
         })}
 
         {/* Filled response area */}
-        <path d={fillData} fill={accent} opacity={0.14} />
+        <path d={fillData} fill={accent} opacity={0.08} />
 
         {/* Response curve line */}
         <path
@@ -237,7 +238,7 @@ export default function EQCurve({
           const y = padY + ((dbRange - clampedDb) / (dbRange * 2)) * plotH;
           return (
             <g key={i}>
-              <circle cx={x} cy={y} r={3} fill={accent} stroke="var(--color-surface, #0b0f1a)" strokeWidth={1.5} />
+              <circle cx={x} cy={y} r={3} fill={accent} stroke={surface} strokeWidth={1.5} />
             </g>
           );
         })}
@@ -253,6 +254,7 @@ export default function EQCurve({
               y={padY + plotH + 12}
               textAnchor="middle"
               style={{
+                fontFamily: "var(--fk-mono, ui-monospace, monospace)",
                 fontSize: labelSize,
                 fill: textColor,
                 fontVariantNumeric: "tabular-nums",
@@ -274,6 +276,7 @@ export default function EQCurve({
               y={y + labelSize * 0.35}
               textAnchor="end"
               style={{
+                fontFamily: "var(--fk-mono, ui-monospace, monospace)",
                 fontSize: labelSize,
                 fill: textColor,
                 fontVariantNumeric: "tabular-nums",

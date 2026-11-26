@@ -56,7 +56,7 @@ export default function GearShortlist({
       <div className="gear-shortlist-items">{children}</div>
 
       <p className="gear-shortlist-disclosure">
-        Our verdict is further down — nothing here is a recommendation yet.
+        Our verdict is further down. Nothing here is a recommendation yet.
         Affiliate links; as an Amazon Associate we earn from qualifying
         purchases, at no extra cost to you.
       </p>
@@ -102,7 +102,7 @@ export function GearShortlistItem({
         {price && (
           <span
             className="gear-shortlist-price"
-            title="Approximate street price — not a live retailer quote"
+            title="Approximate street price, not a live retailer quote"
           >
             Street {price}
           </span>

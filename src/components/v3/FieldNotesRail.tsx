@@ -20,33 +20,26 @@ export function FieldNotesRail({
   const writers = new Map(getAllWriters().map((w) => [w.slug, w]));
 
   return (
-    <section className="platform-section">
-      <div className="how-head">
-        <h2 className="display">{title}</h2>
-        <span className="section-rule" aria-hidden="true" />
-        <Link href="/blog" className="section-meta fnr-see-all">
+    <section className="platform-section fk-fnr">
+      <div className="fk-fnr-head">
+        <h2 className="fk-t2">{title}</h2>
+        <Link href="/blog" className="fk-link fk-label">
           All field notes →
         </Link>
       </div>
-      <div className="fnr-grid">
+      <div className="fk-fnr-grid">
         {posts.map((p) => {
           const writer = writers.get(p.authorSlug);
           const cat = BLOG_CATEGORIES[p.category] ?? p.category;
           return (
-            <Link
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="fnr-card"
-            >
-              <div className="fnr-card-meta">
-                <span className="fnr-card-cat">{cat}</span>
-                <span className="fnr-card-time">{p.readingTime}</span>
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="fk-fnr-card">
+              <div className="fk-fnr-meta">
+                <span className="fk-fnr-cat">{cat}</span>
+                <span className="fk-fnr-time">{p.readingTime}</span>
               </div>
-              <h3 className="fnr-card-title">{p.title}</h3>
-              <p className="fnr-card-dek">{p.description}</p>
-              <div className="fnr-card-byline">
-                <em>By {writer?.name ?? p.author}</em>
-              </div>
+              <h3 className="fk-fnr-title">{p.title}</h3>
+              <p className="fk-fnr-dek">{p.description}</p>
+              <div className="fk-fnr-byline">By {writer?.name ?? p.author}</div>
             </Link>
           );
         })}

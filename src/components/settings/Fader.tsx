@@ -5,8 +5,8 @@ import type { CSSProperties } from "react";
  * studio fader than a rotary knob: mix levels, thresholds in dB, filter
  * frequencies, time-based parameters.
  *
- * Same visual language family as <Knob>: thin strokes, dark body, accent-color
- * fill on the active portion, value + label below.
+ * Same visual language family as <Knob>: thin hairline strokes, paper body,
+ * ink handle, mono value and sentence-case label below.
  *
  * Use Fader for:
  *   - dB values with a large range (e.g. -60..0)
@@ -33,9 +33,9 @@ export interface FaderProps {
 }
 
 const SIZE_MAP = {
-  sm: { trackHeight: 72, width: 36, valueSize: 13, labelSize: 9 },
-  md: { trackHeight: 96, width: 48, valueSize: 16, labelSize: 10 },
-  lg: { trackHeight: 140, width: 64, valueSize: 22, labelSize: 11 },
+  sm: { trackHeight: 72, width: 36, valueSize: 13, labelSize: 12 },
+  md: { trackHeight: 96, width: 48, valueSize: 16, labelSize: 13 },
+  lg: { trackHeight: 140, width: 64, valueSize: 22, labelSize: 14 },
 } as const;
 
 function clamp(n: number, min: number, max: number): number {
@@ -68,10 +68,11 @@ export default function Fader({
   const printed = display ?? formatValue(value, isBipolar);
   const ariaLabel = `${name}: ${printed}${unit ? ` ${unit}` : ""}`;
 
-  const accentColor = color ?? "var(--color-accent, #f59e0b)";
-  const bodyFill = "var(--color-surface, #0b0f1a)";
-  const borderColor = "var(--color-border, #1e2840)";
-  const mutedColor = "var(--color-muted, #5a6880)";
+  const accentColor = color ?? "var(--fk-ink, #131416)";
+  const bodyFill = "var(--fk-paper, #ffffff)";
+  const borderColor = "var(--fk-line, #dcdfe2)";
+  const mutedColor = "var(--fk-ink-3, #666c73)";
+  const inkColor = "var(--fk-ink, #131416)";
 
   // Tick marks on the side of the track
   const tickCount = 5;
@@ -135,7 +136,7 @@ export default function Fader({
               y1={notchY}
               x2={width / 2 + notchHalfWidth}
               y2={notchY}
-              stroke="var(--color-foreground, #e2e8f0)"
+              stroke={inkColor}
               strokeWidth={1.5}
               strokeLinecap="round"
               opacity={0.45}
@@ -170,9 +171,10 @@ export default function Fader({
 
       <div
         style={{
+          fontFamily: "var(--fk-mono, ui-monospace, monospace)",
           fontSize: valueSize,
-          fontWeight: 700,
-          color: "var(--color-foreground, #e2e8f0)",
+          fontWeight: 500,
+          color: inkColor,
           fontVariantNumeric: "tabular-nums",
           lineHeight: 1,
         }}
@@ -182,7 +184,7 @@ export default function Fader({
           <span
             style={{
               fontSize: valueSize * 0.55,
-              fontWeight: 500,
+              fontWeight: 400,
               color: mutedColor,
               marginLeft: 2,
             }}
@@ -194,12 +196,12 @@ export default function Fader({
 
       <div
         style={{
+          fontFamily: "var(--fk-sans, sans-serif)",
           fontSize: labelSize,
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: mutedColor,
-          lineHeight: 1,
+          fontWeight: 400,
+          color: "var(--fk-ink-2, #4a4f55)",
+          lineHeight: 1.3,
+          textAlign: "center",
         }}
       >
         {name}

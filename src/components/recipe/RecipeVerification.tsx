@@ -36,7 +36,7 @@ function PresetRow({ result }: { result: PresetBuildResult }) {
       <span className="rv-preset-platform">{platformLabel(result.platform)}</span>{" "}
       <span className="rv-preset-verdict">
         {status === "failed" && "did not build"}
-        {status === "clean" && "builds complete — every block in the recipe is in the file"}
+        {status === "clean" && "builds complete. Every block in the recipe is in the file"}
         {status === "degraded" && (
           <>
             {dropped.length > 0 && (
@@ -69,7 +69,7 @@ function PresetRow({ result }: { result: PresetBuildResult }) {
           {substituted.length > 0 && (
             <p>
               <strong>Replaced with a stand-in:</strong> {substituted.join(", ")}. These load
-              cleanly but are <em>not</em> the model named above — the file will sound wrong here
+              cleanly but are <em>not</em> the model named above, so the file will sound wrong here
               until we map {substituted.length === 1 ? "it" : "them"}. Set{" "}
               {substituted.length === 1 ? "this block" : "these blocks"} by hand.
             </p>
@@ -77,7 +77,7 @@ function PresetRow({ result }: { result: PresetBuildResult }) {
           {result.omittedByDesign.length > 0 && (
             <p>
               <strong>Not applicable to this hardware:</strong>{" "}
-              {result.omittedByDesign.join(", ")}. Omitted on purpose — the target has no
+              {result.omittedByDesign.join(", ")}. Omitted on purpose: the target has no
               equivalent slot.
             </p>
           )}
@@ -108,7 +108,7 @@ export default function RecipeVerification({ recipe }: { recipe: ToneRecipe }) {
       <div className="rv-body">
         <div className="rv-group">
           <h5 className="rv-group-label">
-            Preset files — {cleanCount} of {v.presets.length} complete
+            Preset files: {cleanCount} of {v.presets.length} complete
           </h5>
           <ul className="rv-presets">
             {v.presets.map((p) => (
@@ -123,7 +123,7 @@ export default function RecipeVerification({ recipe }: { recipe: ToneRecipe }) {
               <dt>Helix DSP</dt>
               <dd>
                 {v.dsp.worstPathPercent}% of one chip
-                {v.dsp.fits ? " — fits" : " — over budget"}
+                {v.dsp.fits ? ", fits" : ", over budget"}
                 {v.dsp.unknownModels.length > 0 && (
                   <span className="rv-fact-caveat">
                     {" "}
@@ -144,7 +144,7 @@ export default function RecipeVerification({ recipe }: { recipe: ToneRecipe }) {
               {v.aggregatorOnly && (
                 <span className="rv-fact-caveat">
                   {" "}
-                  — every source here is an aggregator, tab site, video, or wiki. Treat the gear
+                  (every source here is an aggregator, tab site, video, or wiki). Treat the gear
                   list as less settled than usual.
                 </span>
               )}
@@ -155,7 +155,7 @@ export default function RecipeVerification({ recipe }: { recipe: ToneRecipe }) {
             <dt>Attribution</dt>
             <dd>
               {attribution.label}
-              <span className="rv-fact-caveat"> — {attribution.detail}</span>
+              <span className="rv-fact-caveat">. {attribution.detail}</span>
             </dd>
           </div>
         </div>

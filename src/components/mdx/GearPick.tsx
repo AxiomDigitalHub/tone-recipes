@@ -110,7 +110,6 @@ export default function GearPick({
     >
       <header className="gear-pick-head">
         <div className="gear-pick-kicker">
-          <span className="gear-pick-mark" aria-hidden="true">★</span>
           <span>Editor&rsquo;s pick</span>
           {price && (
             <>
@@ -121,7 +120,7 @@ export default function GearPick({
                   must never read as the price behind the Amazon button. */}
               <span
                 className="gear-pick-price"
-                title="Approximate street price when written — not a live retailer quote"
+                title="Approximate street price when written, not a live retailer quote"
               >
                 Street {price}
               </span>
@@ -184,7 +183,7 @@ export default function GearPick({
       </div>
 
       <p className="gear-pick-disclosure">
-        Affiliate links — we may earn a small commission at no extra cost
+        Affiliate links. We may earn a small commission at no extra cost
         to you, and as an Amazon Associate we earn from qualifying
         purchases. Picks are editorial; prices are approximate street
         prices, not live retailer quotes.
