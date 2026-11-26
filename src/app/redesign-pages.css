@@ -712,3 +712,47 @@
 
 /* Dates set in mono never break mid-date. */
 .fk-preview time.fk-data { white-space: nowrap; }
+
+/* Blog: "Learn your platform" is a row of logo tiles, one per platform. */
+.fk-preview .fk-learn-logos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+.fk-preview .fk-learn-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  padding: 20px;
+  background: var(--fk-inverse);
+  color: var(--fk-on-inverse);
+  transition: opacity 150ms ease;
+}
+.fk-preview .fk-learn-logo:hover { opacity: 0.86; }
+.fk-preview .fk-learn-logo:focus-visible { outline: 2px solid var(--fk-ink); outline-offset: 3px; }
+.fk-preview .fk-learn-logo img {
+  display: block;
+  max-width: 78%;
+  max-height: 56%;
+  object-fit: contain;
+  /* Any logo file shows as one light colour on the ink tile. */
+  filter: brightness(0) invert(1);
+  opacity: 0.94;
+}
+.fk-preview .fk-learn-wordmark {
+  font-family: var(--fk-sans);
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+@media (max-width: 1100px) {
+  .fk-preview .fk-learn-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .fk-preview .fk-learn-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .fk-preview .fk-learn-wordmark { font-size: 18px; line-height: 22px; }
+}
+html[data-theme="dark"] .fk-preview .fk-learn-logo img { filter: brightness(0); }
