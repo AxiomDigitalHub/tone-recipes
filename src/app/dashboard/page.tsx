@@ -12,6 +12,7 @@ import type { ToneRecipe, Platform } from "@/types/recipe";
 import { TIERS } from "@/lib/permissions";
 import { classifyTonePersonality, getTimeGreeting } from "@/lib/tone-personality";
 import { track } from "@/lib/analytics";
+import { Check } from "lucide-react";
 import { LpArt, monogramFor } from "@/components/v3/LpArt";
 
 const PLATFORM_LABELS: Record<string, string> = {
@@ -319,7 +320,7 @@ export default function DashboardOverview() {
                   className={`dashboard-activation-step ${step.done ? "is-done" : ""}`}
                 >
                   <span className="dashboard-activation-mark" aria-hidden>
-                    {step.done ? "●" : "○"}
+                    {step.done && <Check className="h-3 w-3" strokeWidth={2.5} />}
                   </span>
                   <span className="dashboard-activation-label">{step.label}</span>
                   {!step.done && (

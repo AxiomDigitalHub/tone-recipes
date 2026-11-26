@@ -167,10 +167,11 @@ export default function GoogleSignInButton({
 
         window.google.accounts.id.renderButton(containerRef.current, {
           type: "standard",
-          theme: "filled_black",
+          // Outline pill: reads as the secondary pill beside the ink submit.
+          theme: "outline",
           size: "large",
           text,
-          shape: "rectangular",
+          shape: "pill",
           logo_alignment: "left",
           // GIS caps at 400px; fill the auth card up to that.
           width: Math.min(containerRef.current.offsetWidth || 400, 400),
