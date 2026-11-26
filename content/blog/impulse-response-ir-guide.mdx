@@ -3,7 +3,7 @@ title: "Impulse Responses Explained: What IRs Are and How to Use Them on Any Mod
 seo_title: "Impulse Responses Explained: What IRs Are"
 description: "Learn what impulse responses are, why the cab IR is half your guitar tone, and how to load and manage IRs on Helix, Quad Cortex, Kemper, Fractal, and Katana."
 date: "2026-03-31"
-updated: "2026-06-21"
+updated: "2026-11-24"
 author: "Elena Ruiz"
 author_slug: "elena-ruiz"
 category: "signal-chain"
@@ -125,7 +125,7 @@ The process varies by platform, but the concept is always the same: transfer the
 4. In your preset's signal chain, add an **IR** block (not a Cab block; the IR block loads your custom IRs).
 5. Select the IR slot number you just loaded.
 
-**Note:** Helix accepts mono .wav files at 48 kHz, up to 2,048 samples. Files at other sample rates will be converted automatically, but starting with 48 kHz avoids any conversion artifacts.
+**Note:** Line 6 says HX Edit converts every imported WAV to 48 kHz mono and sets its length to 2,048 samples (about 43 ms). A stereo file keeps only its left side. Starting with a 48 kHz mono file means nothing has to be converted. The IR block also has a 1,024-sample option, which fades the IR out halfway to save DSP.
 
 ### Neural DSP Quad Cortex
 
@@ -186,6 +186,22 @@ Running two IRs simultaneously (a common technique for blending mic perspectives
 Some players go through a phase of downloading every free IR pack they can find and loading hundreds of them. The result is decision paralysis and constant A/B testing that leads nowhere.
 
 **The fix:** Audition IRs systematically. Pick one amp model you know well, keep all other settings constant, and swap only the IR. When you find three to five IRs that work for your main tones, stop looking. You can always explore more later, but having a reliable set of go-to IRs is more valuable than having a library of 500 you've half-heard.
+
+### Loading an IR That's Longer Than the Slot
+
+Every device plays a fixed length of IR, and anything past that length is dropped. Nothing warns you. The file loads, and the end of it is gone.
+
+| Device | Length it plays | About |
+|---|---|---|
+| Quad Cortex | 1,024 samples | 21 ms |
+| Helix, Helix Stadium | 2,048 samples | 43 ms |
+| Boss IR-200 | up to 500 ms | 500 ms |
+| Strymon Iridium | 500 ms | 500 ms |
+| Axe-Fx III Mark II, FullRes mode | up to 1.37 s | 1.37 s |
+
+For a close-mic cab IR this doesn't matter. The speaker and mic are finished within a few milliseconds. It matters for two kinds of file. A room-mic IR keeps its direct sound and first reflections but loses its decay, so it sounds distant and dry at once; the [long IR post](/blog/long-ir-500ms-room-mic-capture-what-it-adds) works out how much is lost for each device. A room-correction filter loses the long tail that does the bass work, which is why [a cab-length IR can't fix room modes](/blog/room-correction-ir-loader-vs-global-eq).
+
+**The fix:** Check the file's length before you load it. Samples divided by sample rate gives seconds: 2,048 / 48,000 is 43 ms. If the file is longer than your slot and the extra length is room sound, use a close-mic IR and add a room reverb block after the cab instead.
 
 ### Using Full-Mix IRs for Live Playing
 
