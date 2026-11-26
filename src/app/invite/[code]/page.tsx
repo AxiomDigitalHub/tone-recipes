@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/auth-context";
 import Link from "next/link";
+import { Check, Loader2, ShieldCheck, X } from "lucide-react";
+import { Wordmark } from "@/components/brand/Logo";
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton";
 
 export default function InvitePage() {
@@ -78,76 +80,66 @@ export default function InvitePage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--paper)] px-4">
-      <div className="max-w-md w-full text-center space-y-6">
+    <div className="fk-wrap fkp-page fkp-invite">
+      <div className="fkp-invite-col">
         {/* Logo */}
-        <Link href="/" className="inline-block">
-          <h1
-            className="text-2xl font-bold text-[var(--ink)]"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Fader & Knob
-          </h1>
+        <Link href="/" className="fkp-invite-logo">
+          <Wordmark tone="ink" className="fkp-invite-wordmark" />
         </Link>
 
-        <div className="bg-[var(--paper-2)] border border-[var(--ink)]/15 rounded-xl p-8 space-y-5">
+        <div className="fk-tile fkp-invite-card">
           {/* Pre-auth: show sign-in prompt */}
           {!user && !authLoading && (
             <>
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold text-[var(--ink)]">
-                  You&apos;re Invited
-                </h2>
-                <p className="text-[var(--ink-muted)] text-sm">
+              <div className="fkp-stack">
+                <h1 className="fk-t2">You&apos;re invited</h1>
+                <p className="fk-body-sm fkp-muted">
                   Someone shared a Creator access code with you. Sign in to
                   activate your free account.
                 </p>
               </div>
 
-              <div className="bg-[var(--amber)]/10 border border-[var(--amber)]/20 rounded-lg px-4 py-3">
-                <p className="text-xs text-[var(--ink-muted)] uppercase tracking-wide mb-1">
-                  Invite Code
-                </p>
-                <p className="font-mono text-lg text-[var(--amber-2)] font-semibold">
-                  {decodeURIComponent(code)}
-                </p>
+              <div className="fkp-invite-code">
+                <p className="fk-caption">Invite code</p>
+                <p className="fk-data">{decodeURIComponent(code)}</p>
               </div>
 
-              <div className="space-y-3">
-                <p className="text-xs text-[var(--ink-muted)]">
+              <div className="fkp-stack">
+                <p className="fk-caption">
                   Creator accounts include all platform translations, preset
                   downloads, recipe submission, and more.
                 </p>
-                {/* In-page Google sign-in when configured — auth state change
+                {/* In-page Google sign-in when configured: auth state change
                     re-renders this page into the redeem flow. Legacy redirect
                     button as fallback. */}
                 <GoogleSignInButton
                   text="signin_with"
                   fallback={
-                <button
-                  onClick={() => signInWithGoogle()}
-                  className="w-full px-4 py-3 bg-foreground text-[var(--ink)] rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                    />
-                  </svg>
-                  Sign in with Google
-                </button>
+                    <button
+                      type="button"
+                      onClick={() => signInWithGoogle()}
+                      className="fk-btn fk-btn-secondary fkp-invite-google"
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          fill="currentColor"
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                        />
+                        <path
+                          fill="currentColor"
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        />
+                        <path
+                          fill="currentColor"
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        />
+                        <path
+                          fill="currentColor"
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        />
+                      </svg>
+                      Sign in with Google
+                    </button>
                   }
                 />
               </div>
@@ -156,117 +148,71 @@ export default function InvitePage() {
 
           {/* Loading auth */}
           {authLoading && (
-            <div className="py-8 space-y-3">
-              <div className="w-8 h-8 border-2 border-[var(--amber)] border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-[var(--ink-muted)] text-sm">Checking your account...</p>
+            <div className="fkp-invite-state" role="status">
+              <Loader2 size={28} strokeWidth={1.75} className="animate-spin" aria-hidden />
+              <p className="fk-body-sm fkp-muted">Checking your account...</p>
             </div>
           )}
 
           {/* Redeeming */}
           {status === "redeeming" && (
-            <div className="py-8 space-y-3">
-              <div className="w-8 h-8 border-2 border-[var(--amber)] border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-[var(--ink-muted)] text-sm">Activating your invite...</p>
+            <div className="fkp-invite-state" role="status">
+              <Loader2 size={28} strokeWidth={1.75} className="animate-spin" aria-hidden />
+              <p className="fk-body-sm fkp-muted">Activating your invite...</p>
             </div>
           )}
 
           {/* Success */}
           {status === "success" && (
-            <div className="py-4 space-y-4">
-              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto">
-                <svg
-                  className="w-8 h-8 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-xl font-semibold text-[var(--ink)]">
+            <div className="fkp-invite-state">
+              <span className="fkp-invite-icon" aria-hidden="true">
+                <Check size={28} strokeWidth={1.75} />
+              </span>
+              <h1 className="fk-t2">
                 Welcome to{" "}
                 {grantedRole === "creator" ? "Creator" : "Premium"}!
-              </h2>
-              <p className="text-[var(--ink-muted)] text-sm">{message}</p>
-              <p className="text-xs text-[var(--ink-faint)]">
-                Redirecting to your dashboard...
-              </p>
+              </h1>
+              <p className="fk-body-sm fkp-muted">{message}</p>
+              <p className="fk-caption">Redirecting to your dashboard...</p>
             </div>
           )}
 
           {/* Already has access */}
           {status === "already" && (
-            <div className="py-4 space-y-4">
-              <div className="w-16 h-16 bg-[var(--amber)]/10 rounded-full flex items-center justify-center mx-auto">
-                <svg
-                  className="w-8 h-8 text-[var(--amber-2)]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-xl font-semibold text-[var(--ink)]">
-                {message}
-              </h2>
-              <Link
-                href="/dashboard"
-                className="inline-block px-6 py-2 bg-[var(--amber)] text-[var(--ink)] rounded-lg font-medium hover:opacity-90 transition-opacity"
-              >
-                Go to Dashboard
+            <div className="fkp-invite-state">
+              <span className="fkp-invite-icon" aria-hidden="true">
+                <ShieldCheck size={28} strokeWidth={1.75} />
+              </span>
+              <h1 className="fk-t2">{message}</h1>
+              <Link href="/dashboard" className="fk-btn">
+                Go to dashboard
               </Link>
             </div>
           )}
 
           {/* Error */}
           {status === "error" && (
-            <div className="py-4 space-y-4">
-              <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto">
-                <svg
-                  className="w-8 h-8 text-red-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-xl font-semibold text-[var(--ink)]">
-                Hmm, that didn&apos;t work
-              </h2>
-              <p className="text-[var(--ink-muted)] text-sm">{message}</p>
+            <div className="fkp-invite-state">
+              <span className="fkp-invite-icon" aria-hidden="true">
+                <X size={28} strokeWidth={1.75} />
+              </span>
+              <h1 className="fk-t2">Hmm, that didn&apos;t work</h1>
+              <p className="fk-body-sm fkp-muted">{message}</p>
               <button
+                type="button"
                 onClick={() => {
                   setStatus("idle");
                   setMessage("");
                 }}
-                className="inline-block px-6 py-2 bg-[var(--paper-2)] border border-[var(--ink)]/15 rounded-lg font-medium text-[var(--ink)] hover:bg-[var(--ink)]/15/30 transition-colors"
+                className="fk-btn fk-btn-secondary"
               >
-                Try Again
+                Try again
               </button>
             </div>
           )}
         </div>
 
-        <p className="text-xs text-[var(--ink-faint)]">
-          Invite codes grant free access and never expire.
-        </p>
+        <p className="fk-caption">Invite codes grant free access and never expire.</p>
       </div>
     </div>
   );

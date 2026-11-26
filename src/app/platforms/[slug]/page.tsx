@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
@@ -7,14 +8,13 @@ import {
   getRecipesForPlatform,
 } from "@/lib/data/platforms";
 import {
-  toneRecipes,
   getSongBySlug,
   getArtistBySlug,
 } from "@/lib/data";
 import type { Platform } from "@/types/recipe";
 import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
-import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
+import { monogramFor } from "@/components/v3/LpArt";
+import PostsRail from "@/app/_pages/PostsRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import { platformJsonLdSet } from "@/lib/seo/jsonld";
 
@@ -35,10 +35,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getPlatformInfo(slug);
   if (!p) {
-    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+    return { title: "Preview | Fader & Knob", robots: { index: false, follow: false } };
   }
   const recipeCount = getRecipesForPlatform(slug as Platform).length;
-  // Brand comes from the root layout's title template — don't repeat it.
+  // Brand comes from the root layout's title template: don't repeat it.
   const title = `${p.label}${p.manufacturer ? ` (${p.manufacturer})` : ""} Tone Recipes`;
   const description = `${recipeCount} tone recipes for the ${p.label}. Full signal chains, exact block settings, and presets ready to import.`;
   return {
@@ -56,19 +56,10 @@ export async function generateMetadata({
   };
 }
 
-const HUE_BY_PLATFORM: Record<string, number> = {
-  helix: 1,
-  quad_cortex: 4,
-  tonex: 6,
-  fractal: 3,
-  kemper: 5,
-  katana: 2,
-};
-
 /**
  * Per-platform editorial: the model lineup ("the family") plus the
  * Fader & Knob conventions that any patch on this platform follows.
- * Placeholder copy — Daniel will edit before launch. Each platform
+ * Placeholder copy: Daniel will edit before launch. Each platform
  * gets its own photo URL (drop in when assets are ready).
  */
 const PLATFORM_FAMILY: Record<
@@ -87,7 +78,7 @@ const PLATFORM_FAMILY: Record<
     preset_load?: string[];
     /**
      * 2–3 paragraph editorial on how Fader & Knob builds patches for
-     * this platform — era-correct gear, real ranges, hardware testing.
+     * this platform: era-correct gear, real ranges, hardware testing.
      */
     methodology?: string[];
     /**
@@ -98,19 +89,19 @@ const PLATFORM_FAMILY: Record<
   }
 > = {
   helix: {
-    photoCaption: "Line 6 Helix family — Floor, LT, HX Stomp, HX Effects, HX One, POD Go, Helix Stadium",
+    photoCaption: "Line 6 Helix family: Floor, LT, HX Stomp, HX Effects, HX One, POD Go, Helix Stadium",
     intro:
       "The Helix family runs the same HX modeling engine across every form factor. A patch built on a Floor loads on an LT and a Stomp without conversion. Recipes here download as .hlx files; import once and they live in your unit forever.",
     models: [
-      { name: "Helix Floor / LT", note: "Full-fat unit — 2 paths, 32 blocks, all the I/O" },
+      { name: "Helix Floor / LT", note: "Full-fat unit, 2 paths, 32 blocks, all the I/O" },
       { name: "Helix Stadium", note: "Next-gen Agoura engine, more headroom for cabs" },
       { name: "HX Stomp / Stomp XL", note: "Pedalboard-friendly, 6 / 8 blocks" },
-      { name: "HX Effects", note: "Effects-only — runs the FX from any patch" },
+      { name: "HX Effects", note: "Effects-only, runs the FX from any patch" },
       { name: "HX One", note: "Single-block stompbox, snapshots included" },
       { name: "POD Go", note: "Fixed signal flow, runs the same models" },
     ],
     conventions: [
-      "Every patch ends in a Tilt EQ — global brightness adjustment without reaching for an amp's tone stack",
+      "Every patch ends in a Tilt EQ: global brightness adjustment without reaching for an amp's tone stack",
       "Volume Pedal as block 1 so you can ride dynamics from the expression pedal",
       "Multi-drive recipes ship with the alternate drive blocks bypassed; stomp them in for variants",
       "Cab + Mic always uses WithPan when the dual-mic blend is part of the original tone",
@@ -120,38 +111,38 @@ const PLATFORM_FAMILY: Record<
       "Connect your Helix to the computer via USB. The unit doesn't need to be in any special mode.",
       "Open HX Edit (free from Line 6). Your unit shows up in the device picker at the top of the window.",
       "File → Open Preset (or ⌘O / Ctrl+O) and pick the .hlx file. The preset loads into the current edit buffer.",
-      "Drag the preset from the edit buffer to a setlist slot — for example, Setlist 1 → 01A. That's the permanent home.",
+      "Drag the preset from the edit buffer to a setlist slot (for example, Setlist 1 → 01A). That's the permanent home.",
       "HX Edit auto-syncs the slot to the unit. Confirm by stepping to the slot on the Helix itself; the title should match the recipe.",
     ],
     methodology: [
-      "Era-correct models. Every Helix recipe targets the actual amp, cab, and pedals on the original session, mapped to the closest HX models. We don't substitute models that just sound similar — if the song was a Tweed Bassman, we use Tweed Blues / Tweed Brt, not a generic clean.",
+      "Era-correct models. Every Helix recipe targets the actual amp, cab, and pedals on the original session, mapped to the closest HX models. We don't substitute models that just sound similar. If the song was a Tweed Bassman, we use Tweed Blues / Tweed Brt, not a generic clean.",
       "Real ranges. Amp gain sits in dB-equivalent territory, not on an abstract 0–10 scale. Delay times are real ms values. EQ frequency points are real Hz. Where the model exposes a Bias knob, we set it the way a tech would, not the way a knob graphic suggests.",
-      "Built against ground truth. Presets are generated against a structured dataset harvested from 250+ real HX Edit preset files — every model ID and parameter structure is checked against that corpus so patches load clean. Dual-mic cab balances are documented in the recipe (e.g. 57 + 121 on a 4x12 G12M, 70/30 toward the 57). When a patch loads wrong or reads wrong, the fix ships as a public commit.",
+      "Built against ground truth. Presets are generated against a structured dataset harvested from 250+ real HX Edit preset files. Every model ID and parameter structure is checked against that corpus so patches load clean. Dual-mic cab balances are documented in the recipe (e.g. 57 + 121 on a 4x12 G12M, 70/30 toward the 57). When a patch loads wrong or reads wrong, the fix ships as a public commit.",
     ],
     gotchas: [
-      ".hlx vs. .hlb — recipes ship .hlx (single preset) so importing won't overwrite your other patches. .hlb files are full setlist backups; we never publish those.",
+      ".hlx vs. .hlb: recipes ship .hlx (single preset) so importing won't overwrite your other patches. .hlb files are full setlist backups; we never publish those.",
       "Helix Stadium parity. Stadium runs the new Agoura engine; legacy patches load fine but cabs read slightly different. Recipes built for Stadium are flagged in the recipe note.",
       "Snapshot recall mode. If a recipe uses snapshots for clean → drive → solo, set the unit's snapshot recall to Discrete (Global Settings → Footswitches). Recall mode set to Recall will smooth the parameter changes and you'll lose the envelope step between snapshots.",
     ],
   },
   quad_cortex: {
-    photoCaption: "Neural DSP Quad Cortex — Capture, model, route",
+    photoCaption: "Neural DSP Quad Cortex: capture, model, route",
     intro:
       "Quad Cortex blends Neural Capture (deep-learning amp profiles) with traditional modeling and a flexible four-grid routing canvas. Recipes here use the modeling library by default; capture-based variants are flagged where the original tone is best matched by a community capture.",
     models: [
-      { name: "Quad Cortex", note: "The full unit — 8 blocks per grid, 4 grids" },
+      { name: "Quad Cortex", note: "The full unit, 8 blocks per grid, 4 grids" },
       { name: "Nano Cortex", note: "Capture-focused stompbox, smaller grid" },
     ],
     conventions: [
-      "Recipes load as .qcs scenes — drag onto the Cortex Cloud or sideload via USB",
+      "Recipes load as .qcs scenes. Drag onto the Cortex Cloud or sideload via USB",
       "Captures referenced by a public Cortex Cloud handle when relevant",
-      "Stereo grids used wherever the original tone is wet/dry/wet — labelled in the recipe notes",
+      "Stereo grids used wherever the original tone is wet/dry/wet, labelled in the recipe notes",
     ],
   },
   tonex: {
-    photoCaption: "IK Multimedia TONEX — pedal, software, mobile",
+    photoCaption: "IK Multimedia TONEX: pedal, software, mobile",
     intro:
-      "TONEX is built around AI Tone Models — neural captures of real amps and pedals. Recipes here pair an inventory model with a small modeling chain (compressor, EQ, delay, reverb) so the captured amp does the heavy lifting.",
+      "TONEX is built around AI Tone Models: neural captures of real amps and pedals. Recipes here pair an inventory model with a small modeling chain (compressor, EQ, delay, reverb) so the captured amp does the heavy lifting.",
     models: [
       { name: "TONEX Pedal", note: "Hardware unit, 150 model slots" },
       { name: "TONEX ONE", note: "Single-Tone Model stompbox" },
@@ -172,13 +163,13 @@ const PLATFORM_FAMILY: Record<
       { name: "FM3 / FM9", note: "Floor units, scaled-down DSP" },
     ],
     conventions: [
-      "Recipes load as .syx files — Axe-Edit III imports, no manual block placement",
+      "Recipes load as .syx files. Axe-Edit III imports, no manual block placement",
       "Block IDs match the recipe order; no need to renumber on import",
       "Cab IRs sourced from the Factory 1 / Factory 2 banks for portability",
     ],
   },
   kemper: {
-    photoCaption: "Kemper Profiler — Stage, PowerHead, Rack",
+    photoCaption: "Kemper Profiler: Stage, PowerHead, Rack",
     intro:
       "The Kemper recipe is a Profile + the post stack: stomps in front, the Profile, post EQ and effects. Recipes link to the Rig Manager profile we used and the post chain runs as Kemper FX blocks.",
     models: [
@@ -192,7 +183,7 @@ const PLATFORM_FAMILY: Record<
     ],
   },
   katana: {
-    photoCaption: "Boss Katana family — MkII and Gen 3",
+    photoCaption: "Boss Katana family: MkII and Gen 3",
     intro:
       "Katana patches are designed for the unit's eight effect slots and four amp characters. Recipes here translate the original tone into Katana variations and ship as TSL files for Boss Tone Studio.",
     models: [
@@ -209,17 +200,17 @@ const PLATFORM_FAMILY: Record<
       "Download the .tsl file from the recipe's platform switcher (look for KATANA).",
       "Connect the Katana to the computer via USB and turn the amp on.",
       "Open Boss Tone Studio (free from BOSS). The editor connects to the Katana automatically once the unit is detected.",
-      "Click the LIBRARIAN tab. Hit the menu (•••) and pick Import — choose the .tsl file you just downloaded.",
-      "Drag the imported patch from the librarian panel onto a CH (channel) memory slot — CH1 / CH2 / CH3 / CH4 (and the variations on Gen 3 / MkII).",
+      "Click the LIBRARIAN tab. Hit the menu (•••) and pick Import, then choose the .tsl file you just downloaded.",
+      "Drag the imported patch from the librarian panel onto a CH (channel) memory slot: CH1 / CH2 / CH3 / CH4 (and the variations on Gen 3 / MkII).",
       "Press WRITE on the amp itself, or Send to Pedal in BTS. The unit stores the patch in that slot.",
     ],
     methodology: [
-      "Amp character mapped by gain structure. Each Katana recipe picks the closest of Acoustic, Clean, Crunch, Lead, or Brown — the one that matches the gain shape of the original, not just the genre. AC30-style breakup → Crunch; JCM800 saturation → Brown. The recipe note explains the call so you can change it if your guitar's pickups push the picture differently.",
+      "Amp character mapped by gain structure. Each Katana recipe picks the closest of Acoustic, Clean, Crunch, Lead, or Brown: the one that matches the gain shape of the original, not just the genre. AC30-style breakup → Crunch; JCM800 saturation → Brown. The recipe note explains the call so you can change it if your guitar's pickups push the picture differently.",
       "Effects budget aware. Katana gives you eight effect slots across BOOSTER, MOD/FX, and DLY/REV. Recipes are designed to fit. When the original tone really needs a ninth thing, the gotcha note tells you what to swap (typically the BOOSTER, since most recipes don't lean on it heavily).",
-      "Translated, then corrected in public. Katana recipes are AI-translated from the recipe's reference chain into the eight-slot format, and fixes ship as public commits when a reader flags one. Worth knowing: Boss applies a different speaker-emulation EQ to the headphone path than the speaker output, so a tone that sits right through a 12\" can read very different on cans — re-check level and treble when you switch.",
+      "Translated, then corrected in public. Katana recipes are AI-translated from the recipe's reference chain into the eight-slot format, and fixes ship as public commits when a reader flags one. Worth knowing: Boss applies a different speaker-emulation EQ to the headphone path than the speaker output, so a tone that sits right through a 12\" can read very different on cans, so re-check level and treble when you switch.",
     ],
     gotchas: [
-      "Channel slots vs. variations. MkII has four memory channels; Gen 3 has two variations per channel for eight patches total. Recipes ship one .tsl per channel — moving a Gen 3 .tsl onto MkII drops the second variation.",
+      "Channel slots vs. variations. MkII has four memory channels; Gen 3 has two variations per channel for eight patches total. Recipes ship one .tsl per channel, and moving a Gen 3 .tsl onto MkII drops the second variation.",
       "Booster placement. The BOOSTER slot sits before the amp by default. Recipes that need a clean boost after the amp sim use the FX slot (FX2 → Treble Booster). The recipe note flags this when it matters.",
       "Cabinet resonance. The global Cab Resonance setting changes how the reverb decay reads. Recipes assume Vintage. If the tone reads dryer or thinner than it should, check GLOBAL → Cab Resonance and reset to Vintage.",
     ],
@@ -236,7 +227,7 @@ export default async function PreviewPlatformDetail({
   if (!platform) notFound(); // dynamicParams=false makes this unreachable; belt-and-suspenders
 
   const recipes = getRecipesForPlatform(slug);
-  // Field Notes that talk about this platform — match by label,
+  // Field Notes that talk about this platform: match by label,
   // manufacturer, and the slug itself.
   const platformPosts = findRelatedPosts({
     keywords: [platform.label, platform.manufacturer, slug.replace(/_/g, " ")],
@@ -244,296 +235,239 @@ export default async function PreviewPlatformDetail({
     categories: ["platform-guide"],
     limit: 3,
   });
-  const hue = HUE_BY_PLATFORM[slug] ?? 1;
   const allPlatforms = getAllPlatforms();
   const family = PLATFORM_FAMILY[slug];
 
   const { breadcrumb: platformBreadcrumb } = platformJsonLdSet(platform);
 
   return (
-    <div className="container">
+    <div className="fk-wrap fkp-page">
       <script
         type="application/ld+json"
-         
         dangerouslySetInnerHTML={{ __html: JSON.stringify(platformBreadcrumb) }}
       />
-      <div className="platform-detail">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/platforms">Platforms</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{platform.label}</span>
-        </div>
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/platforms">Platforms</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{platform.label}</span>
+      </nav>
 
-        <header
-          className={`platform-head lp-hue-${hue}${
-            family?.photoUrl ? "" : " platform-head-solo"
-          }`}
-        >
-          <div>
-            <div className="recipe-issue">
-              <span className="pill">{platform.manufacturer}</span>
-            </div>
-            <h1 className="recipe-title display">{platform.label}</h1>
-            <p className="platform-tagline">{platform.tagline}</p>
-          </div>
-          {family?.photoUrl && (
-            <figure
-              className="platform-photo"
-              aria-label={family.photoCaption ?? `${platform.label} family photo`}
-            >
-              <div className="platform-photo-frame">
-                {/* TODO: drop in actual product photography here. */}
-                <span className="platform-photo-pending">{platform.label}</span>
-              </div>
-              {family.photoCaption && (
-                <figcaption className="platform-photo-caption">
-                  {family.photoCaption}
-                </figcaption>
-              )}
-            </figure>
-          )}
-        </header>
-
-        {family && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">About the {platform.label} family</h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <div className="platform-family-grid">
-              <p className="platform-family-intro">{family.intro}</p>
-              <div className="platform-family-models">
-                <h3 className="platform-family-subhead">Models in this family</h3>
-                <ul className="platform-family-list">
-                  {family.models.map((m) => (
-                    <li key={m.name}>
-                      <span className="platform-family-name">{m.name}</span>
-                      <span className="platform-family-note">{m.note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="platform-family-conventions">
-                <h3 className="platform-family-subhead">
-                  Patch conventions on Fader &amp; Knob
-                </h3>
-                <ul className="platform-family-list platform-family-list-conventions">
-                  {family.conventions.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {family?.preset_load && family.preset_load.length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">
-                Loading a {platform.label} recipe
-              </h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <ol className="platform-loading-steps">
-              {family.preset_load.map((step, i) => (
-                <li key={i} className="platform-loading-step">
-                  <span className="platform-loading-step-no" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <p className="platform-loading-step-body">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )}
-
-        {family?.methodology && family.methodology.length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">How we build {platform.label} patches</h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <div className="platform-methodology">
-              {family.methodology.map((p, i) => (
-                <p key={i} className="platform-methodology-p">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {family?.gotchas && family.gotchas.length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">Things to watch for</h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <ul className="platform-family-list platform-family-list-conventions platform-gotchas">
-              {family.gotchas.map((g) => (
-                <li key={g}>{g}</li>
-              ))}
+      <header className={family?.photoUrl ? "fkp-profile" : "fkp-head"}>
+        <div className="fkp-profile-text">
+          <h1 className="fk-display">{platform.label}</h1>
+          <p className="fk-lead fkp-measure">{platform.tagline}</p>
+          {platform.manufacturer && (
+            <ul className="fkp-tags" aria-label="Manufacturer">
+              <li className="fkp-tag">{platform.manufacturer}</li>
             </ul>
-          </section>
+          )}
+        </div>
+        {family?.photoUrl && (
+          <figure
+            className="fkp-photo"
+            aria-label={family.photoCaption ?? `${platform.label} family photo`}
+          >
+            <div className="fkp-profile-art">
+              {/* TODO: drop in actual product photography here. */}
+              <span className="fk-t3">{platform.label}</span>
+            </div>
+            {family.photoCaption && (
+              <figcaption className="fk-caption">{family.photoCaption}</figcaption>
+            )}
+          </figure>
         )}
+      </header>
 
-        <section className="platform-section">
-          <div className="how-head">
-            <h2 className="display">Why {platform.label} players use Fader &amp; Knob</h2>
-            <span className="section-rule" aria-hidden="true" />
+      {family && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">About the {platform.label} family</h2>
+          <div className="fkp-family">
+            <p className="fk-body">{family.intro}</p>
+            <div className="fk-tile fkp-family-col">
+              <h3 className="fk-t3">Models in this family</h3>
+              <ul className="fkp-modellist">
+                {family.models.map((m) => (
+                  <li key={m.name}>
+                    <span className="fk-label">{m.name}</span>
+                    <span className="fk-body-sm">{m.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="fk-tile fkp-family-col">
+              <h3 className="fk-t3">Patch conventions on Fader &amp; Knob</h3>
+              <ul className="fkp-list fk-body-sm">
+                {family.conventions.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <ol className="how-steps">
-            <li className="how-step">
-              <span className="how-step-no" aria-hidden="true">1</span>
-              <h3 className="how-step-title">Block names you can search</h3>
-              <p className="how-step-body">
-                Every recipe lists the exact {platform.label} block names —
-                the same strings that show up in the editor or your
-                unit&apos;s display. No guessing which model matches what.
-              </p>
-            </li>
-            <li className="how-step">
-              <span className="how-step-no" aria-hidden="true">2</span>
-              <h3 className="how-step-title">Parameters in your units</h3>
-              <p className="how-step-body">
-                Settings are translated to your platform&apos;s actual ranges —
-                not generic 0–10 marks. dB is dB. Hz is Hz. Time is ms.
-              </p>
-            </li>
-            <li className="how-step">
-              <span className="how-step-no" aria-hidden="true">3</span>
-              <h3 className="how-step-title">Snapshots &amp; routing included</h3>
-              <p className="how-step-body">
-                Where the original tone uses snapshot switching, parallel
-                routing, or a specific footswitch assignment, we say so. You
-                shouldn&apos;t have to reverse-engineer it.
-              </p>
-            </li>
+        </section>
+      )}
+
+      {family?.preset_load && family.preset_load.length > 0 && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">Loading a {platform.label} recipe</h2>
+          <ol className="fkp-steps">
+            {family.preset_load.map((step, i) => (
+              <li key={i}>
+                <span className="fk-step-num" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <p className="fk-body">{step}</p>
+              </li>
+            ))}
           </ol>
         </section>
+      )}
 
-        <section className="platform-section">
-          <div className="how-head">
-            <h2 className="display">The {platform.label} archive</h2>
-            <span className="section-rule" aria-hidden="true" />
+      {family?.methodology && family.methodology.length > 0 && (
+        <section className="fkp-section fkp-prose">
+          <h2 className="fk-t2">How we build {platform.label} patches</h2>
+          {family.methodology.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </section>
+      )}
+
+      {family?.gotchas && family.gotchas.length > 0 && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">Things to watch for</h2>
+          <ul className="fkp-list fkp-measure">
+            {family.gotchas.map((g) => (
+              <li key={g}>{g}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section className="fkp-section">
+        <h2 className="fk-t2">Why {platform.label} players use Fader &amp; Knob</h2>
+        <div className="fkp-tiles">
+          <div className="fk-tile fkp-linktile">
+            <h3 className="fk-t3">Block names you can search</h3>
+            <p className="fk-body-sm">
+              Every recipe lists the exact {platform.label} block names:
+              the same strings that show up in the editor or your
+              unit&apos;s display. No guessing which model matches what.
+            </p>
           </div>
-          <div className="audition-grid">
-            {recipes.slice(0, 12).map((r) => {
-              const rSong = getSongBySlug(r.song_slug);
-              const rArtist = rSong
-                ? getArtistBySlug(rSong.artist_slug)
-                : undefined;
-              const rIdx =
-                toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-              const rBlocks = recipeToBlocks(r, slug as Platform);
-              return (
-                <Link
-                  key={r.slug}
-                  href={`/recipe/${r.slug}?platform=${slug}`}
-                  className="audition-card"
-                >
-                  <div className="audition-art">
-                    <LpArt
-                      cover={rSong?.album_art_url}
-                      monogram={monogramFor(rArtist?.name)}
-                      meta={`${rBlocks.length} blocks`}
-                      hue={rIdx}
+          <div className="fk-tile fkp-linktile">
+            <h3 className="fk-t3">Parameters in your units</h3>
+            <p className="fk-body-sm">
+              Settings are translated to your platform&apos;s actual ranges,
+              not generic 0–10 marks. dB is dB. Hz is Hz. Time is ms.
+            </p>
+          </div>
+          <div className="fk-tile fkp-linktile">
+            <h3 className="fk-t3">Snapshots &amp; routing included</h3>
+            <p className="fk-body-sm">
+              Where the original tone uses snapshot switching, parallel
+              routing, or a specific footswitch assignment, we say so. You
+              shouldn&apos;t have to reverse-engineer it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="fkp-section">
+        <h2 className="fk-t2">The {platform.label} archive</h2>
+        <div className="fk-card-grid">
+          {recipes.slice(0, 12).map((r) => {
+            const rSong = getSongBySlug(r.song_slug);
+            const rArtist = rSong
+              ? getArtistBySlug(rSong.artist_slug)
+              : undefined;
+            const rBlocks = recipeToBlocks(r, slug as Platform);
+            return (
+              <Link
+                key={r.slug}
+                href={`/recipe/${r.slug}?platform=${slug}`}
+                className="fk-card"
+              >
+                <div className="fk-card-art">
+                  {rSong?.album_art_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={rSong.album_art_url}
                       alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
+                      loading="lazy"
+                      decoding="async"
                     />
+                  ) : (
+                    <span className="fk-t2" aria-hidden="true">
+                      {monogramFor(rArtist?.name)}
+                    </span>
+                  )}
+                </div>
+                <div className="fk-card-body">
+                  <div className="fk-card-head">
+                    <h3 className="fk-t3">{rSong?.title ?? r.title}</h3>
+                    <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
                   </div>
-                  <div className="audition-meta">
-                    <span className="audition-song">
-                      {rSong?.title ?? r.title}
-                    </span>
-                    <span className="audition-artist">
-                      <em>{rArtist?.name ?? "Unknown"}</em>
-                    </span>
-                    {rSong?.album && (
-                      <span className="audition-album">
-                        {rSong.album}
-                        {rSong.year ? ` · ${rSong.year}` : ""}
-                      </span>
-                    )}
-                    <span className="audition-cta">
-                      Open patch <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
+                  <p className="fk-body-sm">{rArtist?.name ?? "Unknown"}</p>
+                  <p className="fk-card-meta">
+                    {[rSong?.year, `${rBlocks.length} blocks`].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        {recipes.length > 12 && (
+          <div>
+            <Link href={`/browse?platform=${slug}`} className="fk-btn fk-btn-secondary">
+              See all {platform.label} recipes
+            </Link>
+          </div>
+        )}
+      </section>
+
+      {/* Field notes that talk about this platform */}
+      <PostsRail
+        title={`Field notes for ${platform.label} players`}
+        posts={platformPosts}
+      />
+
+      {/* Set Pack cross-link. Helix only: the pack is a Helix preset,
+          and this page is the highest-authority page on the site that a
+          player looking for one would already be on. The pack previously
+          had a single inbound internal link. */}
+      {slug === "helix" && (
+        <section className="fkp-section fkp-prose" aria-labelledby="setpack-head">
+          <h2 id="setpack-head" className="fk-t2">Playing a whole set?</h2>
+          <p>
+            Individual recipes get you one song. The{" "}
+            <Link href="/set-packs/worship">Worship Set Pack</Link> is the
+            other approach: one Helix preset with eight snapshots (clean,
+            drive, lead, ambient, swells) that covers an entire setlist
+            without swapping patches between songs. Built around an AC30
+            with a Klon and a pair of delays, and it works on HX Stomp too.
+          </p>
+        </section>
+      )}
+
+      {/* Other platforms */}
+      <section className="fkp-section">
+        <h2 className="fk-t2">Other modelers</h2>
+        <div className="fkp-tiles fkp-tiles-sm">
+          {allPlatforms
+            .filter((p) => p.id !== slug)
+            .map((p) => {
+              const recipesCount = getRecipesForPlatform(p.id).length;
+              return (
+                <Link key={p.id} href={`/platforms/${p.id}`} className="fk-tile fkp-jumper">
+                  <span className="fk-caption">{p.manufacturer}</span>
+                  <span className="fk-t3">{p.label}</span>
+                  <span className="fk-data fkp-muted">{recipesCount} recipes</span>
                 </Link>
               );
             })}
-          </div>
-          {recipes.length > 12 && (
-            <Link
-              href={`/browse?platform=${slug}`}
-              className="platform-see-all"
-            >
-              See all {platform.label} recipes →
-            </Link>
-          )}
-        </section>
-
-        {/* Field Notes that talk about this platform */}
-        <FieldNotesRail
-          title={`Field notes for ${platform.label} players`}
-          posts={platformPosts}
-        />
-
-        {/* Set Pack cross-link. Helix only — the pack is a Helix preset,
-            and this page is the highest-authority page on the site that a
-            player looking for one would already be on. The pack previously
-            had a single inbound internal link. */}
-        {slug === "helix" && (
-          <section className="platform-section" aria-labelledby="setpack-head">
-            <div className="how-head">
-              <h2 id="setpack-head" className="display">
-                Playing a whole set?
-              </h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <p className="hub-prose" style={{ marginTop: 0 }}>
-              Individual recipes get you one song. The{" "}
-              <Link href="/set-packs/worship">Worship Set Pack</Link> is the
-              other approach: one Helix preset with eight snapshots — clean,
-              drive, lead, ambient, swells — that covers an entire setlist
-              without swapping patches between songs. Built around an AC30
-              with a Klon and a pair of delays, and it works on HX Stomp too.
-            </p>
-          </section>
-        )}
-
-        {/* Other platforms — quiet jumper rail */}
-        <section className="platform-section platform-other">
-          <div className="how-head">
-            <h2 className="display">Other modelers</h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <div className="platform-jumper">
-            {allPlatforms
-              .filter((p) => p.id !== slug)
-              .map((p, i) => {
-                const recipesCount = getRecipesForPlatform(p.id).length;
-                const otherHue = HUE_BY_PLATFORM[p.id] ?? ((i % 6) + 1);
-                return (
-                  <Link
-                    key={p.id}
-                    href={`/platforms/${p.id}`}
-                    className={`platform-jumper-item lp-hue-${otherHue}`}
-                  >
-                    <span className="platform-jumper-stripe" aria-hidden="true" />
-                    <span className="platform-jumper-mfr">{p.manufacturer}</span>
-                    <span className="platform-jumper-name">{p.label}</span>
-                    <span className="platform-jumper-count">
-                      {recipesCount} recipes
-                    </span>
-                  </Link>
-                );
-              })}
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

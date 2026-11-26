@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/constants";
 import IgSignup from "./IgSignup";
 
 /**
- * /ig — the link-in-profile page for Instagram (docs/social-strategy/council/03).
+ * /ig: the link-in-profile page for Instagram (docs/social-strategy/council/03).
  * Lists the latest posts published by the social v2 pipeline (read from Zernio,
  * server-side, hourly) with UTM-tagged links, plus the newsletter signup that
  * records utm_source/utm_content. Without ZERNIO_API_KEY in the server env it
@@ -26,10 +27,10 @@ interface Tile {
 }
 
 const KICKER: Record<string, string> = {
-  sunday_sound: "Sunday Sound",
-  knob_card: "Knob Card",
-  worship_rig: "Worship Rig",
-  fix_it: "Fix-It",
+  sunday_sound: "Sunday sound",
+  knob_card: "Knob card",
+  worship_rig: "Worship rig",
+  fix_it: "Fix-it",
 };
 
 const FALLBACK: Tile[] = [
@@ -84,29 +85,29 @@ export default async function IgPage() {
   const tiles = await latestTiles();
   const list = tiles.length ? tiles : FALLBACK.map((t) => ({ ...t, href: utm(t.href, "bio-hub") }));
   return (
-    <div className="container" style={{ maxWidth: 720, paddingTop: 32, paddingBottom: 64 }}>
-      <header style={{ marginBottom: 24 }}>
-        <h1 className="display" style={{ color: "var(--ink)", fontSize: 40, lineHeight: 1.05 }}>
-          The full settings behind every post
-        </h1>
-        <p style={{ color: "var(--ink-muted)", marginTop: 8 }}>
-          Tap a post for every block and knob, plus versions for other rigs.
-        </p>
-      </header>
-      <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px", display: "grid", gap: 12 }}>
-        {list.map((t) => (
-          <li key={t.href}>
-            <Link
-              href={t.href}
-              style={{ display: "block", border: "2px solid var(--ink)", padding: "14px 16px", color: "var(--ink)", background: "var(--paper)" }}
-            >
-              <span style={{ display: "block", fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--amber-2)" }}>{t.kicker}</span>
-              <span style={{ display: "block", fontSize: 18, fontWeight: 600, marginTop: 4 }}>{t.title}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <IgSignup />
+    <div className="fk-wrap fkp-page">
+      <div className="fkp-textcol">
+        <header className="fkp-head">
+          <h1 className="fk-display">The full settings behind every post</h1>
+          <p className="fk-lead">
+            Tap a post for every block and knob, plus versions for other rigs.
+          </p>
+        </header>
+        <ul className="fkp-iglist">
+          {list.map((t) => (
+            <li key={t.href}>
+              <Link href={t.href} className="fk-tile fkp-iglink">
+                <span className="fkp-iglink-text">
+                  <span className="fk-caption">{t.kicker}</span>
+                  <span className="fk-t3">{t.title}</span>
+                </span>
+                <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <IgSignup />
+      </div>
     </div>
   );
 }

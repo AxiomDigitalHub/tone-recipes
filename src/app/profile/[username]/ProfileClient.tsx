@@ -13,8 +13,6 @@ import {
 import { createClient } from "@supabase/supabase-js";
 import { useAuth } from "@/lib/auth/auth-context";
 import { toggleFollow, isFollowing } from "@/lib/db/follows";
-import Badge from "@/components/ui/Badge";
-import { PLATFORMS } from "@/lib/constants";
 import type { PublicProfile } from "@/types/community";
 import type { UserRecipe } from "@/types/community";
 import type { UserGearItem } from "@/lib/db/profile";
@@ -145,39 +143,31 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
     { key: "gear", label: "Gear", icon: Guitar },
   ];
 
-  /* ---- Gear type styles ---- */
-  const gearTypeVariant = (type: string) => {
-    switch (type) {
-      case "guitar":
-        return "accent" as const;
-      case "amp":
-      case "effect":
-        return "default" as const;
-      default:
-        return "outline" as const;
-    }
-  };
+  const fmtDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
 
   return (
-    <div className="mt-8">
+    <div className="fkp-profile-client">
       {/* ---- Follow button ---- */}
       {user && !isOwnProfile && (
-        <div className="mb-8 flex justify-center sm:justify-start">
+        <div>
           <button
+            type="button"
             onClick={handleFollow}
             disabled={followLoading}
-            className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-              following
-                ? "border border-[var(--ink)]/15 bg-[var(--paper-2)] text-[var(--ink-muted)] hover:border-red-500/40 hover:text-red-400"
-                : "bg-[var(--amber)] text-white hover:bg-[var(--amber)]/90"
-            }`}
+            aria-pressed={following}
+            className={`fk-btn${following ? " fk-btn-secondary fkp-unfollow" : ""}`}
           >
             {followLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 size={16} className="animate-spin" aria-hidden />
             ) : following ? (
-              <UserMinus className="h-4 w-4" />
+              <UserMinus size={16} strokeWidth={1.75} aria-hidden />
             ) : (
-              <UserPlus className="h-4 w-4" />
+              <UserPlus size={16} strokeWidth={1.75} aria-hidden />
             )}
             {following ? "Unfollow" : "Follow"}
           </button>
@@ -185,28 +175,26 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
       )}
 
       {/* ---- Tab bar ---- */}
-      <nav className="flex gap-1 border-b border-[var(--ink)]/15">
+      <nav className="fk-chips" aria-label="Profile sections">
         {tabs.map(({ key, label, icon: Icon }) => (
           <button
             key={key}
+            type="button"
             onClick={() => setActiveTab(key)}
-            className={`inline-flex items-center gap-1.5 border-b-2 px-4 py-2.5 text-sm font-medium transition-colors ${
-              activeTab === key
-                ? "border-[var(--amber)] text-[var(--amber-2)]"
-                : "border-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
-            }`}
+            className="fk-chip"
+            aria-pressed={activeTab === key}
           >
-            <Icon className="h-4 w-4" />
+            <Icon size={16} strokeWidth={1.75} aria-hidden />
             {label}
           </button>
         ))}
       </nav>
 
       {/* ---- Tab content ---- */}
-      <div className="mt-6 min-h-[200px]">
+      <div className="fkp-profile-tab">
         {tabLoading ? (
-          <div className="flex items-center justify-center py-16">
-            <Loader2 className="h-6 w-6 animate-spin text-[var(--ink-muted)]" />
+          <div className="fkp-profile-loading">
+            <Loader2 size={24} className="animate-spin fkp-muted" aria-label="Loading" />
           </div>
         ) : (
           <>
@@ -216,38 +204,29 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                 {recipes.length === 0 ? (
                   <EmptyState message="No published recipes yet." />
                 ) : (
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="fkp-tiles">
                     {recipes.map((recipe) => (
                       <Link
                         key={recipe.id}
                         href={`/recipe/${recipe.slug}`}
-                        className="group rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-5 transition-all hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
+                        className="fk-tile fkp-linktile"
                       >
-                        <h3 className="text-base font-semibold text-[var(--ink)] group-hover:text-[var(--amber-2)] transition-colors">
-                          {recipe.title}
-                        </h3>
+                        <h3 className="fk-t3">{recipe.title}</h3>
                         {recipe.description && (
-                          <p className="mt-1 line-clamp-2 text-sm text-[var(--ink-muted)]">
+                          <p className="fk-body-sm line-clamp-2">
                             {recipe.description}
                           </p>
                         )}
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          {recipe.tags?.slice(0, 4).map((tag) => (
-                            <Badge key={tag} variant="outline">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                        <p className="mt-3 text-xs text-[var(--ink-muted)]">
-                          {new Date(recipe.created_at).toLocaleDateString(
-                            "en-US",
-                            {
-                              month: "short",
-                              day: "numeric",
-                              year: "numeric",
-                            },
-                          )}
-                        </p>
+                        {recipe.tags && recipe.tags.length > 0 && (
+                          <ul className="fkp-tags">
+                            {recipe.tags.slice(0, 4).map((tag) => (
+                              <li key={tag} className="fkp-tag">
+                                {tag}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        <p className="fk-caption">{fmtDate(recipe.created_at)}</p>
                       </Link>
                     ))}
                   </div>
@@ -261,34 +240,17 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                 {comments.length === 0 ? (
                   <EmptyState message="No comments yet." />
                 ) : (
-                  <ul className="space-y-3">
+                  <ul className="fkp-profile-comments">
                     {comments.map((comment) => (
-                      <li
-                        key={comment.id}
-                        className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4"
-                      >
-                        <p className="text-sm text-[var(--ink)] line-clamp-3">
-                          {comment.body}
-                        </p>
-                        <div className="mt-2 flex items-center gap-2 text-xs text-[var(--ink-muted)]">
-                          <Link
-                            href={`/recipe/${comment.recipe_slug}`}
-                            className="text-[var(--amber-2)] hover:underline"
-                          >
+                      <li key={comment.id} className="fk-tile">
+                        <p className="fk-body-sm line-clamp-3">{comment.body}</p>
+                        <p className="fk-caption">
+                          <Link href={`/recipe/${comment.recipe_slug}`} className="fk-link">
                             View recipe
                           </Link>
-                          <span aria-hidden="true">&middot;</span>
-                          <time>
-                            {new Date(comment.created_at).toLocaleDateString(
-                              "en-US",
-                              {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                              },
-                            )}
-                          </time>
-                        </div>
+                          <span aria-hidden="true"> &middot; </span>
+                          <time dateTime={comment.created_at}>{fmtDate(comment.created_at)}</time>
+                        </p>
                       </li>
                     ))}
                   </ul>
@@ -302,24 +264,15 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
                 {gear.length === 0 ? (
                   <EmptyState message="No gear listed yet." />
                 ) : (
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="fkp-tiles">
                     {gear.map((item) => (
-                      <div
-                        key={item.id}
-                        className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-4"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <h3 className="text-sm font-semibold text-[var(--ink)]">
-                            {item.gear_name}
-                          </h3>
-                          <Badge variant={gearTypeVariant(item.gear_type)}>
-                            {item.gear_type}
-                          </Badge>
+                      <div key={item.id} className="fk-tile fkp-linktile">
+                        <div className="fkp-linktile-head">
+                          <h3 className="fk-t3">{item.gear_name}</h3>
+                          <span className="fkp-tag">{item.gear_type}</span>
                         </div>
                         {item.notes && (
-                          <p className="mt-2 text-xs leading-relaxed text-[var(--ink-muted)]">
-                            {item.notes}
-                          </p>
+                          <p className="fk-body-sm">{item.notes}</p>
                         )}
                       </div>
                     ))}
@@ -340,8 +293,8 @@ export default function ProfileClient({ profile }: ProfileClientProps) {
 
 function EmptyState({ message }: { message: string }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 text-center">
-      <p className="text-sm text-[var(--ink-muted)]">{message}</p>
+    <div className="fk-tile fkp-profile-empty">
+      <p className="fk-body-sm fkp-muted">{message}</p>
     </div>
   );
 }

@@ -1,66 +1,57 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { getAllPlatforms } from "@/lib/data/platforms";
 
 /**
  * Unknown-platform page, served with a real 404 status. This used to be
  * an inline fallback inside the page component, which returned HTTP 200
- * for any garbage slug (a soft-404 — bad for crawl budget and index
- * hygiene). The helpful "not supported yet → request it" UX is preserved
+ * for any garbage slug (a soft-404, bad for crawl budget and index
+ * hygiene). The helpful "not supported yet, request it" UX is preserved
  * here; only the status code changed. dynamicParams=false on the page
  * routes unknown slugs to this boundary without rendering the page.
  */
 export default function PlatformNotFound() {
   const supported = getAllPlatforms();
   return (
-    <div className="container">
-      <div className="platform-detail">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/platforms">Platforms</Link>
-        </div>
-        <header className="platform-head platform-head-solo">
-          <div>
-            <div className="recipe-issue">
-              <span className="pill">Not supported yet</span>
-            </div>
-            <h1 className="recipe-title display">We don&apos;t cover that platform yet</h1>
-            <p className="platform-tagline">
-              Fader &amp; Knob translations are built one platform at a time.
-              That modeler isn&apos;t in the rotation today &mdash; but if
-              you&apos;d use it, tell us and it goes up the queue.
-            </p>
-            <div className="hero-cta-row" style={{ marginTop: 24 }}>
-              <Link href="/request" className="hero-cta hero-cta-primary">
-                Request platform support
-              </Link>
-              <Link href="/platforms" className="hero-cta-secondary">
-                See supported platforms ↓
-              </Link>
-            </div>
-          </div>
-        </header>
+    <div className="fk-wrap fkp-page">
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/platforms">Platforms</Link>
+      </nav>
 
-        <section className="platform-section">
-          <div className="how-head">
-            <h2 className="display">What we do cover</h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <div className="audition-grid">
-            {supported.map((p) => (
-              <Link key={p.id} href={`/platforms/${p.id}`} className="audition-card">
-                <div className="audition-card-body">
-                  <div className="recipe-issue">
-                    <span className="pill">{p.manufacturer}</span>
-                  </div>
-                  <h3 className="display audition-card-title">{p.label}</h3>
-                  <p className="audition-card-dek">{p.tagline}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      </div>
+      <header className="fkp-head">
+        <h1 className="fk-display">We don&apos;t cover that platform yet</h1>
+        <p className="fk-lead fkp-measure">
+          Fader &amp; Knob translations are built one platform at a time.
+          That modeler isn&apos;t in the rotation today, but if you&apos;d use
+          it, tell us and it goes up the queue.
+        </p>
+        <div className="fkp-ctas">
+          <Link href="/request" className="fk-btn">
+            Request platform support
+          </Link>
+          <Link href="/platforms" className="fk-btn fk-btn-secondary">
+            See supported platforms
+          </Link>
+        </div>
+      </header>
+
+      <section className="fkp-section">
+        <h2 className="fk-t2">What we do cover</h2>
+        <div className="fkp-tiles">
+          {supported.map((p) => (
+            <Link key={p.id} href={`/platforms/${p.id}`} className="fk-tile fkp-linktile">
+              <span className="fk-caption">{p.manufacturer}</span>
+              <div className="fkp-linktile-head">
+                <h3 className="fk-t3">{p.label}</h3>
+                <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
+              </div>
+              <p className="fk-body-sm">{p.tagline}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
