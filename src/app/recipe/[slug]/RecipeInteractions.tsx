@@ -72,80 +72,75 @@ export default function RecipeInteractions({
   };
 
   return (
-    <div className="recipe-feedback mt-12 space-y-10">
+    <div className="recipe-feedback fkp-feedback">
       {/* Rating section */}
-      <section>
-        <h2 className="mb-4 text-xl font-bold">Rate This Tone</h2>
-        <div className="rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6">
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-8">
-            {/* Overall rating display */}
-            <div className="text-center">
-              <p className="text-4xl font-bold text-[var(--amber-2)]">
-                {ratingLoading ? "..." : stats.average.toFixed(1)}
-              </p>
-              <StarRating
-                rating={stats.average}
-                size="md"
-                showCount
-                count={stats.count}
-              />
-            </div>
+      <section className="fkp-feedback-section">
+        <h2 className="fk-t2">Rate this tone</h2>
+        <div className="fk-tile fkp-rating">
+          {/* Overall rating display */}
+          <div className="fkp-rating-overall">
+            <p className="fkp-rating-num">
+              {ratingLoading ? "..." : stats.average.toFixed(1)}
+            </p>
+            <StarRating
+              rating={stats.average}
+              size="md"
+              showCount
+              count={stats.count}
+            />
+          </div>
 
-            {/* User rating */}
-            <div className="flex-1">
-              {user ? (
-                <div>
-                  <p className="mb-2 text-sm text-[var(--ink-muted)]">
-                    {userRating ? "Your rating:" : "Rate this recipe:"}
-                  </p>
-                  <StarRating
-                    rating={userRating ?? 0}
-                    size="lg"
-                    interactive
-                    onRate={handleRate}
-                  />
-                </div>
-              ) : (
-                <p className="text-sm text-[var(--ink-muted)]">
-                  <a href="/login" className="text-[var(--amber-2)] hover:underline">
-                    Sign in
-                  </a>{" "}
-                  to rate this recipe.
+          {/* User rating */}
+          <div className="fkp-rating-user">
+            {user ? (
+              <div>
+                <p className="fk-body-sm">
+                  {userRating ? "Your rating:" : "Rate this recipe:"}
                 </p>
-              )}
-            </div>
-
-            {/* Distribution bars */}
-            {stats.count > 0 && (
-              <div className="w-full max-w-[200px] space-y-1">
-                {([5, 4, 3, 2, 1] as const).map((star) => {
-                  const pct =
-                    stats.count > 0
-                      ? (stats.distribution[star] / stats.count) * 100
-                      : 0;
-                  return (
-                    <div key={star} className="flex items-center gap-2 text-xs">
-                      <span className="w-3 text-[var(--ink-muted)]">{star}</span>
-                      <div className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--ink)]/15">
-                        <div
-                          className="h-full rounded-full bg-[var(--amber)] transition-all"
-                          style={{ width: `${pct}%` }}
-                        />
-                      </div>
-                      <span className="w-6 text-right text-[var(--ink-muted)]">
-                        {stats.distribution[star]}
-                      </span>
-                    </div>
-                  );
-                })}
+                <StarRating
+                  rating={userRating ?? 0}
+                  size="lg"
+                  interactive
+                  onRate={handleRate}
+                />
               </div>
+            ) : (
+              <p className="fk-body-sm">
+                <a href="/login" className="fk-link">
+                  Sign in
+                </a>{" "}
+                to rate this recipe.
+              </p>
             )}
           </div>
+
+          {/* Distribution bars */}
+          {stats.count > 0 && (
+            <div className="fkp-rating-dist">
+              {([5, 4, 3, 2, 1] as const).map((star) => {
+                const pct =
+                  stats.count > 0
+                    ? (stats.distribution[star] / stats.count) * 100
+                    : 0;
+                return (
+                  <div key={star} className="fkp-rating-row">
+                    <span className="fk-data fkp-rating-star">{star}</span>
+                    <div className="fkp-rating-bar">
+                      <div style={{ width: `${pct}%` }} />
+                    </div>
+                    <span className="fk-data fkp-rating-n">
+                      {stats.distribution[star]}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
       {/* Comments section */}
-      <section>
+      <section className="fkp-feedback-section">
         <CommentSection recipeSlug={recipeSlug} />
       </section>
     </div>

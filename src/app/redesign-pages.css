@@ -1,1 +1,401 @@
 /* Redesign pass 9 (pages). Loads after redesign.css. */
+
+/* Page-local classes in this file start with fkp-. A page rebuilt here
+   puts fk-wrap on its root, so the step 8 blanket (which skips any root
+   whose class contains "fk-") leaves it alone. */
+
+/* ══════════════════════════════════════════════════════════════════════
+   Shared bits for the pages in this pass
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .fkp-stack { display: flex; flex-direction: column; gap: 16px; }
+.fk-preview .fkp-stack-lg { display: flex; flex-direction: column; gap: 32px; }
+.fk-preview .fkp-section { padding-top: 56px; display: flex; flex-direction: column; gap: 20px; }
+.fk-preview .fkp-sectionhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+.fk-preview .fkp-muted { color: var(--fk-ink-2); }
+.fk-preview .fkp-head { display: flex; flex-direction: column; gap: 16px; padding-top: 24px; }
+.fk-preview .fkp-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Tags: plain hairline pills, not clickable filters. */
+.fk-preview .fkp-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: var(--fk-r-pill);
+  border: 1px solid var(--fk-line);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--fk-ink-2);
+  white-space: nowrap;
+}
+.fk-preview .fkp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+/* A list of hairline rows. */
+.fk-preview .fkp-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fk-line); }
+.fk-preview .fkp-rows > li { border-bottom: 1px solid var(--fk-line); }
+.fk-preview .fkp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 4px;
+  color: var(--fk-ink);
+  text-decoration: none;
+}
+.fk-preview a.fkp-row:hover { background: var(--fk-wash); }
+.fk-preview .fkp-row-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+/* Wash tiles in a grid. */
+.fk-preview .fkp-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 16px;
+}
+.fk-preview a.fk-tile { text-decoration: none; transition: background 0.15s ease; }
+.fk-preview a.fk-tile:hover { background: var(--fk-line-2); }
+/* A plain bullet list in ink. */
+.fk-preview .fkp-list { margin: 0; padding-left: 20px; list-style: disc; display: flex; flex-direction: column; gap: 8px; }
+.fk-preview .fkp-list li { color: var(--fk-ink); }
+.fk-preview .fkp-list li::marker { color: var(--fk-ink-3); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   /recipe/[slug]: rating and comments (RecipeInteractions)
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .recipe-feedback.fkp-feedback {
+  margin-top: 0;
+  padding-top: 56px;
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.fk-preview .fkp-feedback-section { display: flex; flex-direction: column; gap: 20px; }
+.fk-preview .recipe-feedback.fkp-feedback h2.fk-t2 { margin: 0; font-size: 28px; line-height: 34px; letter-spacing: -0.02em; }
+@media (max-width: 640px) {
+  .fk-preview .recipe-feedback.fkp-feedback h2.fk-t2 { font-size: 24px; line-height: 30px; }
+}
+.fk-preview .fkp-rating {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px 40px;
+  padding: 24px;
+}
+.fk-preview .fkp-rating-overall { display: flex; flex-direction: column; gap: 6px; }
+.fk-preview .fkp-rating-num {
+  margin: 0;
+  font-family: var(--fk-mono);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fk-ink);
+  font-variant-numeric: tabular-nums;
+}
+.fk-preview .fkp-rating-user { flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; }
+.fk-preview .fkp-rating-user .fk-body-sm { margin-bottom: 8px; }
+.fk-preview .fkp-rating-dist { width: 100%; max-width: 220px; display: flex; flex-direction: column; gap: 4px; }
+.fk-preview .fkp-rating-row { display: flex; align-items: center; gap: 10px; }
+.fk-preview .fkp-rating-star { width: 12px; color: var(--fk-ink-3); }
+.fk-preview .fkp-rating-n { width: 28px; text-align: right; color: var(--fk-ink-3); }
+.fk-preview .fkp-rating-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-line);
+  overflow: hidden;
+}
+.fk-preview .fkp-rating-bar > div { height: 100%; border-radius: var(--fk-r-pill); background: var(--fk-ink); }
+/* Comments (CommentSection markup is shared; only its look on this page is set here). */
+.fk-preview .fk-recipe-legacy .recipe-feedback .rounded-lg { border-radius: var(--fk-r-md); corner-shape: squircle; }
+.fk-preview .fk-recipe-legacy .recipe-feedback button[class*="bg-accent"],
+.fk-preview .fk-recipe-legacy .recipe-feedback button[class*="bg-[var(--amber)]"] {
+  border-radius: var(--fk-r-pill);
+  padding: 10px 20px;
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.fk-preview .fk-recipe-legacy .recipe-feedback textarea { border-radius: var(--fk-r-md); corner-shape: squircle; border-color: var(--fk-line-strong); }
+.fk-preview .fk-recipe-legacy .recipe-feedback textarea:focus { border-color: var(--fk-ink); box-shadow: 0 0 0 1px var(--fk-ink); }
+.fk-preview .fk-recipe-legacy .recipe-feedback a[class*="amber-2"] { color: var(--fk-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   /recipe/[slug]/print (and the settings PDF rendered from it)
+   ══════════════════════════════════════════════════════════════════════ */
+/* The PDF renderer emulates screen media, so the site header must hide on
+   screen too. v3 hides every <footer>, which took the page footers with it. */
+.fk-preview:has(.print-mode) .fk-header { display: none; }
+.fk-preview:has(.print-mode) .print-mode footer.print-page-foot { display: flex !important; }
+@media print {
+  .fk-preview .fk-header { display: none !important; }
+}
+.fk-preview .print-mode {
+  font-family: var(--fk-sans);
+  color: var(--fk-ink);
+  background: var(--fk-wash);
+}
+.fk-preview .print-mode .print-page {
+  border: 0;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-paper);
+  padding: 44px 48px 40px;
+}
+@media print {
+  .fk-preview .print-mode,
+  .fk-preview .print-mode .print-page { background: #fff !important; border-radius: 0; }
+}
+.fk-preview .print-mode .print-masthead {
+  font-family: var(--fk-sans);
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fk-ink-3);
+  border-bottom: 1px solid var(--fk-line);
+  padding-bottom: 14px;
+  margin-bottom: 32px;
+}
+.fk-preview .print-mode .print-masthead-logo { height: 28px; width: auto; display: block; }
+.fk-preview .print-mode .print-masthead-logo path { fill: var(--fk-ink); }
+.fk-preview .print-mode .print-cover-top { grid-template-columns: minmax(0, 1fr) 168px; gap: 32px; margin-bottom: 36px; }
+.fk-preview .print-mode .print-cover-text { gap: 12px; }
+.fk-preview .print-mode .print-cover-title {
+  margin: 0;
+  font-family: var(--fk-sans);
+  font-size: 52px;
+  line-height: 54px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--fk-ink);
+  text-wrap: balance;
+}
+.fk-preview .print-mode .print-cover-credits {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--fk-ink-2);
+}
+.fk-preview .print-mode .print-cover-artist { color: var(--fk-ink); font-weight: 500; }
+.fk-preview .print-mode .print-cover-meta {
+  margin: 0;
+  font-family: var(--fk-mono);
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--fk-ink-3);
+}
+.fk-preview .print-mode .print-cover-dek {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--fk-ink-2);
+  max-width: 56ch;
+}
+.fk-preview .print-mode .print-cover-art {
+  width: 168px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-wash);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fk-ink-2);
+}
+.fk-preview .print-mode .print-cover-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fk-preview .print-mode .print-cover-hero { border-top: 0; padding-top: 0; gap: 14px; }
+.fk-preview .print-mode .print-section-head { display: flex; flex-direction: column; gap: 2px; }
+.fk-preview .print-mode .print-section-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fk-ink);
+}
+.fk-preview .print-mode .print-section-caption { margin: 0; font-size: 13px; line-height: 18px; color: var(--fk-ink-3); }
+/* Chain strip on paper: wraps instead of scrolling, so nothing is cut off. */
+.fk-preview .fkp-chainstrip.is-wrap { overflow: visible; padding: 28px 20px 22px; }
+.fk-preview .fkp-chainstrip.is-wrap .fk-chain-row { flex-wrap: wrap; width: auto; justify-content: center; row-gap: 20px; gap: 20px 10px; }
+.fk-preview .fkp-chainstrip .fk-chain-item { max-width: 160px; }
+.fk-preview .fkp-chainstrip .fk-chain-name { font-size: 13px; line-height: 17px; }
+.fk-preview .print-mode .fkp-chainstrip { break-inside: avoid; }
+/* Per-platform pages */
+.fk-preview .print-mode .print-page-head {
+  border-bottom: 1px solid var(--fk-line);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fk-preview .print-mode .print-page-title {
+  margin: 0;
+  font-family: var(--fk-sans);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--fk-ink);
+}
+.fk-preview .print-mode .print-page-sub { margin: 0; font-size: 14px; line-height: 20px; color: var(--fk-ink-3); }
+.fk-preview .print-mode .print-page-dek {
+  margin: 10px 0 0;
+  font-family: var(--fk-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-style: normal;
+  color: var(--fk-ink-2);
+  max-width: 64ch;
+}
+.fk-preview .print-mode .print-platform-chain {
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fk-preview .print-mode .print-platform-chain .fkp-chainstrip.is-wrap { padding: 22px 16px 18px; }
+/* Settings table */
+.fk-preview .print-mode .print-spec { font-family: var(--fk-sans); margin-top: 8px; }
+.fk-preview .print-mode .print-spec thead th {
+  font-family: var(--fk-sans);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--fk-ink-3);
+  padding: 0 12px 8px;
+  border-bottom: 1px solid var(--fk-line-strong);
+}
+.fk-preview .print-mode .print-spec-row > td,
+.fk-preview .print-mode .print-spec-row > th { padding: 6px 12px; border-bottom: 1px solid var(--fk-line-2); }
+.fk-preview .print-mode .print-spec-first > th,
+.fk-preview .print-mode .print-spec-first > td { border-top: 1px solid var(--fk-line); }
+.fk-preview .print-mode .print-spec-block .bn {
+  display: block;
+  font-family: var(--fk-sans);
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 600;
+  color: var(--fk-ink);
+}
+.fk-preview .print-mode .print-spec-block .bs {
+  font-size: 12px;
+  line-height: 16px;
+  font-style: normal;
+  color: var(--fk-ink-2);
+  margin-top: 2px;
+}
+.fk-preview .print-mode .print-spec-block .bk {
+  font-family: var(--fk-sans);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fk-ink-3);
+  margin-top: 4px;
+}
+.fk-preview .print-mode .print-spec-grouplabel {
+  font-family: var(--fk-sans);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--fk-ink-2);
+  background: var(--fk-wash);
+}
+.fk-preview .print-mode .print-spec-set {
+  font-family: var(--fk-sans);
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fk-ink-2);
+}
+.fk-preview .print-mode .print-spec-val {
+  font-family: var(--fk-mono);
+  font-size: 12.5px;
+  line-height: 19px;
+  color: var(--fk-ink);
+}
+.fk-preview .print-mode .print-spec-val .u { color: var(--fk-ink-3); font-size: 11px; }
+.fk-preview .print-mode .print-spec-empty { font-size: 12px; font-style: normal; color: var(--fk-ink-3); }
+.fk-preview .print-mode .print-page-foot {
+  border-top: 1px solid var(--fk-line);
+  font-family: var(--fk-sans);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--fk-ink-3);
+}
+.fk-preview .print-mode .print-cover-foot-rule { background: none; }
+/* Sources */
+.fk-preview .print-mode .print-sources-list { border-top: 1px solid var(--fk-line); margin-top: 8px; }
+.fk-preview .print-mode .print-sources-row { border-bottom: 1px solid var(--fk-line); font-family: var(--fk-sans); font-size: 13px; }
+.fk-preview .print-mode .print-sources-host { letter-spacing: 0; font-weight: 600; }
+.fk-preview .print-mode .print-sources-url { font-family: var(--fk-mono); font-size: 12px; color: var(--fk-ink-3); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Rebuilt detail pages: /artist, /song, /gear, /writers (fkp-page root)
+   ══════════════════════════════════════════════════════════════════════ */
+.fk-preview .fkp-page { padding-top: 32px; padding-bottom: 96px; }
+.fk-preview .fkp-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  gap: 32px 56px;
+  align-items: start;
+}
+.fk-preview .fkp-profile-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.fk-preview .fkp-profile-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--fk-wash);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fk-ink-3);
+}
+.fk-preview .fkp-profile-art img { object-fit: cover; }
+.fk-preview .fkp-profile-art > svg { width: 82%; height: auto; }
+@media (max-width: 720px) {
+  .fk-preview .fkp-profile { grid-template-columns: minmax(0, 1fr); }
+  .fk-preview .fkp-profile-art { max-width: 360px; }
+}
+/* Related field notes */
+.fk-preview .fkp-post { gap: 8px; padding: 22px; }
+.fk-preview .fkp-post-dek {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.fk-preview .fkp-measure { max-width: var(--fk-wrap-text); }
+.fk-preview .fkp-gear-art { aspect-ratio: 4 / 3; padding: 32px; }
+.fk-preview .fkp-gear-art > svg { width: auto; max-width: 100%; height: auto; max-height: 100%; }
+.fk-preview .fkp-equivs { margin: 0; }
+.fk-preview .fkp-equivs dd { margin: 0; color: var(--fk-ink); }

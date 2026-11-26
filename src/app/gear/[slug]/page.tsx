@@ -7,12 +7,13 @@ import {
   gearItems,
   getGearBySlug,
   toneRecipes,
-  getSongBySlug,
-  getArtistBySlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
-import { FieldNotesRail } from "@/components/v3/FieldNotesRail";
+import Gear from "@/components/gear/Gear";
+import { gearForChain, type GearPick } from "@/lib/gear/recipe-gear";
+import type { PreviewBlockData } from "@/components/v3/preview-helpers";
+import ToneCard from "@/components/recipe/redesign/ToneCard";
+import PostsRail from "@/app/_pages/PostsRail";
+import type { GearItem } from "@/types/recipe";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import { gearJsonLdSet } from "@/lib/seo/jsonld";
 
@@ -33,9 +34,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const g = getGearBySlug(slug);
   if (!g) {
-    return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
+    return { title: "Preview | Fader & Knob", robots: { index: false, follow: false } };
   }
-  // Brand comes from the root layout's title template — don't repeat it.
+  // Brand comes from the root layout's title template; don't repeat it.
   const fullTitle = `${g.name}: recipes and modeler equivalents`;
   const title = fitTitle([
     fullTitle,
@@ -75,9 +76,11 @@ export default async function GearDetailPage({
   });
 
   const { product, breadcrumb } = gearJsonLdSet(gear);
+  const pick = drawingFor(gear);
+  const tags = [gear.type, gear.subcategory].filter(Boolean) as string[];
 
   return (
-    <div className="container">
+    <div className="fk-wrap fkp-page">
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
@@ -88,110 +91,97 @@ export default async function GearDetailPage({
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="gear-detail">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>Gear</span>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{gear.name}</span>
-        </div>
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/gear">Gear</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{gear.name}</span>
+      </nav>
 
-        <header className="gear-head">
-          <div>
-            <div className="recipe-issue">
-              <span className="pill">{gear.manufacturer}</span>
-              <span>{gear.type}</span>
-              {gear.subcategory && (
-                <>
-                  <span>·</span>
-                  <span>{gear.subcategory}</span>
-                </>
-              )}
-            </div>
-            <h1 className="recipe-title display">{gear.name}</h1>
-            {gear.description && (
-              <p className="gear-description">{gear.description}</p>
-            )}
-          </div>
-        </header>
-
-        {gear.modeler_equivalents && Object.keys(gear.modeler_equivalents).length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">Modeler equivalents</h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <dl className="gear-equivalents">
-              {Object.entries(gear.modeler_equivalents).map(([platform, model]) => (
-                <div key={platform} className="gear-equivalent">
-                  <dt>{platformLabel(platform)}</dt>
-                  <dd>{String(model)}</dd>
-                </div>
+      <header className="fkp-profile">
+        <div className="fkp-profile-text">
+          <h1 className="fk-display">{gear.name}</h1>
+          <p className="fk-lead">{gear.manufacturer}</p>
+          {tags.length > 0 && (
+            <ul className="fkp-tags" aria-label="Type">
+              {tags.map((t) => (
+                <li key={t} className="fkp-tag">{t}</li>
               ))}
-            </dl>
-          </section>
+            </ul>
+          )}
+          {gear.description && <p className="fk-body fkp-measure">{gear.description}</p>}
+        </div>
+        {pick && (
+          <div className="fkp-profile-art fkp-gear-art" aria-hidden="true">
+            <Gear
+              kind={pick.kind}
+              height={220}
+              vals={pick.vals}
+              title={pick.title}
+              disp={pick.disp}
+              color={pick.color}
+              label=""
+            />
+          </div>
         )}
+      </header>
 
-        {usedIn.length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">Recipes using this gear</h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <div className="audition-grid">
-              {usedIn.slice(0, 12).map((r) => {
-                const rSong = getSongBySlug(r.song_slug);
-                const rArtist = rSong
-                  ? getArtistBySlug(rSong.artist_slug)
-                  : undefined;
-                const rIdx =
-                  toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-                const rBlocks = recipeToBlocks(r, "helix");
-                return (
-                  <Link
-                    key={r.slug}
-                    href={`/recipe/${r.slug}`}
-                    className="audition-card"
-                  >
-                    <div className="audition-art">
-                      <LpArt
-                        cover={rSong?.album_art_url}
-                        monogram={monogramFor(rArtist?.name)}
-                        meta={`${rBlocks.length} blocks`}
-                        hue={rIdx}
-                        alt={`${rSong?.album ?? rSong?.title ?? r.title} cover`}
-                      />
-                    </div>
-                    <div className="audition-meta">
-                      <span className="audition-song">
-                        {rSong?.title ?? r.title}
-                      </span>
-                      <span className="audition-artist">
-                        <em>{rArtist?.name ?? "Unknown"}</em>
-                      </span>
-                      {rSong?.album && (
-                        <span className="audition-album">
-                          {rSong.album}
-                          {rSong.year ? ` · ${rSong.year}` : ""}
-                        </span>
-                      )}
-                      <span className="audition-cta">
-                        See the chain <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        )}
+      {gear.modeler_equivalents && Object.keys(gear.modeler_equivalents).length > 0 && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">Modeler equivalents</h2>
+          <dl className="fkp-tiles fkp-equivs">
+            {Object.entries(gear.modeler_equivalents).map(([platform, model]) => (
+              <div key={platform} className="fk-tile">
+                <dt className="fk-caption">{platformLabel(platform)}</dt>
+                <dd className="fk-label">{String(model)}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
-        <FieldNotesRail
-          title={`Field notes on the ${gear.name}`}
-          posts={relatedPosts}
-        />
-      </div>
+      {usedIn.length > 0 && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">Recipes using this gear</h2>
+          <div className="fk-card-grid">
+            {usedIn.slice(0, 12).map((r) => (
+              <ToneCard key={r.slug} recipe={r} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <PostsRail title={`Field notes on the ${gear.name}`} posts={relatedPosts} />
     </div>
   );
+}
+
+/**
+ * The gear item as one block, so it can take the same drawing the recipe
+ * chain gives it. Guitars have no drawing here.
+ */
+function drawingFor(gear: GearItem): GearPick | null {
+  const variant: PreviewBlockData["variant"] | null =
+    gear.type === "amp"
+      ? "amp"
+      : gear.type === "cabinet" || gear.type === "microphone"
+        ? "cab"
+        : gear.type === "effect"
+          ? "pedal"
+          : null;
+  if (!variant) return null;
+  const values: Record<string, number> = {};
+  for (const [k, v] of Object.entries(gear.default_settings ?? {})) {
+    if (typeof v === "number" && Number.isFinite(v)) values[k] = v;
+  }
+  const block: PreviewBlockData = {
+    name: gear.name,
+    sub: gear.subcategory ?? "",
+    variant,
+    category: gear.subcategory,
+    controls: Object.keys(values),
+    values,
+  };
+  return gearForChain([block])[0];
 }

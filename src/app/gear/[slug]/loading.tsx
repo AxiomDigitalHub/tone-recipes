@@ -1,6 +1,6 @@
 export default function GearLoading() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
+    <div className="fk-wrap fkp-page" aria-busy="true">
       {/* Breadcrumb skeleton */}
       <div className="mb-8 flex items-center gap-2">
         <div className="h-4 w-16 animate-pulse rounded bg-[var(--paper-2)]" />
@@ -20,17 +20,17 @@ export default function GearLoading() {
       </div>
 
       {/* Description card */}
-      <div className="mb-14 h-24 animate-pulse rounded-xl bg-[var(--paper-2)]" />
+      <div className="mb-14 h-24 animate-pulse rounded-[var(--fk-r-lg)] bg-[var(--paper-2)]" />
 
       {/* Default Settings section */}
       <div className="mb-14">
         <div className="mb-6 h-6 w-36 animate-pulse rounded bg-[var(--paper-2)]" />
-        <div className="rounded-xl bg-[var(--paper-2)] p-6">
+        <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-6">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="h-20 animate-pulse rounded-lg bg-[var(--paper)]"
+                className="h-20 animate-pulse rounded-[var(--fk-r-md)] bg-[var(--paper)]"
               />
             ))}
           </div>
@@ -44,7 +44,7 @@ export default function GearLoading() {
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="h-48 animate-pulse rounded-xl bg-[var(--paper-2)]"
+              className="h-48 animate-pulse rounded-[var(--fk-r-lg)] bg-[var(--paper-2)]"
             />
           ))}
         </div>
