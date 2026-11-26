@@ -15,6 +15,10 @@ import "./v3.css";
 // Redesign foundation: new tokens, fonts, header, footer and shared pieces.
 // Must load after v3.css (it remaps the legacy v3 tokens).
 import "./redesign.css";
+// Pass 9 restyles, split by area. Load after redesign.css.
+import "./redesign-pages.css";
+import "./redesign-account.css";
+import "./redesign-components.css";
 
 // Geist 400/500/600 and Geist Mono are the whole type system (redesign).
 // Both are variable fonts, so one file each covers every weight in use.
