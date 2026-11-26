@@ -43,6 +43,30 @@ const chainBlocks = [
   { name: "Glitz Reverb", cat: "Shimmer" },
 ];
 
+/** Blog posts with a full Helix build for a song in the Setlist Mapper. */
+const songGuides = [
+  { song: "Blessed Be Your Name", artist: "Matt Redman", slug: "blessed-be-your-name-matt-redman-guitar-tone-helix" },
+  { song: "Build My Life", artist: "Housefires", slug: "build-my-life-housefires-guitar-tone-helix" },
+  { song: "Firm Foundation", artist: "Cody Carnes", slug: "firm-foundation-cody-carnes-guitar-tone-helix" },
+  { song: "Goodness of God", artist: "Bethel", slug: "goodness-of-god-guitar-tone-helix" },
+  { song: "Gratitude", artist: "Brandon Lake", slug: "gratitude-brandon-lake-guitar-tone-helix" },
+  { song: "Great Are You Lord", artist: "All Sons & Daughters", slug: "great-are-you-lord-all-sons-daughters-guitar-tone-helix" },
+  { song: "Holy Forever", artist: "Chris Tomlin", slug: "holy-forever-guitar-tone-helix" },
+  { song: "Praise", artist: "Elevation Worship", slug: "praise-elevation-worship-guitar-tone-helix" },
+  { song: "Trust in God", artist: "Elevation Worship", slug: "trust-in-god-elevation-worship-guitar-tone-helix" },
+  { song: "Way Maker", artist: "Leeland", slug: "way-maker-guitar-tone-helix" },
+  { song: "What a Beautiful Name", artist: "Hillsong", slug: "what-a-beautiful-name-guitar-tone-helix" },
+];
+
+/** Artist guides and the worship hub, linked below the song list. */
+const moreGuides = [
+  { label: "Bethel Music", slug: "bethel-music-guitar-tone-helix" },
+  { label: "Elevation Worship", slug: "elevation-worship-guitar-tone-helix" },
+  { label: "Hillsong", slug: "hillsong-guitar-tone-helix" },
+  { label: "Phil Wickham", slug: "phil-wickham-guitar-tone-helix" },
+  { label: "the full worship tone walkthrough", slug: "worship-guitar-tone-helix" },
+];
+
 /**
  * Product + Offer JSON-LD. Lists the public $19 price (the Pass 30%
  * discount is a member benefit, not a public list price, so it doesn't
@@ -220,6 +244,44 @@ export default function WorshipSetPackPage() {
         below.
       </p>
       <SetlistMapper />
+
+      {/* Song tone guides */}
+      <h2
+        className="mb-2 mt-16 text-2xl font-bold"
+        style={{ color: "var(--ink)" }}
+      >
+        Songs with full tone guides
+      </h2>
+      <p className="mb-6 text-sm" style={{ color: "var(--ink-muted)" }}>
+        Each of these songs has its own guide with the exact Helix settings.
+        The pack puts them all in one preset.
+      </p>
+      <ul className="grid gap-2 text-sm sm:grid-cols-2">
+        {songGuides.map((guide) => (
+          <li key={guide.slug}>
+            <Link
+              href={`/blog/${guide.slug}`}
+              style={{ color: "var(--amber-2)" }}
+            >
+              {guide.song} ({guide.artist})
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-sm" style={{ color: "var(--ink-muted)" }}>
+        More guides:{" "}
+        {moreGuides.map((guide, i) => (
+          <span key={guide.slug}>
+            <Link
+              href={`/blog/${guide.slug}`}
+              style={{ color: "var(--amber-2)" }}
+            >
+              {guide.label}
+            </Link>
+            {i < moreGuides.length - 1 ? ", " : "."}
+          </span>
+        ))}
+      </p>
 
       {/* Buy / download section */}
       <div

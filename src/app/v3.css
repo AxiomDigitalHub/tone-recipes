@@ -241,6 +241,17 @@
   letter-spacing: -0.025em;
   line-height: 0.9;
 }
+/* Second line inside the recipe H1 ("by {Artist}: solo tone recipe").
+   The song stays the large line; this keeps the H1 keyword-complete. */
+.fk-preview .recipe-title .recipe-title-sub {
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--ink-2);
+}
 .fk-preview .recipe-credits {
   font-size: 18px;
   line-height: 1.35;

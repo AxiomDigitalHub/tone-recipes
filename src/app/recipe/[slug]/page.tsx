@@ -17,6 +17,8 @@ import RecipeMicPick from "@/components/recipe/RecipeMicPick";
 import RecipeVerification from "@/components/recipe/RecipeVerification";
 import SpotifyEmbed from "@/components/ui/SpotifyEmbed";
 import { recipeJsonLdSet, recipeMediaJsonLd } from "@/lib/seo/jsonld";
+import { recipeH1, recipeSeoDescription, recipeSeoTitle } from "@/lib/recipe-seo";
+import { songHref } from "@/lib/song-href";
 import audioDemos from "@/data/audio-demos.json";
 import type { RecipeAudioDemo as RecipeAudioDemoData } from "@/types/recipe";
 import type { RatingStats } from "@/types/community";
@@ -60,17 +62,13 @@ export async function generateMetadata({
   }
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
-  const title = `${recipe.title} - ${artist?.name || ""}`;
-  const description = recipe.description.slice(0, 160);
+  // Song-led title, H1 and description: see src/lib/recipe-seo.ts. The
+  // title is absolute (no "| Fader & Knob" suffix) and fits in 60 chars;
+  // scripts/audit-recipe-seo.ts prints and checks every recipe's copy.
+  const title = recipeSeoTitle(recipe, song, artist);
+  const description = recipeSeoDescription(recipe, song, artist);
   return {
-    // recipe.title is already artist-led and keyword-rich (e.g. "Buck
-    // Dharma's Don't Fear the Reaper Clean Riff Tone"). Appending
-    // "- {artist}" AND the "| Fader & Knob" template pushed 17 recipe
-    // titles past ~60 chars (truncated in SERPs — flagged in the audit).
-    // Use the bare recipe title as the absolute <title> to stay under the
-    // limit; the fuller `title` string still feeds OG/Twitter below where
-    // length isn't penalized.
-    title: { absolute: recipe.title },
+    title: { absolute: title },
     description,
     // The platform switcher uses ?platform=<id> on the same page. Without
     // a canonical, every variant (?platform=helix, ?platform=fractal, …)
@@ -139,6 +137,11 @@ export default async function PreviewRecipePage({
   const blocksByPlatform = Object.fromEntries(
     validPlatforms.map((p) => [p.id, recipeToBlocks(recipe, p.id)]),
   );
+
+  const h1 = recipeH1(recipe, song, artist);
+  // Only link the song when /song/{slug} is a real hub (2+ recipes). With
+  // one recipe it redirects straight back here, a second URL for this page.
+  const songLink = song ? songHref(song.slug) : null;
 
   const recipeIdx =
     toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
@@ -230,9 +233,11 @@ export default async function PreviewRecipePage({
           {song && (
             <>
               <span className="sep">/</span>
-              <Link href={`/song/${song.slug}`}>
-                {song.title}
-              </Link>
+              {songLink ? (
+                <Link href={songLink}>{song.title}</Link>
+              ) : (
+                <span>{song.title}</span>
+              )}
             </>
           )}
         </div>
@@ -253,7 +258,11 @@ export default async function PreviewRecipePage({
               )}
             </div>
             <h1 className="recipe-title display">
-              {song?.title ?? recipe.title}
+              {h1.main}
+              <span className="recipe-title-sub">
+                {artist ? " " : ": "}
+                {h1.sub}
+              </span>
             </h1>
             <div className="recipe-credits">
               {artist ? (
@@ -269,14 +278,21 @@ export default async function PreviewRecipePage({
               {song?.album && (
                 <>
                   <br />
-                  <Link
-                    href={`/song/${song.slug}`}
-                    className="song-artist-link"
-                    style={{ marginTop: 6, display: "inline-block" }}
-                  >
-                    {song.album}
-                    {song.year ? ` · ${song.year}` : ""}
-                  </Link>
+                  {songLink ? (
+                    <Link
+                      href={songLink}
+                      className="song-artist-link"
+                      style={{ marginTop: 6, display: "inline-block" }}
+                    >
+                      {song.album}
+                      {song.year ? ` · ${song.year}` : ""}
+                    </Link>
+                  ) : (
+                    <span style={{ marginTop: 6, display: "inline-block" }}>
+                      {song.album}
+                      {song.year ? ` · ${song.year}` : ""}
+                    </span>
+                  )}
                 </>
               )}
             </div>

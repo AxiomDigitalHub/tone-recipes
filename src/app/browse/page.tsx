@@ -13,6 +13,7 @@ import type { Platform } from "@/types/recipe";
 import { buildRigTokens } from "@/lib/gear-match";
 import { getBandName } from "@/lib/song-band";
 import { parsePageParam, pageWindow, paginate } from "@/lib/pagination";
+import { browseIndexing } from "@/lib/browse-seo";
 import BrowseRigFilter from "@/components/browse/BrowseRigFilter";
 import TrackedLink from "@/components/analytics/TrackedLink";
 
@@ -32,9 +33,18 @@ import TrackedLink from "@/components/analytics/TrackedLink";
  *
  * ?page IS part of the canonical (unlike ?sort): each page holds a
  * different slice of the catalog, so pointing them all at /browse would
- * tell Google the deeper pages are duplicates and strip the only crawl
- * path to the recipes on them. Page 1 canonicals to the bare URL — never
- * ?page=1 — so the default view keeps one address.
+ * tell Google the deeper pages are duplicates. Page 1 canonicals to the
+ * bare URL — never ?page=1 — so the default view keeps one address.
+ *
+ * Indexing (SEO fix 5, Nov 2026):
+ * - Page 2+ is noindex,follow. It used to stay indexable as a crawl path
+ *   to deep recipes; the sitemap now lists every recipe, so the deep pages
+ *   only add near-duplicate listings. follow keeps their links crawled.
+ * - 2+ facets (era, genre, platform, artist) is noindex,follow: combined
+ *   filters are thin slices nobody searches for.
+ * - A platform-only view whose platform covers every recipe (today:
+ *   ?platform=helix) lists the same recipes as /browse, so it canonicals
+ *   to /browse. If that platform ever covers fewer, it keeps its own.
  */
 // Platform labels come from the canonical list in @/lib/constants
 // (platformLabel). isKnownPlatform guards against junk ?platform values
@@ -87,16 +97,9 @@ export async function generateMetadata({
   const sp = await searchParams;
   const page = parsePageParam(sp.page);
 
-  // Canonical: meaningful facets only, fixed order, ?sort excluded,
-  // ?page last and only past page 1.
-  const canon = new URLSearchParams();
-  if (sp.era) canon.set("era", sp.era);
-  if (sp.genre) canon.set("genre", sp.genre);
-  if (sp.platform) canon.set("platform", sp.platform);
-  if (sp.artist) canon.set("artist", sp.artist);
-  if (page > 1) canon.set("page", String(page));
-  const qs = canon.toString();
-  const canonical = qs ? `/browse?${qs}` : "/browse";
+  // Canonical and noindex rules live in browseIndexing (see the header
+  // comment above and src/lib/browse-seo.ts).
+  const { canonical, robots } = browseIndexing(sp, page, toneRecipes);
 
   // Page 2+ needs its own title/description or it re-opens the
   // duplicate-title cluster the 2026-06-16 audit flagged. The total page
@@ -123,6 +126,7 @@ export async function generateMetadata({
         "The full archive of tone recipes. Filter by era, platform, or genre — every recipe with full signal chains and exact settings." +
         pageSuffixDesc,
       alternates: { canonical },
+      ...(robots ? { robots } : {}),
       openGraph: {
         title: `${title} — Fader & Knob`,
         description:
@@ -142,6 +146,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical },
+    ...(robots ? { robots } : {}),
     openGraph: { title: `${title} — Fader & Knob`, description, type: "website" },
   };
 }
