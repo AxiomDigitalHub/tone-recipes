@@ -94,7 +94,10 @@ export default function HomePage() {
                   Search tones
                 </label>
                 <input id="home-q" name="q" type="search" placeholder="Try a song, artist or guitarist" />
-                <button type="submit">Search</button>
+                <button type="submit" aria-label="Search">
+                  <span className="fk-home-search-text">Search</span>
+                  <Search className="fk-home-search-go" size={20} strokeWidth={2} aria-hidden />
+                </button>
               </form>
               <div className="fk-home-hero-cta">
                 <Link href="/browse" className="fk-btn fk-btn-light">
