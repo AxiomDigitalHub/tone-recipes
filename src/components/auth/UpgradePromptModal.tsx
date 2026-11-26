@@ -70,7 +70,7 @@ export default function UpgradePromptModal({
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 shadow-2xl">
+      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--fk-line)] bg-[var(--fk-paper)] p-6 shadow-2xl">
         <button
           type="button"
           onClick={onClose}
@@ -81,12 +81,9 @@ export default function UpgradePromptModal({
         </button>
 
         <div className="mb-4">
-          <span className="inline-flex items-center rounded-full bg-[var(--amber)]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--amber-2)]">
-            Tone Pass
-          </span>
           <h2
             id="upgrade-prompt-title"
-            className="mt-3 text-lg font-bold text-[var(--ink)]"
+            className="text-lg font-semibold text-[var(--ink)]"
           >
             Unlock unlimited downloads
           </h2>
@@ -103,21 +100,21 @@ export default function UpgradePromptModal({
             "Ad-free, cancel anytime",
           ].map((bullet) => (
             <li key={bullet} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--amber-2)]" />
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--fk-ink)]" />
               <span className="text-[var(--ink)]">{bullet}</span>
             </li>
           ))}
         </ul>
 
         <div className="mb-2 flex items-baseline gap-1">
-          <span className="text-3xl font-bold text-[var(--ink)]">$7</span>
+          <span className="fk-modal-price text-3xl font-semibold text-[var(--ink)]">$7</span>
           <span className="text-sm text-[var(--ink-muted)]">/month</span>
         </div>
 
         <Link
           href="/pricing"
           onClick={() => track("upgrade_prompt_click", { reason })}
-          className="block w-full rounded-lg bg-[var(--amber)] py-2.5 text-center text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)]"
+          className="block w-full rounded-full bg-[var(--fk-ink)] py-2.5 text-center text-sm font-medium text-[var(--fk-paper)] transition-opacity hover:opacity-80"
         >
           See Tone Pass
         </Link>

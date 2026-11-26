@@ -123,7 +123,7 @@ export default function AdminDashboard() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="mb-8">
-        <h1 className="page-title page-title-sm">Admin Dashboard</h1>
+        <h1 className="page-title page-title-sm">Admin dashboard</h1>
         <p className="mt-2 text-[var(--ink-muted)]">
           Live metrics for Fader &amp; Knob.
         </p>
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
 
       {loading ? (
         <div className="flex h-40 items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--amber-2)] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--ink)] border-t-transparent" />
         </div>
       ) : (
         <>
@@ -147,17 +147,17 @@ export default function AdminDashboard() {
               <StatCard label="Recipes" value={catalog?.recipes ?? 0} href="/browse" />
               <StatCard label="Artists" value={catalog?.artists ?? 0} />
               <StatCard label="Songs" value={catalog?.songs ?? 0} />
-              <StatCard label="Blog Posts" value={content?.blogPosts ?? 0} href="/blog" />
-              <StatCard label="News Articles" value={content?.newsArticles ?? 0} href="/news" />
-              <StatCard label="Preset Files" value={content?.presetFiles ?? 0} />
+              <StatCard label="Blog posts" value={content?.blogPosts ?? 0} href="/blog" />
+              <StatCard label="News articles" value={content?.newsArticles ?? 0} href="/news" />
+              <StatCard label="Preset files" value={content?.presetFiles ?? 0} />
             </div>
           </section>
 
           {/* ── Gear Section ── */}
           <section className="mb-10">
-            <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Gear Database</h2>
+            <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Gear database</h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <StatCard label="Gear Items" value={catalog?.gear ?? 0} />
+              <StatCard label="Gear items" value={catalog?.gear ?? 0} />
             </div>
           </section>
 
@@ -165,11 +165,11 @@ export default function AdminDashboard() {
           {users && users.recent.length > 0 && (
             <section className="mb-10">
               <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
-                Recent Sign-ups
+                Recent sign-ups
               </h2>
-              <div className="overflow-hidden rounded-lg border border-[var(--ink-faint)]">
+              <div className="overflow-hidden rounded-lg border border-[var(--fk-line)]">
                 <table className="w-full text-left text-sm">
-                  <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
+                  <thead className="border-b border-[var(--fk-line)] bg-[var(--paper-2)] text-xs text-[var(--ink-muted)]">
                     <tr>
                       <th className="px-4 py-3">User</th>
                       <th className="px-4 py-3">Role</th>
@@ -177,7 +177,7 @@ export default function AdminDashboard() {
                       <th className="px-4 py-3">Joined</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[var(--ink-faint)]">
+                  <tbody className="divide-y divide-[var(--fk-line)]">
                     {users.recent.map((u, i) => (
                       <tr key={i} className="hover:bg-[var(--paper-2)]">
                         <td className="px-4 py-3 font-medium text-[var(--ink)]">
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
                           <RoleBadge role={u.role} />
                         </td>
                         <td className="px-4 py-3 text-[var(--ink-muted)]">
-                          {u.platform ?? "—"}
+                          {u.platform ?? "–"}
                         </td>
                         <td className="px-4 py-3 text-[var(--ink-muted)]">
                           {timeAgo(u.createdAt)}
@@ -203,26 +203,26 @@ export default function AdminDashboard() {
           {/* ── Quick Actions ── */}
           <section>
             <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
-              Quick Actions
+              Quick actions
             </h2>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/dashboard/admin/recipes/new"
-                className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
+                className="fk-btn fk-btn-sm"
               >
-                + New Recipe
+                + New recipe
               </Link>
               <Link
                 href="/dashboard/admin/recipes"
-                className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
+                className="fk-btn fk-btn-sm fk-btn-secondary"
               >
-                Manage Recipes
+                Manage recipes
               </Link>
               <Link
                 href="/dashboard/admin/moderation"
-                className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-2 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]"
+                className="fk-btn fk-btn-sm fk-btn-secondary"
               >
-                Moderation Queue
+                Moderation queue
               </Link>
             </div>
           </section>
@@ -245,8 +245,8 @@ function GrowthSection({
     return (
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
-        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
-          <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
+        <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
+          <span className="mr-2 inline-block h-2 w-2 rounded-full bg-[var(--fk-line-strong)]" />
           Couldn&apos;t load growth data. Sign in as an admin and refresh.
         </div>
       </section>
@@ -259,7 +259,7 @@ function GrowthSection({
     return (
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">Growth</h2>
-        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
+        <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
           Loading growth data…
         </div>
       </section>
@@ -295,19 +295,19 @@ function GrowthSection({
       </div>
 
       {/* Accounts */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
+      <h3 className="mb-3 text-sm font-semibold text-[var(--ink-muted)]">
         Accounts
       </h3>
       {accounts ? (
         <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
-            <p className="text-2xl font-bold text-[var(--ink)]">
+          <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
+            <p className="acct-num text-2xl font-semibold text-[var(--ink)]">
               {accounts.total.toLocaleString()}
             </p>
             <p className="mt-1 text-sm text-[var(--ink-muted)]">Total accounts</p>
             <p className="mt-1 text-xs text-[var(--ink-muted)]">real accounts, not GA estimates</p>
           </div>
-          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+          <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
             <p className="mb-2 text-sm text-[var(--ink-muted)]">By role</p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
               {Object.entries(accounts.byRole)
@@ -320,7 +320,7 @@ function GrowthSection({
                 ))}
             </div>
           </div>
-          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+          <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
             <p className="mb-2 text-sm text-[var(--ink-muted)]">New signups / week (8 wks)</p>
             <Sparkline values={accounts.sparkline} />
             <p className="mt-2 text-xs text-[var(--ink-muted)]">
@@ -333,7 +333,7 @@ function GrowthSection({
       )}
 
       {/* Money */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
+      <h3 className="mb-3 text-sm font-semibold text-[var(--ink-muted)]">
         Money
       </h3>
       <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -351,7 +351,7 @@ function GrowthSection({
             <MoneyCard
               label="Est. MRR"
               value={formatUsd(paid.estMrr)}
-              caption="est. — Stripe is the exact number"
+              caption="est. (Stripe is the exact number)"
               accent
             />
           </>
@@ -380,7 +380,7 @@ function GrowthSection({
         </div>
       )}
       {set_packs?.interest && set_packs.interest.length > 0 && (
-        <div className="mb-6 rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+        <div className="mb-6 rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
           <p className="mb-2 text-sm text-[var(--ink-muted)]">
             Set pack interest (notify-me demand signal)
           </p>
@@ -396,7 +396,7 @@ function GrowthSection({
       )}
 
       {/* Newsletter */}
-      <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
+      <h3 className="mb-3 text-sm font-semibold text-[var(--ink-muted)]">
         Newsletter
       </h3>
       {newsletter ? (
@@ -414,18 +414,18 @@ function GrowthSection({
       {/* Downloads */}
       {downloads && downloads.top.length > 0 && (
         <>
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
+          <h3 className="mb-3 text-sm font-semibold text-[var(--ink-muted)]">
             Top downloads (7d)
           </h3>
-          <div className="mb-6 overflow-hidden rounded-lg border border-[var(--ink-faint)]">
+          <div className="mb-6 overflow-hidden rounded-lg border border-[var(--fk-line)]">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-[var(--ink-faint)] bg-[var(--paper-2)] text-xs uppercase text-[var(--ink-muted)]">
+              <thead className="border-b border-[var(--fk-line)] bg-[var(--paper-2)] text-xs text-[var(--ink-muted)]">
                 <tr>
                   <th className="px-4 py-3">Recipe</th>
                   <th className="px-4 py-3 text-right">Downloads</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--ink-faint)]">
+              <tbody className="divide-y divide-[var(--fk-line)]">
                 {downloads.top.map(({ slug, count }) => (
                   <tr key={slug} className="hover:bg-[var(--paper-2)]">
                     <td className="px-4 py-3 font-medium text-[var(--ink)]">
@@ -442,12 +442,12 @@ function GrowthSection({
 
       {/* Server events */}
       <div className="mb-1 flex items-baseline justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--ink-muted)]">
+        <h3 className="text-sm font-semibold text-[var(--ink-muted)]">
           Server events (30d)
         </h3>
       </div>
       <p className="mb-3 text-xs text-[var(--ink-muted)]">
-        Server-side signal only — client funnel steps (checkout_start,
+        Server-side signal only. Client funnel steps (checkout_start,
         signup_start) go to GA4, not here.
       </p>
       {funnel && funnel.byName.length > 0 ? (
@@ -455,9 +455,9 @@ function GrowthSection({
           {funnel.byName.map(({ name, count }) => (
             <div
               key={name}
-              className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
+              className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-4"
             >
-              <p className="text-xl font-bold text-[var(--ink)]">
+              <p className="acct-num text-xl font-semibold text-[var(--ink)]">
                 {count.toLocaleString()}
               </p>
               <p className="mt-1 break-words text-xs text-[var(--ink-muted)]">{name}</p>
@@ -483,10 +483,10 @@ function MoneyCard({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5">
+    <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5">
       <p
-        className={`text-2xl font-bold ${
-          accent ? "text-[var(--amber-2)]" : "text-[var(--ink)]"
+        className={`acct-num text-2xl font-semibold ${
+          accent ? "text-[var(--ink)]" : "text-[var(--ink)]"
         }`}
       >
         {value}
@@ -499,8 +499,8 @@ function MoneyCard({
 
 function BlockUnavailable({ label }: { label: string }) {
   return (
-    <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
-      <span className="mr-2 inline-block h-2 w-2 rounded-full bg-yellow-500" />
+    <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] px-4 py-3 text-sm text-[var(--ink-muted)]">
+      <span className="mr-2 inline-block h-2 w-2 rounded-full bg-[var(--fk-line-strong)]" />
       No {label} available.
     </div>
   );
@@ -534,7 +534,7 @@ function Sparkline({ values }: { values: number[] }) {
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        className="text-[var(--amber-2)]"
+        className="text-[var(--ink)]"
         vectorEffect="non-scaling-stroke"
       />
     </svg>
@@ -569,18 +569,18 @@ function StatCard({
 }) {
   const inner = (
     <div
-      className={`rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-5 transition-colors ${
-        href ? "hover:border-[var(--amber-2)] hover:bg-[var(--paper-2)]" : ""
+      className={`rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-5 transition-colors ${
+        href ? "hover:bg-[var(--fk-line-2)] hover:bg-[var(--paper-2)]" : ""
       }`}
     >
       <p
-        className={`text-2xl font-bold ${
-          accent ? "text-[var(--amber-2)]" : "text-[var(--ink)]"
+        className={`acct-num text-2xl font-semibold ${
+          accent ? "text-[var(--ink)]" : "text-[var(--ink)]"
         }`}
       >
         {value.toLocaleString()}
         {trend && value > 0 && (
-          <span className="ml-2 text-sm font-normal text-green-700">↑</span>
+          <span className="ml-2 text-sm font-normal text-[var(--fk-good)]">↑</span>
         )}
       </p>
       <p className="mt-1 text-sm text-[var(--ink-muted)]">{label}</p>
@@ -592,14 +592,14 @@ function StatCard({
 
 function RoleBadge({ role }: { role: string }) {
   const styles: Record<string, string> = {
-    admin: "bg-red-500/10 text-red-700",
-    premium: "bg-amber-500/15 text-[var(--amber-2)]",
-    creator: "bg-purple-500/10 text-purple-700",
-    free: "bg-[var(--paper-2)] text-[var(--ink-muted)]",
+    admin: "text-[var(--ink)]",
+    premium: "text-[var(--ink)]",
+    creator: "text-[var(--ink)]",
+    free: "text-[var(--ink-muted)]",
   };
   return (
     <span
-      className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
+      className={`inline-block rounded-full border border-[var(--fk-line)] px-2 py-0.5 text-xs font-medium ${
         styles[role] ?? styles.free
       }`}
     >

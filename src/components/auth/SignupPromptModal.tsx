@@ -161,7 +161,7 @@ export default function SignupPromptModal({
       />
 
       {/* Modal panel */}
-      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-6 shadow-2xl">
+      <div className="relative w-full max-w-sm rounded-2xl border border-[var(--fk-line)] bg-[var(--fk-paper)] p-6 shadow-2xl">
         {/* Close button */}
         <button
           type="button"
@@ -176,7 +176,7 @@ export default function SignupPromptModal({
         <div className="mb-4">
           <h2
             id="signup-prompt-title"
-            className="text-lg font-bold text-[var(--ink)]"
+            className="text-lg font-semibold text-[var(--ink)]"
           >
             Create a free account
           </h2>
@@ -193,7 +193,7 @@ export default function SignupPromptModal({
             "Takes about 20 seconds",
           ].map((bullet) => (
             <li key={bullet} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--amber-2)]" />
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--fk-ink)]" />
               <span className="text-[var(--ink)]">{bullet}</span>
             </li>
           ))}
@@ -201,7 +201,7 @@ export default function SignupPromptModal({
 
         {/* Error */}
         {error && (
-          <div className="mb-4 rounded-lg border border-red-500/30 bg-red-500/5 px-3 py-2 text-xs text-red-400">
+          <div className="mb-4 rounded-lg border border-[var(--fk-line)] bg-[var(--fk-wash)] px-3 py-2 text-xs text-[var(--fk-danger)]">
             {error}
           </div>
         )}
@@ -223,7 +223,7 @@ export default function SignupPromptModal({
           <button
             type="button"
             onClick={handleGoogle}
-            className="flex w-full items-center justify-center gap-2 rounded-lg border border-[var(--ink)]/15 bg-[#0b0f1a] py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:border-[var(--amber)]/40 hover:bg-[var(--paper)]"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-[var(--fk-line-strong)] bg-[var(--fk-paper)] py-2.5 text-sm font-medium text-[var(--fk-ink)] transition-colors hover:bg-[var(--fk-wash)]"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -253,11 +253,11 @@ export default function SignupPromptModal({
         {!isDemoMode && !showEmailForm && (
           <>
             <div className="my-3 flex items-center gap-3">
-              <div className="h-px flex-1 bg-[var(--ink)]/15" />
-              <span className="text-[10px] uppercase tracking-wider text-[var(--ink-muted)]">
+              <div className="h-px flex-1 bg-[var(--fk-line)]" />
+              <span className="text-xs text-[var(--ink-muted)]">
                 or
               </span>
-              <div className="h-px flex-1 bg-[var(--ink)]/15" />
+              <div className="h-px flex-1 bg-[var(--fk-line)]" />
             </div>
             <button
               type="button"
@@ -277,11 +277,11 @@ export default function SignupPromptModal({
           >
             {!isDemoMode && (
               <div className="flex items-center gap-3">
-                <div className="h-px flex-1 bg-[var(--ink)]/15" />
-                <span className="text-[10px] uppercase tracking-wider text-[var(--ink-muted)]">
+                <div className="h-px flex-1 bg-[var(--fk-line)]" />
+                <span className="text-xs text-[var(--ink-muted)]">
                   or with email
                 </span>
-                <div className="h-px flex-1 bg-[var(--ink)]/15" />
+                <div className="h-px flex-1 bg-[var(--fk-line)]" />
               </div>
             )}
 
@@ -292,7 +292,7 @@ export default function SignupPromptModal({
               placeholder="you@email.com"
               autoComplete="email"
               autoFocus
-              className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] outline-none focus:border-[var(--amber)]"
+              className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] outline-none focus:border-[var(--fk-ink)]"
             />
 
             {!isDemoMode && (
@@ -304,12 +304,12 @@ export default function SignupPromptModal({
                   placeholder={`Password (${MIN_PASSWORD_LENGTH}+ characters)`}
                   autoComplete="new-password"
                   minLength={MIN_PASSWORD_LENGTH}
-                  className="w-full rounded-lg border border-[var(--ink)]/15 bg-[var(--paper)] px-3 py-2 pr-14 text-sm text-[var(--ink)] outline-none focus:border-[var(--amber)]"
+                  className="w-full rounded-lg border border-[var(--fk-line-strong)] bg-[var(--paper)] px-3 py-2 pr-14 text-sm text-[var(--ink)] outline-none focus:border-[var(--fk-ink)]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((s) => !s)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-[var(--ink-muted)] hover:text-[var(--amber-2)]"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded px-2 py-1 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)]"
                 >
                   {showPassword ? "Hide" : "Show"}
                 </button>
@@ -319,7 +319,7 @@ export default function SignupPromptModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-[var(--amber)] py-2.5 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] disabled:opacity-50"
+              className="w-full rounded-full bg-[var(--fk-ink)] py-2.5 text-sm font-medium text-[var(--fk-paper)] transition-opacity hover:opacity-80 disabled:opacity-50"
             >
               {loading ? "Creating account..." : "Create account"}
             </button>
@@ -328,7 +328,7 @@ export default function SignupPromptModal({
 
         <p className="mt-4 text-center text-[11px] text-[var(--ink-muted)]">
           Already have an account?{" "}
-          <Link href="/login" className="text-[var(--amber-2)] hover:underline">
+          <Link href="/login" className="text-[var(--fk-ink)] underline underline-offset-2">
             Log in
           </Link>
         </p>

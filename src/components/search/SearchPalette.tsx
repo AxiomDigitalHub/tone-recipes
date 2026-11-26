@@ -244,9 +244,9 @@ export default function SearchPalette({
 
       {/* Modal */}
       <div className="fixed inset-0 flex items-start justify-center pt-[15vh]">
-        <div className="relative w-full max-w-lg rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] shadow-2xl">
+        <div className="relative w-full max-w-lg rounded-xl border border-[var(--paper-line)] bg-[var(--paper)] shadow-2xl">
           {/* Search input */}
-          <div className="flex items-center border-b border-[var(--ink)]/15 px-4">
+          <div className="flex items-center border-b border-[var(--paper-line)] px-4">
             <svg
               className="h-5 w-5 shrink-0 text-[var(--ink-muted)]"
               fill="none"
@@ -308,7 +308,7 @@ export default function SearchPalette({
               const startIndex = flatIndex;
               const section = (
                 <div key={type}>
-                  <div className="px-3 pb-1 pt-3 text-xs font-semibold uppercase tracking-wider text-[var(--ink-muted)]">
+                  <div className="px-3 pb-1 pt-3 text-[13px] font-medium text-[var(--ink-muted)]">
                     {sectionLabels[type]}
                   </div>
                   {items.map((item, i) => {
@@ -325,8 +325,8 @@ export default function SearchPalette({
                         data-active={isActive}
                         className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors ${
                           isActive
-                            ? "border-l-2 border-[var(--amber)] bg-[var(--paper)]"
-                            : "border-l-2 border-transparent hover:bg-[var(--paper)]"
+                            ? "bg-[var(--paper-2)]"
+                            : "hover:bg-[var(--paper-2)]"
                         }`}
                       >
                         <span className="shrink-0 text-[var(--ink-muted)]">
@@ -357,7 +357,7 @@ export default function SearchPalette({
 
           {/* Footer hint */}
           {flatResults.length > 0 && (
-            <div className="border-t border-[var(--ink)]/15 px-4 py-2 text-center text-xs text-[var(--ink-muted)]">
+            <div className="border-t border-[var(--paper-line)] px-4 py-2 text-center text-xs text-[var(--ink-muted)]">
               <span className="inline-flex items-center gap-2">
                 <span>
                   <kbd className="rounded border border-[var(--ink)]/15 px-1 py-0.5 text-[10px]">

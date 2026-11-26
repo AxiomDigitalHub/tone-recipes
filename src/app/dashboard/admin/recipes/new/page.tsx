@@ -113,24 +113,24 @@ function emptyFormState(): FormState {
 // ---------------------------------------------------------------------------
 
 const inputCls =
-  "w-full bg-[var(--paper)] border border-[var(--ink-faint)] rounded-lg px-3 py-2 text-[var(--ink)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--amber-2)]/50";
+  "w-full bg-[var(--paper)] border border-[var(--fk-line)] rounded-lg px-3 py-2 text-[var(--ink)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ink)]/50";
 const selectCls = inputCls;
 const labelCls = "block text-xs font-medium text-[var(--ink-muted)] mb-1";
 const btnSecondary =
-  "rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] transition-colors hover:bg-[var(--paper-2)]";
+  "fk-btn fk-btn-xs fk-btn-secondary";
 const btnDanger =
-  "rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-1.5 text-sm font-medium text-red-700 transition-colors hover:bg-red-500/20";
+  "fk-btn fk-btn-xs fk-btn-secondary fk-btn-danger";
 
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
 const STEPS = [
-  "Basic Info",
+  "Basic info",
   "Song",
-  "Guitar Specs",
-  "Original Gear",
-  "Signal Chain",
+  "Guitar specs",
+  "Original gear",
+  "Signal chain",
   "Platforms",
   "Review",
 ];
@@ -459,20 +459,20 @@ export default function NewRecipePage() {
           <button
             key={label}
             onClick={() => setStep(i)}
-            className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
+            className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-2 text-xs font-medium transition-colors ${
               i === step
-                ? "bg-[var(--amber)] text-[var(--ink)]"
+                ? "bg-[var(--ink)] text-[var(--paper)]"
                 : i < step
-                  ? "bg-[var(--paper-2)] text-[var(--amber-2)]"
+                  ? "bg-[var(--paper-2)] text-[var(--ink)]"
                   : "bg-[var(--paper-2)] text-[var(--ink-muted)]"
             }`}
           >
             <span
-              className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
+              className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-semibold ${
                 i === step
-                  ? "bg-[var(--paper)] text-[var(--amber-2)]"
+                  ? "bg-[var(--paper)] text-[var(--ink)]"
                   : i < step
-                    ? "bg-amber-500/15 text-[var(--amber-2)]"
+                    ? "bg-[var(--paper)] text-[var(--ink)]"
                     : "bg-border text-[var(--ink-muted)]"
               }`}
             >
@@ -521,20 +521,20 @@ export default function NewRecipePage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Tone Context</label>
+            <label className={labelCls}>Tone context</label>
             <select
               className={selectCls}
               value={form.tone_context}
               onChange={(e) => update("tone_context", e.target.value)}
             >
-              <option value="full_song">Full Song</option>
+              <option value="full_song">Full song</option>
               <option value="solo">Solo</option>
               <option value="rhythm">Rhythm</option>
               <option value="intro">Intro</option>
               <option value="verse">Verse</option>
               <option value="chorus">Chorus</option>
               <option value="bridge">Bridge</option>
-              <option value="clean_section">Clean Section</option>
+              <option value="clean_section">Clean section</option>
             </select>
           </div>
           <div>
@@ -544,7 +544,7 @@ export default function NewRecipePage() {
                 type="checkbox"
                 checked={form.is_editorial}
                 onChange={(e) => update("is_editorial", e.target.checked)}
-                className="h-4 w-4 rounded border-[var(--ink-faint)] bg-[var(--paper)] accent-accent"
+                className="h-4 w-4 rounded border-[var(--fk-line)] bg-[var(--paper)] accent-accent"
               />
               <span className="text-sm text-[var(--ink)]">Mark as editorial content</span>
             </label>
@@ -577,7 +577,7 @@ export default function NewRecipePage() {
     return (
       <div className="space-y-5">
         <div>
-          <label className={labelCls}>Select Song</label>
+          <label className={labelCls}>Select song</label>
           <select
             className={selectCls}
             value={form.song_slug}
@@ -592,7 +592,7 @@ export default function NewRecipePage() {
           </select>
         </div>
         {form.song_slug && (
-          <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4 text-sm">
+          <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper)] p-4 text-sm">
             {(() => {
               const song = staticSongs.find((s) => s.slug === form.song_slug);
               if (!song) return null;
@@ -621,7 +621,7 @@ export default function NewRecipePage() {
     return (
       <div className="space-y-5">
         <div>
-          <label className={labelCls}>Guitar Model Name</label>
+          <label className={labelCls}>Guitar model name</label>
           <input
             className={inputCls}
             value={gs.model_name}
@@ -631,7 +631,7 @@ export default function NewRecipePage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Body Type</label>
+            <label className={labelCls}>Body type</label>
             <select
               className={selectCls}
               value={gs.body_type}
@@ -643,12 +643,12 @@ export default function NewRecipePage() {
               }
             >
               <option value="solid">Solid</option>
-              <option value="semi_hollow">Semi-Hollow</option>
+              <option value="semi_hollow">Semi-hollow</option>
               <option value="hollow">Hollow</option>
             </select>
           </div>
           <div>
-            <label className={labelCls}>Pickup Config</label>
+            <label className={labelCls}>Pickup config</label>
             <select
               className={selectCls}
               value={gs.pickup_config}
@@ -669,7 +669,7 @@ export default function NewRecipePage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Pickup Position</label>
+            <label className={labelCls}>Pickup position</label>
             <input
               className={inputCls}
               value={gs.pickup_position}
@@ -707,7 +707,7 @@ export default function NewRecipePage() {
         </div>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className={labelCls}>String Gauge</label>
+            <label className={labelCls}>String gauge</label>
             <input
               className={inputCls}
               value={gs.string_gauge}
@@ -718,7 +718,7 @@ export default function NewRecipePage() {
             />
           </div>
           <div>
-            <label className={labelCls}>Scale Length</label>
+            <label className={labelCls}>Scale length</label>
             <input
               className={inputCls}
               value={gs.scale_length}
@@ -729,7 +729,7 @@ export default function NewRecipePage() {
             />
           </div>
           <div>
-            <label className={labelCls}>String Count</label>
+            <label className={labelCls}>String count</label>
             <input
               className={inputCls}
               type="number"
@@ -741,7 +741,7 @@ export default function NewRecipePage() {
           </div>
         </div>
         <div>
-          <label className={labelCls}>Notable Mods</label>
+          <label className={labelCls}>Notable mods</label>
           <textarea
             className={inputCls + " min-h-[60px]"}
             value={gs.notable_mods ?? ""}
@@ -818,7 +818,7 @@ export default function NewRecipePage() {
           />
         </div>
         <div>
-          <label className={labelCls}>Other Notes</label>
+          <label className={labelCls}>Other notes</label>
           <textarea
             className={inputCls + " min-h-[60px]"}
             value={og.other_notes ?? ""}
@@ -841,12 +841,12 @@ export default function NewRecipePage() {
             Build the signal chain in order. Each node represents a piece of gear.
           </p>
           <button className={btnSecondary} onClick={addNode}>
-            + Add Node
+            + Add node
           </button>
         </div>
 
         {form.signal_chain.length === 0 && (
-          <div className="rounded-lg border border-dashed border-[var(--ink-faint)] py-8 text-center text-sm text-[var(--ink-muted)]">
+          <div className="rounded-lg border border-dashed border-[var(--fk-line)] py-8 text-center text-sm text-[var(--ink-muted)]">
             No nodes yet. Click &quot;Add Node&quot; to start building the signal chain.
           </div>
         )}
@@ -854,10 +854,10 @@ export default function NewRecipePage() {
         {form.signal_chain.map((node, i) => (
           <div
             key={i}
-            className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
+            className="rounded-[var(--fk-r-lg)] bg-[var(--paper)] p-4"
           >
             <div className="mb-3 flex items-center justify-between">
-              <span className="text-xs font-bold text-[var(--amber-2)]">
+              <span className="text-xs font-semibold text-[var(--ink)]">
                 Node {node.position}
               </span>
               <div className="flex items-center gap-1">
@@ -892,7 +892,7 @@ export default function NewRecipePage() {
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               <div>
-                <label className={labelCls}>Gear Item (optional)</label>
+                <label className={labelCls}>Gear item (optional)</label>
                 <select
                   className={selectCls}
                   value={node.gear_slug ?? ""}
@@ -913,7 +913,7 @@ export default function NewRecipePage() {
                 </select>
               </div>
               <div>
-                <label className={labelCls}>Gear Name</label>
+                <label className={labelCls}>Gear name</label>
                 <input
                   className={inputCls}
                   value={node.gear_name}
@@ -953,7 +953,7 @@ export default function NewRecipePage() {
                 />
               </div>
               <div>
-                <label className={labelCls}>Icon Type</label>
+                <label className={labelCls}>Icon type</label>
                 <input
                   className={inputCls}
                   value={node.icon_type}
@@ -962,7 +962,7 @@ export default function NewRecipePage() {
                 />
               </div>
               <div>
-                <label className={labelCls}>Icon Color</label>
+                <label className={labelCls}>Icon color</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="color"
@@ -970,7 +970,7 @@ export default function NewRecipePage() {
                     onChange={(e) =>
                       updateNode(i, { icon_color: e.target.value })
                     }
-                    className="h-9 w-9 cursor-pointer rounded border border-[var(--ink-faint)] bg-[var(--paper)]"
+                    className="h-9 w-9 cursor-pointer rounded border border-[var(--fk-line)] bg-[var(--paper)]"
                   />
                   <input
                     className={inputCls}
@@ -991,7 +991,7 @@ export default function NewRecipePage() {
                   onChange={(e) =>
                     updateNode(i, { is_in_effects_loop: e.target.checked })
                   }
-                  className="h-4 w-4 rounded border-[var(--ink-faint)] bg-[var(--paper)] accent-accent"
+                  className="h-4 w-4 rounded border-[var(--fk-line)] bg-[var(--paper)] accent-accent"
                 />
                 <span className="text-xs text-[var(--ink-muted)]">In effects loop</span>
               </label>
@@ -1021,7 +1021,7 @@ export default function NewRecipePage() {
                       }}
                     />
                     <button
-                      className="text-xs text-red-700 hover:text-red-300"
+                      className="text-xs text-[var(--fk-danger)] hover:opacity-70"
                       onClick={() => removeNodeSetting(i, key)}
                     >
                       x
@@ -1030,7 +1030,7 @@ export default function NewRecipePage() {
                 ))}
               </div>
               <button
-                className="mt-1 text-xs text-[var(--amber-2)] hover:underline"
+                className="mt-1 text-xs text-[var(--ink)] underline underline-offset-2"
                 onClick={() => {
                   const key = prompt("Setting name (e.g. Drive, Volume):");
                   if (key) updateNodeSetting(i, key, 5);
@@ -1088,11 +1088,11 @@ export default function NewRecipePage() {
           return (
             <div
               key={platformId}
-              className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4"
+              className="rounded-[var(--fk-r-lg)] bg-[var(--paper)] p-4"
             >
               <div className="mb-3 flex items-center justify-between">
                 <span
-                  className="text-sm font-bold"
+                  className="text-sm font-semibold"
                   style={{ color: platform?.color ?? "#a1a1aa" }}
                 >
                   {platform?.label ?? platformId}
@@ -1101,12 +1101,12 @@ export default function NewRecipePage() {
                   className={btnDanger}
                   onClick={() => removePlatform(platformId)}
                 >
-                  Remove Platform
+                  Remove platform
                 </button>
               </div>
 
               <div className="mb-3">
-                <label className={labelCls}>Platform Notes</label>
+                <label className={labelCls}>Platform notes</label>
                 <textarea
                   className={inputCls + " min-h-[50px]"}
                   value={translation.notes}
@@ -1120,24 +1120,24 @@ export default function NewRecipePage() {
               <div className="mb-2 flex items-center justify-between">
                 <label className={labelCls}>Blocks</label>
                 <button
-                  className="text-xs text-[var(--amber-2)] hover:underline"
+                  className="text-xs text-[var(--ink)] underline underline-offset-2"
                   onClick={() => addPlatformBlock(platformId)}
                 >
-                  + Add Block
+                  + Add block
                 </button>
               </div>
 
               {translation.chain_blocks.map((block, bi) => (
                 <div
                   key={bi}
-                  className="mb-2 rounded border border-[var(--ink-faint)] bg-[var(--paper)] p-3"
+                  className="mb-2 rounded border border-[var(--fk-line)] bg-[var(--paper)] p-3"
                 >
                   <div className="mb-2 flex items-center justify-between">
                     <span className="text-xs font-medium text-[var(--ink-muted)]">
                       Block {block.position}
                     </span>
                     <button
-                      className="text-xs text-red-700 hover:text-red-300"
+                      className="text-xs text-[var(--fk-danger)] hover:opacity-70"
                       onClick={() => removePlatformBlock(platformId, bi)}
                     >
                       Remove
@@ -1145,7 +1145,7 @@ export default function NewRecipePage() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                     <div>
-                      <label className={labelCls}>Block Name</label>
+                      <label className={labelCls}>Block name</label>
                       <input
                         className={inputCls}
                         value={block.block_name}
@@ -1171,7 +1171,7 @@ export default function NewRecipePage() {
                       />
                     </div>
                     <div>
-                      <label className={labelCls}>Original Gear</label>
+                      <label className={labelCls}>Original gear</label>
                       <input
                         className={inputCls}
                         value={block.original_gear}
@@ -1211,9 +1211,9 @@ export default function NewRecipePage() {
     const recipe = buildRecipeJson();
     return (
       <div className="space-y-5">
-        <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)] p-4">
+        <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper)] p-4">
           <h3 className="mb-2 text-sm font-semibold text-[var(--ink)]">
-            Recipe Summary
+            Recipe summary
           </h3>
           <div className="space-y-1 text-sm text-[var(--ink-muted)]">
             <p>
@@ -1245,15 +1245,15 @@ export default function NewRecipePage() {
         </div>
 
         <div>
-          <label className={labelCls}>JSON Preview</label>
-          <pre className="max-h-80 overflow-auto rounded-lg border border-[var(--ink-faint)] bg-[var(--paper)] p-3 text-xs text-[var(--ink-muted)]">
+          <label className={labelCls}>JSON preview</label>
+          <pre className="max-h-80 overflow-auto rounded-lg border border-[var(--fk-line)] bg-[var(--paper)] p-3 text-xs text-[var(--ink-muted)]">
             {JSON.stringify(recipe, null, 2)}
           </pre>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <button
-            className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
+            className="fk-btn fk-btn-sm"
             onClick={handleSaveToLocalStorage}
           >
             Save to localStorage
@@ -1268,7 +1268,7 @@ export default function NewRecipePage() {
             className={btnDanger}
             onClick={handleClearDraft}
           >
-            Clear Draft
+            Clear draft
           </button>
         </div>
       </div>
@@ -1285,18 +1285,18 @@ export default function NewRecipePage() {
           href="/admin/recipes"
           className="text-sm text-[var(--ink-muted)] hover:text-[var(--ink)]"
         >
-          &larr; Back to Recipes
+          &larr; Back to recipes
         </Link>
       </div>
 
-      <h1 className="page-title page-title-sm mb-2">New Recipe</h1>
+      <h1 className="page-title page-title-sm mb-2">New recipe</h1>
       <p className="mb-6 text-sm text-[var(--ink-muted)]">
         Fill out each step, then copy the JSON or save to localStorage.
       </p>
 
       {renderStepIndicator()}
 
-      <div className="rounded-lg border border-[var(--ink-faint)] bg-[var(--paper-2)]/50 p-6">
+      <div className="rounded-[var(--fk-r-lg)] bg-[var(--paper-2)] p-6">
         <h2 className="mb-4 text-lg font-semibold text-[var(--ink)]">
           {STEPS[step]}
         </h2>
@@ -1321,7 +1321,7 @@ export default function NewRecipePage() {
         </button>
         {step < STEPS.length - 1 ? (
           <button
-            className="rounded-lg border border-[var(--ink)] bg-[var(--amber)] px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--amber-2)] hover:text-[var(--paper)]"
+            className="fk-btn fk-btn-sm"
             onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}
           >
             Next &rarr;
