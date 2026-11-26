@@ -10,9 +10,9 @@ import {
   helixCategory,
   type PreviewBlockData,
 } from "@/components/v3/preview-helpers";
-import { BlockIcon } from "@/components/v3/BlockIcon";
-import { PreviewSchematicChain } from "@/components/v3/PreviewSchematicChain";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { monogramFor } from "@/components/v3/LpArt";
+import { Wordmark } from "@/components/brand/Logo";
+import ChainStrip from "@/app/_pages/ChainStrip";
 import { getCanonicalParams } from "@/lib/parameters/canonical";
 import { lookupParam } from "@/lib/parameters/registry";
 import { platformLabel } from "@/lib/constants";
@@ -20,18 +20,14 @@ import type { Metadata } from "next";
 import type { Platform, PlatformTranslation } from "@/types/recipe";
 
 /**
- * /recipe/[slug]/print — print-optimized version of the recipe.
+ * /recipe/[slug]/print: print-optimized version of the recipe, and the
+ * source of the downloadable settings PDF (the download endpoint renders
+ * it with headless Chrome in screen media).
  *
- * Cover page is the love letter to the guitar + pedalboard:
- * GuitarProfile + chain row via the same PreviewSchematicChain the
- * recipe page renders when "Pedalboard" is the active platform. Then
- * one page per platform translation, each rendering the per-block
- * settings via PreviewBlockDetail. To save as PDF: open the URL, hit
- * ⌘P / Ctrl+P, set destination to "Save as PDF".
- *
- * The /api/recipes/[slug]/download endpoint can later be upgraded to
- * drive this route through Puppeteer for email-gated downloads —
- * documented in V4_FOLLOWUPS.
+ * Cover page: title, credits, cover art and the pedalboard chain drawn
+ * with the redesign's gear drawings. Then one page per platform
+ * translation, each a settings table. To save as PDF by hand: open the
+ * URL, hit Cmd+P / Ctrl+P, set destination to "Save as PDF".
  */
 
 export function generateStaticParams() {
@@ -47,8 +43,8 @@ export async function generateMetadata({
   const recipe = getRecipeBySlug(slug);
   return {
     title: recipe
-      ? `${recipe.title} — print`
-      : "Print preview — Fader & Knob",
+      ? `${recipe.title} (print)`
+      : "Print preview | Fader & Knob",
     robots: { index: false, follow: false },
   };
 }
@@ -89,12 +85,10 @@ const AMP_INTERNAL_PARAMS = new Set([
 ]);
 
 /**
- * One settings table per platform — columns Block · Setting · Value, in the
- * site's type/ink/cream system. Replaces the per-block knob-dial cards,
- * which were beautiful but ate ~half a page each. The block name spans its
- * rows; amp blocks keep the "Tone & gain" / "Tube internals" split as
- * labeled sub-rows. This is the original jsPDF table density, styled like
- * the website.
+ * One settings table per platform, columns Block, Setting, Value. The
+ * block name spans its rows; amp blocks keep the "Tone & gain" and
+ * "Tube internals" split as labeled sub-rows. Values are data, so they
+ * set in mono; everything else is Geist.
  */
 type SpecLine =
   | { kind: "group"; label: string }
@@ -137,9 +131,6 @@ function PlatformSpecTable({ blocks }: { blocks: PreviewBlockData[] }) {
         const span = Math.max(lines.length, 1);
         const blockCell = (
           <th className="print-spec-block" scope="rowgroup" rowSpan={span}>
-            <span className="bi" aria-hidden="true">
-              <BlockIcon block={b} size={18} />
-            </span>
             <span className="bn">{b.name}</span>
             {b.sub && <span className="bs">{b.sub}</span>}
             <span className="bk">{helixCategory(b)}</span>
@@ -151,7 +142,7 @@ function PlatformSpecTable({ blocks }: { blocks: PreviewBlockData[] }) {
               <tr className="print-spec-row print-spec-first">
                 {blockCell}
                 <td className="print-spec-empty" colSpan={2}>
-                  Engaged — no adjustable parameters
+                  Engaged, no adjustable parameters
                 </td>
               </tr>
             </tbody>
@@ -191,7 +182,7 @@ function PlatformSpecTable({ blocks }: { blocks: PreviewBlockData[] }) {
 
 /**
  * Enrich a platform translation's blocks so every canonical
- * parameter for the (platform, block_category) pair renders — even
+ * parameter for the (platform, block_category) pair renders, even
  * when the recipe data didn't set one. Missing params get filled with
  * the registry neutral so the printed PDF always shows e.g. LowCut /
  * HighCut / Resonance on a Cab block, even if the recipe predates
@@ -231,112 +222,90 @@ export default async function RecipePrintPage({
   const song = getSongBySlug(recipe.song_slug);
   const artist = song ? getArtistBySlug(song.artist_slug) : undefined;
 
-  const recipeIdx =
-    toneRecipes.findIndex((r) => r.slug === recipe.slug) + 1;
-
   // Which platforms have translations? Render in canonical order.
   const availablePlatforms = PLATFORM_ORDER.filter((p) => {
     if (p === "pedalboard") return (recipe.signal_chain ?? []).length > 0;
     return Boolean(recipe.platform_translations?.[p]);
   });
 
+  const meta = [
+    song?.year ? String(song.year) : null,
+    artist?.genres?.[0] ?? null,
+    recipe.signal_chain ? `${recipe.signal_chain.length} blocks` : null,
+  ].filter(Boolean);
+
   return (
     <div className="print-doc">
-      {/* ── Cover page — love letter for the guitar + the pedalboard ──
-          Top: masthead. Then a compact title/credits/dek block on the
-          left with a small square of LP art on the right. The hero is
-          the GuitarProfile card + the schematic signal chain — same
-          components the recipe page renders when "Pedalboard" is the
-          active platform, so the print is a faithful echo of the live
-          editorial spread. */}
+      {/* Cover page: masthead, title block with the cover art on the
+          right, then the pedalboard chain. */}
       <section className="print-page print-cover">
         <header className="print-masthead">
-          <span>Fader &amp; Knob</span>
+          <Wordmark tone="ink" className="print-masthead-logo" />
           <span>faderandknob.com</span>
         </header>
 
         <div className="print-cover-top">
           <div className="print-cover-text">
-            <div className="recipe-issue">
-              <span className="pill">
-                No. {String(recipeIdx).padStart(3, "0")}
-              </span>
-              {song?.year && <span>·</span>}
-              {song?.year && <span>{song.year}</span>}
-              {artist?.genres?.[0] && (
-                <>
-                  <span>·</span>
-                  <span>{artist.genres[0]}</span>
-                </>
-              )}
-              {recipe.signal_chain && (
-                <>
-                  <span>·</span>
-                  <span>{recipe.signal_chain.length} blocks</span>
-                </>
-              )}
-            </div>
-
-            <h1 className="recipe-title display print-cover-title">
+            <h1 className="print-cover-title">
               {song?.title ?? recipe.title}
             </h1>
 
-            <div className="recipe-credits print-cover-credits">
-              {artist && <em>{artist.name}</em>}
+            <p className="print-cover-credits">
+              {artist && <span className="print-cover-artist">{artist.name}</span>}
               {song?.album && (
-                <>
-                  <br />
-                  <span>
-                    {song.album}
-                    {song.year ? ` · ${song.year}` : ""}
-                  </span>
-                </>
+                <span>
+                  {song.album}
+                  {song.year ? ` · ${song.year}` : ""}
+                </span>
               )}
-            </div>
-
-            <p className="recipe-summary print-cover-dek">
-              {recipe.description}
             </p>
+
+            {meta.length > 0 && (
+              <p className="print-cover-meta">{meta.join(" · ")}</p>
+            )}
+
+            <p className="print-cover-dek">{recipe.description}</p>
           </div>
 
           <div className="print-cover-art">
-            <LpArt
-              cover={song?.album_art_url}
-              monogram={monogramFor(song?.title ?? recipe.title)}
-              hue={recipeIdx}
-              shape="square"
-              alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
-            />
+            {song?.album_art_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={song.album_art_url}
+                alt={`${song?.album ?? song?.title ?? recipe.title} cover`}
+              />
+            ) : (
+              <span aria-hidden="true">
+                {monogramFor(song?.title ?? recipe.title)}
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Hero: guitar profile card + signal chain — the same view the
-            recipe page renders when "Pedalboard" is the active platform. */}
         <div className="print-cover-hero">
-          <div className="print-cover-hero-eyebrow">
-            <span>Signal path</span>
-            <span aria-hidden="true">·</span>
-            <span>Input → output</span>
-            <span aria-hidden="true">·</span>
-            <span>{recipe.signal_chain.length} blocks</span>
+          <div className="print-section-head">
+            <h2 className="print-section-title">Signal path</h2>
+            <p className="print-section-caption">
+              Input → output · {recipe.signal_chain.length} blocks
+            </p>
           </div>
-          <PreviewSchematicChain
+          <ChainStrip
             blocks={recipeToBlocks(recipe, "pedalboard")}
-            selectedIndex={null}
-            interactive={false}
+            height={118}
+            wrap
+            label="Signal path, pedalboard"
           />
         </div>
       </section>
 
-      {/* ── One page per platform translation ───────────────────────── */}
+      {/* One page per platform translation */}
       {availablePlatforms
         .filter((p): p is Exclude<Platform, "pedalboard"> => p !== "pedalboard")
         .map((platform) => {
           const translation = recipe.platform_translations[platform];
           if (!translation) return null;
           // Enrich the translation so every canonical parameter for each
-          // block's category renders, even at neutral defaults. Then the
-          // chain-block detail cards always show the full param set.
+          // block's category renders, even at neutral defaults.
           const enriched = enrichTranslation(translation, platform);
           const enrichedRecipe = {
             ...recipe,
@@ -353,46 +322,33 @@ export default async function RecipePrintPage({
               className="print-page print-platform-page"
             >
               <header className="print-page-head">
-                <div className="print-page-eyebrow">
-                  <span>{PLATFORM_MFR[platform]}</span>
-                  <span> · </span>
-                  <span>Translation</span>
-                </div>
-                <h2 className="display print-page-title">
+                <h2 className="print-page-title">
                   {platformLabel(platform)}
                 </h2>
+                <p className="print-page-sub">
+                  {PLATFORM_MFR[platform]} · Translation
+                </p>
                 {translation.notes && (
-                  <p className="print-page-dek">
-                    <em>{translation.notes}</em>
-                  </p>
+                  <p className="print-page-dek">{translation.notes}</p>
                 )}
               </header>
 
-              {/* Signal-chain TOC — icon nodes + block names beneath.
-                  Sits above the per-block detail cards as a visual
-                  table-of-contents so readers see the chain flow
-                  before scrolling into the knob breakdown. Different
-                  role than the cards (chain shape vs. settings) — not
-                  a duplicate. */}
+              {/* The chain first, as a table of contents for the
+                  settings below. */}
               <div className="print-platform-chain">
-                <div className="print-platform-chain-eyebrow">
-                  <span>Signal path</span>
-                  <span aria-hidden="true">·</span>
-                  <span>{platformLabel(platform)} blocks</span>
-                </div>
-                <PreviewSchematicChain
+                <p className="print-section-caption">
+                  Signal path · {platformLabel(platform)} blocks
+                </p>
+                <ChainStrip
                   blocks={blocks}
-                  selectedIndex={null}
-                  interactive={false}
+                  height={84}
+                  wrap
+                  label={`Signal path, ${platformLabel(platform)}`}
                 />
               </div>
 
-              {/* Block-by-block details — every canonical param is
-                  shown, even when the recipe data didn't set it
-                  (filled with the registry neutral). Volume-pedal /
-                  expression-style blocks render as a single
-                  horizontal row instead of the tall vertical fader
-                  to save page real estate. */}
+              {/* Every canonical param is shown, even when the recipe
+                  data didn't set it (filled with the registry neutral). */}
               <div className="print-platform-details">
                 <PlatformSpecTable blocks={blocks} />
               </div>
@@ -406,19 +362,14 @@ export default async function RecipePrintPage({
           );
         })}
 
-      {/* ── Sources page (if any) ──────────────────────────────────── */}
+      {/* Sources page (if any) */}
       {recipe.sources && recipe.sources.length > 0 && (
         <section className="print-page print-sources-page">
           <header className="print-page-head">
-            <div className="print-page-eyebrow">
-              <span>Verified by</span>
-            </div>
-            <h2 className="display print-page-title">Sources</h2>
+            <h2 className="print-page-title">Sources</h2>
             <p className="print-page-dek">
-              <em>
-                Primary citations backing this recipe&apos;s signal-chain
-                claims.
-              </em>
+              Primary citations backing this recipe&apos;s signal-chain
+              claims.
             </p>
           </header>
           <ul className="print-sources-list">

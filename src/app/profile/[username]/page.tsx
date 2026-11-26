@@ -85,73 +85,53 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   });
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <div className="fk-wrap fkp-page">
       {/* ---- Profile Header ---- */}
-      <header className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+      <header className="fkp-person">
         {/* Avatar */}
         {profile.avatar_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={profile.avatar_url}
             alt={profile.display_name}
-            className="h-24 w-24 rounded-full border-2 border-[var(--ink)]/15 object-cover"
+            className="fkp-avatar"
           />
         ) : (
-          <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-[var(--ink)]/15 bg-[var(--paper-2)] text-3xl font-bold text-[var(--amber-2)]">
+          <div className="fkp-avatar fkp-avatar-mono" aria-hidden="true">
             {profile.display_name.charAt(0).toUpperCase()}
           </div>
         )}
 
-        <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
+        <div className="fkp-person-text">
           {/* Name row */}
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-2xl font-bold text-[var(--ink)]">
-              {profile.display_name}
-            </h1>
-            {platform && (
-              <span
-                className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
-                style={{
-                  color: platform.color,
-                  backgroundColor: platform.color + "15",
-                }}
-              >
-                {platform.label}
-              </span>
-            )}
+          <div className="fkp-person-name">
+            <h1 className="fk-t1">{profile.display_name}</h1>
+            {platform && <span className="fkp-tag">{platform.label}</span>}
           </div>
 
-          <p className="mt-0.5 text-sm text-[var(--ink-muted)]">@{profile.username}</p>
+          <p className="fk-body-sm fkp-muted">@{profile.username}</p>
 
-          {profile.bio && (
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--ink-muted)]">
-              {profile.bio}
-            </p>
-          )}
+          {profile.bio && <p className="fk-body fkp-measure">{profile.bio}</p>}
 
           {/* Stats row */}
-          <div className="mt-4 flex flex-wrap items-center gap-6 text-sm">
-            <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-[var(--ink)]">
-                {profile.follower_count}
-              </span>
-              <span className="text-xs text-[var(--ink-muted)]">Followers</span>
+          <dl className="fkp-person-stats">
+            <div>
+              <dt className="fk-caption">Followers</dt>
+              <dd className="fk-data">{profile.follower_count}</dd>
             </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-[var(--ink)]">
-                {profile.following_count}
-              </span>
-              <span className="text-xs text-[var(--ink-muted)]">Following</span>
+            <div>
+              <dt className="fk-caption">Following</dt>
+              <dd className="fk-data">{profile.following_count}</dd>
             </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <span className="font-semibold text-[var(--ink)]">
-                {profile.recipe_count}
-              </span>
-              <span className="text-xs text-[var(--ink-muted)]">Recipes</span>
+            <div>
+              <dt className="fk-caption">Recipes</dt>
+              <dd className="fk-data">{profile.recipe_count}</dd>
             </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <span className="text-xs text-[var(--ink-muted)]">Joined {joinDate}</span>
+            <div>
+              <dt className="fk-caption">Joined</dt>
+              <dd className="fk-body-sm">{joinDate}</dd>
             </div>
-          </div>
+          </dl>
         </div>
       </header>
 

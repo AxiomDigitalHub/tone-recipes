@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import {
   songs,
-  toneRecipes,
   getSongBySlug,
   getArtistBySlug,
   getRecipesBySongSlug,
 } from "@/lib/data";
-import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
-import { LpArt, monogramFor } from "@/components/v3/LpArt";
+import { monogramFor } from "@/components/v3/LpArt";
 import { songJsonLdSet } from "@/lib/seo/jsonld";
 
 export function generateStaticParams() {
@@ -65,19 +64,19 @@ export default async function PreviewSongDetail({
   const recipes = getRecipesBySongSlug(slug);
 
   // When a song has exactly one recipe, the song page is just a one-link
-  // detour. Send the user straight to the recipe — the Listen/Tab CTAs
+  // detour. Send the user straight to the recipe: the Listen/Tab CTAs
   // and album art now live on the recipe head, so nothing is lost.
   if (recipes.length === 1) {
     // 308, not 307: this alias is permanent and is linked from every
     // recipe breadcrumb, so link equity must consolidate on the recipe.
     permanentRedirect(`/recipe/${recipes[0].slug}`);
   }
-  const songIdx = songs.findIndex((s) => s.slug === slug) + 1;
 
   const { musicRecording, breadcrumb } = songJsonLdSet(song, artist);
+  const meta = [song.year, song.genres?.[0]].filter(Boolean).join(" · ");
 
   return (
-    <div className="container">
+    <div className="fk-wrap fkp-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(musicRecording) }}
@@ -86,62 +85,60 @@ export default async function PreviewSongDetail({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="song-detail">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <Link href="/browse">Archive</Link>
-          {artist && (
-            <>
-              <span className="sep">/</span>
-              <Link href={`/artist/${artist.slug}`}>
-                {artist.name}
-              </Link>
-            </>
-          )}
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>{song.title}</span>
-        </div>
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/browse">Tones</Link>
+        {artist && (
+          <>
+            <span aria-hidden="true">/</span>
+            <Link href={`/artist/${artist.slug}`}>{artist.name}</Link>
+          </>
+        )}
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{song.title}</span>
+      </nav>
 
-        <header className="recipe-head song-head">
-          <div>
-            <div className="recipe-issue">
-              {song.year && <span>{song.year}</span>}
-              {song.genres?.[0] && (
-                <>
-                  {song.year && <span>·</span>}
-                  <span>{song.genres[0]}</span>
-                </>
-              )}
-            </div>
-            <h1 className="recipe-title display">{song.title}</h1>
-            <div className="recipe-credits">
-              {artist && (
-                <Link
-                  href={`/artist/${artist.slug}`}
-                  className="song-artist-link"
-                >
-                  <em>{artist.name}</em>
-                </Link>
-              )}
-              {song.album && (
-                <>
-                  <br />
-                  <span style={{ marginTop: 6, display: "inline-block" }}>
-                    {song.album}
-                    {song.year ? ` · ${song.year}` : ""}
-                  </span>
-                </>
-              )}
-            </div>
+      <header className="fk-recipe-intro">
+        <div className="fk-recipe-titlerow">
+          <div className="fk-recipe-cover r-md">
+            {song.album_art_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={song.album_art_url}
+                alt={`${song.album ?? song.title} cover`}
+                width={132}
+                height={132}
+              />
+            ) : (
+              <span className="fk-t2" aria-hidden="true">
+                {monogramFor(artist?.name)}
+              </span>
+            )}
+          </div>
+          <div className="fk-recipe-titles">
+            <h1 className="fk-display">{song.title}</h1>
+            {(artist || song.album) && (
+              <p className="fk-lead">
+                {artist && <Link href={`/artist/${artist.slug}`}>{artist.name}</Link>}
+                {artist && song.album ? ", " : ""}
+                {song.album}
+              </p>
+            )}
+            {meta && <p className="fk-card-meta">{meta}</p>}
+          </div>
+        </div>
+        {(song.external_video_url || song.external_tab_url) && (
+          <div className="fk-recipe-actions">
             {song.external_video_url && (
               <a
                 href={song.external_video_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="song-listen-cta"
+                className="fk-btn"
               >
-                Listen on YouTube <span aria-hidden="true">↗</span>
+                Listen on YouTube
+                <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden />
               </a>
             )}
             {song.external_tab_url && (
@@ -149,73 +146,55 @@ export default async function PreviewSongDetail({
                 href={song.external_tab_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="song-listen-cta song-listen-cta-secondary"
+                className="fk-btn fk-btn-secondary"
               >
-                Tab on Songsterr <span aria-hidden="true">↗</span>
+                Tab on Songsterr
+                <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden />
               </a>
             )}
           </div>
-          <div className="song-cover">
-            <LpArt
-              cover={song.album_art_url}
-              monogram={monogramFor(artist?.name)}
-              meta={song.album}
-              hue={songIdx}
-              alt={`${song.album ?? song.title} cover`}
-            />
-          </div>
-        </header>
-
-        {recipes.length > 0 && (
-          <section className="platform-section">
-            <div className="how-head">
-              <h2 className="display">
-                {recipes.length === 1
-                  ? "The tone"
-                  : "Tone variants on this song"}
-              </h2>
-              <span className="section-rule" aria-hidden="true" />
-            </div>
-            <div className="audition-grid">
-              {recipes.map((r) => {
-                const rIdx =
-                  toneRecipes.findIndex((tr) => tr.slug === r.slug) + 1;
-                const rBlocks = recipeToBlocks(r, "helix");
-                return (
-                  <Link
-                    key={r.slug}
-                    href={`/recipe/${r.slug}`}
-                    className="audition-card"
-                  >
-                    <div className="audition-art">
-                      <LpArt
-                        cover={song.album_art_url}
-                        monogram={monogramFor(artist?.name)}
-                        meta={`${rBlocks.length} blocks`}
-                        hue={rIdx}
-                        alt=""
-                      />
-                    </div>
-                    <div className="audition-meta">
-                      <span className="audition-no">
-                        Variant · {r.title.replace(`${artist?.name ?? ""}'s `, "").replace(song.title, "").trim() || "Default"}
-                      </span>
-                      <span className="audition-song">{r.title}</span>
-                      <span className="audition-artist">
-                        {r.description?.slice(0, 80)}
-                        {r.description && r.description.length > 80 ? "…" : ""}
-                      </span>
-                      <span className="audition-cta">
-                        See the chain <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
         )}
-      </div>
+      </header>
+
+      {recipes.length > 0 && (
+        <section className="fkp-section">
+          <h2 className="fk-t2">
+            {recipes.length === 1 ? "The tone" : "Tone variants on this song"}
+          </h2>
+          <div className="fk-card-grid">
+            {recipes.map((r) => {
+              const blocks = r.signal_chain?.length ?? 0;
+              return (
+                <Link key={r.slug} href={`/recipe/${r.slug}`} className="fk-card">
+                  <div className="fk-card-art">
+                    {song.album_art_url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={song.album_art_url} alt="" loading="lazy" decoding="async" />
+                    ) : (
+                      <span className="fk-t2" aria-hidden="true">
+                        {monogramFor(artist?.name)}
+                      </span>
+                    )}
+                  </div>
+                  <div className="fk-card-body">
+                    <div className="fk-card-head">
+                      <h3 className="fk-t3">{r.title}</h3>
+                      <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
+                    </div>
+                    {r.description && (
+                      <p className="fk-body-sm">
+                        {r.description.slice(0, 80)}
+                        {r.description.length > 80 ? "…" : ""}
+                      </p>
+                    )}
+                    {blocks > 0 && <p className="fk-card-meta">{blocks} blocks</p>}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

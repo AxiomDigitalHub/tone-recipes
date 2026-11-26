@@ -1,6 +1,6 @@
 export default function ArtistLoading() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+    <div className="fk-wrap fkp-page" aria-busy="true">
       {/* Breadcrumb skeleton */}
       <div className="mb-8 flex items-center gap-2">
         <div className="h-4 w-16 animate-pulse rounded bg-[var(--paper-2)]" />
@@ -11,7 +11,7 @@ export default function ArtistLoading() {
       {/* Artist header */}
       <div className="mb-14 flex items-start gap-6">
         {/* Circle image placeholder */}
-        <div className="hidden sm:block h-[140px] w-[140px] shrink-0 animate-pulse rounded-xl bg-[var(--paper-2)]" />
+        <div className="hidden sm:block h-[140px] w-[140px] shrink-0 animate-pulse rounded-[var(--fk-r-lg)] bg-[var(--paper-2)]" />
         <div className="flex-1 space-y-3">
           <div className="h-9 w-48 animate-pulse rounded bg-[var(--paper-2)]" />
           <div className="h-4 w-full max-w-2xl animate-pulse rounded bg-[var(--paper-2)]" />
@@ -32,7 +32,7 @@ export default function ArtistLoading() {
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="h-20 animate-pulse rounded-lg bg-[var(--paper-2)]"
+              className="h-20 animate-pulse rounded-[var(--fk-r-md)] bg-[var(--paper-2)]"
             />
           ))}
         </div>
@@ -45,7 +45,7 @@ export default function ArtistLoading() {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="h-48 animate-pulse rounded-xl bg-[var(--paper-2)]"
+              className="h-48 animate-pulse rounded-[var(--fk-r-lg)] bg-[var(--paper-2)]"
             />
           ))}
         </div>

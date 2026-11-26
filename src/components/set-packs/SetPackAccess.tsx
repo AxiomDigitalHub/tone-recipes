@@ -27,7 +27,7 @@ type State =
  * Conditional buy / download UI for a Set Pack page.
  *
  *   - anon  → "Sign in to buy" → /login?return=...
- *   - signed in, no purchase → "Buy {name} — $19" → POST /api/set-packs/{slug}/checkout
+ *   - signed in, no purchase → "Buy {name} ($19)" → POST /api/set-packs/{slug}/checkout
  *   - signed in, owned → "Download .hlx" → POST /api/set-packs/{slug}/download
  *
  * Reads `?purchased=true` after Stripe success-redirect, shows a celebratory
@@ -56,7 +56,7 @@ export default function SetPackAccess({
         if (!cancelled) setState({ kind: "anon" });
         return;
       }
-      // Pro subscribers (and admins) get every Set Pack bundled — skip
+      // Pro subscribers (and admins) get every Set Pack bundled; skip
       // the purchase lookup and show the download immediately.
       if (setPackAccess(user.role)) {
         if (!cancelled) setState({ kind: "owned" });
@@ -74,7 +74,7 @@ export default function SetPackAccess({
         Boolean(data) &&
         !(data as { refunded_at?: string | null } | null)?.refunded_at;
       // If the user just came back from Stripe success, treat them as
-      // owners even if the webhook hasn't landed — they'll see the
+      // owners even if the webhook hasn't landed; they'll see the
       // download button immediately, the webhook will catch up.
       setState({ kind: owned || justPurchased ? "owned" : "buy" });
       if (justPurchased) {
@@ -176,28 +176,11 @@ export default function SetPackAccess({
     }
   }, [busy, packSlug, format, router]);
 
-  // v3 editorial styling — raw paper/ink/amber CSS vars so this works
-  // outside `.fk-preview .post-body` (which is most of the site).
-  const PRIMARY_BUTTON: React.CSSProperties = {
-    background: "var(--amber, #E4A235)",
-    color: "var(--ink, #0A0908)",
-    border: "1px solid var(--ink, #0A0908)",
-  };
-  const DISABLED_BUTTON: React.CSSProperties = {
-    background: "var(--paper-2, #E2DED6)",
-    color: "var(--ink-muted, #5F5A52)",
-    border: "1px solid rgba(10,9,8,0.15)",
-  };
-
+  // Redesign styling: the ink pill primary from redesign.css.
   if (state.kind === "loading") {
     return (
-      <button
-        type="button"
-        disabled
-        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold"
-        style={DISABLED_BUTTON}
-      >
-        <Loader2 className="h-4 w-4 animate-spin" /> Loading…
+      <button type="button" disabled className="fk-btn fk-btn-secondary">
+        <Loader2 size={16} className="animate-spin" aria-hidden /> Loading…
       </button>
     );
   }
@@ -210,10 +193,9 @@ export default function SetPackAccess({
           track("set_pack_purchase_click", { pack_slug: packSlug, anon: true });
           router.push(`/login?return=/set-packs/${packSlug}`);
         }}
-        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
-        style={PRIMARY_BUTTON}
+        className="fk-btn"
       >
-        Sign in to buy — {priceDisplay}
+        Sign in to buy ({priceDisplay})
       </button>
     );
   }
@@ -224,13 +206,12 @@ export default function SetPackAccess({
         type="button"
         onClick={handleBuy}
         disabled={busy}
-        className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
-        style={PRIMARY_BUTTON}
+        className="fk-btn"
       >
         {busy ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <Loader2 size={16} className="animate-spin" aria-label="Starting checkout" />
         ) : (
-          <>Buy {packName} Set Pack — {priceDisplay}</>
+          <>Buy {packName} Set Pack ({priceDisplay})</>
         )}
       </button>
     );
@@ -242,14 +223,13 @@ export default function SetPackAccess({
       type="button"
       onClick={handleDownload}
       disabled={busy}
-      className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60"
-      style={PRIMARY_BUTTON}
+      className="fk-btn"
     >
       {busy ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
+        <Loader2 size={16} className="animate-spin" aria-label="Downloading" />
       ) : (
         <>
-          <Download className="h-4 w-4" />
+          <Download size={16} strokeWidth={1.75} aria-hidden />
           Download FK-{packSlug}.{format}
         </>
       )}

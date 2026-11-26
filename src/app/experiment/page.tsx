@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import stats from "@/data/experiment-stats.json";
 import { experimentLog } from "@/data/experiment-log";
@@ -7,7 +8,7 @@ import AuditHistoryChart from "@/components/experiment/AuditHistoryChart";
 import { ContactEmailLink } from "@/components/ui/ContactEmail";
 
 /**
- * /experiment — the running log of the Fader & Knob experiment.
+ * /experiment: the running log of the Fader & Knob experiment.
  *
  * The premise of this page is show, don't tell: every number in the
  * dashboard is generated from the git history and content on disk
@@ -68,25 +69,29 @@ export default function ExperimentPage() {
   const offerings = [
     {
       href: "/browse",
-      kicker: "01",
       title: "AI-written tones",
       body: "Each patch is built from scratch: identify the song, research the historical rig, write the signal chain in real units. Download the file, skip the menu-diving.",
       cta: "Browse the tones",
     },
     {
       href: "/blog",
-      kicker: "02",
       title: `A blog by ${stats.ai_writers} AI writers`,
-      body: "Guitarists aren't one person, so the blog isn't one voice. Every author is an AI persona — named, differently trained, and labeled as exactly that.",
+      body: "Guitarists aren't one person, so the blog isn't one voice. Every author is an AI persona: named, differently trained, and labeled as exactly that.",
       cta: "Read the field notes",
     },
     {
       href: "/how-we-work",
-      kicker: "03",
       title: "A tone-trained chatbot",
-      body: "Axl is built specifically for guitar tone — gain staging, block order, what “darker” actually means — instead of bluffing like a general model.",
+      body: "Axl is built specifically for guitar tone (gain staging, block order, what “darker” actually means) instead of bluffing like a general model.",
       cta: "How it's made",
     },
+  ];
+
+  const rules = [
+    "The dashboard is generated from the repository, not written by hand. If a number is wrong, the code that counts it is wrong, and that gets fixed in public too.",
+    "The writers are AI. They're named, they're distinct, and they're labeled. The method is documented, not implied.",
+    "Corrections are part of the record. Fixed settings, deleted fake data, dead-end redesigns: they stay in the log, because the log is the experiment.",
+    "When something isn't known, it says so. No invented verification steps, no borrowed credentials.",
   ];
 
   const jsonLd = {
@@ -100,344 +105,133 @@ export default function ExperimentPage() {
   };
 
   return (
-    <div className="container">
+    <div className="fk-wrap fkp-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="about-page">
-        <div className="recipe-crumbs">
-          <Link href="/">Home</Link>
-          <span className="sep">/</span>
-          <span style={{ color: "var(--ink)" }}>The Experiment</span>
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">The experiment</span>
+      </nav>
+
+      {/* Masthead */}
+      <header className="fkp-head">
+        <h1 className="fk-display fkp-measure-lg">
+          Can AI build guitar resources players actually use?
+        </h1>
+        <p className="fk-lead fkp-measure-lg">
+          Fader &amp; Knob is that question, answered in public. One person
+          directing AI (the recipes, the writing, the presets, the code)
+          with the whole record on this page. The numbers below aren&apos;t
+          typed by anyone: they&apos;re generated from the repository, and
+          the mistakes are counted next to the wins.
+        </p>
+        <p className="fk-caption">
+          Open experiment · running since{" "}
+          <time className="fk-data" dateTime={stats.first_commit}>{fmtDate(stats.first_commit)}</time>{" "}
+          · log updated{" "}
+          <time className="fk-data" dateTime={stats.generated_at}>{fmtDate(stats.generated_at)}</time>
+        </p>
+      </header>
+
+      {/* Dashboard */}
+      <section aria-labelledby="dash-head" className="fkp-section">
+        <h2 id="dash-head" className="fk-t2">The dashboard</h2>
+        <div className="fkp-stats">
+          {dash.map((d) => (
+            <div key={d.label} className="fk-tile fkp-stat">
+              <div className="fkp-stat-value">{d.value}</div>
+              <div className="fk-label">{d.label}</div>
+              <div className="fk-caption">{d.sub}</div>
+            </div>
+          ))}
         </div>
+        <p className="fk-caption">
+          Counted from the git history and content on disk at generation
+          time, including the corrections.
+        </p>
+      </section>
 
-        {/* Masthead */}
-        <header className="archive-page-head">
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 13,
-              color: "var(--fk-ink-3, #666c73)",
-              marginBottom: 12,
-            }}
-          >
-            Open experiment · running since {fmtDate(stats.first_commit)} · log
-            updated {fmtDate(stats.generated_at)}
-          </div>
-          <h1 className="archive-title">
-            Can AI build guitar resources <em>players actually use?</em>
-          </h1>
-          <p
-            className="archive-lede"
-            style={{ maxWidth: 720, marginTop: 16 }}
-          >
-            Fader &amp; Knob is that question, answered in public. One person
-            directing AI — the recipes, the writing, the presets, the code —
-            with the whole record on this page. The numbers below aren&apos;t
-            typed by anyone: they&apos;re generated from the repository, and
-            the mistakes are counted next to the wins.
-          </p>
-        </header>
-
-        {/* Dashboard */}
-        <section aria-labelledby="dash-head" style={{ marginTop: 48 }}>
-          <div className="how-head">
-            <h2 id="dash-head" className="display">
-              The dashboard
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-              gap: 1,
-              background: "color-mix(in srgb, var(--ink) 15%, transparent)",
-              border: "1px solid color-mix(in srgb, var(--ink) 15%, transparent)",
-              marginTop: 20,
-            }}
-          >
-            {dash.map((d) => (
-              <div
-                key={d.label}
-                style={{ background: "var(--paper-2)", padding: "22px 18px" }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 40,
-                    lineHeight: 1,
-                    color: "var(--ink)",
-                  }}
-                >
-                  {d.value}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 13,
-                    color: "var(--fk-ink-3, #666c73)",
-                    marginTop: 10,
-                  }}
-                >
-                  {d.label}
-                </div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: "var(--ink-muted)",
-                    marginTop: 4,
-                  }}
-                >
-                  {d.sub}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 10.5,
-              color: "var(--ink-faint)",
-              marginTop: 10,
-            }}
-          >
-            Counted from the git history and content on disk at generation
-            time — including the corrections.
-          </p>
-        </section>
-
-        {/* The three offerings */}
-        <section aria-labelledby="offer-head" style={{ marginTop: 56 }}>
-          <div className="how-head">
-            <h2 id="offer-head" className="display">
-              What the experiment produced
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: 20,
-              marginTop: 20,
-            }}
-          >
-            {offerings.map((o) => (
-              <Link
-                key={o.kicker}
-                href={o.href}
-                style={{
-                  display: "block",
-                  border:
-                    "1px solid color-mix(in srgb, var(--ink) 15%, transparent)",
-                  background: "var(--paper-2)",
-                  padding: "24px 22px",
-                  textDecoration: "none",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 13,
-                    color: "var(--fk-ink-3, #666c73)",
-                  }}
-                >
-                  No. {o.kicker}
-                </div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 22,
-                    color: "var(--ink)",
-                    margin: "10px 0 8px",
-                  }}
-                >
-                  {o.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 14,
-                    lineHeight: 1.55,
-                    color: "var(--ink-muted)",
-                    margin: 0,
-                  }}
-                >
-                  {o.body}
-                </p>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 11,
-                    color: "var(--ink)",
-                    marginTop: 14,
-                  }}
-                >
-                  {o.cta} →
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Everyone here is a machine — the system map */}
-        <section aria-labelledby="machine-head" style={{ marginTop: 56 }}>
-          <div className="how-head">
-            <h2 id="machine-head" className="display">Everyone here is a machine</h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-muted)", margin: "16px 0 24px", maxWidth: 640 }}>
-            Here&apos;s the whole operation, drawn out. Every worker in it — every
-            writer, every preset builder, every inspector — is a piece of
-            software. This is who&apos;s on staff.
-          </p>
-          <SystemMap />
-        </section>
-
-        {/* What the Recipe Audit box above actually did, over time */}
-        <section aria-labelledby="audit-head" style={{ marginTop: 56 }}>
-          <div className="how-head">
-            <h2 id="audit-head" className="display">
-              The inspector&apos;s record
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-muted)", margin: "16px 0 0", maxWidth: 640 }}>
-            The Recipe Audit runs every rule against every recipe. Here is what
-            it has found since May — including the weeks it was failing most of
-            the library, and every batch of new recipes that landed dirty
-            before it got cleaned up.
-          </p>
-          <AuditHistoryChart />
-        </section>
-
-        {/* The running log */}
-        <section aria-labelledby="log-head" style={{ marginTop: 56 }}>
-          <div className="how-head">
-            <h2 id="log-head" className="display">
-              The running log
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <ol style={{ listStyle: "none", margin: "24px 0 0", padding: 0 }}>
-            {experimentLog.map((e) => (
-              <li
-                key={e.date + e.title}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "110px 1fr",
-                  gap: 20,
-                  padding: "20px 0",
-                  borderTop:
-                    "1px solid color-mix(in srgb, var(--ink) 12%, transparent)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 11,
-                    color: "var(--fk-ink-3, #666c73)",
-                    paddingTop: 4,
-                  }}
-                >
-                  {e.date}
-                </div>
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: 19,
-                      color: "var(--ink)",
-                      margin: "0 0 6px",
-                    }}
-                  >
-                    {e.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: 14.5,
-                      lineHeight: 1.6,
-                      color: "var(--ink-muted)",
-                      margin: 0,
-                      maxWidth: 640,
-                    }}
-                  >
-                    {e.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* How to read this */}
-        <section aria-labelledby="rules-head" style={{ marginTop: 56 }}>
-          <div className="how-head">
-            <h2 id="rules-head" className="display">
-              How to read this page
-            </h2>
-            <span className="section-rule" aria-hidden="true" />
-          </div>
-          <ul
-            style={{
-              listStyle: "none",
-              margin: "20px 0 0",
-              padding: 0,
-              display: "grid",
-              gap: 12,
-              maxWidth: 720,
-            }}
-          >
-            {[
-              "The dashboard is generated from the repository, not written by hand. If a number is wrong, the code that counts it is wrong — and that gets fixed in public too.",
-              "The writers are AI. They're named, they're distinct, and they're labeled. The method is documented, not implied.",
-              "Corrections are part of the record. Fixed settings, deleted fake data, dead-end redesigns — they stay in the log, because the log is the experiment.",
-              "When something isn't known, it says so. No invented verification steps, no borrowed credentials.",
-            ].map((rule, i) => (
-              <li
-                key={i}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "28px 1fr",
-                  gap: 12,
-                  fontSize: 14.5,
-                  lineHeight: 1.6,
-                  color: "var(--ink-muted)",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 11,
-                    color: "var(--fk-ink-3, #666c73)",
-                    paddingTop: 3,
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>{rule}</span>
-              </li>
-            ))}
-          </ul>
-          <p style={{ marginTop: 28, fontSize: 14.5, color: "var(--ink-muted)", maxWidth: 720 }}>
-            The full method — what the AI does, where it fails, how
-            corrections happen — lives at{" "}
-            <Link
-              href="/how-we-work"
-              style={{ color: "var(--fk-ink, #131416)", textDecoration: "underline" }}
-            >
-              how we work
+      {/* The three offerings */}
+      <section aria-labelledby="offer-head" className="fkp-section">
+        <h2 id="offer-head" className="fk-t2">What the experiment produced</h2>
+        <div className="fkp-tiles">
+          {offerings.map((o) => (
+            <Link key={o.href} href={o.href} className="fk-tile fkp-linktile">
+              <h3 className="fk-t3">{o.title}</h3>
+              <p className="fk-body-sm fkp-grow">{o.body}</p>
+              <span className="fkp-tilecta">
+                {o.cta}
+                <ChevronRight size={18} strokeWidth={1.75} aria-hidden />
+              </span>
             </Link>
-            . Spot something wrong? That&apos;s the experiment working —{" "}
-            <ContactEmailLink
-              label="tell us"
-              style="color: var(--fk-ink, #131416); text-decoration: underline"
-            />{" "}
-            and the fix ships in public.
-          </p>
-        </section>
+          ))}
+        </div>
+      </section>
+
+      {/* Everyone here is a machine: the system map */}
+      <section aria-labelledby="machine-head" className="fkp-section">
+        <h2 id="machine-head" className="fk-t2">Everyone here is a machine</h2>
+        <p className="fk-body fkp-muted fkp-measure">
+          Here&apos;s the whole operation, drawn out. Every worker in it (every
+          writer, every preset builder, every inspector) is a piece of
+          software. This is who&apos;s on staff.
+        </p>
+        <SystemMap />
+      </section>
+
+      {/* What the Recipe Audit box above actually did, over time */}
+      <section aria-labelledby="audit-head" className="fkp-section">
+        <h2 id="audit-head" className="fk-t2">The inspector&apos;s record</h2>
+        <p className="fk-body fkp-muted fkp-measure">
+          The Recipe Audit runs every rule against every recipe. Here is what
+          it has found since May, including the weeks it was failing most of
+          the library, and every batch of new recipes that landed dirty
+          before it got cleaned up.
+        </p>
+        <AuditHistoryChart />
+      </section>
+
+      {/* The running log */}
+      <section aria-labelledby="log-head" className="fkp-section">
+        <h2 id="log-head" className="fk-t2">The running log</h2>
+        <ol className="fkp-log">
+          {experimentLog.map((e) => (
+            <li key={e.date + e.title}>
+              <time className="fk-data fkp-log-date" dateTime={e.date}>{e.date}</time>
+              <div className="fkp-log-body">
+                <h3 className="fkp-log-title">{e.title}</h3>
+                <p className="fk-body-sm">{e.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* How to read this */}
+      <section aria-labelledby="rules-head" className="fkp-section">
+        <h2 id="rules-head" className="fk-t2">How to read this page</h2>
+        <ol className="fkp-numlist fkp-measure-lg">
+          {rules.map((rule, i) => (
+            <li key={i}>
+              <span className="fkp-numlist-n" aria-hidden="true">{i + 1}</span>
+              <span className="fkp-muted">{rule}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="fk-body fkp-muted fkp-measure-lg">
+          The full method (what the AI does, where it fails, how
+          corrections happen) lives at{" "}
+          <Link href="/how-we-work" className="fk-link">
+            how we work
+          </Link>
+          . Spot something wrong? That&apos;s the experiment working.{" "}
+          <ContactEmailLink label="Tell us" className="fk-link" />{" "}
+          and the fix ships in public.
+        </p>
       </section>
     </div>
   );

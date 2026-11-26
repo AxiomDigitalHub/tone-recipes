@@ -6,7 +6,7 @@ import NewsletterSignup from "@/components/newsletter/NewsletterSignup";
 /**
  * Reads utm_source / utm_content from the URL on the client, so /ig itself
  * stays statically cacheable (a page that reads searchParams can't be).
- * Defaults to instagram/bio — the link-in-profile URL carries no params.
+ * Defaults to instagram/bio; the link-in-profile URL carries no params.
  */
 export default function IgSignup() {
   // Lazy initializer: on the server this yields the defaults; in the browser it reads the URL.
@@ -22,7 +22,7 @@ export default function IgSignup() {
       source="ig-link-page"
       utm={utm}
       headline="One sound, every setting, in your inbox"
-      subtext="Exact knob settings for Helix and HX Stomp — worship sounds, amp guides, fixes. Researched and written by AI; corrections published."
+      subtext="Exact knob settings for Helix and HX Stomp: worship sounds, amp guides, fixes. Researched and written by AI; corrections published."
     />
   );
 }
