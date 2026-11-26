@@ -179,7 +179,7 @@ export default function RecipeChain({
           <div className="fk-recipe-sectionintro">
             <h2 className="fk-t2">Every knob, broken out</h2>
             <p className="fk-body fk-muted">
-              {platformName} values for all {items.length} blocks, in signal order.
+              {platformName} values for every block, in signal order.
             </p>
           </div>
         )}

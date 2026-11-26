@@ -72,7 +72,6 @@ export default function HomePage() {
   );
   const showcase = [...pedals.slice(0, ampItem ? 3 : 4), ...(ampItem ? [ampItem] : [])];
   const ampDials = ampItem ? dialsFor(ampItem.block).slice(0, 6) : [];
-  const blockCount = chain.length;
 
   const guides = getAllPosts().slice(0, 3);
 
@@ -125,7 +124,6 @@ export default function HomePage() {
                         {[artist?.name, band, song?.year].filter(Boolean).join(", ")}
                       </p>
                     </div>
-                    <span className="fk-data fk-home-card-count">{blockCount} blocks</span>
                   </div>
                   <div className="fk-home-card-gear">
                     {showcase.map(({ block, pick }, i) => (

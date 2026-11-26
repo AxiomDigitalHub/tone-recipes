@@ -231,7 +231,6 @@ export default async function RecipePrintPage({
   const meta = [
     song?.year ? String(song.year) : null,
     artist?.genres?.[0] ?? null,
-    recipe.signal_chain ? `${recipe.signal_chain.length} blocks` : null,
   ].filter(Boolean);
 
   return (
@@ -286,7 +285,7 @@ export default async function RecipePrintPage({
           <div className="print-section-head">
             <h2 className="print-section-title">Signal path</h2>
             <p className="print-section-caption">
-              Input → output · {recipe.signal_chain.length} blocks
+              Input → output
             </p>
           </div>
           <ChainStrip

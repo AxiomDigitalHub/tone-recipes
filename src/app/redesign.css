@@ -1319,7 +1319,6 @@
   flex-wrap: wrap;
 }
 .fk-preview .fk-home-card-head > div { display: flex; flex-direction: column; gap: 2px; }
-.fk-preview .fk-home-card-count { color: var(--fk-ink-3); }
 .fk-preview .fk-home-card-gear {
   display: flex;
   justify-content: center;

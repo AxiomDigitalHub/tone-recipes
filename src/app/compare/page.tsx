@@ -271,7 +271,6 @@ function CompareColumn({
               {song.year ? ` · ${song.year}` : ""}
             </p>
           )}
-          <p className="fk-card-meta">{blocks.length} blocks</p>
         </div>
       </div>
       <ChainStrip
