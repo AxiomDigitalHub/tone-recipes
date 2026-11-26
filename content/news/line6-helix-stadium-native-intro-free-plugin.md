@@ -34,7 +34,7 @@ That is a real free plugin. It is not a crippled demo. But look at the amp table
 
 ## Zero HX Legacy Models Is The Entire Story
 
-The full license lists 111 HX amps. The Intro license lists zero. Every model in the free tier is an Agoura model — Line 6's new engine, the one that debuted on Stadium hardware and that I wrote about when [firmware 1.10 added eight amps to it back in March](/news/helix-stadium-firmware-1-10-new-amps).
+The full license lists 111 HX amps. The Intro license lists zero. Every model in the free tier is an Agoura model — Line 6's new engine, the one that debuted on Stadium hardware and that we covered when [firmware 1.3 added two amps to it back in March](/news/helix-stadium-firmware-1-10-new-amps).
 
 This is not a technicality. It means the free plugin cannot open your Helix presets. Not "opens them with some models substituted" — the HX model set that Helix, HX Stomp, HX Effects, POD Go, and Helix Native have all shared for a decade is simply not present. Nothing that references a Litigator or a Placater or an Essex A30 has anywhere to land.
 

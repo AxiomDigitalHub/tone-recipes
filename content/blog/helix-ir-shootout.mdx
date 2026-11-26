@@ -6,7 +6,7 @@ description: >-
   of the most-recommended sources. Here's what the data showed and when it
   actually matters.
 date: '2026-04-04'
-updated: '2026-06-22'
+updated: '2026-11-24'
 author: Sean Nakamura
 author_slug: sean-nakamura
 category: modeler-masterclass
@@ -38,9 +38,9 @@ takeaways:
     specific named cab. They matter least for live FRFR use where the stock cabs
     were already designed to shine.
   - >-
-    The Helix accepts mono 24-bit 48 kHz WAV IRs up to 2048 samples. Longer
-    third-party captures (4096+ samples) must be converted; Ownhammer ships
-    Helix-length versions in its packs.
+    HX Edit converts imported IRs to 48 kHz mono and plays 2,048 samples of
+    them (about 43 ms). Longer third-party captures are shortened on import;
+    Ownhammer ships Helix-length versions in its packs.
   - >-
     You can run two IR blocks in parallel and blend them — pairing one IR's low
     end with another's top — at the cost of a little extra DSP overhead.
@@ -198,16 +198,16 @@ Once you've decided a third-party pack is worth it, the next question is which o
 
 ## How to Audition and Load IRs Into the Helix
 
-The Helix accepts mono 24-bit 48kHz WAV files, up to 2048 samples long. Here's the workflow:
+Line 6's knowledge base says HX Edit converts any WAV you import to 48 kHz mono (a stereo file keeps only its left side) and sets its length to 2,048 samples. Here's the workflow:
 
 1. Download your IR packs. Keep them organized: folder per source, subfolder per speaker type.
 2. Open HX Edit (free desktop app from Line 6).
-3. Navigate to the IR section. You can store up to 1024 IRs on the Helix.
+3. Navigate to the IR section. Helix has 128 IR slots, numbered 1 to 128.
 4. Drag files in, or use the import function.
 5. In your preset, replace any cab block with an "IR" block and select the imported file.
 6. Level-match against your existing cab block before A/B comparison.
 
-A note on sample length: Helix supports up to 2048 samples. Some third-party packs include longer captures (4096 or even 8192 samples) that need to be converted. Ownhammer provides Helix-compatible versions in their packs. If you download from other sources, check the specs before importing.
+A note on sample length: Helix plays 2,048 samples, about 43 ms. Some third-party packs include longer captures (4096 or even 8192 samples), and HX Edit shortens those on import. For a close-mic cab that loses nothing you'd notice. For a room-mic capture it removes the decay, and the [long IR post](/blog/long-ir-500ms-room-mic-capture-what-it-adds) has the numbers. Ownhammer provides Helix-length versions in their packs.
 
 <SaveThisTone
   title="Every recipe ships a Helix preset"

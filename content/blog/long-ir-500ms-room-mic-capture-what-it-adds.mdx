@@ -1,0 +1,144 @@
+---
+title: What Does a Long IR Capture That a 43 ms Cab IR Can't?
+seo_title: 'Long IR vs. Short Cab IR: What 500 ms Adds'
+description: >-
+  A 43 ms cab IR already holds a room's first reflections. What it cuts is the
+  decay. The arrival-time and RT60 math for Helix, Quad Cortex, IR-200 and
+  FullRes.
+date: '2026-11-24'
+author_slug: sean-nakamura
+category: modeler-masterclass
+tags:
+  - impulse-response
+  - cab-ir
+  - room-mic
+  - early-reflections
+  - helix
+  - quad-cortex
+  - boss-ir-200
+  - fractal
+image: /images/blog/long-ir-500ms-room-mic-capture-what-it-adds.jpg
+image_alt: >-
+  A black guitar combo amplifier on a white studio floor with one microphone
+  close to the top edge of the grille and a second microphone on a tall stand
+  beside it
+takeaways:
+  - >-
+    Sound travels about 34 cm per millisecond, so a 2,048-sample IR at 48 kHz
+    (42.7 ms) has room for 14.6 meters of travel and a 1,024-sample IR (21.3 ms)
+    has room for 7.3 meters.
+  - >-
+    A room mic 3 meters from the cab hears the direct sound after 8.7 ms, and a
+    floor, ceiling or nearby wall bounce adds roughly 2 to 12 ms more. All of
+    that fits inside a Helix-length IR.
+  - >-
+    What a short slot removes is the decay. In a room with a 0.5-second RT60,
+    the reverberant sound has fallen only about 5 dB at 42.7 ms, which is where
+    a 2,048-sample IR stops.
+  - >-
+    A 500 ms IR, as on the Boss IR-200 and the Strymon Iridium's cabs, reaches
+    the full 60 dB of decay for any room with an RT60 of 0.5 seconds or less.
+  - >-
+    A long slot adds nothing to a close-mic IR that was captured short. Check
+    the file's length before assuming your loader is the limit.
+faq:
+  - q: How long is a guitar cab IR on a Helix or Quad Cortex?
+    a: >-
+      Line 6 says Helix plays cab IRs at 2,048 samples at 48 kHz, about 42.7 ms,
+      with a 1,024-sample option. The Quad Cortex manual says IRs are resized to
+      1,024 samples, about 21.3 ms.
+  - q: 'Can a 2,048-sample IR include a room mic?'
+    a: >-
+      Partly. The direct sound at a mic 3 meters away arrives after 8.7 ms and
+      the first reflections follow within about 10 to 30 ms in a small room, so
+      they fit. The decay after that, which lasts hundreds of milliseconds, is
+      cut off at 42.7 ms.
+  - q: Which hardware loads long IRs?
+    a: >-
+      The Boss IR-200 accepts IRs up to 500 ms, the Strymon Iridium's cab IRs
+      are 500 ms, and the Axe-Fx III Mark II's FullRes mode accepts up to 1.37
+      seconds. In a DAW, a convolution plugin has no practical length limit.
+  - q: Does a longer IR slot make a normal cab IR sound better?
+    a: >-
+      Not by itself. If the file is a close-mic capture that was trimmed to 20
+      or 40 ms, a 500 ms slot plays the same 20 or 40 ms. The longer slot only
+      matters when the file contains a longer response.
+  - q: How do I get room sound on a modeler with short IR slots?
+    a: >-
+      Use the cab IR for the speaker and mic, then add a room reverb block after
+      it for the decay. Set the reverb's decay to the room size you want,
+      because the IR slot can't carry it.
+---
+
+A cab impulse response (IR) on a Helix lasts 42.7 ms. On a Quad Cortex it lasts 21.3 ms. The Boss IR-200 takes files up to 500 ms, and the Axe-Fx III Mark II's FullRes mode goes to 1.37 seconds. The usual explanation for the gap is that short IRs hold the speaker and long IRs hold the room. The arithmetic says something more specific: a short IR holds more of the room than that summary suggests, and loses a different part than most people assume.
+
+| Device | IR length | Sound travels in that time | Decay captured, RT60 0.3 s | RT60 0.5 s | RT60 1.0 s |
+|---|---|---|---|---|---|
+| Quad Cortex | 1,024 samples, 21.3 ms | 7.3 m | 4 dB | 3 dB | 1 dB |
+| Helix, Helix Stadium | 2,048 samples, 42.7 ms | 14.6 m | 9 dB | 5 dB | 3 dB |
+| Strymon Iridium room IR | 256 ms | 88 m | 51 dB | 31 dB | 15 dB |
+| Boss IR-200; Strymon Iridium cab IR | 500 ms | 172 m | 60 dB (complete) | 60 dB (complete) | 30 dB |
+| Axe-Fx III Mark II, FullRes | 1.37 s | 470 m | complete | complete | complete |
+
+Lengths are from Line 6's IR knowledge base and Helix Stadium manual, the Quad Cortex manual, Boss's IR-200 specifications, Strymon's Iridium page and Fractal's Blocks Guide. The travel column uses 343 m/s for the speed of sound at room temperature. The decay columns use the definition of RT60, the time a room's reverberation takes to fall by 60 dB: at time *t*, the level has dropped 60 × *t* / RT60 dB.
+
+## Where the First Reflections Land
+
+Sound covers about 34 cm every millisecond. That one number places everything a microphone hears on a timeline:
+
+| Event | Extra path | Arrives |
+|---|---|---|
+| Direct sound, mic 2.5 cm from the grille | — | 0.07 ms |
+| Direct sound, mic 1 m back | — | 2.9 ms |
+| Direct sound, room mic 3 m back | — | 8.7 ms |
+| Floor bounce, close mic, speaker center 30 cm above the floor | ~0.6 m | ~1.7 ms after direct |
+| Wall 2 m behind the mic | ~4 m | ~11.7 ms after direct |
+| Ceiling of a 2.4 m room, speaker 30 cm off the floor | ~4.2 m | ~12.2 ms after direct |
+
+I expected the room mic to be what a short IR can't hold. The timeline says it fits: a mic 3 meters back hears the direct sound at 8.7 ms, and the floor, ceiling and nearest wall all report in within the next 12 ms or so. That's about 21 ms in total, which just fits the Quad Cortex's window and sits well inside the Helix's 42.7 ms. In a bedroom-sized space, second-order reflections with 10 to 14 meters of total path arrive at 29 to 41 ms, which a 2,048-sample slot also catches.
+
+Two conditions apply. First, the file has to keep its time of flight. If a room-mic IR has been trimmed so the first peak sits at sample zero, the reflections move earlier by the same amount, which only helps them fit. Second, the device has to keep the start of the file. Line 6 describes IRs being shortened to 2,048 samples and Neural describes them being resized to 1,024; neither says the start is discarded, and keeping it is the normal way to shorten an IR.
+
+## What Gets Cut Is the Decay
+
+After the first reflections, a room doesn't go quiet. Reflections of reflections pile up into a reverberant field that fades at a steady rate, and that rate is the RT60. This is where a short slot runs out.
+
+Take a room with an RT60 of 0.5 seconds. At 42.7 ms the reverberant level has fallen 60 × 0.0427 / 0.5 = 5.1 dB. A Helix-length IR of a room mic in that space ends while the room is still only 5 dB down. At 21.3 ms it's 2.6 dB down. The remaining 55 dB of decay isn't in the slot.
+
+A 500 ms IR in the same room reaches the full 60 dB. For a drier room at 0.3 seconds, even 256 ms covers 51 dB. For a room at 1.0 second, 500 ms gets you 30 dB down, and you need something like FullRes to hold the rest.
+
+So the accurate version of the short-versus-long summary is this:
+
+1. **A 20 to 43 ms IR holds** the speaker, the mic, the mic's distance, and the first one or two rounds of reflections from nearby surfaces.
+2. **It does not hold** how long the room rings afterward.
+3. **A long IR adds** the decay, and with it the room's size.
+
+Strymon's Iridium documentation lines up with that split. Its cab IRs are 500 ms, and its Room control is a separate system: a 256 ms stereo room IR for the early reflections, joined to an algorithm for the longer decay. Strymon's stated reasoning is that roughly the first 80 ms of reflections tell the ear what kind of space it's in, and that long IRs get computationally expensive past a certain point. Boss gives a different reason for its 500 ms support, naming bass response. That's the frequency-resolution side of the same limit, covered in the [room correction IR post](/blog/room-correction-ir-loader-vs-global-eq): a 42.7 ms IR resolves about 23 Hz steps, and one cycle of the low E string's 82 Hz fundamental already takes 12 ms.
+
+## A Long Slot Doesn't Lengthen a Short File
+
+Most commercial cab IRs are close-mic captures, often made in treated rooms and trimmed short. If the file is 2,048 samples of speaker and mic, loading it into a 500 ms slot plays 2,048 samples of speaker and mic. Nothing is added.
+
+To see what you have:
+
+1. Open the WAV in any audio editor and read its length in samples and its sample rate. Length divided by sample rate is the duration: 2,048 / 48,000 = 42.7 ms; 24,000 / 48,000 = 500 ms.
+2. Look at the waveform. A close-mic IR is a spike followed by a few milliseconds of ripple. A room-mic IR has a delayed first spike and a visible tail.
+3. If the file is longer than your device's slot, the device shortens it: to 2,048 samples on a Helix and 1,024 on a Quad Cortex. Trim a copy to that length in the editor to see what's left.
+
+Pack labels like "room," "far" or "ambient" tell you the mic position. They don't tell you the file length, and the two together decide what you hear.
+
+## What to Do on Each Kind of Device
+
+**Helix, Quad Cortex and other short-slot modelers.** Treat the IR as the speaker-and-mic stage and add the room separately. A room-mic IR will still load, and its direct sound and first reflections will come through with the decay removed, so expect it to read as distance without ambience. For the decay, put a room reverb block after the cab and set its length to the space you want. The [IR plus short reverb recipe](/blog/ir-plus-reverb-bedroom-recording-room-gap) gives starting values, and the [early reflections versus tail guide](/blog/early-reflections-vs-reverb-tail-room-vs-space) explains how to split the two inside one reverb.
+
+**Boss IR-200.** A 500 ms slot holds the complete decay of rooms up to about a 0.5-second RT60. If you capture your own cab with a room mic, export the full 500 ms. The IR-200 also has Room, Studio and Hall ambience types if your IR is a close-mic capture.
+
+**Strymon Iridium.** The cab IR slots take the full 500 ms, and the Room control adds its own space on top. With a long room-mic IR loaded, turn Room down first so you aren't stacking two rooms.
+
+**Axe-Fx III Mark II.** FullRes holds up to 1.37 seconds, enough for a complete decay in rooms up to about that RT60. It isn't available on the FM9 or FM3.
+
+**In a DAW.** A convolution plugin has no practical length limit. Record the modeler with a short cab IR, or with the cab bypassed, and apply the long IR in the session.
+
+## The Number to Remember
+
+Divide your IR's length in milliseconds by your room's RT60 in milliseconds and multiply by 60. That's how many decibels of the room's decay the IR can hold. At 42.7 ms and a 0.5-second room, the answer is 5. Room EQ Wizard will measure RT60 for you if you don't know it, and the [REW guide](/blog/rew-modeler-global-eq) covers the measurement setup. For file formats, sample rates and loading steps on each platform, see the [IR guide](/blog/impulse-response-ir-guide).
