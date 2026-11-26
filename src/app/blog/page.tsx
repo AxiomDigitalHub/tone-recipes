@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { getAllPosts, BLOG_CATEGORIES, type BlogPost } from "@/lib/blog";
 import { getAllWriters } from "@/lib/writers";
 import { getAllPlatforms } from "@/lib/data/platforms";
@@ -71,14 +70,18 @@ const WHEN_IT_GOES_WRONG = [
   "polyphonic-pitch-blocks-dsp-cost-worth-it",
 ];
 
-/** What each platform hub covers. Placeholder topics until matched to real guides. */
-const PLATFORM_BLURB: Record<string, string> = {
-  helix: "Paths, snapshots, DSP limits and tap tempo.",
-  quad_cortex: "Rows, scenes, captures and the grid.",
-  tonex: "Tone models, the cab section and live rigs.",
-  fractal: "Blocks, channels and scene controllers.",
-  kemper: "Profiles, rigs and the stomp section.",
-  katana: "Amp types, the effect slots and Tone Studio.",
+/**
+ * Official logo files for the "Learn your platform" row, one per platform
+ * id, served from /public/logos/platforms/. A platform with no file here
+ * shows a plain wordmark tile until the owner supplies the official logo.
+ */
+const PLATFORM_LOGO: Record<string, string | undefined> = {
+  helix: undefined,
+  quad_cortex: undefined,
+  tonex: undefined,
+  fractal: undefined,
+  kemper: undefined,
+  katana: undefined,
 };
 
 const shortDate = (iso: string) =>
@@ -203,26 +206,29 @@ export default function LearnPage() {
       <section className="fk-learn-platforms">
         <div className="fk-learn-wash">
           <div className="fk-wrap fk-learn-stack">
-            <div className="fk-learn-intro">
-              <h2 className="fk-t2">Learn your platform</h2>
-              <p className="fk-body fk-muted">Deep how-tos for the box you own. Each one starts from a fresh preset.</p>
+            <h2 className="fk-t2">Learn your platform</h2>
+            <div className="fk-learn-logos">
+              {platforms.map((p) => {
+                const logo = PLATFORM_LOGO[p.id];
+                return (
+                  <Link
+                    key={p.id}
+                    href={`/platforms/${p.id}`}
+                    className="fk-learn-logo r-lg"
+                    aria-label={`${p.label} guides`}
+                  >
+                    {logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={logo} alt="" loading="lazy" decoding="async" />
+                    ) : (
+                      <span className="fk-learn-wordmark" aria-hidden="true">
+                        {p.label}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
-            <div className="fk-learn-platgrid">
-              {platforms.map((p) => (
-                <Link key={p.id} href={`/platforms/${p.id}`} className="fk-learn-plat r-lg">
-                  <span className="fk-card-head">
-                    <span className="fk-t3">{p.label}</span>
-                    <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
-                  </span>
-                  <span className="fk-body-sm">{PLATFORM_BLURB[p.id] ?? "Guides, recipes and presets."}</span>
-                </Link>
-              ))}
-            </div>
-            <p className="fk-caption">
-              <Link href="/platforms" className="fk-link">
-                All platforms
-              </Link>
-            </p>
           </div>
         </div>
       </section>
