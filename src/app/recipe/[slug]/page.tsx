@@ -412,7 +412,6 @@ export default async function PreviewRecipePage({
                 const rSong = getSongBySlug(r.song_slug);
                 const rArtist = rSong ? getArtistBySlug(rSong.artist_slug) : undefined;
                 const rBand = rSong ? getBandName(rSong, rArtist) : null;
-                const rBlocks = r.signal_chain?.length ?? 0;
                 return (
                   <Link key={r.slug} href={`/recipe/${r.slug}`} className="fk-card">
                     <div className="fk-card-art">
@@ -437,9 +436,7 @@ export default async function PreviewRecipePage({
                       <p className="fk-body-sm">
                         {[rBand, rArtist?.name].filter(Boolean).join(", ")}
                       </p>
-                      <p className="fk-card-meta">
-                        {[rSong?.year, rBlocks ? `${rBlocks} blocks` : null].filter(Boolean).join(" · ")}
-                      </p>
+                      {rSong?.year ? <p className="fk-card-meta">{rSong.year}</p> : null}
                     </div>
                   </Link>
                 );

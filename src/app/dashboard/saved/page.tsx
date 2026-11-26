@@ -67,11 +67,6 @@ export default function PreviewDashboardSaved() {
                       <em>{artist.name}</em>
                     </div>
                   )}
-                  {r.signal_chain && (
-                    <div className="dashboard-card-meta">
-                      {r.signal_chain.length} blocks
-                    </div>
-                  )}
                 </div>
               </Link>
             );

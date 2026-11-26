@@ -77,7 +77,7 @@ export function PreviewRecipeClient({
       <div className="recipe-chain-wrap">
         <div className="recipe-chain-header">
           <span>
-            Signal path · input → output · {blocks.length} blocks
+            Signal path · input → output
           </span>
           <span>Live values · {platformLabel}</span>
         </div>

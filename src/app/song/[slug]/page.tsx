@@ -163,7 +163,6 @@ export default async function PreviewSongDetail({
           </h2>
           <div className="fk-card-grid">
             {recipes.map((r) => {
-              const blocks = r.signal_chain?.length ?? 0;
               return (
                 <Link key={r.slug} href={`/recipe/${r.slug}`} className="fk-card">
                   <div className="fk-card-art">
@@ -187,7 +186,6 @@ export default async function PreviewSongDetail({
                         {r.description.length > 80 ? "…" : ""}
                       </p>
                     )}
-                    {blocks > 0 && <p className="fk-card-meta">{blocks} blocks</p>}
                   </div>
                 </Link>
               );

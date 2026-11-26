@@ -12,7 +12,6 @@ import {
   getArtistBySlug,
 } from "@/lib/data";
 import type { Platform } from "@/types/recipe";
-import { recipeToBlocks } from "@/components/v3/recipe-to-blocks";
 import { monogramFor } from "@/components/v3/LpArt";
 import PostsRail from "@/app/_pages/PostsRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
@@ -381,7 +380,6 @@ export default async function PreviewPlatformDetail({
             const rArtist = rSong
               ? getArtistBySlug(rSong.artist_slug)
               : undefined;
-            const rBlocks = recipeToBlocks(r, slug as Platform);
             return (
               <Link
                 key={r.slug}
@@ -409,9 +407,7 @@ export default async function PreviewPlatformDetail({
                     <ChevronRight size={20} strokeWidth={1.75} aria-hidden />
                   </div>
                   <p className="fk-body-sm">{rArtist?.name ?? "Unknown"}</p>
-                  <p className="fk-card-meta">
-                    {[rSong?.year, `${rBlocks.length} blocks`].filter(Boolean).join(" · ")}
-                  </p>
+                  {rSong?.year ? <p className="fk-card-meta">{rSong.year}</p> : null}
                 </div>
               </Link>
             );
