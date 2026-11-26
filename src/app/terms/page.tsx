@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalShell title="Terms of Service" updated="May 1, 2026">
+    <LegalShell title="Terms of service" updated="May 1, 2026">
       <p>
         By using Fader &amp; Knob you agree to these terms. If you don&apos;t
         agree, please don&apos;t use the site.
@@ -29,7 +29,7 @@ export default function TermsPage() {
         Recipes and presets are for personal use. Don&apos;t republish them
         as your own work, package them into a competing product, or sell
         them. Use them for your gigs, your sessions, and your bedroom
-        practice — that&apos;s what they&apos;re for.
+        practice. That&apos;s what they&apos;re for.
       </p>
 
       <h2>Subscriptions</h2>

@@ -28,7 +28,7 @@ export default function PreviewPlatformsIndex() {
   const platforms = getAllPlatforms();
 
   const collectionLd = collectionPageJsonLd({
-    name: "Platforms — Fader & Knob",
+    name: "Platforms | Fader & Knob",
     description:
       "Every recipe ports to Helix, Quad Cortex, TONEX, Fractal, Kemper, Boss Katana, and pedalboard. Pick your modeler.",
     url: "https://faderandknob.com/platforms",
@@ -54,9 +54,6 @@ export default function PreviewPlatformsIndex() {
         </div>
 
         <header className="archive-masthead archive-masthead-tight">
-          <div className="recipe-issue">
-            <span className="pill">Platforms</span>
-          </div>
           <h1 className="recipe-title display">
             Built for the rig <em>you already own</em>
           </h1>

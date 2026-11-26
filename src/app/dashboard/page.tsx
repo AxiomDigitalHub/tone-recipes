@@ -175,9 +175,10 @@ export default function DashboardOverview() {
   const heroSong = heroRecipe ? getSongBySlug(heroRecipe.song_slug) : undefined;
   const heroArtist = heroSong ? getArtistBySlug(heroSong.artist_slug) : undefined;
 
-  const displayName =
-    user?.displayName ?? user?.email?.split("@")[0] ?? "there";
-  const greeting = `${hydrated ? getTimeGreeting() : "Welcome back"}, ${displayName}`;
+  const displayName = user?.displayName ?? user?.email?.split("@")[0];
+  const greetingLead = hydrated ? getTimeGreeting() : "Welcome back";
+  // Signed out there is no name; "Good night, there" read oddly.
+  const greeting = displayName ? `${greetingLead}, ${displayName}` : greetingLead;
   const tierLabel = user ? TIERS[user.role]?.label ?? "Free" : "Free";
   const isPaid =
     user?.role === "premium" ||
@@ -229,7 +230,7 @@ export default function DashboardOverview() {
           <p className="dashboard-greeting-dek">
             You&apos;re a{" "}
             <span className="dashboard-personality">{personality.label}</span>
-            {" — "}
+            {". "}
             {personality.description}
           </p>
         ) : (
@@ -270,7 +271,7 @@ export default function DashboardOverview() {
                 <em>{heroArtist.name}</em>
                 {heroSong?.album && (
                   <>
-                    {" — "}
+                    {", "}
                     <span>{heroSong.album}</span>
                   </>
                 )}

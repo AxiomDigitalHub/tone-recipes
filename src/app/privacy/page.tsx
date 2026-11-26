@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalShell title="Privacy Policy" updated="May 1, 2026">
+    <LegalShell title="Privacy policy" updated="May 1, 2026">
       <p>
         Fader &amp; Knob takes your privacy seriously. This page explains
         what we collect, why, and what we do with it.
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       <p>
         We use Microsoft Clarity and Google Analytics to understand how
         visitors use the site. Both products receive truncated IP
-        addresses and behavior data — they do not receive your name or
+        addresses and behavior data. They do not receive your name or
         email.
       </p>
 

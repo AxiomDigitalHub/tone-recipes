@@ -118,10 +118,8 @@ export default function ExperimentPage() {
           <div
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: 10,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--amber-2)",
+              fontSize: 13,
+              color: "var(--fk-ink-3, #666c73)",
               marginBottom: 12,
             }}
           >
@@ -179,10 +177,8 @@ export default function ExperimentPage() {
                 <div
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: 10,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--amber-2)",
+                    fontSize: 13,
+                    color: "var(--fk-ink-3, #666c73)",
                     marginTop: 10,
                   }}
                 >
@@ -204,7 +200,6 @@ export default function ExperimentPage() {
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 10.5,
-              letterSpacing: "0.06em",
               color: "var(--ink-faint)",
               marginTop: 10,
             }}
@@ -246,9 +241,8 @@ export default function ExperimentPage() {
                 <div
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: 10,
-                    letterSpacing: "0.16em",
-                    color: "var(--amber-2)",
+                    fontSize: 13,
+                    color: "var(--fk-ink-3, #666c73)",
                   }}
                 >
                   No. {o.kicker}
@@ -277,8 +271,6 @@ export default function ExperimentPage() {
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
                     color: "var(--ink)",
                     marginTop: 14,
                   }}
@@ -346,8 +338,7 @@ export default function ExperimentPage() {
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
-                    letterSpacing: "0.08em",
-                    color: "var(--amber-2)",
+                    color: "var(--fk-ink-3, #666c73)",
                     paddingTop: 4,
                   }}
                 >
@@ -420,7 +411,7 @@ export default function ExperimentPage() {
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
-                    color: "var(--amber-2)",
+                    color: "var(--fk-ink-3, #666c73)",
                     paddingTop: 3,
                   }}
                 >
@@ -435,14 +426,14 @@ export default function ExperimentPage() {
             corrections happen — lives at{" "}
             <Link
               href="/how-we-work"
-              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+              style={{ color: "var(--fk-ink, #131416)", textDecoration: "underline" }}
             >
               how we work
             </Link>
             . Spot something wrong? That&apos;s the experiment working —{" "}
             <ContactEmailLink
               label="tell us"
-              style="color: var(--amber-2); text-decoration: underline"
+              style="color: var(--fk-ink, #131416); text-decoration: underline"
             />{" "}
             and the fix ships in public.
           </p>

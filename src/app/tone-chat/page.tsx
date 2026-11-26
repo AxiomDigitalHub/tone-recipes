@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tone-chat" },
   title: "Ask Axl: AI tone tech",
   description:
-    "Ask Axl — a road-dog guitar lifer with forty years of tone on tap, grounded in the full Fader & Knob recipe archive. Describe the sound in your head and get the signal chain, the settings, and the recipe to build it on your modeler.",
+    "Ask Axl, a road-dog guitar lifer with forty years of tone on tap, grounded in the full Fader & Knob recipe archive. Describe the sound in your head and get the signal chain, the settings, and the recipe to build it on your modeler.",
   openGraph: {
     title: "Ask Axl: Fader & Knob's tone tech",
     description:
-      "Forty years of tone, on tap. Describe the sound in your head — get the signal chain, settings, and recipes to build it.",
+      "Forty years of tone, on tap. Describe the sound in your head and get the signal chain, settings, and recipes to build it.",
     type: "website",
   },
 };
@@ -32,7 +32,7 @@ export default function ToneChatPage() {
             style={{ color: "var(--ink-muted, #6b6257)" }}
           >
             Forty years of tone, on tap. Axl is a road-dog guitar lifer who&apos;s
-            played every stage and abused every amp — tell him the sound in your
+            played every stage and abused every amp. Tell him the sound in your
             head, an artist, a song, or a problem you&apos;re fighting, and he&apos;ll
             hand you real signal chains and settings, grounded in the recipe
             archive. Pick your rig and he speaks your modeler&apos;s language.
@@ -42,14 +42,14 @@ export default function ToneChatPage() {
         <ToneChatClient />
 
         <p
-          className="mt-6 text-xs"
+          className="mt-6 max-w-2xl text-xs"
           style={{ color: "var(--ink-muted, #6b6257)" }}
         >
           Axl is AI, answering from the recipe archive and general tone
-          knowledge — part of{" "}
+          knowledge, part of{" "}
           <Link
             href="/experiment"
-            style={{ color: "var(--amber-2)", textDecoration: "underline" }}
+            style={{ color: "var(--fk-ink, #131416)", textDecoration: "underline" }}
           >
             the open experiment
           </Link>
@@ -80,7 +80,7 @@ export default function ToneChatPage() {
           <h3>Things he handles well</h3>
           <ul>
             <li>
-              Porting a chain to your unit — which block replaces which, and
+              Porting a chain to your unit: which block replaces which, and
               what the parameter actually maps to.
             </li>
             <li>
@@ -92,7 +92,7 @@ export default function ToneChatPage() {
               when it doesn&apos;t fit.
             </li>
             <li>
-              Diagnosing a problem you can describe — too much low end,
+              Diagnosing a problem you can describe: too much low end,
               lifeless in a band mix, fizzy top on a solo-boost snapshot.
             </li>
           </ul>
@@ -105,7 +105,7 @@ export default function ToneChatPage() {
             names, block counts, and parameter ranges are worth confirming
             against your own unit before you commit a patch to a gig. If a
             recipe already exists for what you&apos;re after, he&apos;ll link
-            it — that page is the more reliable source, because the settings
+            it, and that page is the more reliable source, because the settings
             there were built and checked rather than generated in the
             moment.
           </p>

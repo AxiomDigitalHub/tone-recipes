@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "We chase the original gear, map the signal chain, and translate it to every major modeler. Helix, Quad Cortex, TONEX, Fractal, Kemper, pedalboard. The numbers are the product.",
   openGraph: {
     title: "How Fader & Knob works",
-    description: "Tone recipes — chase, map, translate. Every modeler.",
+    description: "Tone recipes: chase, map, translate. Every modeler.",
     type: "website",
   },
 };

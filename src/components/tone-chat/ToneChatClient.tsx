@@ -25,7 +25,7 @@ const PLATFORMS = [
 const STARTERS = [
   "How do I get SRV's Texas blues tone on a Helix?",
   "Ambient worship clean with shimmer for HX Stomp",
-  "My high-gain tone sounds fizzy in the mix — what do I fix?",
+  "My high-gain tone sounds fizzy in the mix. What do I fix?",
   "Build me The Edge's dotted-eighth delay sound",
 ];
 
@@ -83,7 +83,7 @@ function renderAssistantText(text: string) {
             <Link
               key={i}
               href={href}
-              className="underline decoration-[var(--amber,#B97700)] underline-offset-2 font-medium hover:text-[var(--amber,#B97700)]"
+              className="underline underline-offset-2 font-medium hover:opacity-70"
             >
               {link[1]}
             </Link>
@@ -222,11 +222,11 @@ export default function ToneChatClient() {
     return (
       <div className="mx-auto max-w-md py-16 text-center">
         <p className="mb-6 text-lg text-[var(--ink,#0A0908)]">
-          Axl&apos;s free to talk to — you just need an account so we can keep track of your daily messages.
+          Axl&apos;s free to talk to. You just need an account so we can keep track of your daily messages.
         </p>
         <Link
           href="/login?next=/tone-chat"
-          className="inline-block border-2 border-[var(--ink,#0A0908)] bg-[var(--amber,#B97700)] px-6 py-3 font-semibold text-[var(--ink,#0A0908)] hover:translate-y-[-1px] transition-transform"
+          className="inline-block rounded-full bg-[var(--ink,#0A0908)] px-6 py-3 font-semibold text-[var(--paper,#ffffff)] transition-opacity hover:opacity-90"
         >
           Sign in to start chatting
         </Link>
@@ -242,13 +242,13 @@ export default function ToneChatClient() {
       {/* Transcript */}
       <div
         ref={scrollRef}
-        className="flex-1 space-y-4 overflow-y-auto border border-[var(--paper-line,#d8cfc0)] bg-[var(--paper,#F4F1EA)] p-4 sm:p-6"
+        className="flex-1 space-y-4 overflow-y-auto rounded-2xl border border-[var(--fk-line,#dcdfe2)] bg-[var(--fk-wash,#f6f6f4)] p-4 sm:p-6"
         style={{ maxHeight: "55vh", minHeight: "40vh" }}
       >
         {messages.length === 0 && (
           <div>
             <p className="mb-4 text-[var(--ink-muted,#6b6257)]">
-              Axl here. Ask me about any tone — an artist, a song, a feel, or a
+              Axl here. Ask me about any tone: an artist, a song, a feel, or a
               problem you&apos;re fighting. Pick your rig and I&apos;ll talk in its language.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -265,8 +265,8 @@ export default function ToneChatClient() {
             <div
               className={
                 m.role === "user"
-                  ? "max-w-[85%] border border-[var(--ink,#0A0908)] bg-[var(--ink,#0A0908)] px-4 py-2.5 text-sm text-[var(--paper,#F4F1EA)]"
-                  : "max-w-[85%] border border-[var(--paper-line,#d8cfc0)] bg-white/70 px-4 py-2.5 text-sm text-[var(--ink,#0A0908)]"
+                  ? "max-w-[85%] rounded-2xl border border-[var(--ink,#0A0908)] bg-[var(--ink,#0A0908)] px-4 py-2.5 text-sm text-[var(--paper,#F4F1EA)]"
+                  : "max-w-[85%] rounded-2xl border border-[var(--fk-line,#dcdfe2)] bg-white px-4 py-2.5 text-sm text-[var(--ink,#0A0908)]"
               }
             >
               {m.role === "assistant" ? (
@@ -282,11 +282,11 @@ export default function ToneChatClient() {
           </div>
         ))}
         {error && (
-          <div className="border border-[var(--amber,#B97700)] bg-[var(--amber,#B97700)]/10 px-4 py-3 text-sm text-[var(--ink,#0A0908)]">
+          <div className="rounded-xl border border-[var(--fk-line-strong,#858b92)] bg-white px-4 py-3 text-sm text-[var(--ink,#0A0908)]">
             {error.text}{" "}
             {error.upgrade && (
-              <Link href="/pricing" className="font-semibold underline decoration-[var(--amber,#B97700)]">
-                See the Pass →
+              <Link href="/pricing" className="font-semibold underline">
+                See the Pass
               </Link>
             )}
           </div>
@@ -305,7 +305,7 @@ export default function ToneChatClient() {
           value={platform}
           onChange={(e) => setPlatform(e.target.value)}
           aria-label="Your rig"
-          className="border border-[var(--ink,#0A0908)]/30 bg-white/80 px-2 py-2.5 text-sm text-[var(--ink,#0A0908)]"
+          className="rounded-full border border-[var(--ink,#0A0908)]/30 bg-white px-3 py-2.5 text-sm text-[var(--ink,#0A0908)]"
         >
           {PLATFORMS.map((p) => (
             <option key={p.value} value={p.value}>
@@ -319,7 +319,7 @@ export default function ToneChatClient() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="e.g. Gilmour's Comfortably Numb solo tone, but on my Quad Cortex"
           maxLength={2000}
-          className="flex-1 border border-[var(--ink,#0A0908)]/30 bg-white/80 px-3 py-2.5 text-sm text-[var(--ink,#0A0908)] placeholder:text-[var(--ink-muted,#6b6257)]/70 focus:border-[var(--amber,#B97700)] focus:outline-none"
+          className="flex-1 rounded-full border border-[var(--ink,#0A0908)]/30 bg-white px-4 py-2.5 text-sm text-[var(--ink,#0A0908)] placeholder:text-[var(--ink-muted,#6b6257)]/70 focus:border-[var(--ink,#0A0908)] focus:outline-none"
         />
         <button type="submit" disabled={busy || !input.trim()} className="fk-chat-cta">
           {busy ? "Dialing…" : "Send"}

@@ -2399,6 +2399,153 @@
   corner-shape: squircle;
 }
 
+/* Remaining pages, third pass (QA of the step 8 pages). */
+/* v3's .fk-preview button reset is unlayered, so it beats every Tailwind
+   utility: Tailwind buttons on these pages lost their padding, fill and
+   outline (Notify me, request and compare buttons). Put them back. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-2"] { padding-left: 8px; padding-right: 8px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-3"] { padding-left: 12px; padding-right: 12px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-4"] { padding-left: 16px; padding-right: 16px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-5"] { padding-left: 20px; padding-right: 20px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-6"] { padding-left: 24px; padding-right: 24px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="px-8"] { padding-left: 32px; padding-right: 32px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-1"] { padding-top: 4px; padding-bottom: 4px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-1.5"] { padding-top: 6px; padding-bottom: 6px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-2"] { padding-top: 8px; padding-bottom: 8px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-2.5"] { padding-top: 10px; padding-bottom: 10px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-3"] { padding-top: 12px; padding-bottom: 12px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="py-4"] { padding-top: 16px; padding-bottom: 16px; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class~="border"] { border-width: 1px; border-style: solid; }
+.fk-preview.fk-preview main > :not([class*="fk-"]) button[class*="bg-[var(--ink"] { background: var(--fk-ink); color: var(--fk-paper); border-color: var(--fk-ink); }
+/* .fk-preview a { color: inherit } outranks Tailwind text colors on links,
+   so ink pill links (tone chat sign-in, gear and set pack CTAs) lost their
+   paper text. Give them their light text back. */
+.fk-preview.fk-preview a[class*="bg-[var(--ink"] {
+  color: var(--fk-paper, #fff);
+}
+/* Tailwind roots line up with the header's 1180px wrap. */
+.fk-preview.fk-preview main > .fkx-wrap {
+  max-width: var(--fk-wrap);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (max-width: 640px) {
+  .fk-preview.fk-preview main > .fkx-wrap { padding-left: 16px; padding-right: 16px; }
+}
+/* Card grids drew an ink backing with 1px gaps. Separate hairline cards. */
+.fk-preview.fk-preview main :is(.platforms-grid, .how-steps, .community-grid) {
+  background: none;
+  border: 0;
+  gap: 16px;
+}
+.fk-preview.fk-preview main :is(.platform-card, .how-step, .community-card) {
+  outline: 0;
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  background: var(--fk-paper);
+  transform: none;
+  box-shadow: none;
+}
+.fk-preview.fk-preview main :is(.platform-card, .community-card):hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--fk-wash);
+  border-color: var(--fk-line-strong);
+}
+.fk-preview.fk-preview main .platform-card-stripe { display: none; }
+.fk-preview.fk-preview main .platform-card-mfr { color: var(--fk-ink-3); font-weight: 400; }
+.fk-preview.fk-preview main .platform-card-meta {
+  font-family: var(--fk-sans);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.fk-preview.fk-preview main .platform-card:hover .platform-card-cta {
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  border-color: var(--fk-ink);
+}
+.fk-preview.fk-preview main :is(.how-step-no, .community-card-no) {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 500;
+  font-style: normal;
+  font-family: var(--fk-sans);
+  letter-spacing: -0.02em;
+}
+/* Section heads drew a short rule beside the heading as well as the hairline below. */
+.fk-preview.fk-preview main > :not([class*="fk-"]) .section-rule { display: none; }
+/* Ask Axl: the chat buttons were amber with a 2px ink border. */
+.fk-preview.fk-preview main .fk-chat-cta {
+  border: 1px solid var(--fk-ink);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  border-radius: var(--fk-r-pill);
+}
+.fk-preview.fk-preview main .fk-chat-chip {
+  border: 1px solid var(--fk-line);
+  background: var(--fk-paper);
+  border-radius: var(--fk-r-pill);
+}
+.fk-preview.fk-preview main .fk-chat-chip:hover { border-color: var(--fk-ink); color: var(--fk-ink); }
+/* Printer's cropmarks on login, signup and request. */
+.fk-preview.fk-preview main .auth-card::before,
+.fk-preview.fk-preview main .auth-card::after { display: none; }
+.fk-preview.fk-preview main .compare-col {
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+}
+.fk-preview.fk-preview main .compare-col-empty {
+  border-style: solid;
+  background: var(--fk-wash);
+}
+/* The sort pills ran off the right edge on phone. */
+.fk-preview.fk-preview main .request-queue-head { flex-wrap: wrap; gap: 12px; }
+/* Dashboard: the sign-in button drew squashed; the nav stacked full height on phone. */
+.fk-preview.fk-preview main .dashboard-signin {
+  height: auto;
+  width: auto;
+  min-height: 40px;
+  padding: 10px 20px;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--fk-sans);
+  border-radius: var(--fk-r-pill);
+}
+.fk-preview.fk-preview main .dashboard-sidebar .dept-link {
+  font-family: var(--fk-sans);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+@media (max-width: 920px) {
+  /* 1fr let the scrolling nav row widen the page; clamp it. */
+  .fk-preview.fk-preview main .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+  .fk-preview.fk-preview main .dashboard-sidebar { min-width: 0; }
+  .fk-preview.fk-preview main .dashboard-sidebar .dept-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fk-preview.fk-preview main .dashboard-sidebar .dept-list > li { flex: 0 0 auto; }
+  .fk-preview.fk-preview main .dashboard-sidebar .dept-link {
+    border: 1px solid var(--fk-line);
+    border-radius: var(--fk-r-pill);
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
+  .fk-preview.fk-preview main .dashboard-sidebar .dept-link.is-active {
+    border-color: var(--fk-ink);
+    background: var(--fk-ink);
+    color: var(--fk-paper);
+  }
+}
+
 
 /* ══════════════════════════════════════════════════════════════════════
    Dark mode (step 9).

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Fader & Knob",
     description:
-      "The tone library built as an open AI experiment — exact settings in real units, sources cited, corrections public.",
+      "The tone library built as an open AI experiment: exact settings in real units, sources cited, corrections public.",
     type: "website",
   },
 };
@@ -95,7 +95,7 @@ export default function AboutPage() {
           </div>
           <p className="about-lede" style={{ fontSize: 15, marginBottom: 24 }}>
             Full disclosure: none of these writers are people. Each is an AI
-            editorial voice — named, differently trained, and tuned to a
+            editorial voice: named, differently trained, and tuned to a
             different kind of player. They&apos;re part of{" "}
             <Link
               href="/experiment"
@@ -117,7 +117,7 @@ export default function AboutPage() {
                         Fixed width/height gets the 1x/2x pair instead. */}
                     <Image
                       src={w.image}
-                      alt={`${w.name} — AI writer`}
+                      alt={`${w.name}, AI writer`}
                       width={100}
                       height={100}
                     />

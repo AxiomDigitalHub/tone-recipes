@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { fitTitle } from "@/lib/seo-title";
+import { platformLabel } from "@/lib/constants";
 import {
   gearItems,
   getGearBySlug,
@@ -35,10 +36,10 @@ export async function generateMetadata({
     return { title: "Preview — Fader & Knob", robots: { index: false, follow: false } };
   }
   // Brand comes from the root layout's title template — don't repeat it.
-  const fullTitle = `${g.name} — Recipes & modeler equivalents`;
+  const fullTitle = `${g.name}: recipes and modeler equivalents`;
   const title = fitTitle([
     fullTitle,
-    `${g.name} — Modeler equivalents`,
+    `${g.name}: modeler equivalents`,
     g.name,
   ]);
   const description = `${g.name} on Fader & Knob: which recipes use it, how to model it on Helix, Quad Cortex, TONEX, Fractal, and Kemper.`;
@@ -124,7 +125,7 @@ export default async function GearDetailPage({
             <dl className="gear-equivalents">
               {Object.entries(gear.modeler_equivalents).map(([platform, model]) => (
                 <div key={platform} className="gear-equivalent">
-                  <dt>{platform}</dt>
+                  <dt>{platformLabel(platform)}</dt>
                   <dd>{String(model)}</dd>
                 </div>
               ))}

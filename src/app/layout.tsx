@@ -38,7 +38,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://faderandknob.com"),
   title: {
-    default: "Fader & Knob — Tone Recipes for Guitar & Modelers",
+    default: "Fader & Knob: Tone Recipes for Guitar & Modelers",
     template: "%s | Fader & Knob",
   },
   description:
