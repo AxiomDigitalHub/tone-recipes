@@ -228,9 +228,15 @@ export default async function RecipePrintPage({
     return Boolean(recipe.platform_translations?.[p]);
   });
 
+  // The year already sits in the credits line when there is an album, so the
+  // meta line only repeats it when there is none. Genres are stored as slugs
+  // ("heavy-metal"), so turn them into words ("Heavy metal").
+  const genre = artist?.genres?.[0]
+    ? artist.genres[0].replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase())
+    : null;
   const meta = [
-    song?.year ? String(song.year) : null,
-    artist?.genres?.[0] ?? null,
+    song?.year && !song?.album ? String(song.year) : null,
+    genre,
   ].filter(Boolean);
 
   return (
