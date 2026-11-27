@@ -88,7 +88,7 @@ const AMP_INTERNAL_PARAMS = new Set([
  * One settings table per platform, columns Block, Setting, Value. The
  * block name spans its rows; amp blocks keep the "Tone & gain" and
  * "Tube internals" split as labeled sub-rows. Values are data, so they
- * set in mono; everything else is Geist.
+ * set in mono; everything else is Karla.
  */
 type SpecLine =
   | { kind: "group"; label: string }

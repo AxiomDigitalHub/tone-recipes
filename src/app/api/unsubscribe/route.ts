@@ -104,7 +104,7 @@ export async function GET(request: Request) {
   <title>${title} · Fader &amp; Knob</title>
   <style>
     :root { color-scheme: light; }
-    body { margin: 0; background: #ffffff; color: #131416; font-family: Geist, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    body { margin: 0; background: #ffffff; color: #131416; font-family: Karla, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; }
     main { max-width: 560px; margin: 0 auto; padding: 80px 24px; }
     .wordmark { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: #131416; margin: 0 0 32px; padding-bottom: 16px; border-bottom: 1px solid #dcdfe2; }
     h1 { font-size: 32px; line-height: 1.15; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.025em; }

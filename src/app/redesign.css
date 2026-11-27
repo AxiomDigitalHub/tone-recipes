@@ -43,7 +43,7 @@
   --fk-shadow: rgba(19, 20, 22, 0.14);
 
   /* Type */
-  --fk-sans: var(--font-geist-sans), -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fk-sans: var(--font-karla), -apple-system, "Helvetica Neue", Arial, sans-serif;
   --fk-mono: var(--font-geist-mono), ui-monospace, Menlo, Consolas, monospace;
 
   /* Radius. Squircle corners where supported, plain radius elsewhere. */
@@ -2343,7 +2343,7 @@
 
    Pages not redrawn yet (gear, compare, community, tone chat, request,
    about, account, platforms, artist, song and the rest) keep their own
-   markup. This block gives them the shared system: Geist everywhere,
+   markup. This block gives them the shared system: Karla everywhere,
    sentence case, no italics, no wide tracking, pill buttons, squircle
    fields and tiles, hairlines.
 
