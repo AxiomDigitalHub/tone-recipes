@@ -65,7 +65,7 @@ export interface GearFonts {
 
 /** The site's fonts (next/font variables set in src/app/layout.tsx). */
 export const SITE_FONTS: GearFonts = {
-  sans: "var(--font-karla), Arial, sans-serif",
+  sans: "var(--font-sans-flex), Arial, sans-serif",
   mono: "var(--font-geist-mono), ui-monospace, Menlo, monospace",
 };
 

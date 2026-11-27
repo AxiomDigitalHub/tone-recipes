@@ -23,9 +23,9 @@
 /* Fonts stay inline: they point at next/font variables set on <body>. The
    colours above are real custom properties so dark mode can override them. */
 @theme inline {
-  --font-sans: var(--font-karla);
+  --font-sans: var(--font-sans-flex);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-karla);
+  --font-display: var(--font-sans-flex);
 }
 
 body {

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Karla, Geist_Mono } from "next/font/google";
+import { Google_Sans_Flex, Geist_Mono } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import SiteSubnav from "@/components/layout/SiteSubnav";
 import LazySearchPalette from "@/components/search/LazySearchPalette";
@@ -20,12 +20,16 @@ import "./redesign-pages.css";
 import "./redesign-account.css";
 import "./redesign-components.css";
 
-// Karla 400/500/600 and Geist Mono are the whole type system (redesign).
-// Karla is shared with Diagram Wiring. Both are variable fonts, so one file
-// each covers every weight in use.
-const karla = Karla({
-  variable: "--font-karla",
+// Google Sans Flex 400/500/600 and Geist Mono are the whole type system
+// (redesign). Google Sans Flex is shared with Diagram Wiring. Both are
+// variable fonts, so one file each covers every weight in use; the opsz
+// axis lets headings and small text each get their own optical size.
+const sansFlex = Google_Sans_Flex({
+  variable: "--font-sans-flex",
   subsets: ["latin"],
+  axes: ["opsz"],
+  // next/font has no fallback metrics for this family yet.
+  adjustFontFallback: false,
 });
 
 // Mono is only for real data (knob values, counts, dates, prices), never the
@@ -169,7 +173,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${karla.variable} ${geistMono.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
+        className={`${sansFlex.variable} ${geistMono.variable} flex min-h-screen flex-col bg-background font-sans text-foreground antialiased`}
       >
         {/* GTM noscript — standard install pair for the lazyOnload script
             near the end of body. */}
