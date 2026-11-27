@@ -15,13 +15,11 @@ export const metadata: Metadata = {
   },
 };
 
-const HUE_BY_PLATFORM: Record<string, number> = {
-  helix: 1,
-  quad_cortex: 4,
-  tonex: 6,
-  fractal: 3,
-  kemper: 5,
-  katana: 2,
+/** The model under the brand, where the platform label repeats the brand. */
+const MODEL_BY_PLATFORM: Record<string, string> = {
+  fractal: "Axe-Fx",
+  kemper: "Profiler",
+  katana: "Katana",
 };
 
 export default function PreviewPlatformsIndex() {
@@ -63,24 +61,20 @@ export default function PreviewPlatformsIndex() {
           </p>
         </header>
 
-        <div className="platforms-grid">
-          {platforms.map((p, i) => {
-            const hue = HUE_BY_PLATFORM[p.id] ?? ((i % 6) + 1);
+        {/* Brand and model only, like the "Learn your platform" tiles on
+            the blog. The whole tile is the link. */}
+        <div className="fk-learn-logos fkp-platform-tiles">
+          {platforms.map((p) => {
+            const model = MODEL_BY_PLATFORM[p.id] ?? p.label;
             return (
               <Link
                 key={p.id}
                 href={`/platforms/${p.id}`}
-                className={`platform-card lp-hue-${hue}`}
+                className="fk-learn-logo r-lg fkp-platform-tile"
+                aria-label={`${p.manufacturer} ${model}`}
               >
-                <span className="platform-card-stripe" aria-hidden="true" />
-                <div className="platform-card-meta">
-                  <span className="platform-card-mfr">{p.manufacturer}</span>
-                </div>
-                <h3 className="platform-card-name">{p.label}</h3>
-                <p className="platform-card-tagline">{p.tagline}</p>
-                <span className="platform-card-cta">
-                  Open the manual <span aria-hidden="true">→</span>
-                </span>
+                <span className="fkp-platform-brand" aria-hidden="true">{p.manufacturer}</span>
+                <span className="fk-learn-wordmark" aria-hidden="true">{model}</span>
               </Link>
             );
           })}

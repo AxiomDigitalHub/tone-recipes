@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "About",
   description:
-    "We chase the original signal chain, map every block, and write it down so you don't have to guess. Built by guitarists for guitarists.",
+    "We build AI tools that dial in famous guitar tones for your modeler, so you spend less time on settings and more time playing.",
   openGraph: {
     title: "About Fader & Knob",
     description:
@@ -40,8 +40,28 @@ export default function AboutPage() {
             modelers. We document how famous recordings were made (the full
             signal chain, every knob, every snapshot) and translate the
             settings for your Helix, Quad Cortex, TONEX, Fractal, Kemper,
-            Katana, or pedalboard. You get the numbers instead of a vague
-            &ldquo;set the gain around 7.&rdquo;
+            Katana, or pedalboard.
+          </p>
+          <p className="about-story">
+            A modeler can sound like almost any rig, which is why getting one
+            song&apos;s tone right can eat a whole evening. You pick an amp
+            model, build the pedal chain block by block, then nudge knobs and
+            check against the record until it&apos;s close. By then
+            you&apos;ve spent more time in menus than on the guitar.
+          </p>
+          <p className="about-story">
+            We build AI systems that do that legwork for you. They research
+            how the part was recorded, work out the chain and the settings,
+            and turn it into a preset or a settings sheet for your unit. When
+            a recipe doesn&apos;t answer your question,{" "}
+            <Link href="/tone-chat">Ask Axl</Link> can.
+          </p>
+          <p className="about-story">
+            What we want is for you to load the tone and go learn the song.
+            The time you would have spent dialing in goes to playing. The
+            whole site is also an open test of how far AI can take this, and
+            we track what works and what breaks on{" "}
+            <Link href="/experiment">the experiment page</Link>.
           </p>
         </div>
 

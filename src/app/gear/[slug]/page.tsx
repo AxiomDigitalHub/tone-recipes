@@ -9,11 +9,10 @@ import {
   toneRecipes,
 } from "@/lib/data";
 import Gear from "@/components/gear/Gear";
-import { gearForChain, type GearPick } from "@/lib/gear/recipe-gear";
-import type { PreviewBlockData } from "@/components/v3/preview-helpers";
+import { drawingFor } from "@/lib/gear/gear-drawing";
+import { GUITARS, guitarSrc } from "@/lib/gear/guitars";
 import ToneCard from "@/components/recipe/redesign/ToneCard";
 import PostsRail from "@/app/_pages/PostsRail";
-import type { GearItem } from "@/types/recipe";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import { gearJsonLdSet } from "@/lib/seo/jsonld";
 
@@ -76,7 +75,7 @@ export default async function GearDetailPage({
   });
 
   const { product, breadcrumb } = gearJsonLdSet(gear);
-  const pick = drawingFor(gear);
+  const drawing = drawingFor(gear);
   const tags = [gear.type, gear.subcategory].filter(Boolean) as string[];
 
   return (
@@ -112,17 +111,22 @@ export default async function GearDetailPage({
           )}
           {gear.description && <p className="fk-body fkp-measure">{gear.description}</p>}
         </div>
-        {pick && (
+        {drawing && (
           <div className="fkp-profile-art fkp-gear-art" aria-hidden="true">
-            <Gear
-              kind={pick.kind}
-              height={220}
-              vals={pick.vals}
-              title={pick.title}
-              disp={pick.disp}
-              color={pick.color}
-              label=""
-            />
+            {drawing.type === "guitar" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={guitarSrc(drawing.guitar)} alt={GUITARS[drawing.guitar]} className="fkp-gear-guitar" />
+            ) : (
+              <Gear
+                kind={drawing.pick.kind}
+                height={220}
+                vals={drawing.pick.vals}
+                title={drawing.pick.title}
+                disp={drawing.pick.disp}
+                color={drawing.pick.color}
+                label=""
+              />
+            )}
           </div>
         )}
       </header>
@@ -155,33 +159,4 @@ export default async function GearDetailPage({
       <PostsRail title={`Field notes on the ${gear.name}`} posts={relatedPosts} />
     </div>
   );
-}
-
-/**
- * The gear item as one block, so it can take the same drawing the recipe
- * chain gives it. Guitars have no drawing here.
- */
-function drawingFor(gear: GearItem): GearPick | null {
-  const variant: PreviewBlockData["variant"] | null =
-    gear.type === "amp"
-      ? "amp"
-      : gear.type === "cabinet" || gear.type === "microphone"
-        ? "cab"
-        : gear.type === "effect"
-          ? "pedal"
-          : null;
-  if (!variant) return null;
-  const values: Record<string, number> = {};
-  for (const [k, v] of Object.entries(gear.default_settings ?? {})) {
-    if (typeof v === "number" && Number.isFinite(v)) values[k] = v;
-  }
-  const block: PreviewBlockData = {
-    name: gear.name,
-    sub: gear.subcategory ?? "",
-    variant,
-    category: gear.subcategory,
-    controls: Object.keys(values),
-    values,
-  };
-  return gearForChain([block])[0];
 }

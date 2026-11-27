@@ -2550,6 +2550,100 @@
   border-radius: var(--fk-r-pill);
 }
 .fk-preview.fk-preview main .fk-chat-chip:hover { border-color: var(--fk-ink); color: var(--fk-ink); }
+/* Ask Axl composer: one rounded box with the typing area on top and the rig
+   picker and round send button underneath, pinned to the bottom of the
+   screen while the chat is in view (the pattern ChatGPT, Claude and
+   Perplexity share). Everyone sees it; sign-in is asked for on send. */
+.fk-preview.fk-preview main .fk-axl-log {
+  min-height: 40vh;
+  max-height: 60vh;
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+}
+.fk-preview.fk-preview main .fk-axl-dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-top: 12px;
+  padding: 0 0 max(12px, env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--fk-paper) 70%, transparent);
+}
+.fk-preview.fk-preview main .fk-axl-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px 10px 16px;
+  background: var(--fk-paper);
+  border: 1px solid var(--fk-line-strong);
+  border-radius: var(--fk-r-lg);
+  corner-shape: squircle;
+  box-shadow: 0 6px 24px -12px var(--fk-shadow);
+  transition: border-color 0.15s;
+}
+.fk-preview.fk-preview main .fk-axl-composer:focus-within { border-color: var(--fk-ink); }
+.fk-preview.fk-preview main .fk-axl-input {
+  width: 100%;
+  min-height: 28px;
+  max-height: 200px;
+  padding: 6px 0 0;
+  border: 0;
+  background: transparent;
+  resize: none;
+  outline: none;
+  font: 400 16px/1.5 var(--fk-sans);
+  color: var(--fk-ink);
+}
+.fk-preview.fk-preview main .fk-axl-input::placeholder { color: var(--fk-ink-3); }
+.fk-preview.fk-preview main .fk-axl-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.fk-preview.fk-preview main .fk-axl-rig {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-wash);
+  font: 500 14px/1 var(--fk-sans);
+  color: var(--fk-ink-2);
+}
+.fk-preview.fk-preview main .fk-axl-send {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--fk-r-pill);
+  background: var(--fk-ink);
+  color: var(--fk-paper);
+  transition: opacity 0.15s;
+}
+.fk-preview.fk-preview main .fk-axl-send:disabled { opacity: 0.3; cursor: default; }
+.fk-preview.fk-preview main .fk-axl-note {
+  margin-top: 6px;
+  text-align: center;
+  font: 400 12px/1.4 var(--fk-sans);
+  color: var(--fk-ink-3);
+}
+.fk-preview.fk-preview main .fk-axl-signin {
+  margin-bottom: 10px;
+  padding: 14px 16px;
+  background: var(--fk-wash);
+  border: 1px solid var(--fk-line);
+  border-radius: var(--fk-r-md);
+  corner-shape: squircle;
+  font: 400 15px/1.45 var(--fk-sans);
+  color: var(--fk-ink);
+}
+.fk-preview.fk-preview main .fk-axl-signin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
 /* Printer's cropmarks on login, signup and request. */
 .fk-preview.fk-preview main .auth-card::before,
 .fk-preview.fk-preview main .auth-card::after { display: none; }
