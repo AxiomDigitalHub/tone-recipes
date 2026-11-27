@@ -15,6 +15,12 @@ import ToneCard from "@/components/recipe/redesign/ToneCard";
 import PostsRail from "@/app/_pages/PostsRail";
 import { findRelatedPosts } from "@/components/v3/findRelatedPosts";
 import { artistJsonLdSet } from "@/lib/seo/jsonld";
+import {
+  getArtistPhoto,
+  photoSrc,
+  photoPage,
+  licenseUrl,
+} from "@/lib/data/artist-photos";
 
 // Hard-404 unknown slugs. The segment's loading.tsx starts streaming a 200
 // before notFound() can throw, so garbage slugs were soft-404s; with
@@ -69,6 +75,8 @@ export default async function PreviewArtistDetail({
   const artist = getArtistBySlug(slug);
   if (!artist) notFound();
 
+  const photo = getArtistPhoto(slug);
+  const photoLicense = photo ? licenseUrl(photo.license) : null;
   const artistSongs = getSongsByArtistSlug(slug);
   const recipes = toneRecipes.filter((r) => {
     const s = getSongBySlug(r.song_slug);
@@ -123,21 +131,51 @@ export default async function PreviewArtistDetail({
             </ul>
           )}
         </div>
-        <div className="fkp-profile-art">
-          {artist.image_url ? (
-            <Image
-              src={artist.image_url}
-              alt={artist.name}
-              fill
-              priority
-              sizes="(max-width: 720px) 100vw, 360px"
-            />
-          ) : (
-            <span className="fk-t1" aria-hidden="true">
-              {monogramFor(artist.name)}
-            </span>
-          )}
-        </div>
+        {photo ? (
+          <figure className="fkp-profile-figure">
+            <div className="fkp-profile-art is-photo">
+              {/* Plain img: Commons serves the sized file through a redirect. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photoSrc(photo)}
+                alt={artist.name}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+            <figcaption className="fk-caption fkp-photo-credit">
+              Photo: {photo.author},{" "}
+              {photoLicense ? (
+                <a href={photoLicense} rel="license noopener" target="_blank">
+                  {photo.license}
+                </a>
+              ) : (
+                photo.license.toLowerCase()
+              )}
+              , via{" "}
+              <a href={photoPage(photo)} rel="noopener" target="_blank">
+                Wikimedia Commons
+              </a>
+            </figcaption>
+          </figure>
+        ) : (
+          <div className="fkp-profile-art">
+            {artist.image_url ? (
+              <Image
+                src={artist.image_url}
+                alt={artist.name}
+                fill
+                priority
+                sizes="(max-width: 720px) 100vw, 360px"
+              />
+            ) : (
+              <span className="fk-t1" aria-hidden="true">
+                {monogramFor(artist.name)}
+              </span>
+            )}
+          </div>
+        )}
       </header>
 
       {recipes.length > 0 && (

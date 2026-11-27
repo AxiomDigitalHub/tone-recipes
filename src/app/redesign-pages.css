@@ -851,3 +851,19 @@ html[data-theme="dark"] .fk-preview .fk-learn-logo img { filter: brightness(0); 
   color: var(--fk-ink);
 }
 .fk-preview .about-mission .about-story a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Artist photo from Wikimedia Commons, with its credit line */
+.fk-preview .fkp-profile-figure { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.fk-preview .fkp-profile-art.is-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+.fk-preview .fkp-photo-credit { color: var(--fk-ink-3); overflow-wrap: anywhere; }
+.fk-preview .fkp-photo-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 720px) {
+  .fk-preview .fkp-profile-figure { max-width: 360px; }
+}
