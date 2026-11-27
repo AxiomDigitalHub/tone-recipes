@@ -838,3 +838,16 @@ html[data-theme="dark"] .fk-preview .fk-learn-logo img { filter: brightness(0); 
 .fk-preview .fkc-list { gap: 48px; padding-bottom: 64px; }
 .fk-preview .fkc-item { display: flex; flex-direction: column; gap: 12px; }
 .fk-preview .fkc-item p { margin: 0; font-size: 16px; line-height: 26px; color: var(--fk-ink); }
+
+/* About: the story under the lede, in plain body type. */
+.fk-preview .about-mission .about-lede { margin-bottom: 24px; }
+.fk-preview .about-mission .about-story {
+  max-width: 64ch;
+  margin: 0 0 16px;
+  font-family: var(--fk-sans);
+  font-style: normal;
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--fk-ink);
+}
+.fk-preview .about-mission .about-story a { text-decoration: underline; text-underline-offset: 3px; }
