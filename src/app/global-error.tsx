@@ -34,7 +34,7 @@ export default function GlobalError({
           boxSizing: "border-box",
           background: PAPER,
           color: INK,
-          fontFamily: "Geist, -apple-system, 'Helvetica Neue', Arial, sans-serif",
+          fontFamily: "'Google Sans Flex', -apple-system, 'Helvetica Neue', Arial, sans-serif",
         }}
       >
         <h1

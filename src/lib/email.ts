@@ -43,7 +43,7 @@ function esc(s: string): string {
 //
 // One light layout for every email, in the site's design language: white
 // paper, ink text, hairlines, a wash tile for grouped content and an ink
-// pill for the main action. Email clients do not load Geist, so the stack
+// pill for the main action. Email clients do not load Google Sans Flex, so the stack
 // falls back to Helvetica and Arial. Everything is inline styles, because
 // most clients strip <style> blocks.
 // ============================================================================
@@ -56,7 +56,7 @@ const EMAIL = {
   ink2: "#4a4f55",
   ink3: "#666c73",
   danger: "#b4473a",
-  sans: "Geist, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  sans: "'Google Sans Flex', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif",
   mono: "'Geist Mono', ui-monospace, Menlo, Consolas, monospace",
 } as const;
 
