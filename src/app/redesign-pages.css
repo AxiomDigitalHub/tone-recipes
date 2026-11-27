@@ -833,3 +833,8 @@ html[data-theme="dark"] .fk-preview .fk-learn-logo img { filter: brightness(0); 
   .fk-preview .fkg-rig-art { height: 96px; }
   .fk-preview .fkg-rig-art svg, .fk-preview .fkg-rig-art .fkg-guitar { max-height: 96px; }
 }
+
+/* Community: three plain sections, each with its one action. */
+.fk-preview .fkc-list { gap: 48px; padding-bottom: 64px; }
+.fk-preview .fkc-item { display: flex; flex-direction: column; gap: 12px; }
+.fk-preview .fkc-item p { margin: 0; font-size: 16px; line-height: 26px; color: var(--fk-ink); }
