@@ -123,19 +123,12 @@ export default function HowItWorksPage() {
           <p style={{ marginTop: 24, fontSize: 14, color: "var(--ink-muted)" }}>
             Curious who&apos;s behind this? Mostly an AI, and we say so.{" "}
             <Link
-              href="/how-we-work"
-              style={{ color: "var(--amber-2)", textDecoration: "underline" }}
-            >
-              How we work
-            </Link>{" "}
-            explains the machine, and{" "}
-            <Link
               href="/experiment"
               style={{ color: "var(--amber-2)", textDecoration: "underline" }}
             >
-              the experiment
+              The experiment
             </Link>{" "}
-            shows the running record.
+            explains the machine and keeps the running record.
           </p>
         </section>
       </section>

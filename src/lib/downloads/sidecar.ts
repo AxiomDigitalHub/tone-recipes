@@ -104,7 +104,7 @@ with HX Edit first (Help > Check for Updates), then import again.
 Presets made on newer firmware sometimes won't load on older
 firmware — updating fixes it.
 
-Stuck? https://${SITE}/how-we-work has ways to reach us.`,
+Stuck? Email hello@faderandknob.com and we'll help.`,
 
   katana: `How to install this preset on your Boss Katana
 ${"=".repeat(60)}
@@ -131,7 +131,7 @@ One honest note: the Katana can't do everything a $1,500 modeler
 does, so this version of the tone is the closest the amp gets, not
 a clone. The tone notes file explains what had to change.
 
-Stuck? https://${SITE}/how-we-work has ways to reach us.`,
+Stuck? Email hello@faderandknob.com and we'll help.`,
 
   quad_cortex: `How to install this preset on your Quad Cortex
 ${"=".repeat(60)}
@@ -150,7 +150,7 @@ the preset better than any import would teach you.
    two decimal places don't matter, your ears do.
 5. Save the preset with the song name.
 
-Stuck? https://${SITE}/how-we-work has ways to reach us.`,
+Stuck? Email hello@faderandknob.com and we'll help.`,
 };
 
 export function buildInstallGuide(platform: string): string {

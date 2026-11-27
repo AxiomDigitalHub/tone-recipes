@@ -80,10 +80,10 @@ export default function ExperimentPage() {
       cta: "Read the field notes",
     },
     {
-      href: "/how-we-work",
+      href: "/tone-chat",
       title: "A tone-trained chatbot",
       body: "Axl is built specifically for guitar tone (gain staging, block order, what “darker” actually means) instead of bluffing like a general model.",
-      cta: "How it's made",
+      cta: "Ask Axl",
     },
   ];
 
@@ -223,12 +223,7 @@ export default function ExperimentPage() {
           ))}
         </ol>
         <p className="fk-body fkp-muted fkp-measure-lg">
-          The full method (what the AI does, where it fails, how
-          corrections happen) lives at{" "}
-          <Link href="/how-we-work" className="fk-link">
-            how we work
-          </Link>
-          . Spot something wrong? That&apos;s the experiment working.{" "}
+          Spot something wrong? That&apos;s the experiment working.{" "}
           <ContactEmailLink label="Tell us" className="fk-link" />{" "}
           and the fix ships in public.
         </p>

@@ -27,7 +27,6 @@ A tone recipe is a complete signal chain breakdown for a specific guitar tone fr
 
 - [Browse Recipes](https://faderandknob.com/browse): Search and filter ${experimentStats.recipes} tone recipes by genre, artist, or platform.
 - [How It Works](https://faderandknob.com/how-it-works): Three-step guide to using the platform.
-- [How We Work](https://faderandknob.com/how-we-work): What the AI does and how corrections happen.
 - [The Experiment](https://faderandknob.com/experiment): The running log, with the build timeline and repository-generated statistics.
 - [Gear Database](https://faderandknob.com/gear): Detailed specs and tone profiles for pedals, amps, and modelers.
 - [Learn](https://faderandknob.com/blog): Guides on signal chain theory, gear comparisons, and tone-building techniques.

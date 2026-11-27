@@ -51,6 +51,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // How we work was retired Nov 2026; the experiment page covers it.
+      { source: "/how-we-work", destination: "/experiment", permanent: true },
       {
         source: "/blog/marshall-jcm800-settings-guide",
         destination: "/blog/jcm800-settings-guide",
