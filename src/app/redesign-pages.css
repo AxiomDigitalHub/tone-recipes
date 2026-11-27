@@ -756,3 +756,80 @@
   .fk-preview .fk-learn-wordmark { font-size: 18px; line-height: 22px; }
 }
 html[data-theme="dark"] .fk-preview .fk-learn-logo img { filter: brightness(0); }
+
+/* Platforms index: brand over model on the same ink tiles as the blog's
+   "Learn your platform" row. The whole tile is the link. */
+.fk-preview .fkp-platform-tiles {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 32px;
+  margin-bottom: 64px;
+}
+.fk-preview .fkp-platform-tile {
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+}
+.fk-preview .fkp-platform-brand {
+  font-family: var(--fk-sans);
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.7;
+}
+.fk-preview .fkp-platform-tile .fk-learn-wordmark { font-size: 28px; line-height: 32px; }
+@media (max-width: 640px) {
+  .fk-preview .fkp-platform-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fk-preview .fkp-platform-tile .fk-learn-wordmark { font-size: 20px; line-height: 24px; }
+  .fk-preview .fkp-platform-brand { font-size: 12px; line-height: 16px; }
+}
+
+/* Gear index */
+.fk-preview .fkg-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+.fk-preview .fkg-count { color: var(--fk-ink-3); margin-left: 4px; }
+.fk-preview .fkg-rig {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  align-items: end;
+  background: var(--fk-wash);
+  border-radius: var(--fk-r-lg);
+}
+.fk-preview .fkg-rig-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  color: var(--fk-ink);
+  text-decoration: none;
+}
+.fk-preview .fkg-rig-art {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 150px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.fk-preview .fkg-rig-art svg { max-width: 100%; height: auto; max-height: 150px; }
+.fk-preview .fkg-rig-art .fkg-guitar { max-height: 150px; width: auto; max-width: 100%; }
+.fk-preview .fkg-rig-item:hover .fkg-rig-art { transform: translateY(-2px); }
+.fk-preview .fkg-rig-art { transition: transform 150ms ease; }
+.fk-preview .fkg-section-head { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.fk-preview .fkg-card { color: var(--fk-ink); text-decoration: none; }
+.fk-preview .fkg-art { display: flex; align-items: center; justify-content: center; padding: 16px; }
+.fk-preview .fkg-art svg { max-width: 100%; max-height: 100%; height: auto; }
+.fk-preview .fkg-art .fkg-guitar { max-height: 100%; max-width: 90%; width: auto; height: auto; }
+.fk-preview .fkp-gear-guitar { display: block; width: 90%; max-width: 420px; height: auto; margin: 0 auto; }
+.fk-preview .fkg-section { scroll-margin-top: 96px; }
+@media (max-width: 900px) {
+  .fk-preview .fkg-rig { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fk-preview .fkg-rig li:nth-child(n+4) { display: none; }
+}
+@media (max-width: 640px) {
+  .fk-preview .fkg-rig { padding: 20px 12px; gap: 8px; }
+  .fk-preview .fkg-rig-art { height: 96px; }
+  .fk-preview .fkg-rig-art svg, .fk-preview .fkg-rig-art .fkg-guitar { max-height: 96px; }
+}

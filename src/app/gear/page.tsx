@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { gearItems, toneRecipes } from "@/lib/data";
 import type { Metadata } from "next";
-import { Guitar, Zap, Volume2, Speaker, Mic } from "lucide-react";
+import { gearItems, toneRecipes } from "@/lib/data";
+import Gear from "@/components/gear/Gear";
+import { drawingFor } from "@/lib/gear/gear-drawing";
+import { guitarSrc } from "@/lib/gear/guitars";
+import type { GearItem } from "@/types/recipe";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/gear" },
@@ -17,91 +20,76 @@ export const metadata: Metadata = {
   keywords: ["guitar gear", "effects pedals", "amps", "cabinets", "microphones", "modeler equivalents"],
 };
 
-/** Count how many recipes reference a given gear slug */
-function recipeCount(slug: string): number {
-  return toneRecipes.filter((r) =>
-    r.signal_chain.some((n) => n.gear_slug === slug)
-  ).length;
-}
+/** How many recipes put each gear slug in their chain. */
+const USE_COUNT = (() => {
+  const m = new Map<string, number>();
+  for (const r of toneRecipes) {
+    const seen = new Set<string>();
+    for (const n of r.signal_chain ?? []) {
+      if (n.gear_slug && !seen.has(n.gear_slug)) {
+        seen.add(n.gear_slug);
+        m.set(n.gear_slug, (m.get(n.gear_slug) ?? 0) + 1);
+      }
+    }
+  }
+  return m;
+})();
+const uses = (slug: string) => USE_COUNT.get(slug) ?? 0;
 
-const CATEGORIES = [
-  {
-    type: "effect",
-    label: "Effects pedals",
-    description: "Drive, modulation, delay, reverb, and more",
-    icon: Zap,
-    color: "#22c55e",
-  },
-  {
-    type: "amp",
-    label: "Amps",
-    description: "Fender, Marshall, Vox, Mesa, and beyond",
-    icon: Volume2,
-    color: "#ef4444",
-  },
-  {
-    type: "guitar",
-    label: "Guitars",
-    description: "The instruments behind the tones",
-    icon: Guitar,
-    color: "#f59e0b",
-  },
-  {
-    type: "cabinet",
-    label: "Cabinets",
-    description: "Speaker configurations and voicings",
-    icon: Speaker,
-    color: "#a855f7",
-  },
-  {
-    type: "microphone",
-    label: "Microphones",
-    description: "Mic choices that shape the final tone",
-    icon: Mic,
-    color: "#6b7280",
-  },
-] as const;
-
-const EFFECT_SUBCATEGORIES: Array<{ sub: string; label: string }> = [
-  { sub: "overdrive", label: "Overdrive" },
-  { sub: "distortion", label: "Distortion" },
-  { sub: "fuzz", label: "Fuzz" },
-  { sub: "wah", label: "Wah" },
-  { sub: "chorus", label: "Chorus" },
-  { sub: "modulation", label: "Modulation" },
-  { sub: "tremolo", label: "Tremolo" },
-  { sub: "delay", label: "Delay" },
-  { sub: "reverb", label: "Reverb" },
-  { sub: "reverb_spring", label: "Spring reverb" },
+const SECTIONS: { type: GearItem["type"]; id: string; label: string; blurb: string }[] = [
+  { type: "effect", id: "pedals", label: "Pedals", blurb: "Drives, fuzzes, modulation, delay and the rest of the board." },
+  { type: "amp", id: "amps", label: "Amps", blurb: "The heart of every tone, and what each one is called on your modeler." },
+  { type: "cabinet", id: "cabs", label: "Cabinets", blurb: "Speaker size and voicing shape the final character." },
+  { type: "microphone", id: "mics", label: "Microphones", blurb: "The last link in the chain: what the audience actually hears." },
+  { type: "guitar", id: "guitars", label: "Guitars", blurb: "The instruments behind the tones." },
 ];
 
-function GearCard({ gear }: { gear: (typeof gearItems)[number] }) {
-  const count = recipeCount(gear.slug);
+/** "overdrive" → "Overdrive", "reverb_spring" → "Spring reverb". */
+function subLabel(gear: GearItem): string {
+  const sub = gear.subcategory;
+  if (!sub) {
+    return { amp: "Amp", cabinet: "Cabinet", microphone: "Mic", guitar: "Guitar", effect: "Pedal" }[gear.type];
+  }
+  const words = sub.split("_");
+  const ordered = words.length > 1 ? [...words.slice(1), words[0]] : words;
+  const s = ordered.join(" ");
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/** Most-used first, then by name. */
+const byUse = (a: GearItem, b: GearItem) => uses(b.slug) - uses(a.slug) || a.name.localeCompare(b.name);
+
+function GearArt({ gear, height }: { gear: GearItem; height: number }) {
+  const d = drawingFor(gear);
+  if (!d) return null;
+  if (d.type === "guitar") {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={guitarSrc(d.guitar)} alt="" className="fkg-guitar" loading="lazy" />;
+  }
   return (
-    <Link
-      href={`/gear/${gear.slug}`}
-      className="group flex rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] transition-all hover:border-[var(--ink)]/40 hover:bg-[var(--paper)]"
-    >
-      <div className="flex flex-1 flex-col p-5">
-        <p className="text-xs font-medium text-[var(--ink-muted)]">{gear.manufacturer}</p>
-        <h3 className="mt-0.5 text-base font-semibold text-[var(--ink)] group-hover:underline">
-          {gear.name}
-        </h3>
-        <p className="mt-2 line-clamp-2 flex-1 text-sm text-[var(--ink-muted)]">
-          {gear.description}
-        </p>
-        <div className="mt-3 flex items-center gap-3">
-          {gear.modeler_equivalents && Object.keys(gear.modeler_equivalents).length > 0 && (
-            <span className="text-xs text-[var(--ink-muted)]">
-              {Object.keys(gear.modeler_equivalents).length} platforms
-            </span>
-          )}
-          {count > 0 && (
-            <span className="text-xs text-[var(--ink-muted)]">
-              {count} {count === 1 ? "recipe" : "recipes"}
-            </span>
-          )}
-        </div>
+    <Gear
+      kind={d.pick.kind}
+      height={height}
+      vals={d.pick.vals}
+      title={d.pick.title}
+      disp={d.pick.disp}
+      color={d.pick.color}
+      label=""
+    />
+  );
+}
+
+function GearCard({ gear }: { gear: GearItem }) {
+  const n = uses(gear.slug);
+  return (
+    <Link href={`/gear/${gear.slug}`} className="fk-card fkg-card">
+      <div className="fk-card-art is-wide fkg-art" aria-hidden="true">
+        <GearArt gear={gear} height={120} />
+      </div>
+      <div className="fk-card-body">
+        <p className="fk-caption">{subLabel(gear)}</p>
+        <h3 className="fk-t3">{gear.name}</h3>
+        {n > 0 && <p className="fk-card-meta">{n === 1 ? "In 1 tone" : `In ${n} tones`}</p>}
       </div>
     </Link>
   );
@@ -111,124 +99,96 @@ export default function GearBrowsePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Gear Database",
-    "description": "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
-    "url": "https://faderandknob.com/gear",
-    "isPartOf": { "@type": "WebSite", "name": "Fader & Knob", "url": "https://faderandknob.com" },
+    name: "Gear Database",
+    description: "Browse guitars, effects pedals, amps, cabinets, and microphones used in our tone recipes.",
+    url: "https://faderandknob.com/gear",
+    isPartOf: { "@type": "WebSite", name: "Fader & Knob", url: "https://faderandknob.com" },
   };
 
+  // The board up top: the most-used piece of each kind, left to right in
+  // signal order, so the page opens on a picture of a rig.
+  const rig = (["guitar", "effect", "amp", "cabinet", "microphone"] as const)
+    .map((t) => gearItems.filter((g) => g.type === t).sort(byUse)[0])
+    .filter(Boolean);
+  const mostUsed = [...gearItems].filter((g) => g.type !== "guitar").sort(byUse).slice(0, 4);
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:py-20 fkx-wrap">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      {/* Header */}
-      <div className="mb-12">
-        <h1 className="page-title page-title-md">Gear database</h1>
-        <p className="mt-2 max-w-2xl text-[var(--ink-muted)]">
-          Every pedal, amp, cab, and mic referenced in our tone recipes, with modeler equivalents across all major platforms.
-        </p>
-      </div>
+    <div className="fk-wrap fkp-page fkg-page">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <nav aria-label="Breadcrumb" className="fk-crumbs fk-caption">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Gear</span>
+      </nav>
 
-      {/* Category hero cards */}
-      <div className="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {CATEGORIES.map((cat) => {
-          const items = gearItems.filter((g) => g.type === cat.type);
-          return (
-            <a
-              key={cat.type}
-              href={`#${cat.type}`}
-              className="group flex items-center gap-4 rounded-xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-5 transition-all hover:border-[var(--ink)]/40 hover:bg-[var(--paper)]"
-            >
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
-                style={{ backgroundColor: "var(--fk-wash, #f6f6f4)" }}
-              >
-                <cat.icon className="h-6 w-6" style={{ color: "var(--fk-ink, #131416)" }} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h2 className="font-semibold text-[var(--ink)] group-hover:underline">
-                  {cat.label}
-                </h2>
-                <p className="mt-0.5 text-xs text-[var(--ink-muted)]">
-                  {items.length} items &middot; {cat.description}
-                </p>
-              </div>
+      <header className="fkg-head">
+        <h1 className="fk-display">Gear</h1>
+        <p className="fk-lead fkp-measure">
+          Every guitar, pedal, amp, cab and mic behind our tones, and what each one is called on your modeler.
+        </p>
+        <nav aria-label="Gear types" className="fk-chips">
+          {SECTIONS.map((s) => (
+            <a key={s.id} href={`#${s.id}`} className="fk-chip">
+              {s.label} <span className="fkg-count">{gearItems.filter((g) => g.type === s.type).length}</span>
             </a>
-          );
-        })}
-      </div>
+          ))}
+        </nav>
+      </header>
 
-      {/* Effects — grouped by subcategory */}
-      <section id="effect" className="mb-16">
-        <h2 className="mb-2 text-2xl font-bold">Effects pedals</h2>
-        <p className="mb-8 text-sm text-[var(--ink-muted)]">
-          The building blocks of every signal chain. Click any pedal to see its controls, modeler equivalents, and the recipes that use it.
-        </p>
+      <ol className="fkg-rig" aria-label="A rig from the database, guitar to mic">
+        {rig.map((g) => (
+          <li key={g.slug}>
+            <Link href={`/gear/${g.slug}`} className="fkg-rig-item">
+              <span className="fkg-rig-art" aria-hidden="true">
+                <GearArt gear={g} height={130} />
+              </span>
+              <span className="fk-caption">{subLabel(g)}</span>
+              <span className="fk-label">{g.name}</span>
+            </Link>
+          </li>
+        ))}
+      </ol>
 
-        {EFFECT_SUBCATEGORIES.map((sub) => {
-          const items = gearItems.filter(
-            (g) => g.type === "effect" && g.subcategory === sub.sub
-          );
-          if (items.length === 0) return null;
-          return (
-            <div key={sub.sub} className="mb-10">
-              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold text-[var(--ink-muted)]">
-                {sub.label}
-                <span className="rounded-full bg-[var(--paper-2)] px-2 py-0.5 text-[10px] font-medium">
-                  {items.length}
-                </span>
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((gear) => (
-                  <GearCard key={gear.slug} gear={gear} />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+      <section className="fkp-section" aria-labelledby="most-used">
+        <h2 id="most-used" className="fk-t2">Most used</h2>
+        <div className="fk-card-grid">
+          {mostUsed.map((g) => (
+            <GearCard key={g.slug} gear={g} />
+          ))}
+        </div>
       </section>
 
-      {/* Non-effect categories */}
-      {CATEGORIES.filter((c) => c.type !== "effect").map((cat) => {
-        const items = gearItems.filter((g) => g.type === cat.type);
+      {SECTIONS.map((s) => {
+        const items = gearItems.filter((g) => g.type === s.type).sort(byUse);
         if (items.length === 0) return null;
-
         return (
-          <section key={cat.type} id={cat.type} className="mb-16">
-            <h2 className="mb-2 text-2xl font-bold">{cat.label}</h2>
-            <p className="mb-8 text-sm text-[var(--ink-muted)]">
-              {cat.type === "amp" &&
-                "The heart of every tone. See exact settings and what each amp maps to on your modeler."}
-              {cat.type === "guitar" &&
-                "Pickup configuration and body type shape the raw signal before anything else in the chain."}
-              {cat.type === "cabinet" &&
-                "Speaker size, configuration, and voicing shape the final character of the tone."}
-              {cat.type === "microphone" &&
-                "Mic choice and placement are the last link in the chain. They determine what the audience actually hears."}
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((gear) => (
-                <GearCard key={gear.slug} gear={gear} />
+          <section key={s.id} id={s.id} className="fkp-section fkg-section" aria-labelledby={`${s.id}-head`}>
+            <div className="fkg-section-head">
+              <h2 id={`${s.id}-head`} className="fk-t2">{s.label}</h2>
+              <p className="fk-body fkp-muted">{s.blurb}</p>
+            </div>
+            <div className="fk-card-grid">
+              {items.map((g) => (
+                <GearCard key={g.slug} gear={g} />
               ))}
             </div>
           </section>
         );
       })}
 
-      {/* CTA back to recipes */}
-      <section className="rounded-2xl border border-[var(--ink)]/15 bg-[var(--paper-2)] p-8 text-center md:p-12">
-        <h2 className="text-2xl font-bold">
-          See this gear in action.
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-[var(--ink-muted)]">
-          Every piece of gear in this database is used in at least one tone. Browse the tones to see exact settings on your platform.
-        </p>
-        <div className="mt-6">
-          <Link
-            href="/browse"
-            className="inline-block rounded-full bg-[var(--ink)] px-8 py-3 text-base font-semibold text-[var(--paper)] transition-opacity hover:opacity-90"
-          >
-            Browse the tones
-          </Link>
+      <section className="fkp-section">
+        <div className="fk-tile fkp-buy fkg-cta">
+          <h2 className="fk-t2">See this gear in action</h2>
+          <p className="fk-body fkp-measure">
+            Every piece here is in at least one tone. Browse the tones to see the exact settings on your rig.
+          </p>
+          <div>
+            <Link href="/browse" className="fk-btn">Browse the tones</Link>
+          </div>
         </div>
       </section>
     </div>
