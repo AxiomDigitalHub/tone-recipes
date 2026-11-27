@@ -5,6 +5,8 @@ import { Music, Zap, Clock } from "lucide-react";
 import SetlistMapper from "@/components/set-packs/SetlistMapper";
 import SetPackAccess from "@/components/set-packs/SetPackAccess";
 import { ContactEmailText } from "@/components/ui/ContactEmail";
+import ChainStrip from "@/app/_pages/ChainStrip";
+import type { PreviewBlockData } from "@/components/v3/preview-helpers";
 
 export const metadata: Metadata = {
   title: "Worship Set Pack: Helix Preset with 8 Snapshots",
@@ -30,17 +32,49 @@ const snapshots = [
   { name: "SWELLS", desc: "Max reverb + delay + shimmer", use: "Volume swells, pad textures" },
 ];
 
-const chainBlocks = [
-  { name: "Deluxe Comp", cat: "Always on" },
-  { name: "Minotaur (Klon)", cat: "Drive 1" },
-  { name: "Scream 808", cat: "Drive 2" },
-  { name: "Essex A30", cat: "Amp (AC30)" },
-  { name: "2x12 Blue Bell", cat: "Cabinet" },
-  { name: "70s Chorus", cat: "Modulation" },
-  { name: "Transistor Tape", cat: "Delay (1/4)" },
-  { name: "Vintage Digital", cat: "Delay (dotted 1/8)" },
-  { name: "Plate Reverb", cat: "Reverb" },
-  { name: "Glitz Reverb", cat: "Shimmer" },
+// The pack's own Helix chain with its base settings (generate-set-pack.ts),
+// drawn as gear like the recipe pages. Snapshots switch blocks on and off.
+const chainBlocks: PreviewBlockData[] = [
+  {
+    name: "Deluxe Comp", sub: "Always on", variant: "pedal", category: "Dynamics",
+    controls: ["Threshold", "Ratio", "Mix", "Level"],
+    values: { Threshold: -36, Ratio: 2, Mix: 0.74, Level: 0 },
+    ranges: { Threshold: { min: -60, max: 0, unit: "dB" }, Level: { min: -12, max: 12, unit: "dB" } },
+  },
+  {
+    name: "Minotaur (Klon)", sub: "Drive 1", variant: "pedal", category: "Distortion",
+    controls: ["Gain", "Tone", "Level"], values: { Gain: 0.3, Tone: 0.55, Level: 0.5 },
+  },
+  {
+    name: "Scream 808", sub: "Drive 2", variant: "pedal", category: "Distortion",
+    controls: ["Gain", "Tone", "Level"], values: { Gain: 0.35, Tone: 0.5, Level: 0.5 },
+  },
+  {
+    name: "Essex A30", sub: "Vox AC30 combo", variant: "amp", category: "Amp",
+    controls: ["Drive", "Bass", "Mid", "Treble", "Presence", "Ch Vol"],
+    values: { Drive: 0.35, Bass: 0.5, Mid: 0.55, Treble: 0.6, Presence: 0.5, "Ch Vol": 0.6 },
+  },
+  { name: "2x12 Blue Bell", sub: "Cabinet", variant: "cab", category: "Cab", controls: [], values: {} },
+  {
+    name: "70s Chorus", sub: "Modulation", variant: "pedal", category: "Modulation",
+    controls: ["Speed", "Depth", "Mix"], values: { Speed: 0.3, Depth: 0.4, Mix: 0.35 },
+  },
+  {
+    name: "Transistor Tape (1/4)", sub: "Delay", variant: "pedal", category: "Delay",
+    controls: ["Time", "Feedback", "Mix"], values: { Time: 0.5, Feedback: 0.35, Mix: 0.25 },
+  },
+  {
+    name: "Vintage Digital (dotted 1/8)", sub: "Delay", variant: "pedal", category: "Delay",
+    controls: ["Time", "Feedback", "Mix"], values: { Time: 0.375, Feedback: 0.4, Mix: 0.3 },
+  },
+  {
+    name: "Plate Reverb", sub: "Reverb", variant: "pedal", category: "Reverb",
+    controls: ["Mix", "Decay", "Predelay"], values: { Mix: 0.23, Decay: 0.43, Predelay: 0.07 },
+  },
+  {
+    name: "Glitz (shimmer)", sub: "Reverb", variant: "pedal", category: "Reverb",
+    controls: ["Mix", "Decay", "Predelay"], values: { Mix: 0.4, Decay: 0.7, Predelay: 0.05 },
+  },
 ];
 
 /**
@@ -137,16 +171,7 @@ export default function WorshipSetPackPage() {
       {/* Signal chain */}
       <section className="fkp-section">
         <h2 className="fk-t2">Signal chain</h2>
-        <div className="fk-chain r-lg fkp-chainstrip is-wrap" aria-label="Signal chain, input to output">
-          <ol className="fk-chain-row">
-            {chainBlocks.map((block) => (
-              <li key={block.name} className="fk-chain-item fkp-chainchip">
-                <span className="fk-chain-name">{block.name}</span>
-                <span className="fk-caption">{block.cat}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ChainStrip blocks={chainBlocks} height={96} wrap label="Signal chain, input to output" />
       </section>
 
       {/* Setlist Mapper */}
