@@ -38,6 +38,9 @@ const BY_NAME: [RegExp, GuitarKey][] = [
   [/jazzmaster|jaguar|mustang|offset|duo-?sonic|bass vi/i, "offset"],
   [/\b3[3-5]5\b|es-?3\d\d|casino|sheraton|riviera|gretsch|hollow|rickenbacker|country gentleman|falcon|dot\b/i, "335"],
   [/\bsg\b/i, "sg"],
+  // Brian May's Red Special is a double-cut with three single coils, not a
+  // Les Paul Special, so it takes the Strat drawing.
+  [/red special/i, "strat"],
   [/junior|\bjr\b|special|p-?90|melody maker/i, "junior"],
   [/les paul|\blp\b|single-?cut|eclipse|\bec-?\d/i, "les-paul"],
   [/tele|esquire|nocaster|broadcaster/i, "tele"],

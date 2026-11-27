@@ -107,8 +107,13 @@ export default function GearBrowsePage() {
 
   // The board up top: the most-used piece of each kind, left to right in
   // signal order, so the page opens on a picture of a rig.
+  // Guitars carry no use counts, so the board opens on the Strat.
   const rig = (["guitar", "effect", "amp", "cabinet", "microphone"] as const)
-    .map((t) => gearItems.filter((g) => g.type === t).sort(byUse)[0])
+    .map((t) =>
+      t === "guitar"
+        ? (gearItems.find((g) => g.slug === "fender-stratocaster") ?? gearItems.filter((g) => g.type === t).sort(byUse)[0])
+        : gearItems.filter((g) => g.type === t).sort(byUse)[0],
+    )
     .filter(Boolean);
   const mostUsed = [...gearItems].filter((g) => g.type !== "guitar").sort(byUse).slice(0, 4);
 
