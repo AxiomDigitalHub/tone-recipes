@@ -9001,3 +9001,144 @@ logo — regenerated with the headstock out of frame; clean. Spend ≈ $0.17
 | AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
 | AZ1 | how-great-is-our-god-chris-tomlin-guitar-tone-helix | How Great Is Our God Guitar Tone on the Line 6 Helix | "how great is our god guitar tone," "how great is our god helix patch" | fk-staff (Nathan at 3/3 until 12-01) | 3 — Worship cluster (Tier 2 #12) | Verify versions on MultiTracks/PraiseCharts; derive the hook from its verified arrangement — not tap, drone, 75-vs-148, version-drift, model-ceiling, capo-map or harmonic-rhythm templates. No rig claim without A/B source. |
 | AZ2 | capture-cab-ir-room-mic-export-length | Capturing Your Own Cab IR With a Room Mic: What Length to Export | "capture cab impulse response," "make your own cab ir room mic," "rew export impulse response wav length" | Dev Okonkwo | 4 — Modeler Masterclass | **Surfaced by AY2:** a self-captured room-mic IR is the one case where the long slot pays off, and no post covers cab (not acoustic-body) capture. **Gate 7 guard:** first-party export options (REW, Strymon Impulse Manager, Boss IR-200 loader, Fractal Cab-Lab) with lengths and formats per target device; no listening claims without a test. |
+
+---
+
+## Daily Run — 2026-11-27 (2 new posts + 1 refresh/factual correction)
+
+### Posts published: how-great-is-our-god-chris-tomlin-guitar-tone-helix, capture-cab-ir-room-mic-export-length
+
+**Velocity:** `persona-velocity.ts` reported **5 posts in 7 days** (Nathan 2,
+fk-staff 1, Sean 1, Dev 1). AZ1 → Nathan (2 → 3, at cap; the 11-24 note said
+"3/3 until 12-01" but the script counted 2 today). AZ2 → Dev (1 → 2). Bars
+checked, quoted: Nathan's "Metal or high-gain / Budget/punk rig guides /
+Vintage gear collecting": a mid-tempo worship song, clear. Dev's "Live rig or
+pedalboard reviews / High-gain or metal tones / Vintage gear or gear history":
+a REW export/file-format question, clear. Collision checks: no how-great or
+capture-cab slug existed (`acoustic-body-ir-capture-your-own-guitar` covers
+acoustic body IRs by tap deconvolution, not cab sweeps or export length).
+AT3 still deferred.
+
+**Gate 7 guards met** (research by sub-agents; every fact below was fetched
+this run unless marked):
+- **AZ1:** MultiTracks (A, three pages): Tomlin *Arriving* Db/76/4/4/4:31, map
+  Intro, V1, C, V2, C, Bridge, Bridge, C, C, C, Ending; World Edition
+  Db/78/5:47, 17 sections; Anthem Worship F/71/3:19, 8 sections. PraiseCharts
+  (A): original key Db, bpm 76, "Med Fast", CCLI 4348399, © 2004; **no
+  modeler patch sold for this song.** WorshipTogether (A): "Original Key: G",
+  "Slow", 76 BPM; chart has no bar lines; verse and chorus G, D/F#, Em7,
+  Cmaj7, D; bridge D/F#, Em7, G/D, Cmaj7, D → G; "REPEAT BRIDGE / REPEAT
+  CHORUS 3X". Key conflict (G vs Db) and tempo-label conflict **stated in the
+  post**. Wikipedia (B): *Arriving* released 21 Sept 2004; personnel is
+  per-track there: Daniel Carson electric guitars (1–6, 8–11), Ed Cash
+  acoustic. Songfacts (B): often paired with *How Great Thou Art*. **No rig
+  source found: post is rig-free**, names Carson only as Wikipedia's credit.
+  **Non-commodity hook (new template — not tap, drone, 75-vs-148,
+  version-drift, model-ceiling, capo-map or harmonic-rhythm):** one
+  progression in every section + no instrumental + three consecutive closing
+  choruses → a five-snapshot ladder where each step changes one or two
+  things, ending with the delay moving from 1/8 dotted to 1/4. **Gate 5:**
+  expected the bridge to bring new harmony; the chart shows the same chord
+  set plus one inversion, and the map ends on three choruses in a row.
+  Not verified and not claimed: bars per chord, band drop-outs, bridge sung
+  over the final chorus.
+- **AZ2:** REW help (A): export formats 16/24/32-bit PCM or 32-bit float;
+  measured / with-EQ / minimum-phase versions; default peak 1 s after file
+  start; with windows applied the export starts at the first windowed sample;
+  t=0 at a chosen sample index; sample-count limit; default windows 125 ms
+  left / 500 ms right; default sweep 256k; timing-reference behaviour; "room
+  responses are mixed phase". Strymon (A): mono/stereo 24-bit 96 kHz ≤500 ms,
+  others rejected by Impulse Manager. Boss IR-200 page (A): ≤500 ms,
+  44.1/48/96, 16/24/32f, 128 mono or 64 stereo. Line 6 KB + Stadium manual
+  (A): 16-bit/48 kHz mono, left channel, 2,048 (opt. 1,024); Stadium 32-bit
+  float. Neural QC manual (A): any length, resized to 1,024 (~21 ms). Two
+  Notes C.A.B. M and OPUS manuals (A, PDF): wav/aiff 16/24-bit 44.1–96 kHz;
+  20/40/100/200 ms; 512/256/84/44 slots; Torpedo Remote shortens or
+  zero-pads. Fractal Axe-Fx III manual + Blocks Guide (A, PDF, exact quotes):
+  neutral power amp for mic-only, Mic + DI "factors out" the amp, FullRes
+  1.37 s in slots 3–4, FM9/FM3/AM4 no FullRes, 500–700 ms room quote.
+  **Computed:** samples per slot per device; 125 ms window = 6,000 samples;
+  flight time and samples for 0.3–4 m at 343 m/s; slot remaining.
+  **Gate 5:** expected length to be the only decision; REW's default export
+  puts the peak 48,000 samples in, outside every short slot. **No listening
+  claims** ("expect it to read as a mic pulled back" is worded as a
+  prediction). Left out: C.A.B. M+ (wiki 403), Cab-Lab min-phase/auto-trim
+  options, UltraRes length, OwnHammer's min-phase statement (snippet only).
+
+### SERP analysis
+
+| Post | Target query | Top results (standard search) | Gap our post fills | AI Overview? F&K cited? |
+|---|---|---|---|---|
+| how-great-is-our-god-chris-tomlin-guitar-tone-helix | "how great is our god guitar tone" / "…helix patch" | PraiseCharts guitar tab and acoustic parts, Ultimate Guitar chords (two), a generic Scribd tone guide, two spam-style tutorial pages; second query is all PraiseCharts Helix patches for *other* songs. Worship Tutorials has an EG cover page with no settings text. | No tone guide and no patch for this song anywhere. Ours: three-version key/BPM table, G-vs-Db conflict explained, five-snapshot ladder from the MultiTracks map, HX Stomp/QC/pedalboard. | Not observable: search tool returns organic links only. |
+| capture-cab-ir-room-mic-export-length | "capture cab impulse response," "make your own cab ir room mic," "rew export impulse response wav length" | SOS (Cartmell), Tone3000 capture guide, Neural Unity thread, Nail The Mix, Instructables, Sweetwater, Premier Guitar, Gearspace, Line 6 blog; third query: REW help, diyAudio and AV Nirvana threads, MathWorks | Capture guides stop at "export a WAV"; REW threads are about room filters. Ours: per-device export table, the 1 s default-peak trap, flight-time table, delay-block workaround. | Not observable. |
+| what-a-beautiful-name-guitar-tone-helix (R1) | "what a beautiful name guitar tone helix" | PraiseCharts Helix / HX Stomp / POD Go / Fractal / patch-pack pages, two video mirrors, Line 6 CustomTone and one forum thread | Still no free editorial guide. Ours now has the correct tempo, a four-version table and a sourced account of what is and isn't documented. | Not observable. |
+
+### Refreshes
+
+| # | Slug | What changed | Why |
+|---|---|---|---|
+| R1 | what-a-beautiful-name-guitar-tone-helix | **Factual correction + rewrite (debt #47, second half).** (1) Tempo "136 BPM" → **68 BPM, 4/4, D** (MultiTracks, WorshipTogether, Wikipedia all agree; no source says 136). 331 ms kept and relabelled as a dotted sixteenth; 662 ms dotted eighth added; new section on why tapping 136 breaks synced blocks. (2) **Rig attribution removed.** "Documented across Hillsong rig walkthroughs" had no source. Album credits are album-level (six electric guitarists). Hendroff's signature Penguin (Aug 2022) and the Jackson Audio Prism (announced Dec 2016) post-date the July 2016 recording; his own MultiTracks Kemper-page text credits an AC15, not an AC30. The "not a Klon KTR" argument had no source either way and is gone. New "What Is and Isn't Documented" section; visible correction note at the top. (3) **Removed a human-testing claim** ("We expected turning the boost off… it makes the amp go flat"). (4) Amp name "Essex A30 Fawn Brt" (two models run together) → Essex A30, knob grid changed to Drive/Bass/Treble/Cut/Sag per `docs/HLX_EXEMPLAR_ANALYSIS.md` (no Mid, no Presence). (5) Snapshots reassigned to the MultiTracks map (no pre-chorus; three instrumentals, six bridge passes). (6) Removed a quoted lyric line. (7) Versions table, QC + pedalboard section (Gate 10). Title/description/takeaways/FAQ rewritten to match; `updated: 2026-11-27`. | A wrong tempo and an unsourced rig on a CCLI top-10 song, against the worship attribution convention. |
+
+Also: added a How Great Is Our God row to the song table in
+`worship-guitar-tone-helix` ("Four of six" → "Four of seven"; no `updated:`
+bump) and a one-sentence link from `long-ir-500ms-room-mic-capture-what-it-adds`
+to AZ2 (no bump). AZ2 links out to AY2, the IR guide and the REW guide.
+
+**Gates (self-audit):**
+- **AZ1** (Nathan): self-references 1 ("I expected the bridge…"); signature
+  phrases 0; closing is a rehearsal instruction; Gate 6 clean; Gate 10: HX
+  Stomp, QC, pedalboard. No lyrics quoted.
+- **AZ2** (Dev): self-references 1 ("I expected length…"); two more removed
+  in self-audit ("I could not open", "I found"); signature phrases 0; one
+  ellipsis; Gate 6 clean; Gate 10: Helix, Stadium, QC, Iridium, IR-200, Two
+  Notes, Axe-Fx III, DAW. Removed in self-audit: an unsourced suggestion to
+  drive a cab from a powered monitor's amp; an unsourced claim that minimum
+  phase suits close mics; summarizer-relayed wording un-quoted (only the
+  Fractal PDF quotes remain verbatim).
+- **R1** (fk-staff): editorial "we"; no first-person testing.
+- `validate-mdx.mts --changed --strict`: 4 files clean.
+
+**Image pipeline note:** overrides added for AZ1 and AZ2 (Flux 2 Pro, one
+render each, ≈ $0.11). AZ1: worn white guitar on a stand, black floor unit,
+carpeted stage; no marks. AZ2 rendered the brand_pop pastel-panel scene with
+a cream combo and a studio condenser (not a bedroom, not a room-mic
+distance); the amp badge is gibberish lettering, no real brand.
+`image_alt` rewritten to match both.
+
+**Refresh debt carried forward** (items 1–18, 20–22, 24–30, 33–35, 37–40,
+42–46, 49–53 unchanged; #31 partly open — WABN fixed, `holy-forever` and
+`pod-go-worship-setup-snapshots-presets` still say "Essex A30 Fawn Brt";
+**#47 done**):
+54. **NEW: `hendroff-what-a-beautiful-name` recipe data** (`src/lib/data/index.ts`)
+    still says "Key of D, 136 BPM", names a signature Penguin (2022) and a
+    Prism (Dec 2016) for a July 2016 recording, and calls the Prism
+    "documented… NOT a Klon". The blog post now contradicts the recipe it
+    embeds. Fix the recipe copy and tempo to match R1. Same class as #49.
+55. **NEW: Hendroff AC15 text** was read through a fetch summarizer; R1
+    paraphrases it. Confirm wording in a browser at
+    multitracks.com/sounds/Nigel-Hendroff/Droff-VX15-Kemper/ before quoting.
+56. **NEW: Essex A15 control set** unverified; R1 says so. Also Helix
+    "1/16 dotted" as a selectable note value is assumed, with the ms value
+    given beside it.
+57. **NEW: REW export wording** in AZ2 comes from fetched help pages relayed
+    by a summarizer (paraphrased in the post). Confirm the 1 s default-peak
+    and "starts at the first windowed sample" behaviour in REW itself.
+58. **NEW: `acoustic-body-ir-capture-your-own-guitar`** contains "it took a
+    null test to see", a first-person test claim under an AI byline. Reword
+    on its next refresh.
+
+### 2 New Topic Ideas (genuinely distinct questions, not keyword variants — per Gate 7 / Playbook §6)
+
+> Drained 2 (AZ1, AZ2), AT3 still deferred, added 2 — **queue now at 3.**
+> Bylines are best-fit proposals; the executing run re-checks velocity **and
+> quotes the never-assign bar it checked**, and verifies no colliding slug.
+>
+> **Rejected as re-slices:** (a) "How Great Is Our God World Edition Helix" —
+> AZ1 version table; (b) "REW IR export settings for Helix" — AZ2 table;
+> (c) "What a Beautiful Name delay time" — R1's delay section.
+
+| # | Slug | Title | Target queries | Writer | Pillar | AEO / non-commodity hook |
+|---|---|---|---|---|---|---|
+| AT3 | contactless-expression-pedal-magnetic-optical-modeler | (carried, see 11-09 deferral note) | — | Sean Nakamura | 4 | Needs a third first-party sensor-pedal doc before build. |
+| BA1 | double-time-bpm-worship-charts-68-vs-136-tempo-sync | Why Your Chart Says 136 and the Track Says 68: Double-Time BPM and Synced Effects | "song bpm double time delay," "68 or 136 bpm," "helix tempo sync wrong delay time" | fk-staff or Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by R1.** Distinct from the 75-vs-148 6/8 post (that is a meter question; this is 4/4 counted two ways). **Gate 7 guard:** collect first-party listings where chart sources disagree by 2× (need at least three songs, fetched); table of what each synced note value becomes at both counts; which Helix/QC blocks follow tempo. Read `75-vs-148` post first — if it already covers 4/4 double-time, make this an update to it instead. |
+| BA2 | speaker-level-di-cab-ir-capture-factor-out-power-amp | Capturing a Cab IR Through a Tube Amp: What a Speaker-Level DI Removes | "cab ir capture tube amp," "mic + di ir capture," "reference ir cab-lab" | Sean Nakamura | 4 — Modeler Masterclass | **Surfaced by AZ2:** Fractal's Mic + DI method divides the mic signal by the amp's output. No post explains what that division does and doesn't remove (amp frequency response yes; speaker-impedance interaction is in both signals). **Gate 7 guard:** Fractal manual text (have), one more first-party source (Two Notes BlendIR or Cab-Lab docs — both 403 today, need a browser), and a worked REW version using a second input as reference. No listening claims. |

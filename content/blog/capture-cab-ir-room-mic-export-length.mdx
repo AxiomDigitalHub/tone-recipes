@@ -1,0 +1,160 @@
+---
+title: 'Capturing Your Own Cab IR With a Room Mic: What Length to Export'
+seo_title: 'Capture a Room-Mic Cab IR: What Length to Export'
+description: >-
+  Export settings for a self-captured room-mic cab IR in REW: sample rate, bit
+  depth and sample count for Helix, Quad Cortex, Iridium, IR-200 and Two Notes.
+date: '2026-11-27'
+author_slug: dev-okonkwo
+category: modeler-masterclass
+tags:
+  - impulse-response
+  - ir-capture
+  - room-eq-wizard
+  - room-mic
+  - helix
+  - quad-cortex
+  - strymon-iridium
+  - boss-ir-200
+  - two-notes
+image: /images/blog/capture-cab-ir-room-mic-export-length.jpg
+image_alt: >-
+  A cream guitar combo amp, a condenser microphone on a stand, and a laptop
+  sitting on an audio interface against pastel colored panels
+takeaways:
+  - >-
+    REW's default WAV export places the impulse peak one second after the start
+    of the file. A Helix slot keeps 2,048 samples (42.7 ms) and a Quad Cortex
+    slot keeps 1,024 (about 21 ms), so a default export has to be re-timed
+    before it is any use in either.
+  - >-
+    Export to the slot, not to the capture: 2,048 samples at 48 kHz for Helix,
+    1,024 for Quad Cortex, up to 48,000 samples at 96 kHz for Iridium and
+    IR-200, and 9,600 samples at 48 kHz for a Two Notes 200 ms slot.
+  - >-
+    Strymon's Impulse Manager rejects any file that is not 24-bit, 96 kHz and
+    500 ms or shorter. It does not convert, so the export has to be exact.
+  - >-
+    A mic 3 m from the cab adds 8.7 ms of flight time before the sound arrives.
+    Measured with a loopback timing reference, that silence takes 420 of a Quad
+    Cortex slot's 1,024 samples unless you trim it.
+  - >-
+    Do not export REW's minimum-phase version for a room mic. REW's own help
+    describes room responses as mixed phase, and the timing a minimum-phase
+    conversion rewrites is the part of the capture that says "room."
+faq:
+  - q: What length should a cab IR be for a Line 6 Helix?
+    a: >-
+      2,048 samples at 48 kHz, which is 42.7 ms. Line 6's knowledge base says HX
+      Edit converts every imported WAV to 16-bit, 48 kHz mono and shortens or
+      lengthens it to 2,048 samples, with an optional 1,024-sample version to
+      save DSP. Exporting at that length yourself lets you choose where the fade
+      goes.
+  - q: What IR format does the Strymon Iridium need?
+    a: >-
+      Mono or stereo WAV at 24-bit and 96 kHz, up to 500 ms long, which is
+      48,000 samples. Strymon states that files which do not meet those criteria
+      are rejected by Impulse Manager, so a 48 kHz or 32-bit float export will
+      not load.
+  - q: Why does my REW impulse response sound like nothing when I load it?
+    a: >-
+      Most likely the peak is not at the start of the file. REW's help says the
+      default export puts the peak one second after the start, and that an
+      export with windows applied begins at the first windowed sample. A short
+      IR slot only keeps the first few thousand samples, which in those files is
+      the quiet lead-in.
+  - q: Do I need a solid-state power amp to capture a cab IR?
+    a: >-
+      For the simplest method, yes. Fractal Audio's Axe-Fx III manual asks for a
+      flat, neutral, full-range power amp for a mic-only capture and says a
+      mic-only IR includes whatever coloration the power amp adds. Its
+      alternative is to record a speaker-level DI alongside the mic so the amp's
+      influence can be factored out.
+  - q: Should I export a room-mic IR as minimum phase?
+    a: >-
+      No. A minimum-phase version keeps the frequency response and replaces the
+      measured timing. A room mic records a direct arrival followed by
+      reflections, and REW's documentation describes room responses as mixed
+      phase. Export the measured IR.
+  - q: Can a Helix or Quad Cortex capture a cab IR by itself?
+    a: >-
+      Neither unit's documentation describes an IR capture tool. The Axe-Fx III
+      has one built in, and Fractal recommends doing the capture through its
+      Cab-Lab software so the raw data is kept. For Helix and Quad Cortex you
+      capture on a computer and import the WAV.
+---
+
+A room-mic cab impulse response (IR) is the one kind of IR where the file you capture and the file your hardware can hold are furthest apart. The measurement runs for seconds. The slot in a Helix holds 42.7 milliseconds. So the question after the sweep finishes is which part of the capture you are going to keep, and Room EQ Wizard (REW) will not answer it for you. Its default export is built for room analysis, and loaded as-is it gives a modeler almost nothing.
+
+Here is what to export for each device. The reasons follow.
+
+| Target | What the maker says it accepts | Export from REW |
+|---|---|---|
+| Line 6 Helix / HX | Converts to 16-bit, 48 kHz mono (left channel of a stereo file), 2,048 samples; optional 1,024 | 48 kHz, mono, 2,048 samples |
+| Helix Stadium | Processed as 2,048 samples, 48 kHz, 32-bit float, mono | 48 kHz, mono, 2,048 samples |
+| Neural DSP Quad Cortex | Any WAV length; resized to 1,024 samples (about 21 ms) | 48 kHz, mono, 1,024 samples |
+| Strymon Iridium | Mono or stereo WAV, 24-bit, 96 kHz, up to 500 ms; anything else is rejected | 96 kHz, 24-bit PCM, up to 48,000 samples |
+| Boss IR-200 | Mono or stereo, up to 500 ms, 44.1/48/96 kHz, 16-bit, 24-bit or 32-bit float | 96 kHz, 24-bit, up to 48,000 samples |
+| Two Notes Torpedo C.A.B. M / OPUS | WAV or AIFF, 16 or 24-bit, 44.1 to 96 kHz; slot length set to 20, 40, 100 or 200 ms | 48 kHz, 24-bit, 9,600 samples for a 200 ms slot |
+| Fractal Axe-Fx III | Built-in IR capture; FullRes up to 1.37 s in cab slots 3 and 4 | Use the unit's capture, or bring a WAV in through Cab-Lab 4 |
+| Convolution plugin in a DAW | Whatever you give it | The full windowed capture |
+
+Those figures come from each maker's own page or manual. Two notes on the table. The Quad Cortex manual does not state a required sample rate; 1,024 samples only comes to its stated 21 ms at 48 kHz, so that is the rate to use. And the Two Notes numbers are from the C.A.B. M and OPUS manuals; the C.A.B. M+ manual was not available to check, so confirm against yours.
+
+## The Default Export Puts the Peak One Second In
+
+I expected length to be the only decision here: capture long, then cut the end off to fit. The first problem is at the other end of the file.
+
+REW's help for its WAV export says that by default the peak of the exported response sits one second after the start. That is 48,000 samples of lead-in at 48 kHz. A Helix slot keeps 2,048 samples. Line 6 says an IR is shortened to that length and does not say from which end, but it hardly matters: a 2,048-sample window cannot hold both the start of that file and its peak.
+
+Ticking the option to apply IR windows does not fix it by itself. With windows applied, REW starts the export at the first windowed sample, and its default left window is 125 ms wide. Now the peak is 6,000 samples in. Still outside the slot.
+
+The same file fails differently on a long-IR pedal. A default export runs well past 500 ms, and Strymon says Impulse Manager rejects files that miss its criteria. It does not trim them for you.
+
+REW has the two controls that solve this in the same export dialog: an option to place t=0 at a specific sample index, and an option to limit the export to a sample count. Those two numbers are the whole job.
+
+## The Export Recipe
+
+1. **Measure at the target's rate if you can.** 48 kHz for Helix, Quad Cortex and Two Notes; 96 kHz for Iridium and IR-200. REW will resample on export if you can't.
+2. **Set the right-hand IR window to the slot length.** About 42 ms for Helix, 21 ms for Quad Cortex, 500 ms for the long-IR pedals. The window tapers the tail to zero inside the slot, so the device is not left to chop a tail that is still ringing.
+3. **Set the left-hand window short.** A millisecond or two. There is nothing before the direct arrival that you want.
+4. **Export the measured IR,** not the "IR with EQ filters" version and not the minimum-phase version. Apply the windows.
+5. **Place t=0 near the start of the file and limit the sample count** to the figure in the table.
+6. **Pick the bit depth the target asks for.** 24-bit PCM is accepted by everything in the table. Iridium accepts nothing else.
+7. **Check the file before loading it.** Open it in any audio editor. The spike should be within the first few dozen samples, and the file should end in silence.
+
+REW's default sweep is 256k samples, which its help says works well for most purposes. A longer sweep buys a lower noise floor; it does not change anything about the export.
+
+## Flight Time Eats the Slot
+
+A room mic adds a second kind of lead-in, and this one is real: the time the sound takes to cross the room. If you measure with a loopback timing reference, REW removes the interface's delay and sets t=0 at the moment the signal left the computer. The direct sound then arrives late by the mic distance divided by the speed of sound.
+
+| Mic distance | Flight time | Samples at 48 kHz | Left in a 1,024 slot | Left in a 2,048 slot |
+|---|---|---|---|---|
+| 0.3 m | 0.9 ms | 42 | 20.5 ms | 41.8 ms |
+| 1 m | 2.9 ms | 140 | 18.4 ms | 39.8 ms |
+| 2 m | 5.8 ms | 280 | 15.5 ms | 36.8 ms |
+| 3 m | 8.7 ms | 420 | 12.6 ms | 33.9 ms |
+| 4 m | 11.7 ms | 560 | 9.7 ms | 31.0 ms |
+
+At 3 m, a Quad Cortex slot spends 41 percent of its length on silence. In a short slot, trim it: have REW set t=0 at the IR start, or place t=0 at the sample where the direct sound begins.
+
+The delay is not meaningless, though. If the room IR runs in a parallel path beside a close-mic IR, that 8.7 ms offset is part of what makes two mics sound like two distances. You can keep it without paying for it in samples. Trim the IR, then put a plain delay block set to 8.7 ms, with no feedback and 100 percent mix, on the room path. The delay block does the waiting and the slot holds only sound.
+
+On a 500 ms device none of this is tight. 420 samples out of 24,000 is nothing... leave the flight time in the file if you like.
+
+## What the Slot Actually Keeps
+
+The [long-IR post](/blog/long-ir-500ms-room-mic-capture-what-it-adds) has the arrival-time math. The short version: in an ordinary room the first floor, ceiling and wall reflections from a 3 m mic land inside about 21 ms, so even a short slot holds them once the flight time is trimmed. What a short slot cannot hold is the decay. Fractal's Blocks Guide puts a typical live room's reverb time at 500 to 700 ms, "well beyond the 20–40 ms afforded by typical IR processing."
+
+So a room-mic capture in a Helix or Quad Cortex is a distance and early-reflection filter. Expect it to read as a mic pulled back, not as a room ringing. If the ring is what you captured the room for, the file belongs in an Iridium, an IR-200, a FullRes slot or a DAW. Two Notes sits between: its 200 ms mode holds a useful part of a small room's decay, at a cost the manual spells out as 44 slots at that length against 512 at 20 ms.
+
+## The Amp in the Chain
+
+The sweep has to reach the speaker through a power amp, and that amp ends up in the IR. Fractal's Axe-Fx III manual is the clearest first-party statement on this. Its mic-only method "requires a flat, neutral, full-range power amp," typically a solid-state pro-audio amp and not a guitar amp, and it says IRs made that way include whatever coloration the power amp adds. Its second method records a speaker-level DI along with the mic and "factors out" the amp, so that a regular guitar amp can be used.
+
+With REW and one mic you are doing the mic-only method. A clean solid-state power amp is the honest choice. Keep the level moderate. An IR describes a linear system, and a speaker pushed into breakup during the sweep is not one.
+
+## Before You Sweep
+
+Decide where the file is going first, because that sets the sample rate, the window and whether the room's decay is worth chasing at all. For a floor modeler, a mic 1 to 2 m back with the flight time trimmed gives the slot the most to work with. For a long-IR pedal or a DAW, put the mic where you would put it to record the room and keep everything. Either way, look at the exported file once before you load it. If the spike is not at the front, nothing after it will get through. The [IR guide](/blog/impulse-response-ir-guide) covers loading and blending, and the [REW walkthrough](/blog/rew-modeler-global-eq) covers the measurement setup this builds on.
