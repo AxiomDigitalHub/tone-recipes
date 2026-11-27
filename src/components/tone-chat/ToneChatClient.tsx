@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ArrowUp } from "lucide-react";
 import { createBrowserClient, isSupabaseConfigured } from "@/lib/db/client";
 import ChatChainCard, { parseFkChain } from "./ChatChainCard";
 import ChatRequestCard, { parseFkRequest } from "./ChatRequestCard";
@@ -21,6 +22,8 @@ const PLATFORMS = [
   { value: "katana", label: "Boss Katana" },
   { value: "pedalboard", label: "Pedalboard" },
 ];
+
+const DRAFT_KEY = "fk-axl-draft";
 
 const STARTERS = [
   "How do I get SRV's Texas blues tone on a Helix?",
@@ -107,7 +110,11 @@ export default function ToneChatClient() {
   const [busy, setBusy] = useState(false);
   const [remaining, setRemaining] = useState<number | null>(null);
   const [error, setError] = useState<{ text: string; upgrade?: boolean } | null>(null);
+  // Signed-out visitors can type; sending asks them to sign in and keeps the
+  // question so it is waiting when they come back.
+  const [needsSignIn, setNeedsSignIn] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const messagesRef = useRef<ChatMessage[]>([]);
   messagesRef.current = messages;
 
@@ -132,11 +139,48 @@ export default function ToneChatClient() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
   }, [messages]);
 
+  // Bring back a question typed before signing in.
+  useEffect(() => {
+    try {
+      const draft = sessionStorage.getItem(DRAFT_KEY);
+      if (draft) {
+        setInput(draft);
+        sessionStorage.removeItem(DRAFT_KEY);
+      }
+    } catch {
+      /* storage blocked: nothing to restore */
+    }
+  }, []);
+
+  // Grow the box with its text, up to about eight lines.
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 200)}px`;
+  }, [input]);
+
+  const askToSignIn = useCallback((text: string) => {
+    setInput(text);
+    setNeedsSignIn(true);
+    try {
+      sessionStorage.setItem(DRAFT_KEY, text);
+    } catch {
+      /* storage blocked: the draft just won't survive the sign-in */
+    }
+  }, []);
+
   const send = useCallback(
     async (text: string) => {
       const trimmed = text.trim();
       if (!trimmed || busy) return;
+      if (authState !== "in") {
+        // Still checking the session: ignore the tap rather than guess.
+        if (authState === "out") askToSignIn(trimmed);
+        return;
+      }
       setError(null);
+      setNeedsSignIn(false);
       setBusy(true);
       setInput("");
 
@@ -146,6 +190,8 @@ export default function ToneChatClient() {
       try {
         if (!isSupabaseConfigured()) {
           setAuthState("out");
+          setMessages(messagesRef.current.slice(0, -1));
+          askToSignIn(trimmed);
           setBusy(false);
           return;
         }
@@ -155,6 +201,8 @@ export default function ToneChatClient() {
         } = await supabase.auth.getSession();
         if (!session?.access_token) {
           setAuthState("out");
+          setMessages(messagesRef.current.slice(0, -1));
+          askToSignIn(trimmed);
           setBusy(false);
           return;
         }
@@ -209,41 +257,17 @@ export default function ToneChatClient() {
         setBusy(false);
       }
     },
-    [busy, platform],
+    [busy, platform, authState, askToSignIn],
   );
 
-  if (authState === "loading") {
-    return (
-      <div className="py-24 text-center text-[var(--ink-muted,#6b6257)]">Tuning up…</div>
-    );
-  }
-
-  if (authState === "out") {
-    return (
-      <div className="mx-auto max-w-md py-16 text-center">
-        <p className="mb-6 text-lg text-[var(--ink,#0A0908)]">
-          Axl&apos;s free to talk to. You just need an account so we can keep track of your daily messages.
-        </p>
-        <Link
-          href="/login?next=/tone-chat"
-          className="inline-block rounded-full bg-[var(--ink,#0A0908)] px-6 py-3 font-semibold text-[var(--paper,#ffffff)] transition-opacity hover:opacity-90"
-        >
-          Sign in to start chatting
-        </Link>
-        <p className="mt-4 text-sm text-[var(--ink-muted,#6b6257)]">
-          Free accounts get 10 messages a day. Pass members get effectively unlimited.
-        </p>
-      </div>
-    );
-  }
+  const signedOut = authState === "out";
 
   return (
-    <div className="flex flex-col" style={{ minHeight: "60vh" }}>
+    <div className="fk-axl flex flex-col">
       {/* Transcript */}
       <div
         ref={scrollRef}
-        className="flex-1 space-y-4 overflow-y-auto rounded-2xl border border-[var(--fk-line,#dcdfe2)] bg-[var(--fk-wash,#f6f6f4)] p-4 sm:p-6"
-        style={{ maxHeight: "55vh", minHeight: "40vh" }}
+        className="fk-axl-log flex-1 space-y-4 overflow-y-auto rounded-2xl border border-[var(--fk-line,#dcdfe2)] bg-[var(--fk-wash,#f6f6f4)] p-4 sm:p-6"
       >
         {messages.length === 0 && (
           <div>
@@ -253,7 +277,7 @@ export default function ToneChatClient() {
             </p>
             <div className="flex flex-wrap gap-2">
               {STARTERS.map((s) => (
-                <button key={s} onClick={() => send(s)} className="fk-chat-chip">
+                <button key={s} type="button" onClick={() => send(s)} className="fk-chat-chip">
                   {s}
                 </button>
               ))}
@@ -293,48 +317,92 @@ export default function ToneChatClient() {
         )}
       </div>
 
-      {/* Composer */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          send(input);
-        }}
-        className="mt-3 flex flex-col gap-2 sm:flex-row"
-      >
-        <select
-          value={platform}
-          onChange={(e) => setPlatform(e.target.value)}
-          aria-label="Your rig"
-          className="rounded-full border border-[var(--ink,#0A0908)]/30 bg-white px-3 py-2.5 text-sm text-[var(--ink,#0A0908)]"
+      {/* Composer: one box pinned under the transcript, like other chat apps.
+          Everyone can type; signed-out visitors are asked to sign in when
+          they send, and their question waits for them. */}
+      <div className="fk-axl-dock">
+        {needsSignIn && signedOut && (
+          <div className="fk-axl-signin" role="status">
+            <p>
+              Sign in to send this. It&apos;s free, with 10 messages a day, and
+              your question will be here when you get back.
+            </p>
+            <div className="fk-axl-signin-actions">
+              <Link href="/login?next=/tone-chat" className="fk-btn">
+                Sign in
+              </Link>
+              <Link href="/signup?next=/tone-chat" className="fk-btn fk-btn-secondary">
+                Create an account
+              </Link>
+            </div>
+          </div>
+        )}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            send(input);
+          }}
+          className="fk-axl-composer"
         >
-          {PLATFORMS.map((p) => (
-            <option key={p.value} value={p.value}>
-              {p.label}
-            </option>
-          ))}
-        </select>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="e.g. Gilmour's Comfortably Numb solo tone, but on my Quad Cortex"
-          maxLength={2000}
-          className="flex-1 rounded-full border border-[var(--ink,#0A0908)]/30 bg-white px-4 py-2.5 text-sm text-[var(--ink,#0A0908)] placeholder:text-[var(--ink-muted,#6b6257)]/70 focus:border-[var(--ink,#0A0908)] focus:outline-none"
-        />
-        <button type="submit" disabled={busy || !input.trim()} className="fk-chat-cta">
-          {busy ? "Dialing…" : "Send"}
-        </button>
-      </form>
-      {remaining !== null && remaining <= 5 && (
-        <p className="mt-2 text-xs text-[var(--ink-muted,#6b6257)]">
-          {remaining === 0
-            ? "That was your last message for today."
-            : `${remaining} message${remaining === 1 ? "" : "s"} left today.`}{" "}
-          <Link href="/pricing" className="underline">
-            Pass members chat without thinking about it.
-          </Link>
+          <label htmlFor="axl-input" className="sr-only">
+            Ask Axl
+          </label>
+          <textarea
+            id="axl-input"
+            ref={inputRef}
+            rows={1}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+                e.preventDefault();
+                send(input);
+              }
+            }}
+            placeholder="Ask Axl about any tone"
+            maxLength={2000}
+            className="fk-axl-input"
+          />
+          <div className="fk-axl-bar">
+            <select
+              value={platform}
+              onChange={(e) => setPlatform(e.target.value)}
+              aria-label="Your rig"
+              className="fk-axl-rig"
+            >
+              {PLATFORMS.map((p) => (
+                <option key={p.value} value={p.value}>
+                  {p.label}
+                </option>
+              ))}
+            </select>
+            <button
+              type="submit"
+              disabled={busy || !input.trim()}
+              className="fk-axl-send"
+              aria-label={busy ? "Axl is answering" : "Send"}
+            >
+              <ArrowUp aria-hidden="true" size={18} strokeWidth={2.25} />
+            </button>
+          </div>
+        </form>
+        <p className="fk-axl-note">
+          {remaining !== null && remaining <= 5 ? (
+            <>
+              {remaining === 0
+                ? "That was your last message for today."
+                : `${remaining} message${remaining === 1 ? "" : "s"} left today.`}{" "}
+              <Link href="/pricing" className="underline">
+                Pass members chat without thinking about it.
+              </Link>
+            </>
+          ) : signedOut ? (
+            "Free with an account: 10 messages a day."
+          ) : (
+            "Enter to send. Shift+Enter for a new line."
+          )}
         </p>
-      )}
+      </div>
     </div>
   );
 }
